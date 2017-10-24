@@ -3,17 +3,24 @@ import Link from "gatsby-link";
 import get from "lodash/get";
 import Helmet from "react-helmet";
 
-import Bio from "../components/Bio";
-import { rhythm } from "../utils/typography";
+export const pageQuery = graphql`
+  query IndexQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;
 
 class Index extends React.Component {
   render() {
-    const siteTitle = get(this, "props.data.site.siteMetadata.title");
+    const { data } = this.props;
+    const siteTitle = get(data, "site.siteMetadata.title");
 
     return (
       <div>
-        <Helmet title={get(this, "props.data.site.siteMetadata.title")} />
-        <Bio />
+        <Helmet title={get(data, "site.siteMetadata.title")} />
       </div>
     );
   }
@@ -24,13 +31,3 @@ Index.propTypes = {
 };
 
 export default Index;
-
-export const pageQuery = graphql`
-  query IndexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`;
