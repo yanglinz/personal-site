@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "gatsby-link";
-import { Container } from "react-responsive-grid";
 
 class Template extends React.Component {
   render() {
@@ -15,16 +14,7 @@ class Template extends React.Component {
     if (location.pathname === rootPath) {
       header = (
         <h1>
-          <Link
-            style={{
-              boxShadow: "none",
-              textDecoration: "none",
-              color: "inherit"
-            }}
-            to={"/"}
-          >
-            Gatsby Starter Blog
-          </Link>
+          <Link to={"/"}>Gatsby Starter Blog</Link>
         </h1>
       );
     } else {
@@ -35,10 +25,10 @@ class Template extends React.Component {
       );
     }
     return (
-      <Container>
+      <div>
         {header}
         {children()}
-      </Container>
+      </div>
     );
   }
 }
