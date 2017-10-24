@@ -36,6 +36,7 @@
     "gatsby-source-filesystem": "^1.5.1",
     "gatsby-transformer-remark": "^1.7.12",
     "lodash": "^4.15.0",
+    "normalize.css": "^7.0.0",
     "typeface-merriweather": "^0.0.35",
     "typeface-montserrat": "^0.0.37",
     "typography-theme-wordpress-2016": "^0.15.1"
