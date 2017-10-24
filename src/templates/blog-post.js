@@ -24,8 +24,9 @@ export const pageQuery = graphql`
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark;
-    const siteTitle = get(this.props, "data.site.siteMetadata.title");
+    const { data } = this.props;
+    const post = data.markdownRemark;
+    const siteTitle = get(data, "site.siteMetadata.title");
 
     return (
       <div>
@@ -33,7 +34,6 @@ class BlogPostTemplate extends React.Component {
         <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.date}</p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr />
       </div>
     );
   }

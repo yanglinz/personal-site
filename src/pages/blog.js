@@ -30,7 +30,6 @@ export const pageQuery = graphql`
 class Blog extends React.Component {
   render() {
     const { data } = this.props;
-
     const siteTitle = get(data, "site.siteMetadata.title");
     const posts = get(data, "allMarkdownRemark.edges");
 
