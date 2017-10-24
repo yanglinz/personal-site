@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Highpass",
+    title: "Highpass.io",
     author: "Highpass.io"
   },
   plugins: [
