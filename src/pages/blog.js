@@ -5,6 +5,8 @@ import Helmet from "react-helmet";
 
 import Header from "../components/header";
 
+import "../styles/main.scss";
+
 export const pageQuery = graphql`
   query BlogQuery {
     site {
