@@ -4,6 +4,7 @@ import get from "lodash/get";
 import Helmet from "react-helmet";
 
 import Header from "../components/header";
+import Intro from "../components/intro";
 
 import "../styles/main.scss";
 
@@ -26,6 +27,7 @@ class Index extends React.Component {
       <div>
         <Helmet title={get(data, "site.siteMetadata.title")} />
         <Header siteTitle={siteTitle} location={location} />
+        <Intro />
       </div>
     );
   }
