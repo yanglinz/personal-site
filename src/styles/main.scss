@@ -14,7 +14,10 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
+    helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial,
+    sans-serif;
+  color: #333;
 }
 
 a {
@@ -41,7 +44,7 @@ a {
 }
 
 .l-spacing {
-  margin-top: 29px;
+  margin-top: 79px;
   margin-bottom: 14px;
 }
 
