@@ -1,4 +1,7 @@
 @import "~normalize.css/normalize.css";
+@import "~tachyons/css//tachyons.css";
+
+/* globals */
 
 html {
   box-sizing: border-box;
@@ -12,11 +15,37 @@ html {
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: #111;
-  color: #fff;
 }
 
 a {
-  color: #fff;
   text-decoration: none;
+  color: #000;
+}
+
+/* layouts */
+
+.l-wrapper {
+  padding: 0 40px;
+}
+
+.l-inner {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.l-inner-narrow {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 980px;
+}
+
+.l-spacing {
+  margin-top: 29px;
+  margin-bottom: 14px;
+}
+
+.l-spacing-narrow {
+  margin-top: 29px;
+  margin-bottom: 14px;
 }
