@@ -15,6 +15,30 @@ export const pageQuery = graphql`
         title
       }
     }
+    projectPosts: allMarkdownRemark(
+      filter: { fileAbsolutePath: { glob: "**/src/projects/**" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
+    blogPosts: allMarkdownRemark(
+      filter: { fileAbsolutePath: { glob: "**/src/posts/**" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
   }
 `;
 
