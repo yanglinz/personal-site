@@ -23,6 +23,7 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             title
+            path
           }
         }
       }
@@ -35,6 +36,7 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             title
+            path
           }
         }
       }
@@ -47,11 +49,60 @@ class Index extends React.Component {
     const { data, location } = this.props;
     const siteTitle = get(data, "site.siteMetadata.title");
 
+    console.log("data", data);
+
     return (
       <div>
         <Helmet title={get(data, "site.siteMetadata.title")} />
         <Header siteTitle={siteTitle} location={location} />
+        <hr />
+
         <Intro />
+        <hr />
+
+        <section>
+          <div className="l-wrapper">
+            <div className="l-inner-narrow">
+              <h2>Personal Projects</h2>
+              <ul>
+                {data.projectPosts.edges.map(edge => {
+                  const post = edge.node;
+                  return (
+                    <li key={post.frontmatter.path}>
+                      <div>
+                        <Link to={post.frontmatter.path}>
+                          <h4>{post.frontmatter.title}</h4>
+                        </Link>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        </section>
+        <hr />
+
+        <section>
+          <div className="l-wrapper">
+            <div className="l-inner-narrow">
+              <h2>Blog Posts</h2>
+              <ul>
+                {data.blogPosts.edges.map(edge => {
+                  const post = edge.node;
+                  return (
+                    <li key={post.frontmatter.path}>
+                      <Link to={post.frontmatter.path}>
+                        <h4>{post.frontmatter.title}</h4>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        </section>
+        <hr />
       </div>
     );
   }

@@ -28,7 +28,10 @@ class Header extends React.Component {
     return (
       <header className="header">
         <div className="l-wrapper">
-          <div className="l-inner-narrow">{header}</div>
+          <div className="l-inner-narrow">
+            {header}
+            <p>Personal site of Yanglin Zhao</p>
+          </div>
         </div>
       </header>
     );
