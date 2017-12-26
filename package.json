@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "gatsby develop",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write 'src/**/*.{js,scss,css}'",
+    "format": "prettier --write '*.{js,md}' 'src/**/*.{js,scss,css,md}'",
     "develop": "gatsby develop",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
