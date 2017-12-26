@@ -55,7 +55,6 @@ class Index extends React.Component {
       <div>
         <Helmet title={get(data, "site.siteMetadata.title")} />
         <Header siteTitle={siteTitle} location={location} />
-        <hr />
 
         <Intro />
         <hr />

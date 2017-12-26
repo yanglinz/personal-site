@@ -34,9 +34,16 @@ class BlogPostTemplate extends React.Component {
       <div>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <Header siteTitle={siteTitle} location={location} />
-        <h1>{post.frontmatter.title}</h1>
-        <p>{post.frontmatter.date}</p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+
+        <article>
+          <div className="l-wrapper">
+            <div className="l-inner-narrow">
+              <h1>{post.frontmatter.title}</h1>
+              <p>{post.frontmatter.date}</p>
+              <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            </div>
+          </div>
+        </article>
       </div>
     );
   }
