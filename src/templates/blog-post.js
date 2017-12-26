@@ -3,6 +3,8 @@ import Helmet from "react-helmet";
 import Link from "gatsby-link";
 import get from "lodash/get";
 
+import Header from "../components/header";
+
 export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {
     site {
@@ -24,13 +26,14 @@ export const pageQuery = graphql`
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const { data } = this.props;
+    const { data, location } = this.props;
     const post = data.markdownRemark;
     const siteTitle = get(data, "site.siteMetadata.title");
 
     return (
       <div>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+        <Header siteTitle={siteTitle} location={location} />
         <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.date}</p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />

@@ -71,7 +71,7 @@ class Index extends React.Component {
                     <li key={post.frontmatter.path}>
                       <div>
                         <Link to={post.frontmatter.path}>
-                          <h4>{post.frontmatter.title}</h4>
+                          <p>{post.frontmatter.title}</p>
                         </Link>
                       </div>
                     </li>
@@ -93,7 +93,7 @@ class Index extends React.Component {
                   return (
                     <li key={post.frontmatter.path}>
                       <Link to={post.frontmatter.path}>
-                        <h4>{post.frontmatter.title}</h4>
+                        <p>{post.frontmatter.title}</p>
                       </Link>
                     </li>
                   );
