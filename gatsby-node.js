@@ -7,37 +7,47 @@ const fs = require(`fs-extra`);
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
 
-  return new Promise((resolve, reject) => {
-    const pages = [];
-    const blogPost = path.resolve("./src/templates/blog-post.js");
-    resolve(
-      graphql(
-        `
-          {
-            allMarkdownRemark(limit: 1000) {
-              edges {
-                node {
-                  frontmatter {
-                    path
-                  }
-                }
-              }
+  const projectPost = path.resolve("./src/templates/project-post.js");
+  const blogPost = path.resolve("./src/templates/blog-post.js");
+
+  const CREATE_PAGES_QUERY = `
+    {
+      allMarkdownRemark(limit: 1000) {
+        edges {
+          node {
+            fileAbsolutePath
+            frontmatter {
+              path
             }
           }
-        `
-      ).then(result => {
+        }
+      }
+    }
+  `;
+
+  return new Promise((resolve, reject) => {
+    resolve(
+      graphql(CREATE_PAGES_QUERY).then(result => {
         if (result.errors) {
-          console.log(result.errors);
+          console.error(result.errors);
           reject(result.errors);
         }
 
-        // Create blog posts pages.
         _.each(result.data.allMarkdownRemark.edges, edge => {
+          const { fileAbsolutePath, frontmatter } = edge.node;
+
+          let component;
+          if (_.includes(fileAbsolutePath, "/src/posts/")) {
+            component = blogPost;
+          } else if (_.includes(fileAbsolutePath, "/src/projects/")) {
+            component = projectPost;
+          }
+
           createPage({
-            path: edge.node.frontmatter.path,
-            component: blogPost,
+            path: frontmatter.path,
+            component,
             context: {
-              path: edge.node.frontmatter.path
+              path: frontmatter.path
             }
           });
         });
