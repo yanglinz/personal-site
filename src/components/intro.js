@@ -5,14 +5,12 @@ class Intro extends React.Component {
     return (
       <section className="intro">
         <div className="l-wrapper">
-          <div className="l-inner-narrow l-spacing">
-            <p className="f1" css={{ margin: "0.5em 0" }}>
-              Hi. I'm Yanglin.
-            </p>
-            <p className="f2" css={{ margin: "0.5em 0" }}>
-              I currently work at PBS as a frontend engineer, and I’m passionate
-              about building interactive applications.
-            </p>
+          <div className="l-inner-narrow">
+            <h2>Hello, my name is Yanglin.</h2>
+            <h3>
+              I'm a software engineer passionate about building interactive
+              applications.
+            </h3>
           </div>
         </div>
       </section>

@@ -13,13 +13,13 @@ class Header extends React.Component {
     let header;
     if (location.pathname === rootPath) {
       header = (
-        <h1 className="f5 tracked-tight">
+        <h1>
           <Link to="/">{siteTitle}</Link>
         </h1>
       );
     } else {
       header = (
-        <h3 className="f5 tracked-tight">
+        <h3>
           <Link to="/">{siteTitle}</Link>
         </h3>
       );
@@ -28,7 +28,7 @@ class Header extends React.Component {
     return (
       <header className="header">
         <div className="l-wrapper">
-          <div className="l-inner-narrow l-spacing-narrow">{header}</div>
+          <div className="l-inner-narrow">{header}</div>
         </div>
       </header>
     );

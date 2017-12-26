@@ -5,6 +5,7 @@
 
 html {
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 *,
@@ -41,14 +42,4 @@ a {
   width: 100%;
   margin: 0 auto;
   max-width: 980px;
-}
-
-.l-spacing {
-  margin-top: 79px;
-  margin-bottom: 14px;
-}
-
-.l-spacing-narrow {
-  margin-top: 29px;
-  margin-bottom: 14px;
 }
