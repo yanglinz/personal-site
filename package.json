@@ -1,8 +1,8 @@
 {
-  "name": "Highpass-io",
-  "description": "Highpass-io blog",
+  "name": "www",
+  "description": "Personal site",
   "version": "1.0.0",
-  "author": "admin@highpass-io",
+  "author": "admin@yanglinzhao.com",
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "license": "MIT",
   "main": "n/a",
