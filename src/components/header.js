@@ -23,7 +23,7 @@ function Brand(props) {
               />
             </div>
 
-            <div className="Brand-tag-line">
+            <div className="Brand-tag-line f-serif">
               <span className="Brand-tag-top">Personal Site</span>
               <span className="Brand-tag-mid"> of </span>
               <span className="Brand-tag-bot">Yanglin Zhao</span>

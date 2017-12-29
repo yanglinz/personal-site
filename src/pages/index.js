@@ -48,16 +48,12 @@ class Index extends React.Component {
   render() {
     const { data, location } = this.props;
     const siteTitle = get(data, "site.siteMetadata.title");
-
-    console.log("data", data);
-
     return (
       <div>
         <Helmet title={get(data, "site.siteMetadata.title")} />
         <Header siteTitle={siteTitle} location={location} />
 
         <Intro />
-        <hr />
 
         <section>
           <div className="l-wrapper">
@@ -80,7 +76,6 @@ class Index extends React.Component {
             </div>
           </div>
         </section>
-        <hr />
 
         <section>
           <div className="l-wrapper">
