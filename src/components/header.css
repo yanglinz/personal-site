@@ -1,0 +1,33 @@
+.Header {
+  overflow: hidden;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.Brand-inner {
+  display: flex;
+  align-items: center;
+}
+
+.Brand-logo img {
+  height: 75px;
+}
+
+.Brand-tag-line {
+  margin-left: 25px;
+}
+
+.Brand-tag-line span {
+  display: block;
+  padding: 2px 0;
+  font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif",
+    "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
+  font-size: 14px;
+  text-align: center;
+}
+
+.Brand-tag-mid {
+  font-style: italic;
+  font-weight: normal;
+}

@@ -14,17 +14,12 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #222;
-}
-
-a {
-  text-decoration: none;
-  color: #000;
-}
-
 /* layouts */
+
+body {
+  margin: 0;
+  padding: 0;
+}
 
 .l-wrapper {
   padding: 0 40px;
@@ -40,4 +35,20 @@ a {
   width: 100%;
   margin: 0 auto;
   max-width: 980px;
+}
+
+/* basic theme */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+body {
+  background: #efefef;
 }

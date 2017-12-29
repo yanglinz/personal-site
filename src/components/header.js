@@ -1,6 +1,33 @@
 import React from "react";
 import Link from "gatsby-link";
 
+import logo from "./header-logo.svg";
+
+import "./header.css";
+
+function Brand(props) {
+  const { siteTitle } = props;
+  return (
+    <div className="Brand">
+      <h1>
+        <Link to="/">
+          <div className="Brand-inner">
+            <div className="Brand-logo">
+              <img src={logo} alt="Yanglin Zhao" />
+            </div>
+
+            <div className="Brand-tag-line">
+              <span className="Brand-tag-top">Personal Site</span>
+              <span className="Brand-tag-mid"> of </span>
+              <span className="Brand-tag-bot">Yanglin Zhao</span>
+            </div>
+          </div>
+        </Link>
+      </h1>
+    </div>
+  );
+}
+
 class Header extends React.Component {
   render() {
     const { siteTitle, location } = this.props;
@@ -26,11 +53,10 @@ class Header extends React.Component {
     }
 
     return (
-      <header className="header">
+      <header className="Header">
         <div className="l-wrapper">
           <div className="l-inner-narrow">
-            {header}
-            <p>Personal site of Yanglin Zhao</p>
+            <Brand siteTitle={siteTitle} />
           </div>
         </div>
       </header>
