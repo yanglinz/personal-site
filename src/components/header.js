@@ -1,8 +1,9 @@
 import React from "react";
 import Link from "gatsby-link";
 
-import logo from "./header-logo.svg";
+import SearchBox from "./search-box";
 
+import logo from "./header-logo.svg";
 import "./header.css";
 
 function Brand(props) {
@@ -56,7 +57,15 @@ class Header extends React.Component {
       <header className="Header">
         <div className="l-wrapper">
           <div className="l-inner-narrow">
-            <Brand siteTitle={siteTitle} />
+            <div className="Header-l-wrapper">
+              <div className="Header-l-brand">
+                <Brand siteTitle={siteTitle} />
+              </div>
+
+              <div className="Header-l-search">
+                <SearchBox />
+              </div>
+            </div>
           </div>
         </div>
       </header>

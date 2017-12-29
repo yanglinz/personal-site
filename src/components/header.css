@@ -5,6 +5,15 @@
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.Header-l-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.Header-l-search {
+  padding: 0 75px;
+}
+
 .Brand-inner {
   display: flex;
   align-items: center;
