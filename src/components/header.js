@@ -3,7 +3,9 @@ import Link from "gatsby-link";
 
 import SearchBox from "./search-box";
 
-import logo from "./header-logo.svg";
+import mainLogo from "./header-logo.svg";
+import githubLogo from "./header-github-logo.svg";
+import linkedinLogo from "./header-linkedin-logo.svg";
 import "./header.css";
 
 function Brand(props) {
@@ -14,7 +16,11 @@ function Brand(props) {
         <Link to="/">
           <div className="Brand-inner">
             <div className="Brand-logo">
-              <img src={logo} alt="Yanglin Zhao" />
+              <img
+                className="Brand-logo-img"
+                src={mainLogo}
+                alt="Yanglin Zhao"
+              />
             </div>
 
             <div className="Brand-tag-line">
@@ -25,6 +31,24 @@ function Brand(props) {
           </div>
         </Link>
       </h1>
+    </div>
+  );
+}
+
+function Links(props) {
+  return (
+    <div className="Links">
+      <div className="Links-link Links-link-github">
+        <a href="#">
+          <img className="Links-img" src={githubLogo} alt="Github" />
+        </a>
+      </div>
+
+      <div className="Links-link Links-link-linkedin">
+        <a href="#">
+          <img className="Links-img" src={linkedinLogo} alt="Linkedin" />
+        </a>
+      </div>
     </div>
   );
 }
@@ -64,6 +88,10 @@ class Header extends React.Component {
 
               <div className="Header-l-search">
                 <SearchBox />
+              </div>
+
+              <div className="Header-l-links">
+                <Links />
               </div>
             </div>
           </div>
