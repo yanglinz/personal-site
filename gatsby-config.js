@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: "Highpass.io",
-    author: "Highpass.io"
+    title: "Yanglin Zhao",
+    author: "Yanglin Zhao"
   },
   plugins: [
     {
