@@ -1,16 +1,8 @@
 {
   "name": "personal-site",
-  "description": "Personal site",
   "version": "1.0.0",
   "private": true,
-  "author": "admin@yanglinzhao.com",
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "license": "MIT",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
-  },
   "scripts": {
     "dev": "gatsby develop",
     "test": "echo \"Error: no test specified\" && exit 1",
