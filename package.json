@@ -1,7 +1,8 @@
 {
-  "name": "www",
+  "name": "personal-site",
   "description": "Personal site",
   "version": "1.0.0",
+  "private": true,
   "author": "admin@yanglinzhao.com",
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "license": "MIT",
