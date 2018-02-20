@@ -1,0 +1,43 @@
+{
+  "name": "core",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "gatsby develop",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write '*.{js,md}' 'src/**/*.{js,scss,css,md}'",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+  },
+  "dependencies": {
+    "gatsby": "^1.9.149",
+    "gatsby-link": "^1.6.32",
+    "gatsby-plugin-glamor": "^1.6.10",
+    "gatsby-plugin-google-analytics": "^1.0.14",
+    "gatsby-plugin-manifest": "^1.0.12",
+    "gatsby-plugin-offline": "^1.0.12",
+    "gatsby-plugin-preact": "^1.0.14",
+    "gatsby-plugin-react-helmet": "^2.0.3",
+    "gatsby-plugin-sass": "^1.0.15",
+    "gatsby-remark-copy-linked-files": "^1.5.25",
+    "gatsby-remark-images": "^1.5.36",
+    "gatsby-remark-prismjs": "^1.2.11",
+    "gatsby-remark-responsive-iframe": "^1.4.16",
+    "gatsby-remark-smartypants": "^1.4.10",
+    "gatsby-source-filesystem": "^1.5.11",
+    "gatsby-transformer-remark": "^1.7.26",
+    "lodash": "^4.15.0",
+    "normalize.css": "^7.0.0",
+    "react-helmet": "^5.2.0",
+    "tachyons": "^4.9.0",
+    "typeface-merriweather": "^0.0.45",
+    "typeface-montserrat": "^0.0.45",
+    "typography-theme-wordpress-2016": "^0.15.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.1.0",
+    "prettier": "^1.9.2"
+  }
+}
