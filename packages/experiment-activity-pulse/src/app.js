@@ -1,81 +1,76 @@
 import React, { Component } from "react";
-import uuid from "uuid/v4";
 import * as d3 from "d3";
+import fecha from "fecha";
 
-function renderPulse(mount, width = 100, height = 100) {
-  const margin = { top: 5, right: 5, bottom: 5, left: 5 };
-  const plotWidth = width - margin.left - margin.right;
-  const plotHeight = height - margin.top - margin.bottom;
+import ActivityPulse from "./activity-pulse";
 
-  const n = 180;
+import bitcoinCsv from "./data/bitcoin-price.csv";
+import ethereumCsv from "./data/ethereum-price.csv";
+import litecoinCsv from "./data/litecoin-price.csv";
+import dashCsv from "./data/dash-price.csv";
+import rippleCsv from "./data/ripple-price.csv";
 
-  const xScale = d3
-    .scaleLinear()
-    .domain([0, n - 1])
-    .range([0, plotWidth]);
-
-  const yScale = d3
-    .scaleLinear()
-    .domain([0, 1])
-    .range([plotHeight, 0]);
-
-  const line = d3
-    .line()
-    .x((d, i) => xScale(i))
-    .y(d => yScale(d.y))
-    .curve(d3.curveMonotoneX);
-
-  const dataset = d3.range(n).map(function(d) {
-    return { y: d3.randomUniform(1)() };
-  });
-
-  const svg = d3
-    .select(mount)
-    .append("svg")
-    .attr("width", plotWidth + margin.left + margin.right)
-    .attr("height", plotHeight + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`);
-
-  svg
-    .append("path")
-    .datum(dataset)
-    .attr("class", "line")
-    .attr("d", line);
-}
-
-class ActivityPulse extends Component {
-  constructor(props) {
-    super(props);
-    const mountId = "ap-" + uuid();
-    this.state = { mountId };
-  }
-
-  componentDidMount() {
-    const{ width, height } = this.props;
-    renderPulse(`#${this.state.mountId}`, width, height);
-  }
-
-  render() {
-    return (
-      <div
-        id={this.state.mountId}
-        className="activity-pulse"
-        ref={ref => {
-          this.plotRef = ref;
-        }}
-      />
-    );
-  }
+function parsePriceDataset(data) {
+  return data.map(d => ({
+    x: fecha.parse(d.Date, "MMM DD, YYYY").getTime(),
+    y: Number.parseFloat(d.Open)
+  }));
 }
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { bitcoinData: undefined };
+  }
+
+  componentDidMount() {
+    d3.csv(bitcoinCsv, d => {
+      this.setState({ bitcoinData: parsePriceDataset(d) });
+    });
+
+    d3.csv(ethereumCsv, d => {
+      this.setState({ ethereumData: parsePriceDataset(d) });
+    });
+
+    d3.csv(litecoinCsv, d => {
+      this.setState({ litecoinData: parsePriceDataset(d) });
+    });
+
+    d3.csv(dashCsv, d => {
+      this.setState({ dashData: parsePriceDataset(d) });
+    });
+
+    d3.csv(rippleCsv, d => {
+      this.setState({ rippleData: parsePriceDataset(d) });
+    });
+  }
+
   render() {
+    const {
+      bitcoinData,
+      ethereumData,
+      litecoinData,
+      dashData,
+      rippleData
+    } = this.state;
+    const loading =
+      !bitcoinData ||
+      !ethereumData ||
+      !litecoinData ||
+      !dashData ||
+      !rippleData;
+
+    if (loading) {
+      return null;
+    }
+
     return (
       <div className="app">
-        <ActivityPulse width={420} height={80} />
-        <ActivityPulse width={420} height={80} />
-        <ActivityPulse width={420} height={80} />
+        <ActivityPulse data={bitcoinData} width={420} height={120} />
+        <ActivityPulse data={ethereumData} width={420} height={120} />
+        <ActivityPulse data={litecoinData} width={420} height={120} />
+        <ActivityPulse data={dashData} width={420} height={120} />
+        <ActivityPulse data={rippleData} width={420} height={120} />
       </div>
     );
   }
