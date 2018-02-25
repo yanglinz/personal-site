@@ -1,0 +1,9 @@
+.Fullscreen {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    115deg,
+    rgba(86, 216, 228, 1) 5%,
+    rgb(12, 67, 150) 95%
+  );
+}
