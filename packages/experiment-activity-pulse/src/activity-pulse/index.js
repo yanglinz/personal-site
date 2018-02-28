@@ -3,6 +3,8 @@ import * as d3 from "d3";
 import React, { Component } from "react";
 import uuid from "uuid/v4";
 
+import "./index.css";
+
 function renderPulse(dataset, mount, width = 100, height = 100) {
   const margin = { top: 5, right: 5, bottom: 5, left: 5 };
   const plotWidth = width - margin.left - margin.right;
@@ -60,7 +62,7 @@ class ActivityPulse extends Component {
     return (
       <div
         id={this.state.mountId}
-        className="activity-pulse"
+        className="ActivityPulse"
         ref={ref => {
           this.plotRef = ref;
         }}
