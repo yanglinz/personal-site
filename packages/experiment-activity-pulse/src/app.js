@@ -4,6 +4,7 @@ import fecha from "fecha";
 
 import Fullscreen from "./publishable/fullscreen";
 import Demo from "./publishable/demo";
+import CryptoInfo from "./crypto-info";
 import ActivityPulse from "./activity-pulse";
 
 import bitcoinCsv from "./data/bitcoin-price.csv";
@@ -66,15 +67,23 @@ class App extends Component {
       return null;
     }
 
+    const data = [
+      { title: "Bitcoin", data: bitcoinData },
+      { title: "Ethereum", data: ethereumData },
+      { title: "Litecoin", data: litecoinData },
+      { title: "Dash", data: dashData },
+      { title: "Ripple", data: rippleData }
+    ];
+
     return (
       <div className="App">
         <Fullscreen>
           <Demo>
-            <ActivityPulse data={bitcoinData} width={420} height={40} />
-            <ActivityPulse data={ethereumData} width={420} height={40} />
-            <ActivityPulse data={litecoinData} width={420} height={40} />
-            <ActivityPulse data={dashData} width={420} height={40} />
-            <ActivityPulse data={rippleData} width={420} height={40} />
+            {data.map(d => (
+              <CryptoInfo key={d.title}>
+                <ActivityPulse data={d.data} width={420} height={40} />
+              </CryptoInfo>
+            ))}
           </Demo>
         </Fullscreen>
       </div>
