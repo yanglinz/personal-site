@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import "./index.css";
+
 class CryptoInfo extends Component {
   render() {
     const title = "Bitcoin";
