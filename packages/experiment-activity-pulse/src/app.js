@@ -13,6 +13,8 @@ import litecoinCsv from "./data/litecoin-price.csv";
 import dashCsv from "./data/dash-price.csv";
 import rippleCsv from "./data/ripple-price.csv";
 
+import "./app.css";
+
 function parsePriceDataset(data) {
   return data.map(d => ({
     x: fecha.parse(d.Date, "MMM DD, YYYY").getTime(),
@@ -79,11 +81,15 @@ class App extends Component {
       <div className="App">
         <Fullscreen>
           <Demo>
-            {data.map(d => (
-              <CryptoInfo key={d.title}>
-                <ActivityPulse data={d.data} width={420} height={40} />
-              </CryptoInfo>
-            ))}
+            <div className="App-demo">
+              {data.map(d => (
+                <div key={d.title} className="App-item">
+                  <CryptoInfo>
+                    <ActivityPulse data={d.data} width={100} height={40} />
+                  </CryptoInfo>
+                </div>
+              ))}
+            </div>
           </Demo>
         </Fullscreen>
       </div>

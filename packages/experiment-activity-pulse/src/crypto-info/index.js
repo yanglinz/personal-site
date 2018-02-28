@@ -12,10 +12,19 @@ class CryptoInfo extends Component {
 
     return (
       <div className="CryptoInfo">
-        <div className="CryptoInfo-title">{title}</div>
-        <div className="CryptoInfo-price-change">{changeAbs}</div>
-        <div className="CryptoInfo-price">{price}</div>
-        <div className="CryptoInfo-price">{time}</div>
+        <div className="CryptoInfo-info-main">
+          <div className="CryptoInfo-title">{title}</div>
+          <div className="CryptoInfo-change-abs">{changeAbs}</div>
+        </div>
+
+        <div className="CryptoInfo-info-alt">
+          <div className="CryptoInfo-price">{price}</div>
+          <div className="CryptoInfo-change-pct">{changePercent}</div>
+        </div>
+
+        <div className="CryptoInfo-info-alt">
+          <div className="CryptoInfo-price">{time}</div>
+        </div>
 
         <div className="CryptoInfo-plot">{this.props.children}</div>
       </div>

@@ -1,0 +1,18 @@
+.App-demo {
+  display: flex;
+  justify-content: space-between;
+  margin: 30vh auto 0;
+  padding: 30px 0;
+  border-top: 4px solid #fff;
+  border-bottom: 4px solid #fff;
+}
+
+.App-item {
+  padding: 0 20px;
+  flex-grow: 1;
+  border-right: 1px dotted #fff;
+}
+
+.App-item:first-child {
+  border-left: 1px dotted #fff;
+}
