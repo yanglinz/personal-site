@@ -3,6 +3,7 @@ import * as d3 from "d3";
 import fecha from "fecha";
 
 import Fullscreen from "./publishable/fullscreen";
+import Demo from "./publishable/demo";
 import ActivityPulse from "./activity-pulse";
 
 import bitcoinCsv from "./data/bitcoin-price.csv";
@@ -66,15 +67,17 @@ class App extends Component {
     }
 
     return (
-      <Fullscreen>
-        <div className="app">
-          <ActivityPulse data={bitcoinData} width={420} height={120} />
-          <ActivityPulse data={ethereumData} width={420} height={120} />
-          <ActivityPulse data={litecoinData} width={420} height={120} />
-          <ActivityPulse data={dashData} width={420} height={120} />
-          <ActivityPulse data={rippleData} width={420} height={120} />
-        </div>
-      </Fullscreen>
+      <div className="App">
+        <Fullscreen>
+          <Demo>
+            <ActivityPulse data={bitcoinData} width={420} height={40} />
+            <ActivityPulse data={ethereumData} width={420} height={40} />
+            <ActivityPulse data={litecoinData} width={420} height={40} />
+            <ActivityPulse data={dashData} width={420} height={40} />
+            <ActivityPulse data={rippleData} width={420} height={40} />
+          </Demo>
+        </Fullscreen>
+      </div>
     );
   }
 }
