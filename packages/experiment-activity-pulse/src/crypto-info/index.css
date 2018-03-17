@@ -1,0 +1,42 @@
+.CryptoInfo {
+  color: #fff;
+}
+
+.CryptoInfo-info-main {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.CryptoInfo-title {
+  font-weight: bold;
+  padding-right: 8px;
+}
+
+.CryptoInfo-change-abs {
+  font-weight: bold;
+  font-size: 12px;
+  color: #1dcc92;
+}
+
+.CryptoInfo-info-alt {
+  display: flex;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 3px;
+  font-size: 12px;
+}
+
+.CryptoInfo-price {
+  padding-right: 12px;
+}
+
+.CryptoInfo-info-meta {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+}
+
+.CryptoInfo-plot {
+  display: flex;
+  margin-top: -10px;
+  justify-content: flex-end;
+}

@@ -5,8 +5,8 @@ import "./index.css";
 class CryptoInfo extends Component {
   render() {
     const title = "Bitcoin";
-    const price = 2204;
-    const changeAbs = -233;
+    const price = "2204.00";
+    const changeAbs = "+42.00";
     const changePercent = "-1.2%";
     const time = "Jul 16";
 
@@ -22,7 +22,7 @@ class CryptoInfo extends Component {
           <div className="CryptoInfo-change-pct">{changePercent}</div>
         </div>
 
-        <div className="CryptoInfo-info-alt">
+        <div className="CryptoInfo-info-meta">
           <div className="CryptoInfo-price">{time}</div>
         </div>
 
