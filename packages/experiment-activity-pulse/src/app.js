@@ -84,7 +84,7 @@ class App extends Component {
             <div className="App-demo">
               {data.map(d => (
                 <div key={d.title} className="App-item">
-                  <CryptoInfo>
+                  <CryptoInfo title={d.title} data={d.data}>
                     <ActivityPulse data={d.data} width={100} height={40} />
                   </CryptoInfo>
                 </div>

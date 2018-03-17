@@ -16,7 +16,6 @@
 .CryptoInfo-change-abs {
   font-weight: bold;
   font-size: 12px;
-  color: #1dcc92;
 }
 
 .CryptoInfo-info-alt {
@@ -37,6 +36,6 @@
 
 .CryptoInfo-plot {
   display: flex;
-  margin-top: -10px;
+  margin-top: -20px;
   justify-content: flex-end;
 }
