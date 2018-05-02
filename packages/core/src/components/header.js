@@ -7,12 +7,9 @@ function Brand(props) {
   const { siteTitle } = props;
   return (
     <div className="Brand">
-      <h1>
-        <Link to="/">
-          <span className="Brand-tag-bot">Yanglin Zhao</span>
-        </Link>
+      <h1 className="Brand-title">
+        <Link to="/">Yanglin Zhao</Link>
       </h1>
-      <p className="Brand-tag-bot">Fullstack Software Dev</p>
     </div>
   );
 }
