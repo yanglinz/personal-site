@@ -61,8 +61,4 @@ class Blog extends React.Component {
   }
 }
 
-Blog.propTypes = {
-  route: React.PropTypes.object
-};
-
 export default Blog;
