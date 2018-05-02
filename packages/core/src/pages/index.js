@@ -44,6 +44,56 @@ export const pageQuery = graphql`
   }
 `;
 
+function MainContent(props) {
+  const { data } = props;
+
+  return (
+    <div>
+      <section>
+        <div className="l-wrapper">
+          <div className="l-inner-narrow">
+            <h2>Personal Projects</h2>
+            <ul>
+              {data.projectPosts.edges.map(edge => {
+                const post = edge.node;
+                return (
+                  <li key={post.frontmatter.path}>
+                    <div>
+                      <Link to={post.frontmatter.path}>
+                        <p>{post.frontmatter.title}</p>
+                      </Link>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="l-wrapper">
+          <div className="l-inner-narrow">
+            <h2>Blog Posts</h2>
+            <ul>
+              {data.blogPosts.edges.map(edge => {
+                const post = edge.node;
+                return (
+                  <li key={post.frontmatter.path}>
+                    <Link to={post.frontmatter.path}>
+                      <p>{post.frontmatter.title}</p>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 class Index extends React.Component {
   render() {
     const { data, location } = this.props;
@@ -54,49 +104,7 @@ class Index extends React.Component {
         <Header siteTitle={siteTitle} location={location} />
 
         <Intro />
-
-        <section>
-          <div className="l-wrapper">
-            <div className="l-inner-narrow">
-              <h2>Personal Projects</h2>
-              <ul>
-                {data.projectPosts.edges.map(edge => {
-                  const post = edge.node;
-                  return (
-                    <li key={post.frontmatter.path}>
-                      <div>
-                        <Link to={post.frontmatter.path}>
-                          <p>{post.frontmatter.title}</p>
-                        </Link>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <div className="l-wrapper">
-            <div className="l-inner-narrow">
-              <h2>Blog Posts</h2>
-              <ul>
-                {data.blogPosts.edges.map(edge => {
-                  const post = edge.node;
-                  return (
-                    <li key={post.frontmatter.path}>
-                      <Link to={post.frontmatter.path}>
-                        <p>{post.frontmatter.title}</p>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
-        </section>
-        <hr />
+        <MainContent data={data} />
       </div>
     );
   }
