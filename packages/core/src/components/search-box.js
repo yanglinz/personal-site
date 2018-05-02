@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./search-box.css";
+import "./search-box.scss";
 
 function SearchBox(props) {
   return (
