@@ -1,5 +1,9 @@
 .Intro {
-  padding: 30px 0 28px;
-  text-align: center;
-  border-bottom: 1px solid #aaa;
+  &-primary {
+    font-size: 3rem;
+  }
+
+  &-secondary {
+    font-size: 1.8rem;
+  }
 }
