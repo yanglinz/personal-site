@@ -6,7 +6,8 @@ import SearchBox from "./search-box";
 import mainLogo from "./header-logo.svg";
 import githubLogo from "./header-github-logo.svg";
 import linkedinLogo from "./header-linkedin-logo.svg";
-import "./header.css";
+
+import "./header.scss";
 
 function Brand(props) {
   const { siteTitle } = props;
