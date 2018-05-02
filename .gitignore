@@ -10,6 +10,10 @@ pids
 # Dependency directory
 node_modules
 
+# Builds
+dist
+build
+
 # Build Path of Test Fixtures
 test/**/public
 .gatsby-context.js
@@ -18,3 +22,6 @@ public/
 node_modules/
 .cache/
 .netlify
+
+# Exceptions
+!packages/experiment-activity-pulse/public
