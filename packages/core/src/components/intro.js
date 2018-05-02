@@ -8,10 +8,9 @@ class Intro extends React.Component {
       <section className="Intro">
         <div className="l-wrapper">
           <div className="l-inner-narrow">
-            <h2 className="f-wn">Hello, my name is Yanglin.</h2>
+            <h2 className="f-wn">Hi. My name is Yanglin.</h2>
             <h3 className="f-wn">
-              I'm a software engineer passionate about building interactive
-              applications.
+              I'm a fullstack dev and I build interactive applications.
             </h3>
           </div>
         </div>
