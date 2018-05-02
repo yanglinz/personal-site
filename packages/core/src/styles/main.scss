@@ -1,5 +1,4 @@
 @import "~normalize.css/normalize.css";
-@import "~tachyons/css//tachyons.css";
 
 /* globals */
 
@@ -51,23 +50,4 @@ a {
 
 body {
   background: #efefef;
-}
-
-/* utilities */
-
-.f-serif {
-  font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif",
-    "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
-}
-
-.f-sans {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.f-wb {
-  font-weight: bold;
-}
-
-.f-wn {
-  font-weight: normal;
 }
