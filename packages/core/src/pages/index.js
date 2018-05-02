@@ -102,8 +102,4 @@ class Index extends React.Component {
   }
 }
 
-Index.propTypes = {
-  route: React.PropTypes.object
-};
-
 export default Index;

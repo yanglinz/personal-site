@@ -62,11 +62,4 @@ class Header extends React.Component {
   }
 }
 
-const P = React.PropTypes;
-
-Header.propTypes = {
-  siteTitle: P.string.isRequired,
-  location: P.object.isRequired
-};
-
 export default Header;
