@@ -9,15 +9,10 @@ function Brand(props) {
     <div className="Brand">
       <h1>
         <Link to="/">
-          <div className="Brand-inner">
-            <div className="Brand-tag-line f-serif">
-              <span className="Brand-tag-top">Personal Site</span>
-              <span className="Brand-tag-mid"> of </span>
-              <span className="Brand-tag-bot">Yanglin Zhao</span>
-            </div>
-          </div>
+          <span className="Brand-tag-bot">Yanglin Zhao</span>
         </Link>
       </h1>
+      <p className="Brand-tag-bot">Fullstack Software Dev</p>
     </div>
   );
 }
