@@ -1,5 +1,13 @@
+.Header {
+  padding: 3rem 0 2rem;
+}
+
 .Brand {
   &-title {
-    font-size: 1.25rem;
+    font-size: 1rem;
+
+    a {
+      color: #fff;
+    }
   }
 }
