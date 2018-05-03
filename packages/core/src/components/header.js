@@ -41,12 +41,8 @@ class Header extends React.Component {
     return (
       <header className="Header">
         <div className="l-wrapper">
-          <div className="l-inner-narrow">
-            <div className="Header-l-wrapper">
-              <div className="Header-l-brand">
-                <Brand siteTitle={siteTitle} />
-              </div>
-            </div>
+          <div className="Header-brand">
+            <Brand siteTitle={siteTitle} />
           </div>
         </div>
       </header>

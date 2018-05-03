@@ -7,12 +7,10 @@ class Intro extends React.Component {
     return (
       <section className="Intro">
         <div className="l-wrapper">
-          <div className="l-inner-narrow">
-            <h2 className="Intro-primary">Hi. My name is Yanglin.</h2>
-            <h3 className="Intro-secondary">
-              I'm a fullstack software dev and I build interactive applications.
-            </h3>
-          </div>
+          <h2 className="Intro-primary">Hi. My name is Yanglin.</h2>
+          <h3 className="Intro-secondary">
+            I'm a fullstack software dev and I build interactive applications.
+          </h3>
         </div>
       </section>
     );
