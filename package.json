@@ -10,9 +10,7 @@
     "build": "./scripts/build.sh",
     "format": "prettier --write '*.{js,md}' 'packages/**/src/**/*.{js,scss,css,md}'"
   },
-  "devDependencies": {
-    "lerna": "^2.9.0"
-  },
+  "devDependencies": {},
   "dependencies": {
     "prettier": "^1.12.1"
   }
