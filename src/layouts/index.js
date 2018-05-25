@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from "react-helmet";
 import get from "lodash/get";
 
 import Header from "../components/header";
@@ -20,6 +21,10 @@ class Layout extends React.Component {
     const siteTitle = get(data, "site.siteMetadata.title");
     return (
       <div>
+        <Helmet defaultTitle="Yanglin Zhao">
+          <html lang="en" />
+        </Helmet>
+
         <Header siteTitle={siteTitle} location={location} />
         {this.props.children()}
         <Footer />
