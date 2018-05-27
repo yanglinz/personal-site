@@ -42,18 +42,18 @@ function BlogPosts(props) {
   return (
     <section>
       <h2>Blog Posts</h2>
-      <ul>
-        {data.blogPosts.edges.map(edge => {
-          const post = edge.node;
-          return (
-            <li key={post.frontmatter.path}>
-              <Link to={post.frontmatter.path}>
-                <p>{post.frontmatter.title}</p>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+
+      {data.blogPosts.edges.map(edge => {
+        const post = edge.node;
+        return (
+          <article>
+            <Link to={post.frontmatter.path}>
+              <p>{post.frontmatter.title}</p>
+            </Link>
+            <p>{post.frontmatter.date}</p>
+          </article>
+        );
+      })}
     </section>
   );
 }
