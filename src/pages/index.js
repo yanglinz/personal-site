@@ -14,6 +14,7 @@ export const pageQuery = graphql`
         frontmatter {
           title
           path
+          tags
           date: date(formatString: "MMM Do, YYYY")
         }
       }
@@ -45,12 +46,24 @@ function BlogPosts(props) {
 
       {data.blogPosts.edges.map(edge => {
         const post = edge.node;
+        const { title, date, path, tags } = post.frontmatter;
         return (
           <article>
-            <Link to={post.frontmatter.path}>
-              <p>{post.frontmatter.title}</p>
-            </Link>
-            <p>{post.frontmatter.date}</p>
+            <header>
+              <Link to={path}>
+                <p>{title}</p>
+              </Link>
+            </header>
+
+            <p>{date}</p>
+
+            <ul>
+              {tags.map(t => (
+                <li>
+                  <p>{t}</p>
+                </li>
+              ))}
+            </ul>
           </article>
         );
       })}
