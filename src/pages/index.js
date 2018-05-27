@@ -58,30 +58,6 @@ function BlogPosts(props) {
   );
 }
 
-function PersonalProjects(props) {
-  const { data } = props;
-
-  return (
-    <section>
-      <h2>Personal Projects</h2>
-      <ul>
-        {data.projectPosts.edges.map(edge => {
-          const post = edge.node;
-          return (
-            <li key={post.frontmatter.path}>
-              <div>
-                <Link to={post.frontmatter.path}>
-                  <p>{post.frontmatter.title}</p>
-                </Link>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-    </section>
-  );
-}
-
 class Index extends React.Component {
   render() {
     const { data } = this.props;
@@ -89,7 +65,6 @@ class Index extends React.Component {
       <div>
         <Intro />
         <BlogPosts data={data} />
-        <PersonalProjects data={data} />
       </div>
     );
   }
