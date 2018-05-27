@@ -5,7 +5,7 @@ import Helmet from "react-helmet";
 
 import Intro from "../components/intro";
 
-import "../styles/main.scss";
+// import "../styles/main.scss";
 
 export const pageQuery = graphql`
   query IndexQuery {

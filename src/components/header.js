@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "gatsby-link";
 
-import "./header.scss";
+// import "./header.scss";
 
 function Brand(props) {
   const { siteTitle } = props;

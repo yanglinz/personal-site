@@ -3,7 +3,7 @@ import Link from "gatsby-link";
 import get from "lodash/get";
 import Helmet from "react-helmet";
 
-import "../styles/main.scss";
+// import "../styles/main.scss";
 
 export const pageQuery = graphql`
   query BlogQuery {
