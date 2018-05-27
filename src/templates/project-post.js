@@ -36,13 +36,9 @@ class ProjectPostTemplate extends React.Component {
         <Header siteTitle={siteTitle} location={location} />
 
         <article>
-          <div className="l-wrapper">
-            <div className="l-inner-narrow">
-              <h1>{post.frontmatter.title}</h1>
-              <p>{post.frontmatter.date}</p>
-              <div dangerouslySetInnerHTML={{ __html: post.html }} />
-            </div>
-          </div>
+          <h1>{post.frontmatter.title}</h1>
+          <p>{post.frontmatter.date}</p>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
       </div>
     );
