@@ -11,6 +11,7 @@ export const pageQuery = graphql`
   fragment indexPostInfo on MarkdownRemarkConnection {
     edges {
       node {
+        excerpt
         frontmatter {
           title
           path
@@ -37,33 +38,38 @@ export const pageQuery = graphql`
   }
 `;
 
-function BlogPosts(props) {
+function Posts(props) {
   const { data } = props;
 
   return (
-    <section>
-      <h2>Blog Posts</h2>
+    <section className="Posts">
+      <h2 className="Posts-title">Blog Posts</h2>
 
       {data.blogPosts.edges.map(edge => {
         const post = edge.node;
         const { title, date, path, tags } = post.frontmatter;
+
         return (
-          <article>
-            <header>
+          <article className="Posts-post">
+            <header className="Posts-post-title">
               <Link to={path}>
-                <p>{title}</p>
+                <h3>{title}</h3>
               </Link>
             </header>
 
-            <p>{date}</p>
+            <div className="Posts-post-excerpt">{post.excerpt}</div>
 
-            <ul>
-              {tags.map(t => (
-                <li>
-                  <p>{t}</p>
-                </li>
-              ))}
-            </ul>
+            <div className="Posts-post-date">{date}</div>
+
+            <div className="Posts-post-tags">
+              <ul>
+                {tags.map(t => (
+                  <li>
+                    <p className="Posts-post-tags">{t}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </article>
         );
       })}
@@ -77,7 +83,7 @@ class Index extends React.Component {
     return (
       <div>
         <Intro />
-        <BlogPosts data={data} />
+        <Posts data={data} />
       </div>
     );
   }
