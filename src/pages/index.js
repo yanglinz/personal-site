@@ -8,32 +8,30 @@ import Intro from "../components/intro";
 // import "../styles/main.scss";
 
 export const pageQuery = graphql`
+  fragment indexPostInfo on MarkdownRemarkConnection {
+    edges {
+      node {
+        frontmatter {
+          title
+          path
+          date: date(formatString: "MMM Do, YYYY")
+        }
+      }
+    }
+  }
+
   query IndexQuery {
     projectPosts: allMarkdownRemark(
       filter: { fileAbsolutePath: { glob: "**/src/projects/**" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            path
-          }
-        }
-      }
+      ...indexPostInfo
     }
     blogPosts: allMarkdownRemark(
       filter: { fileAbsolutePath: { glob: "**/src/posts/**" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            path
-          }
-        }
-      }
+      ...indexPostInfo
     }
   }
 `;
