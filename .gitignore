@@ -11,17 +11,9 @@ pids
 node_modules
 
 # Builds
+.cache
 dist
 build
 
-# Build Path of Test Fixtures
-test/**/public
-.gatsby-context.js
-.DS_Store
-public/
-node_modules/
-.cache/
+# Deployment
 .netlify
-
-# Exceptions
-!packages/experiment-activity-pulse/public
