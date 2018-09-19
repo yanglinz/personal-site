@@ -14,6 +14,7 @@ node_modules
 .cache
 dist
 build
+public
 
 # Deployment
 .netlify
