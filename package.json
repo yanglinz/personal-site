@@ -4,9 +4,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "dev:parcel": "parcel src/index.js",
     "dev:hugo": "hugo serve -D",
-    "dev:parcel": "parcel -d assets src/index.js",
     "start": "run-p dev:*",
+    "build:parcel": "parcel build -d assets src/index.js",
+    "build:hugo": "hugo",
+    "build": "run-s build:parcel build:hugo",
     "format": "prettier --write '*.{js,md}' 'src/**/*.{js,scss,css,md}'"
   },
   "dependencies": {
