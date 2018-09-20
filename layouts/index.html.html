@@ -12,7 +12,7 @@
       <link rel="stylesheet" href="http://localhost:1234/index.css">
     {{ else }}
       {{ $mainStyle:= resources.Get "index.css" | fingerprint }}
-      <link rel="stylesheet" href="{{ $mainStyle.Permalink }}">
+      <link rel="stylesheet" href="{{ $mainStyle.RelPermalink }}">
     {{ end }}
   </head>
 
@@ -23,7 +23,7 @@
       <script src="http://localhost:1234/index.js"></script>
     {{ else }}
       {{ $mainScript := resources.Get "index.js" | fingerprint }}
-      <script src="{{ $mainScript.Permalink }}"></script>
+      <script src="{{ $mainScript.RelPermalink }}"></script>
     {{ end }}
   </body>
 </html>
