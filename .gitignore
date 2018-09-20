@@ -16,8 +16,9 @@ dist
 build
 
 # Hugo
-public
 resources
+public
+assets
 
 # Deployment
 .netlify

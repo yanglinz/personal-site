@@ -4,6 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "start": "parcel watch -d assets src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write '*.{js,md}' 'src/**/*.{js,scss,css,md}'"
   },
