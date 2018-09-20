@@ -14,7 +14,10 @@ node_modules
 .cache
 dist
 build
+
+# Hugo
 public
+resources
 
 # Deployment
 .netlify
