@@ -7,11 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write '*.{js,md}' 'src/**/*.{js,scss,css,md}'"
   },
-  "devDependencies": {
-    "prettier": "^1.14.2"
-  },
   "dependencies": {
     "lodash": "^4.17.10",
     "normalize.css": "^8.0.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.9.7",
+    "prettier": "^1.14.2"
   }
 }
