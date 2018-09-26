@@ -17,7 +17,8 @@
   </head>
 
   <body>
-    {{ partial "hello.html" . }}
+    {{ partial "header.html" . }}
+    {{ partial "home.html" . }}
 
     {{ if .Site.BuildDrafts }}
       <script src="http://localhost:1234/index.js"></script>
