@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid #eee;
+  height: 100px;
+}
+
+.site-title,
+.contact {
+  margin: 0;
+  line-height: 14px;
+  font-size: 14px;
+}
+
+.site-title-link,
+.contact-link {
+  font-weight: 900;
+  font-style: italic;
+}
