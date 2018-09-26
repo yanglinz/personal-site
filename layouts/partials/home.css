@@ -1,0 +1,17 @@
+.intro-text {
+  padding: 25px 0;
+  width: 650px;
+}
+
+.intro-title {
+  font-weight: 900;
+  font-style: italic;
+  font-size: 80px;
+  margin: 0 0 25px;
+}
+
+.intro-description {
+  margin: 0;
+  font-style: italic;
+  font-size: 40px;
+}
