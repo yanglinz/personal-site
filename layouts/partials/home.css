@@ -1,6 +1,11 @@
+body {
+  background: #222;
+}
+
 .intro {
   position: relative;
   height: 80vh;
+  color: #fff;
 }
 
 .intro-text {
