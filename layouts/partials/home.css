@@ -25,21 +25,3 @@ body {
   font-style: italic;
   font-size: 40px;
 }
-
-.intro-background {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-}
-
-.intro-image {
-  width: 700px;
-  height: 500px;
-  margin: 0 auto;
-  background: #555;
-}
