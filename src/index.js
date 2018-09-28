@@ -3,10 +3,8 @@ import "./global.css";
 import "../layouts/partials/header.css";
 import "../layouts/partials/home.css";
 
-import { initBackgroundImage } from "../layouts/partials/home";
-
 function main() {
-  initBackgroundImage();
+  // Initialization script here!
 }
 
 function ready(fn) {
