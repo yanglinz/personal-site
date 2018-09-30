@@ -37,6 +37,7 @@ jobs:
           root: .
           paths:
             - assets
+            - public
 
   deploy_static:
     docker:
@@ -51,7 +52,7 @@ jobs:
             wget -qO- 'https://cli.netlify.com/download/latest/linux' | tar xz
       - run:
           name: Deploy to netlify
-          command: ./netlifyctl -A $NETLIFY_AUTH_TOKEN -b build deploy
+          command: ./netlifyctl -A $NETLIFY_AUTH_TOKEN -b public deploy
 
 workflows:
   version: 2
