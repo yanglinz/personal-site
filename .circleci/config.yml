@@ -17,7 +17,7 @@ jobs:
             - node_modules
       - run:
           name: Run build
-          command: yarn run build
+          command: yarn run build:parcel
       - persist_to_workspace:
           root: .
           paths:
