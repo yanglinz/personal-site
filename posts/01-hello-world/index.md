@@ -1,9 +1,7 @@
 ---
-title: Hello World
-date: "2015-05-01T22:12:03.284Z"
-path: "/hello-world/"
-tags:
-  - personal
+title: Hello blog!
+date: "2018-09-30T00:00:00.000Z"
+path: "/hello-blog/"
 ---
 
 Hello world!
