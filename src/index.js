@@ -1,3 +1,5 @@
+import unregisterServiceWorker from "./service-worker";
+
 import "normalize.css/normalize.css";
 import "./global.css";
 import "../layouts/partials/header.css";
@@ -19,4 +21,5 @@ function ready(fn) {
   }
 }
 
+unregisterServiceWorker();
 ready(main);
