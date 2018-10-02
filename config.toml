@@ -1,4 +1,10 @@
+# Production settings
 baseURL = "https://yanglinzhao.com/"
 languageCode = "en-us"
 title = "Yanglin Zhao"
+
+# Development settings
 disableLiveReload = true
+
+[permalinks]
+  post = "/:slug/"
