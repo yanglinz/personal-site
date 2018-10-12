@@ -1,1 +1,30 @@
-Single.html!
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Yanglin Zhao</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {{ if .Site.BuildDrafts }}
+      <link rel="stylesheet" href="http://localhost:1234/index.css">
+    {{ else }}
+      {{ $mainStyle:= resources.Get "index.css" | fingerprint }}
+      <link rel="stylesheet" href="{{ $mainStyle.RelPermalink }}">
+    {{ end }}
+  </head>
+
+  <body>
+    {{ partial "header.html" . }}
+    {{ partial "article.html" . }}
+
+    {{ if .Site.BuildDrafts }}
+      <script src="http://localhost:1234/index.js"></script>
+    {{ else }}
+      {{ $mainScript := resources.Get "index.js" | fingerprint }}
+      <script src="{{ $mainScript.RelPermalink }}"></script>
+    {{ end }}
+  </body>
+</html>
