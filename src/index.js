@@ -4,6 +4,7 @@ import "normalize.css/normalize.css";
 import "./global.css";
 import "../layouts/partials/header.css";
 import "../layouts/partials/home.css";
+import "../layouts/partials/article.css";
 
 function main() {
   // Initialization script here!
