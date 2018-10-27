@@ -11,7 +11,7 @@
     {{ if .Site.BuildDrafts }}
       <link rel="stylesheet" href="http://localhost:1234/index.css">
     {{ else }}
-      {{ $mainStyle:= resources.Get "index.css" | fingerprint }}
+      {{ $mainStyle:= resources.Get "build/index.css" | fingerprint }}
       <link rel="stylesheet" href="{{ $mainStyle.RelPermalink }}">
     {{ end }}
   </head>
@@ -23,7 +23,7 @@
     {{ if .Site.BuildDrafts }}
       <script src="http://localhost:1234/index.js"></script>
     {{ else }}
-      {{ $mainScript := resources.Get "index.js" | fingerprint }}
+      {{ $mainScript := resources.Get "build/index.js" | fingerprint }}
       <script src="{{ $mainScript.RelPermalink }}"></script>
     {{ end }}
   </body>
