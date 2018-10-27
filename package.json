@@ -7,7 +7,7 @@
     "dev:parcel": "parcel src/index.js",
     "dev:hugo": "hugo serve -D",
     "start": "run-p dev:*",
-    "build:parcel": "parcel build -d assets src/index.js",
+    "build:parcel": "parcel build -d assets/build src/index.js",
     "build:hugo": "hugo",
     "build": "run-s build:parcel build:hugo",
     "format": "prettier --write '*.{js,md}' 'src/**/*.{js,scss,css,md}'"
