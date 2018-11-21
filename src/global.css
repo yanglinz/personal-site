@@ -13,8 +13,21 @@ a {
 
 /* layout */
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 .l-wide {
+  width: 1280px;
+  margin: 0 auto;
   padding: 0 20px;
+  overflow: hidden;
 }
 
 /* colors */

@@ -1,14 +1,16 @@
 .header {
-  padding: 30px 0 0;
+  background: #002945;
+  padding: 25px 0 22px;
 }
 
 .site-title {
-  margin: 0;
   font-size: 16px;
+  margin: 0;
   text-transform: uppercase;
 }
 
 .site-title-link {
+  color: #fff;
   font-weight: 900;
   font-style: italic;
 }
