@@ -1,8 +1,32 @@
+.intro {
+  background: #002945;
+  padding: 0 0 40px;
+}
+
+.intro-border-top {
+  border-top: 1px solid #333;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  height: 1px;
+  width: 100%;
+  margin-bottom: 36px;
+}
+
 .intro-title,
 .intro-description {
-  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.intro-title {
+  color: #eee;
+  color: rgba(255, 255, 255, 0.99);
+  font-size: 36px;
+  margin: 0 0 10px;
 }
 
 .intro-description {
+  color: #eee;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
   margin: 0;
 }
