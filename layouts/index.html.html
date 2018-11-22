@@ -8,24 +8,14 @@
     <title>Yanglin Zhao</title>
     <meta name="description" content="">
 
-    {{ if .Site.BuildDrafts }}
-      <link rel="stylesheet" href="http://localhost:1234/index.css">
-    {{ else }}
-      {{ $mainStyle:= resources.Get "build/index.css" | fingerprint }}
-      <link rel="stylesheet" href="{{ $mainStyle.RelPermalink }}">
-    {{ end }}
+    {{ partial "_assets-head.html" . }}
   </head>
 
   <body>
     {{ partial "header.html" . }}
     {{ partial "home.html" . }}
-    {{ partial "post-list.html" . }}
+    <!-- {{ partial "post-list.html" . }} -->
 
-    {{ if .Site.BuildDrafts }}
-      <script src="http://localhost:1234/index.js"></script>
-    {{ else }}
-      {{ $mainScript := resources.Get "build/index.js" | fingerprint }}
-      <script src="{{ $mainScript.RelPermalink }}"></script>
-    {{ end }}
+    {{ partial "_assets-foot.html" . }}
   </body>
 </html>
