@@ -2,6 +2,15 @@
   <article>
     <h1>{{ .Title }}</h1>
     <time>{{ .Date.Format "Jan 2 2006" }}</time>
+
+    {{ if .Params.tags }}
+      <ul id="tags">
+        {{ range $tag := .Params.tags }}
+          <li><a href="/tags/{{ $tag | urlize }}">#{{ $tag }}</a> </li>
+        {{ end }}
+      </ul>
+    {{ end }}
+
     {{ if .Params.customBanner }}
       {{ $bannerPath := ( printf "content/posts/%s" .Params.customBanner ) }}
       {{ $banner := resources.Get $bannerPath | fingerprint }}
