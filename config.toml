@@ -3,6 +3,9 @@ baseURL = "https://yanglinzhao.com/"
 languageCode = "en-us"
 title = "Yanglin Zhao"
 
+# Asset directory
+assetDir = "."
+
 # Development settings
 disableLiveReload = true
 
