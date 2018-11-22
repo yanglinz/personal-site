@@ -18,6 +18,10 @@
       <div class="article-metadata">
         <time>{{ .Date.Format "Jan 2, 2006" }}</time>
 
+        <div>
+          {{ .Site.Params.DefaultAuthor }}
+        </div>
+
         {{ if .Params.tags }}
           <ul id="article-tags">
             {{ range $tag := .Params.tags }}
