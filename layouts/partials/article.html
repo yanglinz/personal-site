@@ -16,9 +16,11 @@
 
     <div class="l-wide">
       <div class="article-metadata">
-        <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+        <time class="article-date">
+          {{ .Date.Format "Jan 2, 2006" }}
+        </time>
 
-        <div>
+        <div class="article-author">
           {{ .Site.Params.DefaultAuthor }}
         </div>
 
