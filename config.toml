@@ -9,5 +9,10 @@ assetDir = "."
 # Development settings
 disableLiveReload = true
 
+# Url settings
 [permalinks]
   post = "/:slug/"
+
+# Custom params
+[params]
+  DefaultAuthor = "Yanglin Zhao"
