@@ -10,7 +10,7 @@
     "build:parcel": "parcel build -d assets/build src/index.js",
     "build:hugo": "hugo",
     "build": "run-s build:parcel build:hugo",
-    "format": "prettier --write '*.{js,md}' 'src/**/*.{js,scss,css,md}'"
+    "format": "prettier --write '*.{js,md}' '**/*.{js,scss,css,md}'"
   },
   "dependencies": {
     "lodash": "^4.17.10",
