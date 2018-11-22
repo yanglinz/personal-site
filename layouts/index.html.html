@@ -19,6 +19,7 @@
   <body>
     {{ partial "header.html" . }}
     {{ partial "home.html" . }}
+    {{ partial "post-list.html" . }}
 
     {{ if .Site.BuildDrafts }}
       <script src="http://localhost:1234/index.js"></script>
