@@ -1,6 +1,6 @@
 {{ if .Site.BuildDrafts }}
   <script src="http://localhost:1234/index.js"></script>
 {{ else }}
-  {{ $mainScript := resources.Get "build/index.js" | fingerprint }}
+  {{ $mainScript := resources.Get "assets/build/index.js" | fingerprint }}
   <script src="{{ $mainScript.RelPermalink }}"></script>
 {{ end }}
