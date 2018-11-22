@@ -2,8 +2,12 @@
   <article>
     <h1>{{ .Title }}</h1>
     <time>{{ .Date.Format "Jan 2 2006" }}</time>
-    <div>
-      {{ .Content }}
-    </div>
+    {{ if .Params.customBanner }}
+      {{ $bannerPath := ( printf "content/posts/%s" .Params.customBanner ) }}
+      {{ $banner := resources.Get $bannerPath | fingerprint }}
+      <img src="{{ $banner.RelPermalink }}" />
+    {{ end }}
+
+    <div>{{ .Content }}</div>
   </article>
 </main>
