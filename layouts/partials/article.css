@@ -32,3 +32,9 @@
 .article-tags-item {
   margin: 0 5px;
 }
+
+.article-content {
+  font-size: 20px;
+  width: 660px;
+  margin: 0 auto;
+}
