@@ -1,16 +1,22 @@
 .header {
   background: #002945;
-  padding: 25px 0 22px;
+  padding: 55px 0 45px;
 }
 
-.site-title {
+.header-title,
+.header-subtitle {
   font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
   margin: 0;
-  text-transform: uppercase;
 }
 
-.site-title-link {
+.header-title-link {
   color: #fff;
-  font-weight: 900;
-  font-style: italic;
+  color: rgba(255, 255, 255, 1);
+}
+
+.header-subtitle {
+  color: #555;
+  color: rgba(255, 255, 255, 0.4);
 }
