@@ -1,7 +1,15 @@
-<section>
-  <ul class="post-list">
-    {{ range .Site.RegularPages }}
-      <li><a href="{{.Permalink}}">{{ .Title }}</a></li>
-    {{ end }}
-  </ul>
+<section class="post-list">
+  <div class="l-wide">
+    <ul>
+      {{ range .Site.RegularPages }}
+        <li>
+          <div class="post-list-item">
+            <h3 class="post-list-title">
+              <a href="{{.Permalink}}">{{ .Title }}</a>
+            </h3>
+          </div>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
 <section>

@@ -5,6 +5,7 @@ import "./global.css";
 import "../layouts/partials/header.css";
 import "../layouts/partials/home.css";
 import "../layouts/partials/article.css";
+import "../layouts/partials/post-list.css";
 
 function main() {
   // Initialization script here!
