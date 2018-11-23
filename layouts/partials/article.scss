@@ -1,3 +1,5 @@
+@import "vars";
+
 .article-metadata {
   margin: 50px 0;
 }
@@ -36,7 +38,7 @@
 }
 
 .article-content {
-  font-size: 20px;
+  font-size: $fontsize-2;
   width: 660px;
   margin: 0 auto;
 }
