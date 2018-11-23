@@ -1,7 +1,34 @@
+.article-metadata {
+  margin: 50px 0;
+}
+
 .article-title {
-    text-align: center;
+  text-align: center;
+  line-height: 1;
+  margin: 0;
+  font-size: 40px;
+}
+
+.article-date {
+  color: #aaa;
+  color: rgba(0, 0, 0, 0.5);
+  display: block;
+  text-align: center;
+  margin-top: 5px;
 }
 
 .article-banner img {
   width: 100%;
+}
+
+.article-tags {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 25px 0 0;
+  padding: 0;
+}
+
+.article-tags-item {
+  margin: 0 5px;
 }
