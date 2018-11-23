@@ -1,0 +1,8 @@
+.post-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.post-list-item {
+  border-bottom: 1px solid #ddd;
+}
