@@ -1,11 +1,11 @@
 import unregisterServiceWorker from "./service-worker";
 
 import "normalize.css/normalize.css";
-import "./global.css";
-import "../layouts/partials/header.css";
-import "../layouts/partials/home.css";
-import "../layouts/partials/article.css";
-import "../layouts/partials/post-list.css";
+import "./global.scss";
+import "../layouts/partials/header.scss";
+import "../layouts/partials/home.scss";
+import "../layouts/partials/article.scss";
+import "../layouts/partials/post-list.scss";
 
 function main() {
   // Initialization script here!
