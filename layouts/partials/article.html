@@ -4,6 +4,20 @@
       <div class="article-title">
         <h1>{{ .Title }}</h1>
       </div>
+
+      <div class="article-metadata">
+        <time class="article-date">
+          {{ .Date.Format "Jan 2, 2006" }}
+        </time>
+
+        {{ if .Params.tags }}
+          <ul id="article-tags">
+            {{ range $tag := .Params.tags }}
+              <li><a href="/tags/{{ $tag | urlize }}">#{{ $tag }}</a> </li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      </div>
     </div>
 
     {{ if .Params.customBanner }}
@@ -15,24 +29,6 @@
     {{ end }}
 
     <div class="l-wide">
-      <div class="article-metadata">
-        <time class="article-date">
-          {{ .Date.Format "Jan 2, 2006" }}
-        </time>
-
-        <div class="article-author">
-          {{ .Site.Params.DefaultAuthor }}
-        </div>
-
-        {{ if .Params.tags }}
-          <ul id="article-tags">
-            {{ range $tag := .Params.tags }}
-              <li><a href="/tags/{{ $tag | urlize }}">#{{ $tag }}</a> </li>
-            {{ end }}
-          </ul>
-        {{ end }}
-      </div>
-
       <div class="article-content">{{ .Content }}</div>
     </div>
   </article>
