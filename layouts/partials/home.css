@@ -1,5 +1,5 @@
 .intro {
-  background: #002945;
+  background: #111;
   padding: 0 0 40px;
 }
 
@@ -11,22 +11,9 @@
   margin-bottom: 36px;
 }
 
-.intro-title,
-.intro-description {
-  font-weight: 400;
-  text-align: center;
-}
-
-.intro-title {
-  color: #eee;
-  color: rgba(255, 255, 255, 0.99);
-  font-size: 36px;
-  margin: 0 0 10px;
-}
-
-.intro-description {
-  color: #eee;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 20px;
-  margin: 0;
+.intro-text{
+  color: #fff;
+  color: rgba(255, 255, 255, 1);
+  font-size: 80px;
+  margin: 150px 0 100px;
 }
