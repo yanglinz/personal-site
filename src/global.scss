@@ -1,4 +1,4 @@
-/* typography */
+// typography
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial,
@@ -11,7 +11,7 @@ a {
   color: rgb(25, 139, 247);
 }
 
-/* layout */
+// layout
 
 html {
   box-sizing: border-box;
@@ -27,5 +27,4 @@ html {
   width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
-  overflow: hidden;
 }
