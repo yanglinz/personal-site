@@ -31,6 +31,7 @@ html {
 .l-wide {
   padding: 0 20px;
   margin: 0 auto;
+  overflow-y: hidden;
 }
 
 @media (min-width: $break-3) {
