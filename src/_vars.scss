@@ -1,5 +1,11 @@
-/* modular scale */
-/* https://www.modularscale.com/?20&px&1.141 */
+// media query breakpoints
+
+$mbp-1: 320px;
+$mbp-2: 760px;
+$mbp-3: 1220px;
+
+// modular scale
+// https://www.modularscale.com/?20&px&1.141
 
 $fontsize-1: 16px;
 $fontsize-2: 20px;
@@ -8,8 +14,8 @@ $fontsize-4: 40px;
 $fontsize-5: 56px;
 $fontsize-6: 80px;
 
-/* colors */
-/* https://www.colorbox.io/#steps=5#hue_start=125#hue_end=204#hue_curve=easeInQuad#sat_start=5#sat_end=100#sat_curve=easeOutQuad#sat_rate=130#lum_start=100#lum_end=50#lum_curve=easeOutQuad*/
+// colors
+// https://www.colorbox.io/#steps=5#hue_start=125#hue_end=204#hue_curve=easeInQuad#sat_start=5#sat_end=100#sat_curve=easeOutQuad#sat_rate=130#lum_start=100#lum_end=50#lum_curve=easeOutQuad
 
 $color-1: #eefff0;
 $color-2: #5bf377;
