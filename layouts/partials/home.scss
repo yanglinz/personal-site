@@ -1,6 +1,7 @@
+@import "vars";
+
 .intro {
   background: #111;
-  padding: 0 0 40px;
 }
 
 .intro-border-top {
@@ -8,12 +9,24 @@
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   height: 1px;
   width: 100%;
-  margin-bottom: 36px;
 }
 
 .intro-text {
   color: #fff;
-  color: rgba(255, 255, 255, 1);
-  font-size: 80px;
-  margin: 150px 0 100px;
+  font-size: $fontsize-5;
+  margin: 100px 0;
+}
+
+@media (min-width: $break-2) {
+  .intro-text {
+    font-size: $fontsize-7;
+    margin: 150px 0;
+  }
+}
+
+@media (min-width: $break-3) {
+  .intro-text {
+    font-size: $fontsize-7;
+    margin: 25vh 0;
+  }
 }
