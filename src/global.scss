@@ -1,3 +1,5 @@
+@import "vars";
+
 // typography
 
 body {
@@ -11,7 +13,7 @@ a {
   color: rgb(25, 139, 247);
 }
 
-// layout
+// global
 
 html {
   box-sizing: border-box;
@@ -23,8 +25,13 @@ html {
   box-sizing: inherit;
 }
 
+// layout
+
 .l-wide {
-  width: 1280px;
-  margin: 0 auto;
   padding: 0 20px;
+  margin: 0 auto;
+}
+
+@media (max-width: $mbp-3) {
+  width: 1200px;
 }
