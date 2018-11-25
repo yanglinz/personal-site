@@ -13,8 +13,9 @@
   margin: 0;
 }
 
-@media (min-width: $break-3) {
-  .header-title .header-subtitle {
+@media (min-width: $break-2) {
+  .header-title,
+  .header-subtitle {
     font-size: $fontsize-2;
   }
 }
