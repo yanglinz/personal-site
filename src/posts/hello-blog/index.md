@@ -1,6 +1,10 @@
 ---
-title: Hello World
-date: "2015-05-01T22:12:03.284Z"
+title: Hello blog!
+date: "2018-10-01T00:00:00.000Z"
+tags:
+  - announcement
 ---
 
-This is my first post on my new fake blog! How exciting!
+This is my new blog. There are lots of others like it, but this is mine :)
+
+Expect to see thoughts on technology and programming!

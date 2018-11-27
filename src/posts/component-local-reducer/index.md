@@ -1,8 +1,6 @@
 ---
 title: Component local reducer
-slug: component-local-reducer
-date: 2018-11-15T00:00:00-00:00
-draft: true
+date: "2018-11-01T00:00:00.000Z"
 ---
 
 When you see this piece of code, what comes to your mind first?
