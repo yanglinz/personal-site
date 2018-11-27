@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from "gatsby";
 import Header from "./header";
 
 import "normalize.css/normalize.css";
+import "./global.scss";
 import "./layout.css";
 
 const QUERY = graphql`
