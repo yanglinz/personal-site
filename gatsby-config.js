@@ -30,6 +30,12 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     "gatsby-transformer-remark",
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        includePaths: [`${__dirname}/src`]
+      }
+    },
 
     // Transformers
     "gatsby-transformer-sharp",
