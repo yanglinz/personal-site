@@ -1,19 +1,39 @@
 import React from "react";
-import { Link } from "gatsby";
+import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import Image from "../components/image";
 
-const IndexPage = () => (
-  <Layout>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: "300px", marginBottom: "1.45rem" }}>
+export const QUERY = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          excerpt
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+          }
+        }
+      }
+    }
+  }
+`;
+
+function IndexPage() {
+  return (
+    <Layout>
+      <h1>Hi people</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
       <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-);
+    </Layout>
+  );
+}
 
 export default IndexPage;
