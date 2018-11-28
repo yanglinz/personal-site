@@ -4,10 +4,10 @@ import "./intro.scss";
 
 function Intro() {
   return (
-    <div class="Intro">
-      <div class="l-wide">
-        <div class="Intro-border-top" />
-        <h1 class="Intro-text">Software Tinkerer</h1>
+    <div className="Intro">
+      <div className="l-wide">
+        <div className="Intro-border-top" />
+        <h1 className="Intro-text">Software Tinkerer</h1>
       </div>
     </div>
   );
