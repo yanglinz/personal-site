@@ -23,7 +23,7 @@ function Layout(props) {
     <StaticQuery
       query={QUERY}
       render={data => (
-        <>
+        <React.Fragment>
           <Helmet
             title={data.site.siteMetadata.title}
             meta={[
@@ -35,7 +35,7 @@ function Layout(props) {
           </Helmet>
           <Header siteTitle={data.site.siteMetadata.title} />
           {children}
-        </>
+        </React.Fragment>
       )}
     />
   );
