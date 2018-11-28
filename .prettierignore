@@ -1,3 +1,4 @@
+.cache
 dist/
 assets/build/
 public/
