@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Layout from "../app/layout";
-import Image from "../components/image";
+import Intro from "../app/intro";
 
 export const QUERY = graphql`
   query {
@@ -28,10 +28,7 @@ export const QUERY = graphql`
 function IndexPage() {
   return (
     <Layout>
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <Image />
+      <Intro />
     </Layout>
   );
 }

@@ -1,31 +1,31 @@
-@import "vars";
+@import "app/vars";
 
-.intro {
+.Intro {
   background: #111;
 }
 
-.intro-border-top {
+.Intro-border-top {
   border-top: 1px solid #333;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   height: 1px;
   width: 100%;
 }
 
-.intro-text {
+.Intro-text {
   color: #fff;
   font-size: $fontsize-5;
   margin: 100px 0;
 }
 
 @media (min-width: $break-2) {
-  .intro-text {
+  .Intro-text {
     font-size: $fontsize-7;
     margin: 150px 0;
   }
 }
 
 @media (min-width: $break-3) {
-  .intro-text {
+  .Intro-text {
     font-size: $fontsize-7;
     margin: 25vh 0;
   }
