@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  build_js:
+  build:
     docker:
       - image: circleci/node:8-browsers
     steps:
@@ -17,26 +17,10 @@ jobs:
             - node_modules
       - run:
           name: Run build
-          command: yarn run build:parcel
+          command: yarn run build
       - persist_to_workspace:
           root: .
           paths:
-            - assets
-
-  build_hugo:
-    docker:
-      - image: cibuilds/hugo:latest
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run:
-          name: Build
-          command: hugo
-      - persist_to_workspace:
-          root: .
-          paths:
-            - assets
             - public
 
   deploy_static:
@@ -58,14 +42,10 @@ workflows:
   version: 2
   main:
     jobs:
-      - build_js
-      - build_hugo:
-          requires:
-            - build_js
+      - build
       - deploy_static:
           requires:
-            - build_js
-            - build_hugo
+            - build
           filters:
             branches:
               only: master
