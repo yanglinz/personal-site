@@ -2,7 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 
-import Header from "./header";
+import Header from "../components/header";
 
 import "normalize.css/normalize.css";
 import "../styles/global.scss";
