@@ -40,7 +40,13 @@ module.exports = {
     // Transformers
     "gatsby-transformer-sharp",
     {
-      resolve: "gatsby-transformer-remark"
+      resolve: "gatsby-transformer-remark",
+      options: {
+        gfm: true,
+        commonmark: true,
+        footnotes: true,
+        pedantic: true
+      }
     }
   ]
 };
