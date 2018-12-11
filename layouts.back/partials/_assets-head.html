@@ -1,6 +1,0 @@
-{{ if .Site.BuildDrafts }}
-  <link rel="stylesheet" href="http://localhost:1234/index.css">
-{{ else }}
-  {{ $mainStyle := resources.Get "assets/build/index.css" | fingerprint }}
-  <link rel="stylesheet" href="{{ $mainStyle.RelPermalink }}">
-{{ end }}
