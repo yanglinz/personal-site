@@ -1,0 +1,11 @@
+@import "styles/vars";
+
+.Post-title {
+  font-size: $fontsize-3;
+}
+
+@media (min-width: $break-2) {
+  .Post-title {
+    font-size: $fontsize-4;
+  }
+}

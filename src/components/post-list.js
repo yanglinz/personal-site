@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "gatsby";
 
+import "./post-list.scss";
+
 function Post(props) {
   const { fields, frontmatter } = props;
 
