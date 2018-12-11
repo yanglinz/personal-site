@@ -38,7 +38,7 @@ function BlogPostTemplate(props) {
             </div>
           </div>
 
-          <div className="l-wide">
+          <div className="l-narrow">
             <div
               className="BlogPost-content"
               dangerouslySetInnerHTML={{ __html: post.html }}

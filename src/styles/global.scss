@@ -42,3 +42,15 @@ html {
 @media (min-width: $break-3) {
   width: 1200px;
 }
+
+.l-narrow {
+  padding: 0 20px;
+  margin: 0 auto;
+  overflow-y: hidden;
+}
+
+@media (min-width: $break-2) {
+  .l-narrow {
+    width: 660px;
+  }
+}
