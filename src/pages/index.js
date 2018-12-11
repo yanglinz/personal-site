@@ -6,13 +6,13 @@ import Intro from "../components/intro";
 import PostList from "../components/post-list";
 
 export const INDEX_QUERY = graphql`
-  query {
+  query IndexPage {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id

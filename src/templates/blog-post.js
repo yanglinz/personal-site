@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 
 export const BLOG_POST_QUERY = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostTemplate($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt
