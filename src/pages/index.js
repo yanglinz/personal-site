@@ -5,7 +5,7 @@ import Layout from "../app/layout";
 import Intro from "../components/intro";
 import PostList from "../components/post-list";
 
-graphql`
+export const INDEX_QUERY = graphql`
   query {
     site {
       siteMetadata {
