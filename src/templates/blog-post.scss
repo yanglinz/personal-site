@@ -1,0 +1,26 @@
+@import "styles/vars";
+
+.BlogPost-metadata {
+  margin: $space-3 0;
+}
+
+.BlogPost-title {
+  text-align: center;
+  line-height: 1;
+  margin: 0 0 12px;
+  font-size: $fontsize-6;
+}
+
+.BlogPost-date {
+  color: #aaa;
+  color: rgba(0, 0, 0, 0.5);
+  display: block;
+  text-align: center;
+  font-size: $fontsize-3;
+}
+
+.BlogPost-content {
+  font-size: $fontsize-3;
+  width: 660px;
+  margin: 0 auto;
+}
