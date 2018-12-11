@@ -2,6 +2,11 @@
 
 // typography
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   color: #222;
   font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial,
