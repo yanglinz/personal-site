@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from "gatsby";
 
 graphql`
   query BlogPostBySlug($slug: String!) {
