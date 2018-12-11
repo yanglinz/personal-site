@@ -8,19 +8,37 @@
   text-align: center;
   line-height: 1;
   margin: 0 0 12px;
-  font-size: $fontsize-6;
+  font-size: $fontsize-5;
+}
+
+@media (min-width: $break-2) {
+  .BlogPost-title {
+    font-size: $fontsize-6;
+  }
 }
 
 .BlogPost-date {
   color: #aaa;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.7);
   display: block;
   text-align: center;
-  font-size: $fontsize-3;
+  font-size: $fontsize-1;
+}
+
+@media (min-width: $break-2) {
+  .BlogPost-date {
+    font-size: $fontsize-2;
+  }
 }
 
 .BlogPost-content {
-  font-size: $fontsize-3;
+  font-size: $fontsize-2;
   width: 660px;
   margin: 0 auto;
+}
+
+@media (min-width: $break-2) {
+  .BlogPost-content {
+    font-size: $fontsize-3;
+  }
 }
