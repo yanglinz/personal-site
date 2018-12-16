@@ -3,7 +3,7 @@ const path = require("path");
 const _ = require("lodash");
 const { createFilePath } = require("gatsby-source-filesystem");
 
-function createPages({ graphql, actions }) {
+exports.createPages = function createPages({ graphql, actions }) {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
@@ -53,9 +53,9 @@ function createPages({ graphql, actions }) {
       })
     );
   });
-}
+};
 
-function onCreateNode({ node, actions, getNode }) {
+exports.onCreateNode = function onCreateNode({ node, actions, getNode }) {
   const { createNodeField } = actions;
 
   if (node.internal.type === "MarkdownRemark") {
@@ -66,7 +66,4 @@ function onCreateNode({ node, actions, getNode }) {
       value
     });
   }
-}
-
-exports.createPages = createPages;
-exports.onCreateNode = onCreateNode;
+};
