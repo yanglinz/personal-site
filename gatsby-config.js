@@ -29,7 +29,6 @@ module.exports = {
     // Plugins
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
-    "gatsby-transformer-remark",
     {
       resolve: `gatsby-plugin-sass`,
       options: {
@@ -42,6 +41,15 @@ module.exports = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 660
+            }
+          },
+          "gatsby-remark-prismjs"
+        ],
         gfm: true,
         commonmark: true,
         footnotes: true,
