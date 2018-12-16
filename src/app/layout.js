@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 
 import Header from "../components/header";
+import Footer from "../components/footer";
 
 import "normalize.css/normalize.css";
 import "../styles/global.scss";
@@ -35,6 +36,7 @@ function Layout(props) {
           </Helmet>
           <Header siteTitle={data.site.siteMetadata.title} />
           {children}
+          <Footer />
         </React.Fragment>
       )}
     />

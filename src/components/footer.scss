@@ -1,0 +1,11 @@
+@import "styles/vars";
+
+.Footer {
+  padding: $space-3 0;
+}
+
+.Footer-copyright {
+  color: #777;
+  font-size: $fontsize-1;
+  text-align: center;
+}
