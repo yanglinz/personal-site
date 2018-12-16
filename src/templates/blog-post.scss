@@ -35,6 +35,10 @@
   font-size: $fontsize-2;
 }
 
+.BlogPost-content p:first-child {
+  margin-top: 0;
+}
+
 @media (min-width: $break-2) {
   .BlogPost-content {
     font-size: $fontsize-3;
