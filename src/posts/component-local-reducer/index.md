@@ -52,7 +52,52 @@ The good news here is that there's a really easy way to take advantage of them
 in regular React components.
 
 ```js
-// Hello world
+// Example reducer
+function lightswitchReducer(state, action) {
+  switch (action.type) {
+    case "LIGHTSWITCH_OFF": {
+      return { lightSwitchOff: true };
+    }
+    case "LIGHTSWITCH_ON": {
+      return { lightSwitchOff: false };
+    }
+    case "LIGHTSWTICH_TOGGLE": {
+      return { lightSwitchOff: !state.lightSwitchOff };
+    }
+    default: {
+      return state;
+    }
+  }
+}
+
+class LightSwitch extends React.Component {
+  state = {
+    lightSwitchOff: true
+  };
+
+  // Make shift dispatch function
+  dispatch = action => {
+    this.setState(prevState => localReducer(prevState, action));
+  };
+
+  render() {
+    return (
+      <div>
+        Light switch is {this.state.lightSwitchOff ? "off" : "on"}
+        <br />
+        <button onClick={() => this.dispatch({ type: "LIGHTSWITCH_OFF" })}>
+          Turn off
+        </button>
+        <button onClick={() => this.dispatch({ type: "LIGHTSWITCH_ON" })}>
+          Turn on
+        </button>
+        <button onClick={() => this.dispatch({ type: "LIGHTSWTICH_TOGGLE" })}>
+          Toggle
+        </button>
+      </div>
+    );
+  }
+}
 ```
 
 And component local reducers bring the same benefit that reducers in Redux does!
