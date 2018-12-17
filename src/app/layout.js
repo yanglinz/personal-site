@@ -7,6 +7,7 @@ import Footer from "../components/footer";
 
 import "normalize.css/normalize.css";
 import "../styles/global.scss";
+import "./layout.scss";
 
 const QUERY = graphql`
   query SiteTitleQuery {
@@ -34,9 +35,11 @@ function Layout(props) {
           >
             <html lang="en" />
           </Helmet>
-          <Header siteTitle={data.site.siteMetadata.title} />
-          {children}
-          <Footer />
+          <div className="Layout">
+            <Header siteTitle={data.site.siteMetadata.title} />
+            <div className="Layout-content">{children}</div>
+            <Footer />
+          </div>
         </React.Fragment>
       )}
     />
