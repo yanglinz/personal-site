@@ -30,10 +30,11 @@ function someReducer(state, action) {
 
 Unfortunately, I think reducers have become synonymous with Redux. And I think
 there is now the common misconception that the reducer pattern is _exclusive_ to
-Redux. I want to dispel this, because I think it's a pattern that's useful
-outside of Redux global store, such as React's component local state.
+Redux. I want to dispel this, because I think it's a general pattern that's
+useful outside of Redux, such as React's component local state.
 
-If we decompose Redux into its essential parts, it comes down to 3 things.
+If we decompose Redux into its essential parts, it's essentially made of 3
+separate parts:
 
 1.  A `dispatch` method to drive state change through actions.
 2.  A reducer function that models state changes as pure functions.
@@ -57,12 +58,13 @@ in regular React components.
 And component local reducers bring the same benefit that reducers in Redux does!
 It lets you tease apart state transitions logic out of components by moving it
 outside to a reducer function that can be tested and reasoned about
-independently. And I think that's a huge win!
+independently. And I think that's a huge win for component that may have complex
+state!
 
 Note that I'm not advocating converting all your component local state from
 regular `this.setState()` to this pattern tomorrow. But I think taking advantage
-of the reducer pattern in a few select components that have complicated state is
-a good idea can be a good idea.
+of the reducer pattern in a few select components is a good idea can be a good
+idea.
 
-Update: Looks like there will be a first class API for this with the upcoming
-hooks proposal in the form of `userReducer` :tada:.
+> Update: Looks like there will be a first class API for this with the upcoming
+> hooks proposal in the form of `userReducer` :tada:.
