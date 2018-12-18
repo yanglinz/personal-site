@@ -40,7 +40,9 @@ html {
 }
 
 @media (min-width: $break-3) {
-  width: 1200px;
+  .l-wide {
+    max-width: 1200px;
+  }
 }
 
 .l-narrow {
@@ -51,6 +53,6 @@ html {
 
 @media (min-width: $break-2) {
   .l-narrow {
-    width: 660px;
+    max-width: 660px;
   }
 }
