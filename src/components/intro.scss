@@ -15,17 +15,13 @@
   color: #fff;
   font-size: $fontsize-5;
   margin: 100px 0;
-}
 
-@media (min-width: $break-2) {
-  .Intro-text {
+  @media (min-width: $break-2) {
     font-size: $fontsize-7;
     margin: 150px 0;
   }
-}
 
-@media (min-width: $break-3) {
-  .Intro-text {
+  @media (min-width: $break-3) {
     font-size: $fontsize-7;
     margin: 25vh 0;
   }

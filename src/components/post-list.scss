@@ -2,10 +2,8 @@
 
 .Post-title {
   font-size: $fontsize-3;
-}
 
-@media (min-width: $break-2) {
-  .Post-title {
+  @media (min-width: $break-2) {
     font-size: $fontsize-4;
   }
 }

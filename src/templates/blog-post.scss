@@ -9,10 +9,8 @@
   line-height: 1;
   margin: 0 0 12px;
   font-size: $fontsize-5;
-}
 
-@media (min-width: $break-2) {
-  .BlogPost-title {
+  @media (min-width: $break-2) {
     font-size: $fontsize-6;
   }
 }
@@ -23,25 +21,29 @@
   display: block;
   text-align: center;
   font-size: $fontsize-1;
-}
 
-@media (min-width: $break-2) {
-  .BlogPost-date {
+  @media (min-width: $break-2) {
     font-size: $fontsize-2;
   }
 }
 
 .BlogPost-content {
   font-size: $fontsize-2;
+
+  @media (min-width: $break-2) {
+    font-size: $fontsize-3;
+  }
 }
 
 .BlogPost-content p:first-child {
   margin-top: 0;
 }
 
-@media (min-width: $break-2) {
-  .BlogPost-content {
-    font-size: $fontsize-3;
+.BlogPost-content p > code {
+  font-size: $fontsize-1;
+
+  @media (min-width: $break-2) {
+    font-size: $fontsize-2;
   }
 }
 
@@ -59,10 +61,8 @@
   font-size: $fontsize-1;
   overflow-x: scroll;
   max-width: 100%;
-}
 
-@media (min-width: $break-2) {
-  .BlogPost-content pre {
+  @media (min-width: $break-2) {
     font-size: $fontsize-2;
   }
 }

@@ -37,10 +37,8 @@ html {
   padding: 0 20px;
   margin: 0 auto;
   overflow-y: hidden;
-}
 
-@media (min-width: $break-3) {
-  .l-wide {
+  @media (min-width: $break-3) {
     max-width: 1440px;
   }
 }
@@ -49,10 +47,8 @@ html {
   padding: 0 20px;
   margin: 0 auto;
   overflow-y: hidden;
-}
 
-@media (min-width: $break-2) {
-  .l-narrow {
+  @media (min-width: $break-2) {
     max-width: 660px;
   }
 }

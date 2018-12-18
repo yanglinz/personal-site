@@ -11,11 +11,8 @@
   font-weight: 400;
   line-height: 1.2;
   margin: 0;
-}
 
-@media (min-width: $break-2) {
-  .Header-title,
-  .Header-subtitle {
+  @media (min-width: $break-2) {
     font-size: $fontsize-2;
   }
 }
