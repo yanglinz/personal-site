@@ -106,8 +106,7 @@ state!
 
 Note that I'm not advocating converting all your component local state from
 regular `this.setState()` to this pattern tomorrow. But I think taking advantage
-of the reducer pattern in a few select components is a good idea can be a good
-idea.
+of the reducer pattern in a few select components is a good idea.
 
 > Update: Looks like there will be a first class API for this with the upcoming
 > hooks proposal in the form of `userReducer` 🎉.
