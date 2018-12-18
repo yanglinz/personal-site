@@ -101,7 +101,7 @@ And component local reducers bring the same benefit that reducers in Redux does!
 It lets you tease apart state transitions logic out of components by moving it
 outside to a reducer function that can be tested and reasoned about
 independently. And I think that's a huge win for component that may have complex
-state!
+local state!
 
 Note that I'm not advocating converting all your component local state from
 regular `this.setState()` to this pattern tomorrow. But I think taking advantage
