@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 
 import Layout from "../app/layout";
 
+import "prismjs/themes/prism-solarizedlight.css";
 import "./blog-post.scss";
 
 export const BLOG_POST_QUERY = graphql`
