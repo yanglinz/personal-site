@@ -47,8 +47,8 @@
 
 .BlogPost-content blockquote {
   border-left: 5px solid $color-2;
-  margin: 0;
-  padding: $space-1 / 1.5 $space-2;
+  margin: $space-2 0;
+  padding: $space-1 / 2 $space-2;
 }
 
 .BlogPost-content blockquote p:last-child {

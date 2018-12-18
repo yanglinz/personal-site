@@ -44,7 +44,7 @@ Reducers are just regular Javascript functions! And by virtue of being just a
 function, it is a very useful, generic idea that readily cross framework and
 language boundaries.
 
-https://twitter.com/dan_abramov/status/1046147094099243008
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">When people say “reducers” they hear Redux. But Redux API was intentionally designed so that you can take your reducers anywhere. Think about it: you don’t import Redux in your reducers.</p>&mdash; Dan Abramov (@dan_abramov) <a href="https://twitter.com/dan_abramov/status/1046147094099243008?ref_src=twsrc%5Etfw">September 29, 2018</a></blockquote>
 
 The good news here is that there's a really easy way to take advantage of them
 in regular React components.
