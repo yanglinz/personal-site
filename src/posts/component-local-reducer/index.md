@@ -1,5 +1,5 @@
 ---
-title: Component local reducer
+title: Component local reducers
 date: "2018-11-01T00:00:00.000Z"
 ---
 
