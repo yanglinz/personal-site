@@ -3,8 +3,6 @@ title: Component local reducer
 date: "2018-11-01T00:00:00.000Z"
 ---
 
-# Component local reducers
-
 The reducer pattern, popularized in the Javascript ecosystem by Redux, is
 awesome!
 
@@ -112,4 +110,4 @@ of the reducer pattern in a few select components is a good idea can be a good
 idea.
 
 > Update: Looks like there will be a first class API for this with the upcoming
-> hooks proposal in the form of `userReducer` :tada:.
+> hooks proposal in the form of `userReducer` 🎉.
