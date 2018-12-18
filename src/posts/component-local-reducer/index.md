@@ -31,8 +31,7 @@ there is now the common misconception that the reducer pattern is _exclusive_ to
 Redux. I want to dispel this, because I think it's a general pattern that's
 useful outside of Redux, such as React's component local state.
 
-If we decompose Redux into its essential parts, it's essentially made of 3
-separate parts:
+If we decompose Redux into its essential parts, it consists of 3 separate parts:
 
 1.  A `dispatch` method to drive state change through actions.
 2.  A reducer function that models state changes as pure functions.
