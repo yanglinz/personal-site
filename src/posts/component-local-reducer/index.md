@@ -37,11 +37,10 @@ If we decompose Redux into its essential parts, it consists of 3 separate parts:
 2.  A reducer function that models state changes as pure functions.
 3.  Mechanism to subscribe a React component to state changes.
 
-Note that the reducer is just _independent_ sub-component of Redux.
+Note that the reducer is just an _independent_ sub-component of Redux.
 
 Reducers are just regular Javascript functions! And by virtue of being just a
-function, it is a very useful, generic idea that readily cross framework and
-language boundaries.
+function, it readily cross framework and language boundaries.
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">When people say “reducers” they hear Redux. But Redux API was intentionally designed so that you can take your reducers anywhere. Think about it: you don’t import Redux in your reducers.</p>&mdash; Dan Abramov (@dan_abramov) <a href="https://twitter.com/dan_abramov/status/1046147094099243008?ref_src=twsrc%5Etfw">September 29, 2018</a></blockquote>
 
@@ -72,7 +71,7 @@ class LightSwitch extends React.Component {
     lightSwitchOff: true
   };
 
-  // Make shift dispatch function
+  // Makeshift dispatch function
   dispatch = action => {
     this.setState(prevState => localReducer(prevState, action));
   };
