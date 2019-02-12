@@ -1,6 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: "Yanglin Zhao"
+    author: "Yanglin Zhao",
+    title: "Yanglin Zhao",
+    description:
+      "Yanglin Zhao is a Full Stack developer. This is his digital home to write about programming topics and post his projects."
   },
   plugins: [
     // Sources
