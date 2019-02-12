@@ -13,6 +13,8 @@ const QUERY = graphql`
   query SiteTitleQuery {
     site {
       siteMetadata {
+        author
+        description
         title
       }
     }
@@ -26,14 +28,14 @@ function Layout(props) {
       query={QUERY}
       render={data => (
         <React.Fragment>
-          <Helmet
-            title={data.site.siteMetadata.title}
-            meta={[
-              { name: "description", content: "Personal site of Yanglin Zhao" },
-              { name: "keywords", content: "programming" }
-            ]}
-          >
+          <Helmet>
             <html lang="en" />
+            <title>{data.site.siteMetadata.title}</title>
+            <meta
+              name="description"
+              content={data.site.siteMetadata.description}
+            />
+            <meta name="author" content={data.site.siteMetadata.author} />
           </Helmet>
           <div className="Layout">
             <Header siteTitle={data.site.siteMetadata.title} />
