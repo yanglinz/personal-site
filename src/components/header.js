@@ -14,7 +14,7 @@ function Header(props) {
               {siteTitle}
             </Link>
           </h1>
-          <span className="Header-subtitle">hello (at) yanglinzhao.com</span>
+          <span className="Header-subtitle">hi (at) yanglinzhao.com</span>
         </div>
       </div>
     </div>
