@@ -1,7 +1,10 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+const Sentry = require("@sentry/browser");
 
-// You can delete this file if you're not using it
+function setupSentry() {
+  Sentry.init({
+    dsn: "https://fa92afd5ccf24709a570b5f143f7c675@sentry.io/1463043"
+  });
+  window.Sentry = Sentry;
+}
+
+exports.onClientEntry = setupSentry;
