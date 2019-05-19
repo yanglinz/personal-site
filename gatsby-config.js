@@ -38,6 +38,17 @@ module.exports = {
         includePaths: [`${__dirname}/src`]
       }
     },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: "UA-140456696-1",
+        head: false,
+        exclude: [],
+        sampleRate: 100,
+        siteSpeedSampleRate: 100,
+        cookieDomain: "yanglinzhao.com",
+      },
+    },
 
     // Transformers
     "gatsby-transformer-sharp",
