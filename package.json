@@ -9,6 +9,7 @@
     "format": "prettier --write './**/*.{js,css,md}'"
   },
   "dependencies": {
+    "@sentry/browser": "^5.2.1",
     "normalize.css": "^8.0.1",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
@@ -29,6 +30,7 @@
     "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.19",
     "node-sass": "^4.12.0",
-    "prettier": "^1.17.1"
+    "prettier": "^1.17.1",
+    "sharp": "^0.22.1"
   }
 }
