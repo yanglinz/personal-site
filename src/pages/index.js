@@ -21,7 +21,7 @@ export const INDEX_QUERY = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "MMM.DD.YYYY")
             title
           }
         }

@@ -11,6 +11,12 @@ function Post(props) {
       <h3 className="Post-title">
         <Link to={fields.slug}>{frontmatter.title}</Link>
       </h3>
+
+      <p className="Post-date">
+        <Link to={fields.slug}>
+          <time>{frontmatter.date}</time>
+        </Link>
+      </p>
     </div>
   );
 }
