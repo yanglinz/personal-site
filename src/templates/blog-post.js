@@ -17,7 +17,7 @@ export const BLOG_POST_QUERY = graphql`
       }
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "MMMM Mo, YYYY")
       }
     }
   }
