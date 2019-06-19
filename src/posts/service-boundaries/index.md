@@ -5,11 +5,17 @@ date: "2019-06-10T00:00:00.000Z"
 
 ![Rice farm divisions](./banner.jpg)
 
-(Micro) services architecture has been a rather hot topic for a few years now.
-I've now worked for a few teams that has either started off on or transitioned
-to this pattern, and over time I've formed my own nuanced opinion having worked
-in service oriented systems for a few years now. But it's always been tacit
-knowledge; I could never put into words or explain this nuance.
+Microservices architecture has been a rather hot topic for a few years now. I've
+now worked for a few teams that has either started off on or transitioned to
+this pattern, and over time I think I've become a skeptic.
+
+While there's no shortage of blog posts or conference talks with titles along
+the lines of "We migrated to a Microservices architecture and it's been
+awesome!", I'd argue that it's only likely viable for a narrow context. But
+until recently, I couldn't really articulate why I'd felt this skepticism. It's
+always been tacit knowledge in my mind that for 90% of teams and companies,
+fragmenting an application into little services will leave you in a worse off
+state than before.
 
 Last week, I was listening to
 [an episode of Software Engineering Daily](https://softwareengineeringdaily.com/2019/05/13/facebook-engineering-with-pete-hunt/)
@@ -58,7 +64,9 @@ There are rarely anything in software engineering that can be categorized as a
 good idea in all contexts, or conversely a terrible idea in all contexts. But I
 do wish that as an industry, we're a little bit more critical about
 understanding the root problems that we're addressing with a proposed solution,
-and the nuance and context of what made it successful for others.
+and the nuance and context of what made it successful for others. For services,
+it's much less about an architectural pattern, than it is about communication
+patterns between humans and teams.
 
 As time goes on, and your organizational structure and product evolves, you may
 find that changing the boundaries of your services, restructuring teams, and
