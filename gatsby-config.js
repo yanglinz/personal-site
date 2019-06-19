@@ -3,7 +3,8 @@ module.exports = {
     author: "Yanglin Zhao",
     title: "Yanglin Zhao",
     description:
-      "Yanglin Zhao is a Full Stack developer. This is his digital home to write about programming topics and post his projects."
+      "Yanglin Zhao is a Full Stack developer. This is his digital home to write about programming topics and post his projects.",
+    siteUrl: "https://yanglinzhao.com"
   },
   plugins: [
     // Sources
@@ -31,6 +32,7 @@ module.exports = {
 
     // Plugins
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     {
       resolve: "gatsby-plugin-sass",
