@@ -5,6 +5,8 @@ import Layout from "../app/layout";
 import Intro from "../components/intro";
 import PostList from "../components/post-list";
 
+import "./index.scss";
+
 export const INDEX_QUERY = graphql`
   query IndexPage {
     site {
@@ -30,6 +32,18 @@ export const INDEX_QUERY = graphql`
   }
 `;
 
+function Section(props) {
+  const { title, children } = props;
+  return (
+    <div className="Section">
+      <div className="l-wide">
+        <h2 className="Section-title">{title}</h2>
+        {children}
+      </div>
+    </div>
+  );
+}
+
 function parsePosts(data) {
   const posts = data.allMarkdownRemark.edges;
   return posts.map(p => p.node);
@@ -39,7 +53,9 @@ function IndexPage(props) {
   return (
     <Layout>
       <Intro />
-      <PostList posts={parsePosts(props.data)} />
+      <Section title="Blog Posts">
+        <PostList posts={parsePosts(props.data)} />
+      </Section>
     </Layout>
   );
 }

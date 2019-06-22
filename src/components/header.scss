@@ -2,14 +2,14 @@
 
 .Header {
   background: #111;
-  padding: $space-3 0;
+  padding: $space-2 0;
 }
 
 .Header-title,
 .Header-subtitle {
   font-size: $fontsize-1;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.67;
   margin: 0;
 
   @media (min-width: $break-2) {

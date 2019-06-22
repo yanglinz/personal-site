@@ -25,9 +25,7 @@ function PostList(props) {
   const { posts } = props;
   return (
     <section className="PostList">
-      <div className="l-wide">
-        {posts && posts.map(p => <Post key={p.id} {...p} />)}
-      </div>
+      {posts && posts.map(p => <Post key={p.id} {...p} />)}
     </section>
   );
 }
