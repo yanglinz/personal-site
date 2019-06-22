@@ -12,7 +12,7 @@
 }
 
 .Intro-text {
-  color: #fff;
+  color: $color-mono-1;
   font-size: $fontsize-5;
   margin: $space-4 0;
 
@@ -22,7 +22,7 @@
   }
 
   @media (min-width: $break-3) {
-    font-size: $fontsize-7;
-    margin: 25vh 0;
+    font-size: $fontsize-8;
+    margin: $space-5 0;
   }
 }
