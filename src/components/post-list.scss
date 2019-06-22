@@ -1,24 +1,13 @@
 @import "styles/vars";
 
 .Post {
-  display: flex;
-  align-items: center;
-  margin: 24px 0;
-}
+  margin-bottom: $space-sm-4;
 
-.Post-date {
-  margin: 0;
-  margin-left: 12px;
-}
-
-.Post-date a {
-  color: #999;
-  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
-    "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
-    "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
-    monospace;
-  font-size: $fontsize-1;
-  font-weight: normal;
+  @media (min-width: $break-2) {
+    margin-bottom: $space-sm-4;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .Post-title {
@@ -27,5 +16,16 @@
 
   @media (min-width: $break-2) {
     font-size: $fontsize-4;
+    margin-right: 12px;
   }
+}
+
+.Post-date {
+  margin: 0;
+}
+
+.Post-date a {
+  color: $color-mono-4;
+  font-size: $fontsize-1;
+  font-weight: normal;
 }

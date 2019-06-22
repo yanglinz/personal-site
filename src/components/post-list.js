@@ -12,7 +12,7 @@ function Post(props) {
         <Link to={fields.slug}>{frontmatter.title}</Link>
       </h3>
 
-      <p className="Post-date">
+      <p className="Post-date f-mono">
         <Link to={fields.slug}>
           <time>{frontmatter.date}</time>
         </Link>
@@ -25,9 +25,7 @@ function PostList(props) {
   const { posts } = props;
   return (
     <section className="PostList">
-      <div className="l-wide">
-        {posts && posts.map(p => <Post key={p.id} {...p} />)}
-      </div>
+      {posts && posts.map(p => <Post key={p.id} {...p} />)}
     </section>
   );
 }

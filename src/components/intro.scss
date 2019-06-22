@@ -14,11 +14,11 @@
 .Intro-text {
   color: #fff;
   font-size: $fontsize-5;
-  margin: 100px 0;
+  margin: $space-4 0;
 
   @media (min-width: $break-2) {
     font-size: $fontsize-7;
-    margin: 150px 0;
+    margin: $space-5 0;
   }
 
   @media (min-width: $break-3) {

@@ -16,8 +16,7 @@
 }
 
 .BlogPost-date {
-  color: #aaa;
-  color: rgba(0, 0, 0, 0.7);
+  color: $color-mono-4;
   display: block;
   text-align: center;
   font-size: $fontsize-1;
@@ -48,7 +47,7 @@
 }
 
 .BlogPost-content blockquote {
-  border-left: 5px solid $color-3;
+  border-left: 5px solid $color-mono-2;
   margin: $space-2 0;
   padding: $space-1 / 2 $space-2;
 }
