@@ -12,7 +12,7 @@ function Post(props) {
         <Link to={fields.slug}>{frontmatter.title}</Link>
       </h3>
 
-      <p className="Post-date">
+      <p className="Post-date f-mono">
         <Link to={fields.slug}>
           <time>{frontmatter.date}</time>
         </Link>
