@@ -20,6 +20,7 @@ exports.createPages = function createPages({ graphql, actions }) {
               }
               frontmatter {
                 title
+                publish
               }
             }
           }
@@ -30,11 +31,17 @@ exports.createPages = function createPages({ graphql, actions }) {
     resolve(
       graphql(postsQuery).then(result => {
         if (result.errors) {
-          console.log(result.errors);
+          console.error(result.errors);
           reject(result.errors);
         }
 
-        const posts = result.data.allMarkdownRemark.edges;
+        let posts = result.data.allMarkdownRemark.edges;
+        if (process.env.NODE_ENV !== "development") {
+          posts = posts.filter(post => {
+            return post.node.frontmatter.publish;
+          });
+        }
+
         posts.forEach((post, index) => {
           const previous =
             index === posts.length - 1 ? null : posts[index + 1].node;

@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "../app/layout";
 import Intro from "../components/intro";
 import PostList from "../components/post-list";
+import * as env from "../app/env";
 
 import "./index.scss";
 
@@ -25,6 +26,7 @@ export const INDEX_QUERY = graphql`
           frontmatter {
             date(formatString: "MMM.DD.YYYY")
             title
+            publish
           }
         }
       }
@@ -45,8 +47,14 @@ function Section(props) {
 }
 
 function parsePosts(data) {
-  const posts = data.allMarkdownRemark.edges;
-  return posts.map(p => p.node);
+  let posts = data.allMarkdownRemark.edges;
+  posts = posts.map(p => p.node);
+
+  if (!env.DEV) {
+    posts = posts.filter(p => p.frontmatter.publish);
+  }
+
+  return posts;
 }
 
 function IndexPage(props) {
