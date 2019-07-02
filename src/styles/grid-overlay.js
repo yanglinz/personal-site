@@ -4,7 +4,7 @@ import "./grid-overlay.scss";
 
 function GridOverlay() {
   let disableGrid = false;
-  // disableGrid = true;
+  disableGrid = true;  // comment this out to display grid
   if (disableGrid) {
     return null;
   }
