@@ -1,13 +1,16 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
+import * as env from "../app/env";
 
 import "normalize.css/normalize.css";
 import "../styles/global.scss";
 import "./layout.scss";
+
+const GridOverlay = React.lazy(() => import("../styles/grid-overlay"));
 
 const QUERY = graphql`
   query SiteTitleQuery {
@@ -42,6 +45,11 @@ function Layout(props) {
             <div className="Layout-content">{children}</div>
             <Footer />
           </div>
+          {env.DEV ? (
+            <Suspense fallback={null}>
+              <GridOverlay />
+            </Suspense>
+          ) : null}
         </React.Fragment>
       )}
     />
