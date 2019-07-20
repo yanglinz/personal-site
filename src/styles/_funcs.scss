@@ -16,7 +16,13 @@
 }
 
 @function fsize($factor) {
-  $ratio: 1.28;
-  $base-size: 16px;
-  @return $base-size * pow($ratio, $factor);
+  $ratio-sm: 1.15;
+  $ratio-lg: 1.3;
+  $base-size: 14px;
+
+  @if $factor < 5 {
+    @return $base-size * pow($ratio-sm, $factor);
+  }
+
+  @return $base-size * pow($ratio-lg, $factor);
 }
