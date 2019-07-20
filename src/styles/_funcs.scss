@@ -1,0 +1,22 @@
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  }
+  @if $exponent < 0 {
+    @for $i from 1 through abs($exponent) {
+      $value: $value / $number;
+    }
+  }
+
+  @return $value;
+}
+
+@function fsize($factor) {
+  $ratio: 1.28;
+  $base-size: 16px;
+  @return $base-size * pow($ratio, $factor);
+}
