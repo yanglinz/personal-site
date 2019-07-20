@@ -1,10 +1,14 @@
-.GridOverlay {
+.GridProvider {
+  position: relative;
+}
+
+.GridProvider-grid {
   overflow: visible;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vmax;
+  bottom: 0;
+  right: 0;
   z-index: 1;
   pointer-events: none;
   background: linear-gradient(
@@ -13,4 +17,8 @@
     transparent 1px
   );
   background-size: 100% 26px;
+}
+
+.GridProvider-content {
+  position: relative;
 }
