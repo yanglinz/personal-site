@@ -1,3 +1,5 @@
+@import "styles/vars";
+
 .GridProvider {
   position: relative;
 }
@@ -16,7 +18,11 @@
     rgba(207, 0, 15, 0.75) 1px,
     transparent 1px
   );
-  background-size: 100% 26px;
+  background-size: 100% 16px * $base-line-height;
+
+  @media (min-width: $break-3) {
+    background-size: 100% 18px * $base-line-height;
+  }
 }
 
 .GridProvider-content {
