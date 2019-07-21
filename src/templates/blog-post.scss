@@ -1,67 +1,66 @@
 @import "styles/vars";
-
-.BlogPost-metadata {
-  margin: $space-3 0;
-}
+@import "styles/funcs";
 
 .BlogPost-title {
+  @include vrhythm(6);
+  margin-top: $base-line-height * 2rem;
+  margin-bottom: $base-line-height * 0.1rem;
   text-align: center;
-  line-height: 1;
-  margin: 0 0 12px;
-  font-size: $fontsize-5;
+}
 
-  @media (min-width: $break-2) {
-    font-size: $fontsize-6;
-  }
+.BlogPost-metadata {
+  margin-bottom: $base-line-height * 0.1rem;
 }
 
 .BlogPost-date {
   color: $color-mono-4;
   display: block;
   text-align: center;
-  font-size: $fontsize-1;
 
-  @media (min-width: $break-2) {
-    font-size: $fontsize-2;
-  }
+  @include vrhythm(0);
+  margin: 0;
+  padding: 0;
 }
 
 .BlogPost-content {
-  font-size: $fontsize-2;
-
-  @media (min-width: $break-2) {
-    font-size: $fontsize-3;
+  p {
+    @include vrhythm(0);
   }
-}
 
-.BlogPost-content p:first-child {
-  margin-top: 0;
-}
-
-.BlogPost-content p > code {
-  font-size: $fontsize-1;
-
-  @media (min-width: $break-2) {
-    font-size: $fontsize-2;
+  h1 {
+    @include vrhythm(5);
   }
-}
 
-.BlogPost-content blockquote {
-  border-left: 5px solid $color-mono-2;
-  margin: $space-2 0;
-  padding: $space-1 / 2 $space-2;
-}
+  h2 {
+    @include vrhythm(4);
+  }
 
-.BlogPost-content blockquote p:last-child {
-  margin-bottom: 0;
-}
+  h3 {
+    @include vrhythm(3);
+  }
 
-.BlogPost-content pre {
-  font-size: $fontsize-1;
-  overflow-x: scroll;
-  max-width: 100%;
+  h4 {
+    @include vrhythm(2);
+  }
 
-  @media (min-width: $break-2) {
-    font-size: $fontsize-2;
+  h5 {
+    @include vrhythm(1);
+  }
+
+  h6 {
+    @include vrhythm(0);
+  }
+
+  blockquote {
+    border-left: 5px solid $color-mono-2;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 $base-line-height * 1rem;
+  }
+
+  pre {
+    @include vrhythm(-1);
+    overflow-x: scroll;
+    max-width: 100%;
   }
 }

@@ -5,7 +5,7 @@ import * as env from "../app/env";
 import "./grid-provider.scss";
 
 function GridProvider(props) {
-  if (!env.DEV) {
+  if (!env.DEV || true) {
     return props.children;
   }
 
