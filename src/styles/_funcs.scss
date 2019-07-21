@@ -13,18 +13,6 @@
   @return $value;
 }
 
-@function fsize($factor) {
-  $ratio-sm: 1.15;
-  $ratio-lg: 1.3;
-  $base-size: 14px;
-
-  @if $factor < 5 {
-    @return $base-size * pow($ratio-sm, $factor);
-  }
-
-  @return $base-size * pow($ratio-lg, $factor);
-}
-
 $base-line-height: 1.612;
 
 // Loosely follows https://nowodzinski.pl/syncope/
