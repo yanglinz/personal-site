@@ -3,17 +3,20 @@
 
 .Header {
   background: #111;
-  padding: $space-1 0;
+  padding: 1rem * $base-line-height 0;
 }
 
 .Header-title,
 .Header-subtitle {
-  font-size: fsize(0);
+  @include vrhythm(-1);
   font-weight: 400;
+  padding: 0;
   margin: 0;
 
   @media (min-width: $break-2) {
-    font-size: fsize(1);
+    @include vrhythm(0);
+    padding: 0;
+    margin: 0;
   }
 }
 

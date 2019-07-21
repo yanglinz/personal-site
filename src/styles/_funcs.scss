@@ -25,6 +25,8 @@
   @return $base-size * pow($ratio-lg, $factor);
 }
 
+$base-line-height: 1.612;
+
 // Loosely follows https://nowodzinski.pl/syncope/
 @mixin vrhythm($level) {
   // Defines constants
