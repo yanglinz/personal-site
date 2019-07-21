@@ -12,7 +12,7 @@ html {
   font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
-  line-height: 1.6;
+  line-height: $global-line-height;
 
   @media (min-width: $break-3) {
     font-size: 18px;
