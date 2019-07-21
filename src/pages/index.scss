@@ -1,22 +1,15 @@
 @import "styles/vars";
+@import "styles/funcs";
 
 .Section {
-  margin-top: $space-1;
-
-  @media (min-width: $break-2) {
-    margin-top: $space-2;
-  }
+  margin-top: $base-line-height * 0.25rem;
 }
 
 .Section-title {
   color: $color-mono-4;
-  font-size: $fontsize-3;
+  @include vrhythm(2);
 
   @media (min-width: $break-2) {
-    font-size: $fontsize-4;
-  }
-
-  @media (min-width: $break-3) {
-    font-size: $fontsize-5;
+    @include vrhythm(3);
   }
 }

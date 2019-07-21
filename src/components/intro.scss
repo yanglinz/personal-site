@@ -1,4 +1,5 @@
 @import "styles/vars";
+@import "styles/funcs";
 
 .Intro {
   background: #111;
@@ -11,18 +12,23 @@
   width: 100%;
 }
 
-.Intro-text {
-  color: $color-mono-1;
-  font-size: $fontsize-5;
-  margin: $space-4 0;
+.Intro-text-parent {
+  padding: $base-line-height * 2rem 0;
 
   @media (min-width: $break-2) {
-    font-size: $fontsize-7;
-    margin: $space-5 0;
+    padding: $base-line-height * 5rem 0;
+  }
+}
+
+.Intro-text {
+  color: $color-mono-1;
+  @include vrhythm(8);
+
+  @media (min-width: $break-2) {
+    @include vrhythm(10);
   }
 
   @media (min-width: $break-3) {
-    font-size: $fontsize-8;
-    margin: $space-5 0;
+    @include vrhythm(12);
   }
 }

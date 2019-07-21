@@ -1,4 +1,5 @@
 @import "styles/vars";
+@import "styles/funcs";
 
 // typography
 
@@ -7,11 +8,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  color: #222;
+html {
   font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: $base-line-height;
+
+  @media (min-width: $break-3) {
+    font-size: 18px;
+  }
+}
+
+body {
+  color: #222;
 }
 
 a {
@@ -51,6 +60,7 @@ html {
 }
 
 .l-narrow {
+  max-width: 520px;
   padding: 0 20px;
   margin: 0 auto;
   overflow-y: hidden;

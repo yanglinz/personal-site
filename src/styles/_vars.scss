@@ -1,32 +1,10 @@
+// typography
+$base-line-height: 1.612;
+
 // media query breakpoints
 $break-1: 320px;
 $break-2: 760px;
 $break-3: 1224px;
-
-// spacing
-$space-1: 26px;
-$space-2: 42px;
-$space-3: 67px;
-$space-4: 109px;
-$space-4: 109px;
-$space-5: 178px;
-
-// small spacing
-$space-sm-1: 4px;
-$space-sm-2: 6px;
-$space-sm-3: 8px;
-$space-sm-4: 12px;
-
-// modular scale
-// https://www.modularscale.com/?20&px&1.141
-$fontsize-1: 14px;
-$fontsize-2: 16px;
-$fontsize-3: 20px;
-$fontsize-4: 28px;
-$fontsize-5: 40px;
-$fontsize-6: 56px;
-$fontsize-7: 80px;
-$fontsize-8: 106px;
 
 // colors
 // https://www.colorbox.io/#steps=5#hue_start=55#hue_end=235#hue_curve=easeInQuad#sat_start=5#sat_end=80#sat_curve=easeOutQuad#sat_rate=120#lum_start=100#lum_end=30#lum_curve=easeOutQuad
@@ -37,13 +15,13 @@ $color-4: #68d635;
 $color-5: #0f9d74;
 $color-6: #03094d;
 
-$color-mono-1: #F0F4F8;
-$color-mono-2: #D9E2EC;
-$color-mono-3: #BCCCDC;
-$color-mono-4: #9FB3C8;
-$color-mono-5: #829AB1;
-$color-mono-6: #627D98;
+$color-mono-1: #f0f4f8;
+$color-mono-2: #d9e2ec;
+$color-mono-3: #bcccdc;
+$color-mono-4: #9fb3c8;
+$color-mono-5: #829ab1;
+$color-mono-6: #627d98;
 $color-mono-7: #486581;
-$color-mono-8: #334E68;
-$color-mono-9: #243B53;
-$color-mono-10: #243B53;
+$color-mono-8: #334e68;
+$color-mono-9: #243b53;
+$color-mono-10: #243b53;
