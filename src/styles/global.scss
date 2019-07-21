@@ -1,4 +1,5 @@
 @import "styles/vars";
+@import "styles/funcs";
 
 // typography
 
@@ -12,6 +13,10 @@ html {
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
   line-height: 1.6;
+
+  @media (min-width: $break-3) {
+    font-size: 18px;
+  }
 }
 
 body {

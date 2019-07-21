@@ -1,31 +1,38 @@
 @import "styles/vars";
+@import "styles/funcs";
 
 .Post {
-  margin-bottom: $space-sm-4;
-
-  @media (min-width: $break-2) {
-    margin-bottom: $space-sm-4;
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: $base-line-height * 0.5rem;
 }
 
 .Post-title {
-  font-size: $fontsize-3;
+  @include vrhythm(2);
   margin: 0;
+  padding: 0;
 
   @media (min-width: $break-2) {
-    font-size: $fontsize-4;
-    margin-right: 12px;
+    @include vrhythm(3);
+    margin: 0;
+    padding: 0;
   }
 }
 
 .Post-date {
+  @include vrhythm(-1);
   margin: 0;
+  padding: 0;
+
+  @media (min-width: $break-2) {
+    @include vrhythm(-1);
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .Post-date a {
   color: $color-mono-4;
-  font-size: $fontsize-1;
   font-weight: normal;
 }
