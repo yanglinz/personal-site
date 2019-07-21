@@ -7,7 +7,9 @@ function Intro() {
     <div className="Intro">
       <div className="l-wide">
         <div className="Intro-border-top" />
-        <h1 className="Intro-text">Software Tinkerer</h1>
+        <div className="Intro-text-parent">
+          <h1 className="Intro-text">Software Tinkerer</h1>
+        </div>
       </div>
     </div>
   );
