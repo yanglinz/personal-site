@@ -13,3 +13,16 @@
     @include vrhythm(3);
   }
 }
+
+.About-text {
+  color: $color-mono-9;
+  max-width: 42rem;
+
+  @include vrhythm(1);
+  padding-top: 0;
+
+  @media (min-width: $break-2) {
+    @include vrhythm(2);
+    padding-top: 0;
+  }
+}
