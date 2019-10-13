@@ -41,6 +41,12 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-plugin-canonical-urls",
+      options: {
+        siteUrl: "https://yanglinzhao.com"
+      }
+    },
+    {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "UA-140456696-1",
