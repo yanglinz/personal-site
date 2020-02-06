@@ -34,6 +34,6 @@
     "gatsby-transformer-sharp": "^2.3.6",
     "node-sass": "^4.13.0",
     "prettier": "^1.19.1",
-    "sharp": "^0.23.3"
+    "sharp": "^0.24.0"
   }
 }
