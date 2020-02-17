@@ -242,15 +242,16 @@ it in NewRelic or end up rewriting parts of my application to something that is
 officially supported (e.g. migrating from [Django RQ](https://python-rq.org/) to
 [Celery](http://www.celeryproject.org/)), which feels backwards to me.
 
-And this is why I think honeycomb's approach of creating a bunch of toolset
+And this is why I think Honeycomb's approach of creating a bunch of toolset
 around a core abstraction of events is better:
 
 - Want to observe GraphQL API? Sure, just send a trace span from at each
   resolver.
 - Want to observe background jobs? Sure, send a each job as an event.
 - Want to observe client side Javascript? Sure, send certain key events as data.
-- Want to observe things that aren't applications like CI pipelines? Sure, send
-  each build and sub-jobs as events.
+- Want to observe things that aren't applications like
+  [CI pipelines](https://github.com/honeycombio/buildevents)? Sure, send each
+  build and sub-jobs as events.
 
 It's just a lot more flexible and gives you room to grow. I'm excited to slowly
 add more context and see how that might give me more insights.
