@@ -4,29 +4,32 @@ date: "2020-02-01T00:00:00.000Z"
 publish: false
 ---
 
-At work I'd recently inherited a "legacy" application. It was this little
-internal tool built with [Django](https://www.djangoproject.com/) that helped us
-schedule and stitch advertisements into live video feeds for local
+At work I recently inherited a "legacy" application. It was an internal tool
+built with [Django](https://www.djangoproject.com/) that helped us schedule and
+stitch advertisements into live video feeds for local
 [PBS](https://www.pbs.org/) stations. For the rest of this post, I'll refer to
 the application as `scruffy`.
 
-Though I wasn't really involved with its creation, I know `scruffy` was built
-right around the same time that we were exploring and evaluating docker
-container orchestration as an engineering organization. The team that worked
-initially on `scruffy` happened to choose [Kubernetes](https://kubernetes.io/),
-and ran it on a freshly spun-up cluster. Development seemed to go quickly and
-life was good!
+Though I wasn't really involved with its original development, `scruffy` was
+built right around the same time that, as an engineering organization, we were
+exploring and evaluating docker container orchestration. The team that worked
+initially on `scruffy` spun up a new [Kubernetes](https://kubernetes.io/) and
+ran the application on it. This worked pretty well for the purpose of shipping
+an MVP.
 
-But overtime, most other teams eventually settled on
+Overtime though, we never managed to dedicate enough time to maintain the
+Kubernetes cluster properly. Most other teams eventually settled on
 [AWS ECS](https://aws.amazon.com/ecs/), which did eventually win out as the
-de-facto runtime for docker applications at PBS. And so here was this little
-application, a lonely pod running in a outdated Kubernetes cluster that became
-neglected over the years.
+de-facto runtime for docker applications at PBS. Deployment became increasingly
+flaky due to random issues that would crop up with K8s or Helm, and so
+development slowed to a crawl post-MVP. And so here was this little application,
+a lonely pod running in a outdated Kubernetes cluster that became neglected over
+the years.
 
 The reason for the revived interest in `scruffy` is that we realized that live
 advertisement scheduling would play an important role on the feature roadmap.
-This meant that we would need to actually implement new features on scruffy
-instead of just keeping the application on life-support.
+This meant that we would need to actually implement new features instead of just
+keeping the application on life-support.
 
 So our small feature team of 2 engineers would help with its migration off of
 the legacy Kubernetes cluster onto the better managed AWS ECS cluster. Along the
@@ -104,11 +107,11 @@ mind.
 - So what's actually causing the `504`s? Am I on the right track or is this a
   red herring?
 
-While I think NewRelic is fantastic for seeing if there's an anomaly, I always
-felt that it was unreasonably difficult to extract the underlying cause of the
-anomaly or an actionable fix for it. In most cases, I had to rely on my domain
-knowledge of the application and intuitions, but I had neither for `scruffy`
-given that I've only recently adopted the project.
+While I think NewRelic is fantastic for seeing if there's something obviously
+wrong, I always felt that it was unreasonably difficult to extract the
+underlying cause of the anomaly or an actionable fix for it. In most cases, I
+had to rely on my domain knowledge of the application and intuitions, but I had
+neither for `scruffy` given that I've only recently adopted the project.
 
 ### Honeycomb
 
@@ -137,7 +140,7 @@ outliers.
 
 One of the immensely useful feature that synergizes&trade; with the heatmap view
 is the BubbleUp tab. It's an UI where you can select a region of your dataset,
-and see how its attributes differ from the baseline.
+and see if/how some of its attributes differ from the baseline.
 
 ![Honeycomb bubbleup](./honeycomb-bubble-1.png)
 
@@ -193,8 +196,8 @@ class BazSerializer(serializers.ModelSerializer):
     bars = BarSerializer(many=True, read_only=True)
 ```
 
-When you have nested serializers, DRF will be lazy by default, making a database
-request in a loop. The fix here is to explicitly tell Django to prefetch related
+When you have nested serializers, DRF will be lazy by default, creating distinct
+queries in a loop. The fix here is to explicitly tell Django to prefetch related
 fields. There's a much better explanation of the problem and the fix
 [here](http://ses4j.github.io/2015/11/23/optimizing-slow-django-rest-framework-performance/).
 
@@ -206,56 +209,56 @@ balloon to 20+ seconds in certain cases, causing the intermittent 504s.
 In hindsight, this was fairly obvious bug that folks intimate with Django and
 DRF's pitfalls may be able to look for. But in `scruffy`'s case, the offending
 serializers were spread out over 3 disparate source files, and it's hard to
-guess that 3 innocent looking lines of code were to blame unless you were
-looking for N+1 errors.
+guess that 3 innocent looking lines of code were to blame unless you knew to
+look for N+1 errors.
 
 But ultimately, I think that's the beauty of tracing. It makes misbehaving IOs
-in your system apparant. It means that you don't have to rely on
-framework/domain expertise and make the leap in order to troubleshoot failures
-or performance problems.
+in your system apparant. We all build up a model of how our software works
+inside our head. And it is at best a simplification of how the software actually
+works. At worst, it's just plain wrong. Being able to rely on actual observed
+timings of what happens in our software is a game changer!
 
-I think this is the point where the value of something like Honeycomb's tracing
-became clear to me. We all build up a model of how our software works inside our
-head. And it is at best a simplification of how the software actually works. At
-worst, it's just plain wrong. But with tracing, we get to rely on observed
-timings of IOs and key function calls instead of our best guesses inside our
-head.
+# Limitation of APMs like NewRelic
 
-# Some closing insights
-
-I'm still getting used to the UI. There seems to be an endless way of slicing
-the data, I feel like I'm only beginning to scratch the surface of what's
-possible.
-
-But one thing I'm starting to really appreciate is how first class citizen
-structured events are. You can attach any meaningful context you want to it, and
-use that to aid help you troubleshoot performance problems and failures.
+As I get more and more used to using the Honeycomb UI, I'm starting to really
+appreciate how much of a first class citizen structured events are. You can
+attach any meaningful context you want to it, and query/aggregate based on those
+context.
 
 And I think that made me aware of what I felt was missing with traditional APMs
 like NewRelic. They make it delightfully easy to get started, but at the cost of
 imposing their pre-conceived notion of what an "Application" and how it should
-be monitored. And they make it difficult to go outside the boundary of their
-data. Want to monitor a GraphQL API? It's difficult because it breaks their
+be monitored. And they make it difficult to explore outside that boundary.
+
+Want to monitor a GraphQL API? It's difficult because it breaks their
 [assumption of what an endpoint is](https://discuss.newrelic.com/t/feature-idea-performance-monitoring-for-nodejs-graphql-application/80710).
 Want to monitor Django RQ background workers? They don't have official support
 so
 [you're largely on your own](https://discuss.newrelic.com/t/reporting-django-web-app-django-rq-worker/5282).
-You're essentially stuck trying to monitor a generic Django application,
+Anytime I've run into this sort of limitation, I either just give up monitoring
+it in NewRelic or end up rewriting parts of my application to something that is
+officially supported (e.g. migrating from [Django RQ](https://python-rq.org/) to
+[Celery](http://www.celeryproject.org/)), which feels backwards to me.
 
 And this is why I think honeycomb's approach of creating a bunch of toolset
-around a core abstraction of events is better. And here's why:
+around a core abstraction of events is better:
 
 - Want to observe GraphQL API? Sure, just send a trace span from at each
   resolver.
-- Want to observe background jobs? Sure just attach a trace at each job.
-- Want to observe client side Javascript? Sure, send key events as data
-- Want to observe things that aren't applications like CI pipelines? Sure, just
-  attach at each build step.
+- Want to observe background jobs? Sure, send a each job as an event.
+- Want to observe client side Javascript? Sure, send certain key events as data.
+- Want to observe things that aren't applications like CI pipelines? Sure, send
+  each build and sub-jobs as events.
 
 It's just a lot more flexible and gives you room to grow. I'm excited to slowly
-add context and see how that might give me more insights. .
+add more context and see how that might give me more insights.
 
-## Conclusion
+## Closing thoughts
+
+Overall, I think promise of being able to see and understand your production
+system in a more granular way is realized. I'm still getting used to the UI.
+There seems to be an endless way of slicing the data, I feel like I'm only
+beginning to scratch the surface of what's possible.
 
 The last bit of insight is that while: It's a cool tool. Even though it's
 primarily marketed towards distributed systems and micro-services, I think it's
