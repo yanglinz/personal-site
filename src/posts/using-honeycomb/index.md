@@ -18,13 +18,13 @@ ran the application on it. This worked pretty well for the purpose of shipping
 an MVP.
 
 Overtime though, we never managed to dedicate enough time to maintain the
-Kubernetes cluster properly. Most other teams eventually settled on
-[AWS ECS](https://aws.amazon.com/ecs/), which did eventually win out as the
-de-facto runtime for docker applications at PBS. Deployment became increasingly
-flaky due to random issues that would crop up with K8s or Helm, and so
-development slowed to a crawl post-MVP. And so here was this little application,
-a lonely pod running in a outdated Kubernetes cluster that became neglected over
-the years.
+Kubernetes cluster properly. And eventually, most other teams settled on
+[AWS ECS](https://aws.amazon.com/ecs/) as the de-facto runtime for docker
+applications at PBS, which stole even more time and energy away from the K8s
+maintinence and upgrades. Deployment became increasingly flaky due to random
+issues that would crop up with K8s or Helm, and so development slowed to a crawl
+post-MVP. And so here was this little application, a lonely pod running in a
+outdated Kubernetes cluster that became neglected over the years.
 
 The reason for the revived interest in `scruffy` is that we realized that live
 advertisement scheduling would play an important role on the feature roadmap.
@@ -32,10 +32,12 @@ This meant that we would need to actually implement new features instead of just
 keeping the application on life-support.
 
 So our small feature team of 2 engineers would help with its migration off of
-the legacy Kubernetes cluster onto the better managed AWS ECS cluster. Along the
-way, we'd also wanted to knock off some obvious bugs and performance issues
-that'd had been largely ignored. This was a classic case of bit rot, and it
-definitely needed some TLC.
+the legacy Kubernetes cluster onto the better managed AWS ECS cluster. Perhaps
+more importantly, we'd also wanted to knock off some obvious bugs and
+performance issues along the way. These were fairly significant issues that'd
+had been largely ignored because of the difficulty/fear in deploying the
+application. This was a classic case of bit rot, and `scruffy` definitely needed
+some TLC.
 
 ## A new class of observability tools
 
@@ -204,7 +206,7 @@ fields. There's a much better explanation of the problem and the fix
 This seemed to be the root cause of `scruffy`'s performance issues on the
 `TimeslotWeeklyView`, creating O(N^2) queries, which easily meant thousands of
 serial Postgres queries for some users. This can cause the response duration to
-balloon to 20+ seconds in certain cases, causing the intermittent 504s.
+balloon to 20+ seconds in certain cases, causing the intermittent `504`s.
 
 In hindsight, this was fairly obvious bug that folks intimate with Django and
 DRF's pitfalls may be able to look for. But in `scruffy`'s case, the offending
@@ -255,11 +257,12 @@ add more context and see how that might give me more insights.
 
 ## Closing thoughts
 
-Overall, I think promise of being able to see and understand your production
-system in a more granular way is realized. I'm still getting used to the UI.
-There seems to be an endless way of slicing the data, I feel like I'm only
-beginning to scratch the surface of what's possible.
+Within just a week of using Honeycomb, we were able to identify and fix a fairly
+significant performance issue. I'm excited to explore more, since I feel like
+I'm only begining to scratch the surface of what can be queried and visualized.
 
-The last bit of insight is that while: It's a cool tool. Even though it's
-primarily marketed towards distributed systems and micro-services, I think it's
-still tremendously useful for Monoliths.
+One last bit of closing note is that: while I felt like tracing tools like
+Honeycomb may be marketed primarily for [microservices](/service-boundaries/), I
+still think they are immensely useful for traditional `LAMP`-stack
+variants/monoliths. Afterall, whether it's network calls or other forms of IO,
+it doesn't change our need to observe and understand the running system.
