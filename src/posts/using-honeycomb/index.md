@@ -1,7 +1,7 @@
 ---
 title: Observing a Django backend with Honeycomb.io
-date: "2020-02-01T00:00:00.000Z"
-publish: false
+date: "2020-02-17T00:00:00.000Z"
+publish: true
 ---
 
 At work I recently inherited a "legacy" application. It was an internal tool
