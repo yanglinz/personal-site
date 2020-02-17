@@ -37,10 +37,12 @@
 
   h3 {
     @include vrhythm(3);
+    color: $color-mono-6;
   }
 
   h4 {
     @include vrhythm(2);
+    color: $color-mono-6;
   }
 
   h5 {
