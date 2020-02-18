@@ -1,6 +1,6 @@
 ---
 title: Observing a Django backend with Honeycomb.io
-date: "2020-02-17T00:00:00.000Z"
+date: "2020-02-02T00:00:00.000Z"
 publish: true
 ---
 
