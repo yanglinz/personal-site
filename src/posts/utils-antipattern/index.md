@@ -27,7 +27,7 @@ grows seemingly without bounds. It becomes a mish-mash of all sorts of one-off
 functions. You start to get an uneasy feeling about adding any new functions to
 the pile because you begin to lose sense and judgement of whether your new
 function should even belong there. In its worst form, it may start to resemble
-an software equivalent of an episode of hoarders.
+the software equivalent of an episode of hoarders.
 
 I think the reason why the contents of these `utils` module grows out of bounds
 is because of the name itself. `util` is just too loose of a name; it gives no
@@ -39,8 +39,8 @@ selves. If we look at utility modules from that lens, we can see that the naming
 of `utils` does not really communicate _anything_ useful about what it should
 contain.
 
-Names should be narrow. It needs to give us programmers a sense of its domain
-and communicate about things that it can and can't represent.
+Names should give focus. It should commuicate a sense of its domain and its
+bounds.
 
 # Solutions
 
@@ -50,8 +50,8 @@ fixes.
 
 ### Solution 1: Split the `utils` module up and give each submodule a good name.
 
-If the problem is one of naming being too loose, the obvious solution is to come
-up with a better names.
+If the problem is one of names being too loose, the obvious solution is to come
+up with better names.
 
 Chances are, if you have a large `utils` module, they can be separated into
 logical groupings. For example, in a hypothetical web application codebase,
@@ -61,10 +61,10 @@ validation. In this cases, the easy way out would be to just create sub-modules
 within `util` with a name about its logical domain.
 
 ```js
+// Before
 import { flatten, getLogger, validateAddress } from "./utils.js";
-```
 
-```js
+// After
 import { flatten } from "./utils/array.js";
 import { getLogger } from "./utils/logging.js";
 import { validateAddress } from "./utils/array.js";
@@ -89,11 +89,12 @@ fleshing out code and fixed some corner case bugs for a new domain/feature.
 
 Placing a strict policy of never have a kitchen sink modules and always needing
 to properly name things may be setting ourselves up for failure. It may lead to
-premature/wrong abstraction early on in the process. I've found that having a
-given module designated as a "lost and found" of sorts can be a good mechanism
-for the team to temporarily put logic and defer actually coming up with a good
-name, as long as it's understood that we'll have to revisit and find a proper
-home for it.
+premature/wrong abstraction early on in the process.
+
+I've found that having a given module designated as a "lost and found" of sorts
+can be a good mechanism for the team to temporarily put logic and defer actually
+coming up with a good name, as long as it's understood that we'll have to
+revisit and find a proper home for it.
 
 ```js
 // unstableTemporaryUtils.js
