@@ -1,4 +1,4 @@
-.cache
+__sapper__/
+.cache/
 dist/
-assets/build/
-public/
+static/
