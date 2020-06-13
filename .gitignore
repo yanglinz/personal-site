@@ -29,7 +29,7 @@ public
 # Deployment
 .netlify
 
-# Terraform
-.terraform
-*.tfstate
-*.tfstate.*
+# Sapper
+/src/node_modules/@sapper/
+/cypress/screenshots/
+/__sapper__/
