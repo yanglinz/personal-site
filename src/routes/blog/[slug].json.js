@@ -1,12 +1,13 @@
 import * as manifest from "../../posts/manifest";
 
-export function get(req, res, next) {
+export async function get(req, res, next) {
   // the `slug` parameter is available because
   // this file is called [slug].json.js
   const { slug } = req.params;
 
-  if (manifest.hasPost(slug)) {
-    const data = manifest.getPost(slug);
+  const hasPost = await manifest.hasPost(slug);
+  if (hasPost) {
+    const data = await manifest.getPost(slug);
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify(data));
   } else {

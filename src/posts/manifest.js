@@ -10,33 +10,11 @@ const remarkFrontmatter = require("remark-frontmatter");
 const remarkFrontmatterExtract = require("remark-extract-frontmatter");
 const yaml = require("yaml").parse;
 
-const posts = [
-  {
-    title: "What is Sapper?",
-    slug: "what-is-sapper",
-    html: `Hello world!`
-  },
-  {
-    title: "How to use Sapper",
-    slug: "how-to-use-sapper",
-    html: `Hello world!`
-  },
-  {
-    title: "Why the name?",
-    slug: "why-the-name",
-    html: `Hello world!`
-  }
-];
-
-const postsBySlug = {};
-posts.forEach(p => {
-  postsBySlug[p.slug] = p;
-});
-
 const rootDir = path.join(__dirname, "../../..");
 const postsDir = path.join(rootDir, "src/posts");
 
-function parseMarkdown(path) {
+function parseMarkdown(slug) {
+  const postPath = path.join(postsDir, slug, "index.md");
   return new Promise((resolve, reject) => {
     unified()
       .use(remarkParse)
@@ -44,11 +22,35 @@ function parseMarkdown(path) {
       .use(remarkHighlight)
       .use(remarkFrontmatter)
       .use(remarkFrontmatterExtract, { yaml })
-      .process(vfile.readSync(path), (err, file) => {
+      .process(vfile.readSync(postPath), (err, file) => {
         if (err) {
           reject(err);
         } else {
-          resolve(file);
+          const postData = {
+            ...file.data,
+            slug,
+            html: file.contents
+          };
+          resolve(postData);
+        }
+      });
+  });
+}
+
+function parseMarkdownFrontmatter(slug) {
+  const postPath = path.join(postsDir, slug, "index.md");
+  return new Promise((resolve, reject) => {
+    unified()
+      .use(remarkParse)
+      .use(remarkHtml)
+      .use(remarkFrontmatter)
+      .use(remarkFrontmatterExtract, { yaml })
+      .process(vfile.readSync(postPath), (err, file) => {
+        if (err) {
+          reject(err);
+        } else {
+          const postData = { ...file.data, slug };
+          resolve(postData);
         }
       });
   });
@@ -57,17 +59,14 @@ function parseMarkdown(path) {
 export async function getManifest() {
   let posts = await fs.promises.readdir(postsDir, { withFileTypes: true });
   posts = posts.filter(d => d.isDirectory());
-  posts = posts.map(p => path.join(postsDir, p.name, "index.md"));
-
-  const parsedPosts = await Promise.all(posts.map(parseMarkdown));
-
-  return posts;
+  posts = posts.map(p => p.name);
+  return await Promise.all(posts.map(parseMarkdownFrontmatter));
 }
 
-export function hasPost(slug) {
-  return Boolean(postsBySlug[slug]);
+export async function hasPost(slug) {
+  return fs.existsSync(path.join(postsDir, slug));
 }
 
-export function getPost(slug) {
-  return postsBySlug[slug];
+export async function getPost(slug) {
+  return await parseMarkdown(slug);
 }
