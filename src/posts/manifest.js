@@ -1,3 +1,15 @@
+const path = require("path");
+const fs = require("fs");
+
+const vfile = require("to-vfile");
+const unified = require("unified");
+const remarkParse = require("remark-parse");
+const remarkHtml = require("remark-html");
+const remarkHighlight = require("remark-highlight.js");
+const remarkFrontmatter = require("remark-frontmatter");
+const remarkFrontmatterExtract = require("remark-extract-frontmatter");
+const yaml = require("yaml").parse;
+
 const posts = [
   {
     title: "What is Sapper?",
@@ -21,7 +33,34 @@ posts.forEach(p => {
   postsBySlug[p.slug] = p;
 });
 
-export function getManifest() {
+const rootDir = path.join(__dirname, "../../..");
+const postsDir = path.join(rootDir, "src/posts");
+
+function parseMarkdown(path) {
+  return new Promise((resolve, reject) => {
+    unified()
+      .use(remarkParse)
+      .use(remarkHtml)
+      .use(remarkHighlight)
+      .use(remarkFrontmatter)
+      .use(remarkFrontmatterExtract, { yaml })
+      .process(vfile.readSync(path), (err, file) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(file);
+        }
+      });
+  });
+}
+
+export async function getManifest() {
+  let posts = await fs.promises.readdir(postsDir, { withFileTypes: true });
+  posts = posts.filter(d => d.isDirectory());
+  posts = posts.map(p => path.join(postsDir, p.name, "index.md"));
+
+  const parsedPosts = await Promise.all(posts.map(parseMarkdown));
+
   return posts;
 }
 
