@@ -55,16 +55,5 @@
         home
       </a>
     </li>
-    <li>
-      <a rel="prefetch" href="test">test</a>
-    </li>
-    <li>
-      <a
-        rel="prefetch"
-        aria-current={segment === 'blog' ? 'page' : undefined}
-        href="blog">
-        blog
-      </a>
-    </li>
   </ul>
 </nav>

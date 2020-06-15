@@ -30,8 +30,8 @@ export default {
         dev,
         hydratable: true,
         emitCss: true,
-        extensions: [".svelte", ".svx"],
-        preprocess: mdsvex({ extension: ".svx" })
+        extensions: [".svelte", ".md"],
+        preprocess: mdsvex({ extension: ".md" })
       }),
       resolve({
         browser: true,
@@ -81,8 +81,8 @@ export default {
       svelte({
         generate: "ssr",
         dev,
-        extensions: [".svelte", ".svx"],
-        preprocess: mdsvex({ extension: ".svx" })
+        extensions: [".svelte", ".md"],
+        preprocess: mdsvex({ extension: ".md" })
       }),
       resolve({
         dedupe: ["svelte"]
