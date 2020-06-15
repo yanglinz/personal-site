@@ -1,4 +1,4 @@
-import * as manifest from "../../posts/manifest";
+import * as manifest from "../../engine/content-manifest";
 
 export async function get(req, res) {
   const data = await manifest.getManifest();
