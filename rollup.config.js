@@ -2,9 +2,11 @@ import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 import commonjs from "@rollup/plugin-commonjs";
 import svelte from "rollup-plugin-svelte";
+import { mdsvex } from "mdsvex";
 import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup.js";
+import svelteImage from "svelte-image";
 import pkg from "./package.json";
 
 const mode = process.env.NODE_ENV;
@@ -15,6 +17,9 @@ const onwarn = (warning, onwarn) =>
   (warning.code === "CIRCULAR_DEPENDENCY" &&
     /[/\\]@sapper[/\\]/.test(warning.message)) ||
   onwarn(warning);
+
+const imageProcessor = svelteImage();
+const svxProcessor = mdsvex({ extension: ".svx" });
 
 export default {
   client: {
@@ -28,7 +33,9 @@ export default {
       svelte({
         dev,
         hydratable: true,
-        emitCss: true
+        emitCss: true,
+        extensions: [".svelte", ".svx"],
+        preprocess: [imageProcessor, svxProcessor]
       }),
       resolve({
         browser: true,
@@ -80,7 +87,9 @@ export default {
       }),
       svelte({
         generate: "ssr",
-        dev
+        dev,
+        extensions: [".svelte", ".svx"],
+        preprocess: [imageProcessor, svxProcessor]
       }),
       resolve({
         dedupe: ["svelte"]

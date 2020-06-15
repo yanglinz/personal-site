@@ -1,0 +1,9 @@
+<script>
+  import Image from "svelte-image";
+</script>
+
+# Hello world!
+
+Hello world 123!
+
+<Image src="successkid.jpg" />
