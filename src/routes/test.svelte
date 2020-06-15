@@ -1,9 +1,5 @@
-<script>
-  import Test from "./test.svx";
-</script>
-
 <svelte:head>
   <title>Hello world!</title>
 </svelte:head>
 
-<Test />
+<h1>Hello world!</h1>

@@ -1,7 +1,3 @@
-<script>
-  import Image from "svelte-image";
-</script>
-
 <style>
   h1,
   figure,
@@ -39,7 +35,7 @@
 <h1>Great success!</h1>
 
 <figure>
-  <Image src="successkid.jpg" />
+  <img alt="Success kid" src="successkid.jpg" />
   <figcaption>Have fun with Sapper!</figcaption>
 </figure>
 

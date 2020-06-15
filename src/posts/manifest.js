@@ -1,15 +1,6 @@
 const path = require("path");
 const fs = require("fs");
 
-const vfile = require("to-vfile");
-const unified = require("unified");
-const remarkParse = require("remark-parse");
-const remarkHtml = require("remark-html");
-const remarkHighlight = require("remark-highlight.js");
-const remarkFrontmatter = require("remark-frontmatter");
-const remarkFrontmatterExtract = require("remark-extract-frontmatter");
-const yaml = require("yaml").parse;
-
 const rootDir = path.join(__dirname, "../../..");
 const postsDir = path.join(rootDir, "src/posts");
 
