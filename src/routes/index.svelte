@@ -1,46 +1,31 @@
-<style>
-  h1,
-  figure,
-  p {
-    text-align: center;
-    margin: 0 auto;
+<script context="module">
+  export function preload({ params, query }) {
+    return this.fetch("api/manifest.json")
+      .then(r => r.json())
+      .then(posts => {
+        return { posts };
+      });
   }
+</script>
 
-  h1 {
-    font-size: 2.8em;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin: 0 0 0.5em 0;
-  }
-
-  figure {
-    margin: 0 0 1em 0;
-  }
-
-  p {
-    margin: 1em auto;
-  }
-
-  @media (min-width: 480px) {
-    h1 {
-      font-size: 4em;
-    }
-  }
-</style>
+<script>
+  export let posts;
+</script>
 
 <svelte:head>
-  <title>Sapper project template</title>
+  <title>Yanglin Zhao</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<h1>Software Tinkerer</h1>
 
-<figure>
-  <img alt="Success kid" src="successkid.jpg" />
-  <figcaption>Have fun with Sapper!</figcaption>
-</figure>
-
-<p>
-  <strong>
-    Try editing this file (src/routes/index.svelte) to test live reloading.
-  </strong>
-</p>
+<ul>
+  {#each posts as post}
+    <!-- we're using the non-standard `rel=prefetch` attribute to
+				tell Sapper to load the data for the page as soon as
+				the user hovers over the link or taps it, instead of
+				waiting for the 'click' event -->
+    <li>
+      <a rel="prefetch" href="blog/{post.slug}">{post.title}</a>
+    </li>
+  {/each}
+</ul>
