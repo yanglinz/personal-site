@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-  <title>Yanglin Zhao | Hello blog</title>
+  <title>Yanglin Zhao | Hello Blog</title>
 </svelte:head>
 
 <Content />
