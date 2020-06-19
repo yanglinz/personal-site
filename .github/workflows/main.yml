@@ -17,8 +17,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: super linter
-        uses: github/super-linter@v2.0.0
       - name: yarn caching prep
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
