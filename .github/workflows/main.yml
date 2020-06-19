@@ -29,7 +29,7 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn install
       - uses: yanglinz/vercel-action@v19
-        if: github.ref != "refs/heads/master"
+        if: github.ref != 'refs/heads/master'
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -37,7 +37,7 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: "."
       - uses: yanglinz/vercel-action@v19
-        if: github.ref == "refs/heads/master"
+        if: github.ref == 'refs/heads/master'
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
