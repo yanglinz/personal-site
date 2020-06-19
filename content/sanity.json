@@ -1,7 +1,7 @@
 {
   "root": true,
   "project": {
-    "name": "Blog with Sapper"
+    "name": "Personal Site"
   },
   "api": {
     "projectId": "77ts5kjn",
