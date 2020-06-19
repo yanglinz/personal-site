@@ -5,7 +5,7 @@
   "private": true,
   "workspaces": ["www"],
   "scripts": {
-    "start": "true"
+    "start": "(cd www && yarn start)"
   },
   "volta": {
     "node": "12.15.0",
