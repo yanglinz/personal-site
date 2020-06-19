@@ -28,6 +28,7 @@ public
 
 # Deployment
 .netlify
+.vercel
 
 # Terraform
 .terraform
