@@ -1,12 +1,11 @@
 {
-  "name": "personal-site",
+  "name": "@personal-site/www",
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
   "scripts": {
     "start": "gatsby develop",
-    "build": "gatsby build",
-    "format": "prettier --write './**/*.{js,css,md}'"
+    "build": "gatsby build"
   },
   "dependencies": {
     "@sentry/browser": "^5.7.0",
@@ -33,7 +32,6 @@
     "gatsby-transformer-remark": "^2.6.39",
     "gatsby-transformer-sharp": "^2.3.6",
     "node-sass": "^4.13.0",
-    "prettier": "^1.19.1",
     "sharp": "^0.24.0"
   },
   "volta": {

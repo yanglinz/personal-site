@@ -5,7 +5,11 @@
   "private": true,
   "workspaces": ["www"],
   "scripts": {
-    "start": "(cd www && yarn start)"
+    "start": "(cd www && yarn start)",
+    "format": "prettier --write './**/*.{js,css,md}'"
+  },
+  "dependencies": {
+    "prettier": "^1.19.1"
   },
   "volta": {
     "node": "12.15.0",
