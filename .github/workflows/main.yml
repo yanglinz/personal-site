@@ -37,7 +37,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: "."
+          working-directory: www
       - name: deploy production
         uses: yanglinz/vercel-action@v19
         if: github.ref == 'refs/heads/master'
