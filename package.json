@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
-  "workspaces": ["www"],
+  "workspaces": ["content", "www"],
   "scripts": {
     "start": "(cd www && yarn start)",
     "format": "prettier --write './**/*.{js,css,md}'"
