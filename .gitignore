@@ -29,11 +29,13 @@ yarn-error.log
 .cache/
 public
 
+# Cypress
+cypress/screenshots/
+
+# Sapper
+__sapper__/
+src/node_modules/@sapper/
+
 # Deployment
 .netlify
 .vercel
-
-# Terraform
-.terraform
-*.tfstate
-*.tfstate.*
