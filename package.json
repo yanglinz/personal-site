@@ -9,11 +9,12 @@
   ],
   "scripts": {
     "start": "(cd www && yarn start)",
-    "format": "prettier --write './**/*.{js,css,md}'"
+    "format": "prettier --plugin-search-dir=. --write './**/*.{js,css,svelte,html,md}'"
   },
   "devDependencies": {
     "prettier": "^1.19.1",
-    "prettier-plugin-svelte": "^1.1.0"
+    "prettier-plugin-svelte": "^1.1.0",
+    "svelte": "^3.23.2"
   },
   "volta": {
     "node": "12.15.0",
