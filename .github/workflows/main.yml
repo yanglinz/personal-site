@@ -36,8 +36,10 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: www
+          # Temporarily deploy the www-sapper version of the blog
+          vercel-project-id: QmSmh3tkeGxnsvedznW7eofAJ2nyVmiCC5ogCS6YwbdvbS
+          # vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: www-sapper
       - name: deploy production
         uses: yanglinz/vercel-action@v19
         if: github.ref == 'refs/heads/master'
@@ -45,6 +47,8 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          # Temporarily deploy the www-sapper version of the blog
+          vercel-project-id: QmSmh3tkeGxnsvedznW7eofAJ2nyVmiCC5ogCS6YwbdvbS
+          # vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: "--prod"
-          working-directory: www
+          working-directory: www-sapper

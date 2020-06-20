@@ -3,13 +3,19 @@
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
-  "workspaces": ["content", "www"],
+  "workspaces": [
+    "content",
+    "www",
+    "www-sapper"
+  ],
   "scripts": {
     "start": "(cd www && yarn start)",
-    "format": "prettier --write './**/*.{js,css,md}'"
+    "format": "prettier --plugin-search-dir=. --write './**/*.{js,css,svelte,html,md,json}'"
   },
-  "dependencies": {
-    "prettier": "^1.19.1"
+  "devDependencies": {
+    "prettier": "^1.19.1",
+    "prettier-plugin-svelte": "^1.1.0",
+    "svelte": "^3.23.2"
   },
   "volta": {
     "node": "12.15.0",
