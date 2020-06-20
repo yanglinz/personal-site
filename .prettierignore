@@ -2,4 +2,6 @@
 dist/
 assets/build/
 public/
+__sapper__/
+static/
 package.json

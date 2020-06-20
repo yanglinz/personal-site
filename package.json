@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "start": "(cd www && yarn start)",
-    "format": "prettier --plugin-search-dir=. --write './**/*.{js,css,svelte,html,md}'"
+    "format": "prettier --plugin-search-dir=. --write './**/*.{js,css,svelte,html,md,json}'"
   },
   "devDependencies": {
     "prettier": "^1.19.1",
