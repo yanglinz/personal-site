@@ -89,4 +89,19 @@ posts.forEach(post => {
   post.html = post.html.replace(/^\t{3}/gm, "");
 });
 
-export default posts;
+const lookup = new Map();
+posts.forEach(post => {
+  lookup.set(post.slug, JSON.stringify(post));
+});
+
+export function getPostsList() {
+  return posts;
+}
+
+export function hasPost(slug) {
+  return lookup.has(slug);
+}
+
+export function getPost(slug) {
+  return lookup.get(slug);
+}
