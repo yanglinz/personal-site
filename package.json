@@ -13,8 +13,8 @@
     "format": "prettier --plugin-search-dir=. --write './**/*.{js,css,svelte,html,md,json}'"
   },
   "devDependencies": {
-    "prettier": "^1.19.1",
-    "prettier-plugin-svelte": "^1.1.0",
+    "prettier": "1.19.1",
+    "prettier-plugin-svelte": "1.1.0",
     "svelte": "^3.23.2"
   },
   "volta": {

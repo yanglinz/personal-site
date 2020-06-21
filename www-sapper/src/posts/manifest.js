@@ -1,11 +1,4 @@
-// Ordinarily, you'd generate this data from markdown files in your
-// repo, or fetch them from a database of some kind. But in order to
-// avoid unnecessary dependencies in the starter template, and in the
-// service of obviousness, we're just going to leave it here.
-
-// This file is called `_posts.js` rather than `posts.js`, because
-// we don't want to create an `/blog/posts` route — the leading
-// underscore tells Sapper not to do that.
+const fetch = require("isomorphic-fetch");
 
 const posts = [
   {
@@ -94,8 +87,34 @@ posts.forEach(post => {
   lookup.set(post.slug, JSON.stringify(post));
 });
 
+const query = `{
+  allPost {
+    title
+    slug {
+      current
+    }
+  }
+}`;
+
+function parsePostsList(data) {
+  return data.data.allPost.map(p => {
+    return {
+      title: p.title,
+      slug: p.slug.current
+    };
+  });
+}
+
 export async function getPostsList() {
-  return posts;
+  const url = "https://5j4fmtcb.api.sanity.io/v1/graphql/production/default";
+  const params = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query })
+  };
+  const resp = await fetch(url, params);
+  const data = await resp.json();
+  return parsePostsList(data);
 }
 
 export async function hasPost(slug) {
