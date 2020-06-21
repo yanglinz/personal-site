@@ -36,6 +36,7 @@ const POST_QUERY = `{
     slug {
       current
     }
+    bodyRaw
   }
 }`;
 
@@ -47,7 +48,8 @@ function parsePost(data) {
 
   return {
     title: post.title,
-    slug: post.slug.current
+    slug: post.slug.current,
+    bodyRaw: post.bodyRaw
   };
 }
 
