@@ -14,6 +14,8 @@
 </script>
 
 <script>
+  import PortableText from "../../components/PortableText.svelte";
+
   export let post;
 </script>
 
@@ -23,6 +25,4 @@
 
 <h1>{post.title}</h1>
 
-<div class="content">
-  {@html post.html}
-</div>
+<PortableText blocks={post.bodyRaw} />
