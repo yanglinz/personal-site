@@ -94,14 +94,14 @@ posts.forEach(post => {
   lookup.set(post.slug, JSON.stringify(post));
 });
 
-export function getPostsList() {
+export async function getPostsList() {
   return posts;
 }
 
-export function hasPost(slug) {
+export async function hasPost(slug) {
   return lookup.has(slug);
 }
 
-export function getPost(slug) {
+export async function getPost(slug) {
   return lookup.get(slug);
 }

@@ -1,15 +1,16 @@
 import { hasPost, getPost } from "../../posts/manifest.js";
 
-export function get(req, res, next) {
+export async function get(req, res, next) {
   // the `slug` parameter is available because
   // this file is called [slug].json.js
   const { slug } = req.params;
-
-  if (hasPost(slug)) {
+  if (await hasPost(slug)) {
     res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(getPost(slug));
+    const data = await getPost(slug);
+    res.end(data);
   } else {
     res.writeHead(404, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ message: "Not found" }));
+    const data = { message: "Not found" };
+    res.end(JSON.stringify(data));
   }
 }
