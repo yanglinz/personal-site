@@ -23,10 +23,6 @@
       "path": "./schemas/schema.js"
     },
     {
-      "name": "part:@sanity/desk-tool/structure",
-      "path": "./desk.js"
-    },
-    {
       "implements": "part:@sanity/dashboard/config",
       "path": "./dashboard.js"
     }

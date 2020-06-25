@@ -1,5 +1,3 @@
-import { format } from "date-fns";
-
 export default {
   name: "post",
   type: "document",
@@ -107,12 +105,18 @@ export default {
       media: "mainImage"
     },
     prepare({ title = "No title", publishedAt, slug, media }) {
-      const dateSegment = format(publishedAt, "YYYY/MM");
-      const path = `/${dateSegment}/${slug.current}/`;
+      let subtitle = "Missing publishing date";
+      if (publishedAt) {
+        const date = new Intl.DateTimeFormat("en-US").format(
+          new Date(publishedAt)
+        );
+        subtitle = `/${date}/${slug.current}/`;
+      }
+
       return {
         title,
         media,
-        subtitle: publishedAt ? path : "Missing publishing date"
+        subtitle
       };
     }
   }
