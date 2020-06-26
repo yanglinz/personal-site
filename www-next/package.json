@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "next",
     "build": "echo 'next build override'",
-    "export": "next build && next export"
+    "export": "rm -rf public && next build && next export && mv out public"
   },
   "resolutions": {
     "react": "github:preact-compat/react#1.0.0",
