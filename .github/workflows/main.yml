@@ -29,6 +29,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - run: yarn install
+      - run: cd www-next && yarn export
       - name: deploy preview
         uses: yanglinz/vercel-action@v19
         if: github.ref != 'refs/heads/master'
@@ -39,7 +40,7 @@ jobs:
           # Temporarily deploy the www-next version of the blog
           vercel-project-id: QmSmh3tkeGxnsvedznW7eofAJ2nyVmiCC5ogCS6YwbdvbS
           # vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: www-next
+          working-directory: www-next/out
       - name: deploy production
         uses: yanglinz/vercel-action@v19
         if: github.ref == 'refs/heads/master'
@@ -51,4 +52,4 @@ jobs:
           vercel-project-id: QmSmh3tkeGxnsvedznW7eofAJ2nyVmiCC5ogCS6YwbdvbS
           # vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: "--prod"
-          working-directory: www-next
+          working-directory: www-next/out
