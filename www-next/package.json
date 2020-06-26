@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "export": "next export"
   },
   "resolutions": {
     "react": "github:preact-compat/react#1.0.0",
