@@ -1,5 +1,6 @@
 # Project
 dist/
+build/
 
 # Logs
 logs
@@ -24,6 +25,10 @@ yarn-error.log
 
 # Yarn Integrity file
 .yarn-integrity
+
+# Next
+.next/
+out/
 
 # Gatsby files
 .cache/

@@ -5,8 +5,7 @@
   "private": true,
   "workspaces": [
     "content",
-    "www",
-    "www-sapper"
+    "www-next"
   ],
   "scripts": {
     "start": "(cd www && yarn start)",
