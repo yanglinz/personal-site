@@ -12,13 +12,13 @@
     "react-ssr-prepass": "npm:preact-ssr-prepass@^1.0.1"
   },
   "dependencies": {
-    "next": "^9.4.0",
-    "preact": "^10.4.4",
-    "preact-render-to-string": "^5.1.9"
+    "next": "9.4.0",
+    "preact": "10.4.4",
+    "preact-render-to-string": "5.1.9"
   },
   "devDependencies": {
-    "@prefresh/next": "^0.3.0",
-    "react-refresh": "^0.8.3"
+    "@prefresh/next": "0.3.0",
+    "react-refresh": "0.8.3"
   },
   "volta": {
     "node": "12.15.0",
