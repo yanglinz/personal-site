@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
-    "build": "true",
+    "build": "echo 'next build override'",
     "export": "next build && next export"
   },
   "resolutions": {
