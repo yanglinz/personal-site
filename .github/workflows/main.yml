@@ -30,7 +30,7 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn install
       - name: generate static site
-        run: (cd www-next && yarn build && yarn export)
+        run: (cd www-next && yarn export)
       - name: deploy preview
         uses: yanglinz/vercel-action@v19
         if: github.ref != 'refs/heads/master'
