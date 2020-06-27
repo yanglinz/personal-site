@@ -7,7 +7,8 @@ export const NodeTypes = {
   H4: "H4",
   H5: "H5",
   H6: "H6",
-  LINK: "LINK"
+  LINK: "LINK",
+  IMAGE: "IMAGE"
 };
 
 function parsePortableTextNodeType(portableTextNode) {
@@ -17,6 +18,10 @@ function parsePortableTextNodeType(portableTextNode) {
     }
 
     return NodeTypes.P;
+  }
+
+  if (portableTextNode._type === "mainImage") {
+    return NodeTypes.IMAGE;
   }
 
   return NodeTypes.FRAGMENT;
@@ -33,6 +38,12 @@ function parsePortableTextNodeAttrs(portableTextNode) {
   if (portableTextNode.marks && portableTextNode.marks.length > 0) {
     nodeType = NodeTypes.LINK;
     attrs.href = "http://google.com";
+  }
+
+  if (nodeType === NodeTypes.IMAGE) {
+    attrs.alt = portableTextNode.alt;
+    attrs.asset = portableTextNode.asset;
+    attrs.caption = portableTextNode.caption;
   }
 
   return { type: nodeType, ...attrs };
