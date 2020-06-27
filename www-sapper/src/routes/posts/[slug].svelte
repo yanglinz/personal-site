@@ -14,7 +14,7 @@
 </script>
 
 <script>
-  import PortableText from "../../components/PortableText.svelte";
+  import Content from "../../components/Content/index.svelte";
 
   export let post;
 </script>
@@ -25,4 +25,4 @@
 
 <h1>{post.title}</h1>
 
-<PortableText blocks={post.bodyRaw} />
+<Content portableText={post.bodyRaw} />
