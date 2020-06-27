@@ -1,11 +1,19 @@
+# Node
+node_modules/
+package.json
+
+# Build output
 .cache
 dist/
-node_modules/
 assets/build/
 public/
 __sapper__/
 static/
-package.json
 
-www
-www-next
+# Deployment
+.vercel
+
+# Project
+www/
+www-next/
+ContentNodes.svelte
