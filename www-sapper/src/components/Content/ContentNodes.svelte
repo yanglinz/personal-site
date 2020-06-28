@@ -7,6 +7,7 @@
   import H5 from "./H5.svelte";
   import H6 from "./H6.svelte";
   import P from "./P.svelte";
+  import Code from "./Code.svelte";
   import Fragment from "./Fragment.svelte";
 
   export let nodes = [];
@@ -20,7 +21,8 @@
     H6: H6,
     P: P,
     FRAGMENT: Fragment,
-    LINK: Fragment
+    LINK: Fragment,
+    CODE: Code,
   };
 
   function getParentComponent(type) {
