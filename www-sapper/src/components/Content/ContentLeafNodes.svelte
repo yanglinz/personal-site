@@ -1,17 +1,15 @@
 <script>
-  import Fragment from "./Fragment.svelte";
+  import Code from "./Primitives/Code.svelte";
+  import Link from "./Primitives/Link.svelte";
+  import Text from "./Primitives/Text.svelte";
 
-  export let node = [];
+  export let node;
+
+  const primitives = {
+    CODE: Code,
+    LINK: Link,
+    FRAGMENT: Text
+  };
 </script>
 
-<!-- We need to make this a map too -->
-
-{#if node}<!--
--->{#if node.type === 'FRAGMENT'}{node.text}{/if}<!--
--->{#if node.type === 'LINK'}<!--
---><a href={node.href}>{node.text}</a><!--
--->{/if}<!--
--->{#if node.type === 'CODE'}<!--
--->{@html node.markup}<!--
--->{/if}<!--
--->{/if}
+<svelte:component this={primitives[node && node.type]} {node} />
