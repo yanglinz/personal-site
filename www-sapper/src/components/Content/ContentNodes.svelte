@@ -13,16 +13,17 @@
   export let nodes = [];
 
   const wrappers = {
+    CODE: Code,
+    FRAGMENT: Fragment,
     H1: H1,
     H2: H2,
     H3: H3,
     H4: H4,
     H5: H5,
     H6: H6,
-    P: P,
-    FRAGMENT: Fragment,
+    IMAGE: Fragment,
     LINK: Fragment,
-    CODE: Code,
+    P: P,
   };
 </script>
 

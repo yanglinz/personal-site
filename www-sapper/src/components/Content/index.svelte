@@ -6,7 +6,7 @@
 
   const debugBefore = portableText;
   const debugAfter = parsePortableText(portableText);
-  console.log(debugBefore);
+  // console.log(debugBefore);
   console.log(debugAfter);
 </script>
 

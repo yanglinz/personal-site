@@ -64,9 +64,9 @@ function parsePost(data) {
       // augment the post body with image data
       if (d._type === "mainImage") {
         let imageId = d.asset._ref;
-        imageId = imageId.replace("image-", "")
-        imageId = imageId.split("-")[0]
-        d.metadata = assetsById[imageId]
+        imageId = imageId.replace("image-", "");
+        imageId = imageId.split("-")[0];
+        d.metadata = assetsById[imageId];
       }
 
       // augment the post body with syntax highlighting markup
