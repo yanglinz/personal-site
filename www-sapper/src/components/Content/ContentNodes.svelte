@@ -1,31 +1,30 @@
 <script>
   import ContentLeafNodes from "./ContentLeafNodes.svelte";
-  import H1 from "./H1.svelte";
-  import H2 from "./H2.svelte";
-  import H3 from "./H3.svelte";
-  import H4 from "./H4.svelte";
-  import H5 from "./H5.svelte";
-  import H6 from "./H6.svelte";
-  import P from "./P.svelte";
-  import Fragment from "./Fragment.svelte";
+  import Code from "./Wrappers/Code.svelte";
+  import Fragment from "./Wrappers/Fragment.svelte";
+  import H1 from "./Wrappers/H1.svelte";
+  import H2 from "./Wrappers/H2.svelte";
+  import H3 from "./Wrappers/H3.svelte";
+  import H4 from "./Wrappers/H4.svelte";
+  import H5 from "./Wrappers/H5.svelte";
+  import H6 from "./Wrappers/H6.svelte";
+  import P from "./Wrappers/P.svelte";
 
   export let nodes = [];
 
-  const parentComponents = {
+  const wrappers = {
+    CODE: Code,
+    FRAGMENT: Fragment,
     H1: H1,
     H2: H2,
     H3: H3,
     H4: H4,
     H5: H5,
     H6: H6,
+    IMAGE: Fragment,
+    LINK: Fragment,
     P: P,
-    FRAGMENT: Fragment,
-    LINK: Fragment
   };
-
-  function getParentComponent(type) {
-    return parentComponents[type];
-  }
 </script>
 
 <!--
@@ -37,7 +36,7 @@
 -->
 
 {#each nodes as node}<!--
---><svelte:component this={getParentComponent(node.type)}><!--
+--><svelte:component this={wrappers[node.type]}><!--
 -->{#if node.children}<!--
 --><svelte:self nodes={node.children} /><!--
 -->{/if}<!--

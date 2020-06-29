@@ -1,3 +1,5 @@
+import { getHighlightMarkup } from "./highlight.js";
+
 const fetch = require("isomorphic-fetch");
 
 const POST_LIST_QUERY = `{
@@ -38,6 +40,10 @@ const POST_QUERY = `{
     }
     bodyRaw
   }
+  allSanityImageAsset {
+    assetId
+    url
+  }
 }`;
 
 function parsePost(data) {
@@ -46,10 +52,36 @@ function parsePost(data) {
     return null;
   }
 
+  const assets = data.data.allSanityImageAsset || [];
+  let assetsById = {};
+  assets.forEach(a => {
+    assetsById[a.assetId] = a;
+  });
+
+  let bodyRaw = post.bodyRaw;
+  if (bodyRaw) {
+    bodyRaw = bodyRaw.map(d => {
+      // augment the post body with image data
+      if (d._type === "mainImage") {
+        let imageId = d.asset._ref;
+        imageId = imageId.replace("image-", "");
+        imageId = imageId.split("-")[0];
+        d.metadata = assetsById[imageId];
+      }
+
+      // augment the post body with syntax highlighting markup
+      if (d._type === "code") {
+        d.markup = getHighlightMarkup(d.code, d.language);
+      }
+
+      return d;
+    });
+  }
+
   return {
     title: post.title,
     slug: post.slug.current,
-    bodyRaw: post.bodyRaw
+    bodyRaw
   };
 }
 

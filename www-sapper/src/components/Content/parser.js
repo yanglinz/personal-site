@@ -8,7 +8,8 @@ export const NodeTypes = {
   H5: "H5",
   H6: "H6",
   LINK: "LINK",
-  IMAGE: "IMAGE"
+  IMAGE: "IMAGE",
+  CODE: "CODE"
 };
 
 function parsePortableTextNodeType(portableTextNode) {
@@ -22,6 +23,10 @@ function parsePortableTextNodeType(portableTextNode) {
 
   if (portableTextNode._type === "mainImage") {
     return NodeTypes.IMAGE;
+  }
+
+  if (portableTextNode._type === "code") {
+    return NodeTypes.CODE;
   }
 
   return NodeTypes.FRAGMENT;
@@ -42,8 +47,13 @@ function parsePortableTextNodeAttrs(portableTextNode) {
 
   if (nodeType === NodeTypes.IMAGE) {
     attrs.alt = portableTextNode.alt;
-    attrs.asset = portableTextNode.asset;
     attrs.caption = portableTextNode.caption;
+    attrs.metadata = portableTextNode.metadata;
+  }
+
+  if (nodeType === NodeTypes.CODE) {
+    attrs.language = portableTextNode.language;
+    attrs.markup = portableTextNode.markup;
   }
 
   return { type: nodeType, ...attrs };

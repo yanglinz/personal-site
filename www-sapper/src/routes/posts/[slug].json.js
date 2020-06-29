@@ -1,8 +1,6 @@
 import { getPost } from "../../posts/manifest.js";
 
 export async function get(req, res, next) {
-  // the `slug` parameter is available because
-  // this file is called [slug].json.js
   const { slug } = req.params;
 
   let statusCode;
