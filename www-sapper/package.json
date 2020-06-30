@@ -2,7 +2,9 @@
   "name": "@personal-site/www-sapper",
   "version": "1.0.0",
   "scripts": {
+    "dev:sass": "node src/compile.sh",
     "dev": "sapper dev",
+    "build:sass": "node src/compile.sh",
     "build": "sapper export",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
