@@ -2,10 +2,10 @@
   "name": "@personal-site/www-sapper",
   "version": "1.0.0",
   "scripts": {
-    "dev:sass": "node src/styles/compile.js && node-sass src/styles/index.scss -w -o static/build",
+    "dev:sass": "node src/styles/compile.js && node-sass src/styles/index.scss --include-path=. -w -o static/build",
     "dev:sapper": "sapper dev",
     "dev": "run-p dev:*",
-    "build:sass": "node src/styles/compile.js && node-sass src/styles/index.scss --output-style compressed -o static/build",
+    "build:sass": "node src/styles/compile.js && node-sass src/styles/index.scss --include-path=. --output-style=compressed -o static/build",
     "build:sapper": "sapper export",
     "build": "run-s build:*",
     "start": "node __sapper__/build",
