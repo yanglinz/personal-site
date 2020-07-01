@@ -31,7 +31,9 @@ function getSassFilePaths(files) {
     .filter(f => f.pathAbs.endsWith(".scss"))
     .map(f => f.pathAbs)
     .map(p => path.relative(importBase, p))
-    .filter(f => f !== "index.scss");
+    .filter(f => f !== "index.scss")
+    .sort()
+    .reverse();
   return sassPaths;
 }
 

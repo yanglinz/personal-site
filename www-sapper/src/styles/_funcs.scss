@@ -1,0 +1,44 @@
+@import "styles/vars";
+
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @for $i from 1 through abs($exponent) {
+    @if $exponent > 0 {
+      $value: $value * $number;
+    }
+    @if $exponent < 0 {
+      $value: $value / $number;
+    }
+  }
+
+  @return $value;
+}
+
+// Loosely follows https://nowodzinski.pl/syncope/
+@mixin vrhythm($level) {
+  // Defines constants
+  $cap-height: 0.68;
+  $scale: 1.15;
+  $line-height: $base-line-height;
+
+  // Calculate
+  $size-factor: pow($scale, $level);
+  $font-size: 1rem * $size-factor;
+
+  // Calculate top shift
+  $shift: ($line-height * 1rem) - ($font-size * $cap-height);
+  $shift: $shift / 2;
+
+  // Calculate bottom shift
+  $spacing-factor: 1;
+  @if $shift > 1rem {
+    $spacing-factor: 2;
+  }
+  $margin-bottom: ($line-height * 1rem) - $shift;
+
+  // Mixin output
+  font-size: $font-size;
+  padding-top: $shift;
+  margin-bottom: $margin-bottom;
+}
