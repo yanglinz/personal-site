@@ -2,9 +2,10 @@
   "name": "@personal-site/www-sapper",
   "version": "1.0.0",
   "scripts": {
+    "dev:sass": "node src/compile.sh",
     "dev": "sapper dev",
-    "build": "sapper build",
-    "export": "sapper export",
+    "build:sass": "node src/compile.sh",
+    "build": "sapper export",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open"
@@ -17,11 +18,21 @@
     "sirv": "^0.4.0"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
+    "@rollup/plugin-babel": "^5.0.0",
+    "@rollup/plugin-commonjs": "^12.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.0",
+    "@rollup/plugin-replace": "^2.2.0",
+    "node-sass": "^4.13.0",
+    "rollup": "^2.3.4",
+    "rollup-plugin-svelte": "^5.0.1",
+    "rollup-plugin-terser": "^5.3.0",
     "sapper": "^0.27.0",
-    "svelte": "^3.0.0",
-    "svelte-loader": "^2.9.0",
-    "webpack": "^4.7.0"
+    "svelte": "^3.0.0"
   },
   "volta": {
     "node": "12.15.0",
