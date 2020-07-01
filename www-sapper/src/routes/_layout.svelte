@@ -1,11 +1,9 @@
 <script>
-  import Nav from "../components/Nav.svelte";
+  import Header from "../components/Header.svelte";
 
   export let segment;
 </script>
 
-<Nav {segment} />
+<Header {segment} />
 
-<main>
-  <slot />
-</main>
+<slot />

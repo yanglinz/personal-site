@@ -2,7 +2,7 @@
   "name": "@personal-site/www-sapper",
   "version": "1.0.0",
   "scripts": {
-    "dev:sass": "node src/styles/compile.js && node-sass src/styles/index.scss --include-path=. -w -o static/build",
+    "dev:sass": "yarn build:sass && node-sass src/styles/index.scss --include-path=. -w -o static/build",
     "dev:sapper": "sapper dev",
     "dev": "run-p dev:*",
     "build:sass": "node src/styles/compile.js && node-sass src/styles/index.scss --include-path=. --output-style=compressed -o static/build",
