@@ -1,19 +1,6 @@
 @import "src/styles/vars";
 @import "src/styles/funcs";
 
-.Section {
-  margin-top: $base-line-height * 0.25rem;
-}
-
-.Section-title {
-  color: $color-mono-4;
-  @include vrhythm(2);
-
-  @media (min-width: $break-2) {
-    @include vrhythm(3);
-  }
-}
-
 .About-text {
   color: $color-mono-9;
   max-width: 42rem;

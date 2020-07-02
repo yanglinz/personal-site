@@ -1,4 +1,4 @@
-import { getPost } from "../../posts/manifest.js";
+import { getPost } from "../../content/manifest.js";
 
 export async function get(req, res, next) {
   const { slug } = req.params;

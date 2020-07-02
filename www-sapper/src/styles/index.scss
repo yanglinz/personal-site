@@ -2,10 +2,10 @@
 
 @import "normalize.scss";
 @import "global.scss";
-@import "../posts/highlight.scss";
-@import "../components/PostList.scss";
 @import "../components/Layout.scss";
-@import "../components/Intro.scss";
-@import "../components/IndexSection.scss";
+@import "../components/Home/Section.scss";
+@import "../components/Home/PostList.scss";
+@import "../components/Home/Intro.scss";
+@import "../components/Home/About.scss";
 @import "../components/Header.scss";
 @import "../components/Footer.scss";

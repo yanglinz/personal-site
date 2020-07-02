@@ -1,5 +1,5 @@
 <script>
-  import GithubIcon from "./Icons/Github.svelte";
+  import GithubIcon from "./IconGithub.svelte";
 
   export let segment;
 
