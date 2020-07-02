@@ -1,4 +1,6 @@
 <script>
+  import GithubIcon from "./Icons/Github.svelte";
+
   export let segment;
 
   const isHome = segment === undefined;
@@ -16,6 +18,7 @@
 
       <div class="Header-links">
         <a href="https://github.com/yanglinz">
+          <GithubIcon />
         </a>
       </div>
     </div>
