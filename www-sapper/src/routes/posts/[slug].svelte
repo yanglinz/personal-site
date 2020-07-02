@@ -1,7 +1,5 @@
 <script context="module">
   export async function preload({ params, query }) {
-    // the `slug` parameter is available because
-    // this file is called [slug].svelte
     const res = await this.fetch(`posts/${params.slug}.json`);
     const data = await res.json();
 
@@ -14,6 +12,7 @@
 </script>
 
 <script>
+  import Post from "../../components/Post/Post.svelte";
   import Content from "../../components/Content/index.svelte";
 
   export let post;
@@ -23,6 +22,6 @@
   <title>{post.title}</title>
 </svelte:head>
 
-<h1>{post.title}</h1>
-
-<Content portableText={post.bodyRaw} />
+<Post {post}>
+  <Content portableText={post.bodyRaw} />
+</Post>
