@@ -4,6 +4,9 @@
   export let segment;
 </script>
 
-<Header {segment} />
-
-<slot />
+<div class="Layout">
+  <Header {segment} />
+  <div class="Layout-content">
+    <slot />
+  </div>
+</div>
