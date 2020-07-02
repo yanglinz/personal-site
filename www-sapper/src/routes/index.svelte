@@ -1,5 +1,9 @@
+<script>
+  import Intro from "../components/Intro.svelte";
+</script>
+
 <svelte:head>
   <title>Yanglin Zhao</title>
 </svelte:head>
 
-<h1>Hello world!</h1>
+<Intro />

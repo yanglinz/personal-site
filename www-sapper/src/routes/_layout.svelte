@@ -1,9 +1,9 @@
 <script>
-  import Header from "../components/Header.svelte";
+  import Layout from "../components/Layout.svelte";
 
   export let segment;
 </script>
 
-<Header {segment} />
-
-<slot />
+<Layout {segment}>
+  <slot />
+</Layout>
