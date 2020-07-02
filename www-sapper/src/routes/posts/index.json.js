@@ -1,4 +1,4 @@
-import { getPostsList } from "../../posts/manifest.js";
+import { getPostsList } from "../../content/manifest.js";
 
 export async function get(req, res) {
   const data = await getPostsList();
