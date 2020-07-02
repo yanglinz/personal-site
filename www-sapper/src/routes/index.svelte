@@ -9,9 +9,10 @@
 </script>
 
 <script>
-  import Intro from "../components/Intro.svelte";
-  import IndexSection from "../components/IndexSection.svelte";
-  import PostList from "../components/PostList.svelte";
+  import Intro from "../components/Home/Intro.svelte";
+  import About from "../components/Home/About.svelte";
+  import Section from "../components/Home/Section.svelte";
+  import PostList from "../components/Home/PostList.svelte";
 
   export let posts;
 </script>
@@ -22,17 +23,10 @@
 
 <Intro />
 
-<IndexSection title="About">
-  <p class="About-text">
-    Hello
-    <span role="img" aria-label="Waving hand">&#x1F44B;.</span>
-    I'm a software engineer based in Washington DC. I mainly make things that
-    run in browsers. I currently work at
-    <a href="https://www.pbs.org/">PBS</a>
-    as a Principal Engineer to help make high quality media accessible.
-  </p>
-</IndexSection>
+<Section title="About">
+  <About />
+</Section>
 
-<IndexSection title="Blog Posts">
+<Section title="Blog Posts">
   <PostList {posts} />
-</IndexSection>
+</Section>
