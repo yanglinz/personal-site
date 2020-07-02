@@ -24,7 +24,15 @@ export default {
       options: {
         isHighlighted: true
       }
-    }
+    },
+    {
+      name: "link",
+      type: "url",
+      title: "Link",
+      options: {
+        isHighlighted: true
+      }
+    },
   ],
   preview: {
     select: {
