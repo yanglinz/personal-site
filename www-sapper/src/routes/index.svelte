@@ -11,9 +11,9 @@
 <script>
   import Intro from "../components/Intro.svelte";
   import IndexSection from "../components/IndexSection.svelte";
+  import PostList from "../components/PostList.svelte";
 
   export let posts;
-  console.log(posts);
 </script>
 
 <svelte:head>
@@ -31,4 +31,8 @@
     <a href="https://www.pbs.org/">PBS</a>
     as a Principal Engineer to help make high quality media accessible.
   </p>
+</IndexSection>
+
+<IndexSection title="Blog Posts">
+  <PostList {posts} />
 </IndexSection>
