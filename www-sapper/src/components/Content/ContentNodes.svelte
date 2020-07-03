@@ -8,6 +8,9 @@
   import H4 from "./Wrappers/H4.svelte";
   import H5 from "./Wrappers/H5.svelte";
   import H6 from "./Wrappers/H6.svelte";
+  import ListItem from "./Wrappers/ListItem.svelte";
+  import ListOrdered from "./Wrappers/ListOrdered.svelte";
+  import ListUnordered from "./Wrappers/ListUnordered.svelte";
   import P from "./Wrappers/P.svelte";
 
   export let nodes = [];
@@ -24,6 +27,9 @@
     H6: H6,
     IMAGE: Fragment,
     LINK: Fragment,
+    LIST_ORDERED: ListOrdered,
+    LIST_UNORDERED: ListUnordered,
+    LIST_ITEM: ListItem,
     P: P,
   };
 </script>
