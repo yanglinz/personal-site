@@ -1,5 +1,6 @@
 export const NodeTypes = {
   FRAGMENT: "FRAGMENT",
+  FRAGMENT_EM: "FRAGMENT_EM",
   P: "P",
   H1: "H1",
   H2: "H2",
@@ -41,8 +42,12 @@ function parsePortableTextNodeAttrs(portableTextNode) {
   }
 
   if (portableTextNode.marks && portableTextNode.marks.length > 0) {
-    nodeType = NodeTypes.LINK;
-    attrs.href = "http://google.com";
+    if (portableTextNode.marks[0] == "em") {
+      nodeType = NodeTypes.FRAGMENT_EM;
+    } else {
+      nodeType = NodeTypes.LINK;
+      attrs.href = "http://google.com";
+    }
   }
 
   if (nodeType === NodeTypes.IMAGE) {
