@@ -17,8 +17,9 @@
 
   const wrappers = {
     CODE: Code,
-    FRAGMENT_EM: Fragment,
     FRAGMENT: Fragment,
+    FRAGMENT_EM: Fragment,
+    FRAGMENT_CODE: Fragment,
     H1: H1,
     H2: H2,
     H3: H3,

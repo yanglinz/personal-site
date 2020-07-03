@@ -2,4 +2,4 @@
   export let node;
 </script>
 
-{@html node.markup}
+<code class="language-text">{node.text}</code>

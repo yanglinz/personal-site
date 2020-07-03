@@ -1,6 +1,7 @@
 export const NodeTypes = {
   FRAGMENT: "FRAGMENT",
   FRAGMENT_EM: "FRAGMENT_EM",
+  FRAGMENT_CODE: "FRAGMENT_CODE",
   P: "P",
   H1: "H1",
   H2: "H2",
@@ -48,7 +49,7 @@ function parsePortableTextNodeType(portableTextNode) {
   return NodeTypes.FRAGMENT;
 }
 
-function parsePortableTextNodeAttrs(portableTextNode) {
+function parsePortableTextNodeAttrs(portableTextNode, markDefs) {
   let nodeType = parsePortableTextNodeType(portableTextNode);
 
   let attrs = {};
@@ -59,9 +60,13 @@ function parsePortableTextNodeAttrs(portableTextNode) {
   if (portableTextNode.marks && portableTextNode.marks.length > 0) {
     if (portableTextNode.marks[0] == "em") {
       nodeType = NodeTypes.FRAGMENT_EM;
+    } else if (portableTextNode.marks[0] == "code") {
+      nodeType = NodeTypes.FRAGMENT_CODE;
     } else {
+      const markId = portableTextNode.marks[0];
+      const linkAttrs = markDefs[markId];
       nodeType = NodeTypes.LINK;
-      attrs.href = "http://google.com";
+      attrs.href = linkAttrs.href;
     }
   }
 
@@ -77,6 +82,34 @@ function parsePortableTextNodeAttrs(portableTextNode) {
   }
 
   return { type: nodeType, ...attrs };
+}
+
+function walkNodes(nodes, cb) {
+  if (Array.isArray(nodes)) {
+    return nodes.forEach(n => {
+      walkNodes(n, cb);
+    });
+  }
+
+  if (nodes.children) {
+    nodes.children.forEach(n => {
+      walkNodes(n, cb);
+    });
+  }
+
+  cb(nodes);
+}
+
+export function getAllMarks(portableTextNode) {
+  let marks = {};
+  walkNodes(portableTextNode, n => {
+    if (n.markDefs) {
+      n.markDefs.forEach(d => {
+        marks[d._key] = d;
+      });
+    }
+  });
+  return marks;
 }
 
 export function nestLists(portableTextNode) {
@@ -112,17 +145,17 @@ export function nestLists(portableTextNode) {
   return grouped;
 }
 
-export function parsePortableText(portableTextNode) {
+export function parsePortableText(portableTextNode, markDefs) {
   if (Array.isArray(portableTextNode)) {
-    return portableTextNode.map(parsePortableText);
+    return portableTextNode.map(n => parsePortableText(n, markDefs));
   }
 
   if (portableTextNode.children) {
     return {
-      ...parsePortableTextNodeAttrs(portableTextNode),
-      children: parsePortableText(portableTextNode.children)
+      ...parsePortableTextNodeAttrs(portableTextNode, markDefs),
+      children: parsePortableText(portableTextNode.children, markDefs)
     };
   }
 
-  return parsePortableTextNodeAttrs(portableTextNode);
+  return parsePortableTextNodeAttrs(portableTextNode, markDefs);
 }
