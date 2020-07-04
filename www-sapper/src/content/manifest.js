@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import { getHighlightMarkup } from "./highlight.js";
 
 const fetch = require("isomorphic-fetch");
@@ -5,6 +6,7 @@ const fetch = require("isomorphic-fetch");
 const POST_LIST_QUERY = `{
   allPost {
     title
+    publishedAt
     slug {
       current
     }
@@ -15,7 +17,8 @@ function parsePostsList(data) {
   return data.data.allPost.map(p => {
     return {
       title: p.title,
-      slug: p.slug.current
+      slug: p.slug.current,
+      publishedAt: format(new Date(p.publishedAt), "MMM.dd.yyyy")
     };
   });
 }
@@ -35,6 +38,7 @@ export async function getPostsList() {
 const POST_QUERY = `{
   allPost(where: { slug: { current: { eq: "{POST_SLUG}" } } }) {
     title
+    publishedAt
     slug {
       current
     }
@@ -81,6 +85,7 @@ function parsePost(data) {
   return {
     title: post.title,
     slug: post.slug.current,
+    publishedAt: format(new Date(post.publishedAt), "MMM do, yyyy"),
     bodyRaw
   };
 }

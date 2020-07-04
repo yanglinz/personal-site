@@ -10,7 +10,7 @@
           <a rel="prefetch" href="posts/{post.slug}">{post.title}</a>
         </h1>
 
-        <time class="BlogPost-date">{post.date || '1.1.11'}</time>
+        <time class="BlogPost-date">{post.publishedAt}</time>
       </div>
     </div>
 
