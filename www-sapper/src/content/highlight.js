@@ -1,5 +1,6 @@
-const hljs = require("highlight.js");
+const Prism = require("prismjs");
 
 export function getHighlightMarkup(source, lang) {
-  return hljs.highlightAuto(source).value;
+  const grammar = Prism.languages[lang];
+  return Prism.highlight(source, grammar, lang);
 }
