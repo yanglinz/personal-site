@@ -1,5 +1,6 @@
 <script>
   import ContentLeafNodes from "./ContentLeafNodes.svelte";
+  import Blockquote from "./Wrappers/Blockquote.svelte";
   import Code from "./Wrappers/Code.svelte";
   import Fragment from "./Wrappers/Fragment.svelte";
   import H1 from "./Wrappers/H1.svelte";
@@ -16,9 +17,11 @@
   export let nodes = [];
 
   const wrappers = {
+    BLOCKQUOTE: Blockquote,
     CODE: Code,
-    FRAGMENT_EM: Fragment,
     FRAGMENT: Fragment,
+    FRAGMENT_EM: Fragment,
+    FRAGMENT_CODE: Fragment,
     H1: H1,
     H2: H2,
     H3: H3,
@@ -30,7 +33,7 @@
     LIST_ORDERED: ListOrdered,
     LIST_UNORDERED: ListUnordered,
     LIST_ITEM: ListItem,
-    P: P,
+    P: P
   };
 </script>
 
