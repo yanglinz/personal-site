@@ -14,13 +14,15 @@ const POST_LIST_QUERY = `{
 }`;
 
 function parsePostsList(data) {
-  return data.data.allPost.map(p => {
-    return {
-      title: p.title,
-      slug: p.slug.current,
-      publishedAt: format(new Date(p.publishedAt), "MMM.dd.yyyy")
-    };
-  });
+  return data.data.allPost
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+    .map(p => {
+      return {
+        title: p.title,
+        slug: p.slug.current,
+        publishedAt: format(new Date(p.publishedAt), "MMM.dd.yyyy")
+      };
+    });
 }
 
 export async function getPostsList() {
