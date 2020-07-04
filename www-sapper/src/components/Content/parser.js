@@ -32,6 +32,26 @@ function parsePortableTextNodeType(portableTextNode) {
       return NodeTypes.H1;
     }
 
+    if (portableTextNode.style === "h2") {
+      return NodeTypes.H2;
+    }
+
+    if (portableTextNode.style === "h3") {
+      return NodeTypes.H3;
+    }
+
+    if (portableTextNode.style === "h4") {
+      return NodeTypes.H4;
+    }
+
+    if (portableTextNode.style === "h5") {
+      return NodeTypes.H5;
+    }
+
+    if (portableTextNode.style === "h6") {
+      return NodeTypes.H6;
+    }
+
     if (portableTextNode.style === "blockquote") {
       return NodeTypes.BLOCKQUOTE;
     }
