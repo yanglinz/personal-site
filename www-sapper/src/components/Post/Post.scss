@@ -62,7 +62,10 @@
 
   pre {
     @include vrhythm(-1);
-    overflow-x: scroll;
+    background: #fdf6e3;
+    color: #657b83;
     max-width: 100%;
+    padding: 16px;
+    overflow-x: scroll;
   }
 }
