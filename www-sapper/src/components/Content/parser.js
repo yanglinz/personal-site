@@ -1,4 +1,5 @@
 export const NodeTypes = {
+  BLOCKQUOTE: "BLOCKQUOTE",
   FRAGMENT: "FRAGMENT",
   FRAGMENT_EM: "FRAGMENT_EM",
   FRAGMENT_CODE: "FRAGMENT_CODE",
@@ -29,6 +30,10 @@ function parsePortableTextNodeType(portableTextNode) {
   if (portableTextNode._type === "block") {
     if (portableTextNode.style === "h1") {
       return NodeTypes.H1;
+    }
+
+    if (portableTextNode.style === "blockquote") {
+      return NodeTypes.BLOCKQUOTE;
     }
 
     if (portableTextNode.listItem) {
