@@ -1,4 +1,3 @@
-const hljs = require("highlight.js");
 const Prism = require("prismjs");
 
 export function getHighlightMarkup(source, lang) {
