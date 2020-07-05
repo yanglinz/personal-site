@@ -75,7 +75,7 @@ function parsePost(data) {
   if (bodyRaw) {
     bodyRaw = bodyRaw.map(d => {
       // augment the post body with image data
-      if (d._type === "mainImage") {
+      if (d._type === "contentImage") {
         let imageId = d.asset._ref;
         imageId = imageId.replace("image-", "");
         imageId = imageId.split("-")[0];

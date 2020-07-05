@@ -63,7 +63,7 @@ function parsePortableTextNodeType(portableTextNode) {
     return NodeTypes.P;
   }
 
-  if (portableTextNode._type === "mainImage") {
+  if (portableTextNode._type === "contentImage") {
     return NodeTypes.IMAGE;
   }
 

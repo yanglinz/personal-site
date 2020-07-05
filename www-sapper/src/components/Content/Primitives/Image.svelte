@@ -1,5 +1,7 @@
 <script>
+  import Image from "../../Image.svelte";
+
   export let node;
 </script>
 
-<img alt={node.alt} src={node.metadata.url} />
+<Image alt={node.alt} src={node.metadata.url} />

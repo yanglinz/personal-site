@@ -42,7 +42,7 @@ export default {
       of: [{ type: "authorReference" }]
     },
     {
-      type: "mainImage",
+      type: "contentImage",
       options: { hotspot: true }
     },
     {
