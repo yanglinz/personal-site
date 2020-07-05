@@ -9,9 +9,9 @@
   ],
   "scripts": {
     "dev:sanity": "(cd content && yarn dev)",
-    "dev:sapper": "(cd www-sapper && yarn dev)",
+    "dev:sapper": "(cd www && yarn dev)",
     "dev": "run-p dev:*",
-    "format": "prettier --plugin-search-dir=. --write './www-sapper/**/*.{js,css,svelte,html,md,json}'"
+    "format": "prettier --plugin-search-dir=. --write './www/**/*.{js,css,svelte,html,md,json}'"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
