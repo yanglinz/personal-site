@@ -1,5 +1,5 @@
 <script>
-  import Image from "../Image.svelte";
+  import FeaturedImage from "./FeaturedImage.svelte";
 
   export let post;
 </script>
@@ -8,7 +8,7 @@
   <article class="BlogPost">
     {#if post.mainImage}
       <div class="BlogPost-image">
-        <Image src={post.mainImage.asset.url} />
+        <FeaturedImage image={post.mainImage} />
       </div>
     {/if}
 
