@@ -1,5 +1,5 @@
 {
-  "name": "@personal-site/www-sapper",
+  "name": "@personal-site/www",
   "version": "1.0.0",
   "scripts": {
     "dev:sass": "yarn build:sass && node-sass src/styles/index.scss --include-path=. -w -o static/build",

@@ -5,7 +5,7 @@
   "private": true,
   "workspaces": [
     "content",
-    "www-sapper"
+    "www"
   ],
   "scripts": {
     "dev:sanity": "(cd content && yarn dev)",
