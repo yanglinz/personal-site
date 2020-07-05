@@ -1,9 +1,17 @@
 <script>
+  import Image from "../Image.svelte";
+
   export let post;
 </script>
 
 <main>
   <article class="BlogPost">
+    {#if post.mainImage}
+      <div class="BlogPost-image">
+        <Image src={post.mainImage.asset.url} />
+      </div>
+    {/if}
+
     <div class="l-wide">
       <div class="BlogPost-metadata">
         <h1 class="BlogPost-title">
