@@ -8,6 +8,14 @@
   text-align: center;
 }
 
+.BlogPost-image {
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
+
 .BlogPost-metadata {
   margin-bottom: $base-line-height * 0.1rem;
 }

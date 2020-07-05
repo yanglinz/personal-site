@@ -44,6 +44,13 @@ const POST_QUERY = `{
     slug {
       current
     }
+    mainImage {
+      asset {
+        url
+			}
+      link
+      alt
+    }
     bodyRaw
   }
   allSanityImageAsset {
@@ -88,6 +95,7 @@ function parsePost(data) {
     title: post.title,
     slug: post.slug.current,
     publishedAt: format(new Date(post.publishedAt), "MMM do, yyyy"),
+    mainImage: post.mainImage,
     bodyRaw
   };
 }
