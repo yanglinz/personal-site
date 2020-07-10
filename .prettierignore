@@ -14,5 +14,4 @@ static/
 .vercel
 
 # Project
-www/
 ContentNodes.svelte
