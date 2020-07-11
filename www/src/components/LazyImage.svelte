@@ -1,7 +1,19 @@
 <script>
-  // Taken from https://github.com/alexstaroselsky/svelte-lazy-image
-
   import { onMount } from "svelte";
+
+  export let placeholder;
+  export let src = undefined;
+  export let srcset = undefined;
+  export let sizes = undefined;
+  export let alt;
+
+  let imgElement;
+  let path;
+
+  let observer;
+  let intersected = false;
+
+  $: path = intersected ? src : placeholder;
 
   let observerCallback = function(entries, observer) {
     entries.forEach(entry => {
@@ -12,19 +24,6 @@
     });
   };
 
-  export let placeholder;
-  export let src;
-  export let alt;
-
-  let imgElement;
-  let path;
-
-  let observer;
-  let intersected = false;
-  let loaded = false;
-
-  $: path = intersected ? src : placeholder;
-
   onMount(() => {
     observer = new IntersectionObserver(observerCallback);
     observer.observe(imgElement);
@@ -33,18 +32,10 @@
       observer.unobserve(imgElement);
     };
   });
-
-  function handleLoad() {
-    if (!loaded && path === src) {
-      loaded = true;
-    }
-  }
 </script>
 
-<img
-  src={path}
-  {alt}
-  on:load={handleLoad}
-  bind:this={imgElement}
-  class="svelte-lazy-image"
-  class:svelte-lazy-image--loaded={loaded} />
+{#if intersected}
+  <img src={path} {srcset} {sizes} {alt} bind:this={imgElement} />
+{:else}
+  <img src={path} {alt} bind:this={imgElement} />
+{/if}

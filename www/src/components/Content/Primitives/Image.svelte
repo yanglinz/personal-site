@@ -4,4 +4,4 @@
   export let node;
 </script>
 
-<SanityImage image={node.metadata} maxWidth={750} />
+<SanityImage image={node} maxWidth={750} />
