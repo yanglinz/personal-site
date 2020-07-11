@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import { getHighlightMarkup } from "./highlight.js";
+import * as env from "../environment.js";
 
 const fetch = require("isomorphic-fetch");
 
@@ -26,7 +27,7 @@ function parsePostsList(data) {
 }
 
 export async function getPostsList() {
-  const url = "https://5j4fmtcb.api.sanity.io/v1/graphql/production/default";
+  const url = env.GRAPHQL_URL;
   const params = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -101,7 +102,7 @@ function parsePost(data) {
 }
 
 export async function getPost(slug) {
-  const url = "https://5j4fmtcb.api.sanity.io/v1/graphql/production/default";
+  const url = env.GRAPHQL_URL;
   const query = POST_QUERY.replace("{POST_SLUG}", slug);
   const params = {
     method: "POST",
