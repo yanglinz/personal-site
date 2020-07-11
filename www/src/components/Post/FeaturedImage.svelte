@@ -1,10 +1,7 @@
 <script>
-  import Image from "../Image.svelte";
+  import SanityImage from "../SanityImage.svelte";
 
   export let image;
-
-  const url = image.asset.url;
-  const preloadUrl = url + "?blur=300&w=250";
 </script>
 
-<Image src={url} placeholder={preloadUrl} alt={image.alt} />
+<SanityImage {image} />
