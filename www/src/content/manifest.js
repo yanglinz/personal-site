@@ -48,7 +48,14 @@ const POST_QUERY = `{
     mainImage {
       asset {
         url
-			}
+        metadata {
+          dimensions {
+            width
+            height
+            aspectRatio
+          }
+        }
+      }
       link
       alt
     }
@@ -57,6 +64,13 @@ const POST_QUERY = `{
   allSanityImageAsset {
     assetId
     url
+    metadata {
+      dimensions {
+        width
+        height
+        aspectRatio
+      }
+    }
   }
 }`;
 
