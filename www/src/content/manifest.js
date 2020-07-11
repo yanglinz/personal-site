@@ -48,7 +48,14 @@ const POST_QUERY = `{
     mainImage {
       asset {
         url
-			}
+        metadata {
+          dimensions {
+            width
+            height
+            aspectRatio
+          }
+        }
+      }
       link
       alt
     }
@@ -57,6 +64,13 @@ const POST_QUERY = `{
   allSanityImageAsset {
     assetId
     url
+    metadata {
+      dimensions {
+        width
+        height
+        aspectRatio
+      }
+    }
   }
 }`;
 
@@ -80,7 +94,7 @@ function parsePost(data) {
         let imageId = d.asset._ref;
         imageId = imageId.replace("image-", "");
         imageId = imageId.split("-")[0];
-        d.metadata = assetsById[imageId];
+        d.asset = assetsById[imageId];
       }
 
       // augment the post body with syntax highlighting markup

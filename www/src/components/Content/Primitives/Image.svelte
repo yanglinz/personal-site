@@ -1,7 +1,7 @@
 <script>
-  import Image from "../../Image.svelte";
+  import SanityImage from "../../SanityImage.svelte";
 
   export let node;
 </script>
 
-<Image alt={node.alt} src={node.metadata.url} />
+<SanityImage image={node} maxWidth={750} />

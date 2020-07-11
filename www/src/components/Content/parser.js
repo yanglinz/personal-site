@@ -98,7 +98,7 @@ function parsePortableTextNodeAttrs(portableTextNode, markDefs) {
   if (nodeType === NodeTypes.IMAGE) {
     attrs.alt = portableTextNode.alt;
     attrs.caption = portableTextNode.caption;
-    attrs.metadata = portableTextNode.metadata;
+    attrs.asset = portableTextNode.asset;
   }
 
   if (nodeType === NodeTypes.CODE) {
