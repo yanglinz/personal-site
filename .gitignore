@@ -41,6 +41,9 @@ cypress/screenshots/
 __sapper__/
 src/node_modules/@sapper/
 
+# Sanity
+.checksums
+
 # Deployment
 .netlify
 .vercel
