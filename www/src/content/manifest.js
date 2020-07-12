@@ -21,7 +21,8 @@ function parsePostsList(data) {
       return {
         title: p.title,
         slug: p.slug.current,
-        publishedAt: format(new Date(p.publishedAt), "MMM.dd.yyyy")
+        publishedAt: p.publishedAt,
+        publishedAtFormatted: format(new Date(p.publishedAt), "MMM.dd.yyyy")
       };
     });
 }
@@ -109,7 +110,8 @@ function parsePost(data) {
   return {
     title: post.title,
     slug: post.slug.current,
-    publishedAt: format(new Date(post.publishedAt), "MMM do, yyyy"),
+    publishedAt: post.publishedAt,
+    publishedAtFormatted: format(new Date(post.publishedAt), "MMM do, yyyy"),
     mainImage: post.mainImage,
     bodyRaw
   };
