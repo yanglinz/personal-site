@@ -7,6 +7,8 @@
     <a href="https://github.com/yanglinz">
       <GithubIcon fill="#486581" />
     </a>
+  </div>
+  <div class="Footer-links">
     <a href="sitemap.xml">Sitemap</a>
   </div>
   <div class="l-wide">
