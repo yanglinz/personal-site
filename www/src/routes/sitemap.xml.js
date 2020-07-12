@@ -4,7 +4,7 @@ import { getPostsList } from "../content/manifest.js";
 const xml = require("xml-js");
 
 function formatDate(date) {
-  return format(new Date(date), "MMM-dd-yyyy,kk:mm:ss+00:00").replace(",", "T");
+  return format(new Date(date), "yyyy-MM-dd,kk:mm:ss+00:00").replace(",", "T");
 }
 
 export async function get(req, res, next) {

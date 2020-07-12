@@ -13,4 +13,9 @@
 
 .Footer-links {
   text-align: center;
+
+  a {
+    @include vrhythm(-2);
+    color: $color-mono-4;
+  }
 }
