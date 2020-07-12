@@ -10,7 +10,7 @@
 
     <p class="Post-date f-mono">
       <a rel="prefetch" href="posts/{post.slug}">
-        <time>{post.publishedAt}</time>
+        <time>{post.publishedAtFormatted}</time>
       </a>
     </p>
   </div>

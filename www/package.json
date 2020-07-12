@@ -18,7 +18,8 @@
     "isomorphic-fetch": "^2.2.1",
     "polka": "next",
     "prismjs": "^1.20.0",
-    "sirv": "^0.4.0"
+    "sirv": "^0.4.0",
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
