@@ -1,18 +1,26 @@
+import { format } from "date-fns";
 import { getPostsList } from "../content/manifest.js";
 
 const xml = require("xml-js");
 
+function formatDate(date) {
+  return format(new Date(date), "MMM-dd-yyyy,kk:mm:ss+00:00").replace(",", "T");
+}
+
 export async function get(req, res, next) {
   const posts = await getPostsList();
 
-  console.log(posts);
-
   const indexUrl = {
     loc: { _text: "http://yanglinzhao.com/" },
-    lastmod: { _text: "2020-07-12T13:39:02+00:00" },
+    lastmod: { _text: formatDate(posts[0].publishedAt) },
     priority: { _text: "1.00" }
   };
-  const urls = [indexUrl].concat([]);
+  const postUrls = posts.map(p => ({
+    loc: { _text: `http://yanglinzhao.com/${p.slug}/` },
+    lastmod: { _text: formatDate(p.publishedAt) },
+    priority: { _text: "0.80" }
+  }));
+  const urls = [indexUrl].concat(postUrls);
   const data = {
     urlset: [
       {
