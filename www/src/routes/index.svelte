@@ -19,6 +19,10 @@
 
 <svelte:head>
   <title>Yanglin Zhao</title>
+  <meta
+    name="description"
+    content="I'm a software engineer and I make things that run in browsers.
+    Come check out my thoughts on programming and technology." />
 </svelte:head>
 
 <Intro />
