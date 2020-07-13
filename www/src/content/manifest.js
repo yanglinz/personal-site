@@ -60,6 +60,7 @@ const POST_QUERY = `{
       link
       alt
     }
+    excerptRaw
     bodyRaw
   }
   allSanityImageAsset {
@@ -113,6 +114,7 @@ function parsePost(data) {
     publishedAt: post.publishedAt,
     publishedAtFormatted: format(new Date(post.publishedAt), "MMM do, yyyy"),
     mainImage: post.mainImage,
+    excerptRaw: post.excerptRaw,
     bodyRaw
   };
 }
