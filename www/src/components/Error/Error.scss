@@ -1,0 +1,13 @@
+@import "src/styles/vars";
+@import "src/styles/funcs";
+
+.Error-title {
+  @include vrhythm(6);
+  font-size: 142px;
+  text-align: center;
+}
+
+.Error-message {
+  @include vrhythm(3);
+  text-align: center;
+}

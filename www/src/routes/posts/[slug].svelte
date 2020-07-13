@@ -28,7 +28,7 @@
 </script>
 
 <svelte:head>
-  <title>{post.title}</title>
+  <title>{post.title} | Yanglin Zhao</title>
 
   {#if excerpt}
     <meta name="description" content={excerpt} />
