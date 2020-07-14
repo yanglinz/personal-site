@@ -30,4 +30,4 @@ jobs:
       #       ${{ runner.os }}-yarn-
       # - run: yarn install
       # - run: yarn run build
-      - run: python --version
+      - run: python3 --version
