@@ -4,6 +4,6 @@ describe("home spec", () => {
   });
 
   it("laods properly", () => {
-    cy.contains("h1.Header-title", "Yanglin Zhao");
+    cy.contains(".Header-title", "Yanglin Zhao");
   });
 });
