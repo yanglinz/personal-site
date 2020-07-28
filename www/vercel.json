@@ -6,5 +6,32 @@
       "use": "@vercel/static-build",
       "config": { "distDir": "__sapper__/export" }
     }
+  ],
+  "routes": [
+    {
+      "src": "/using-honeycomb/",
+      "status": 301,
+      "headers": { "Location": "/posts/using-honeycomb/" }
+    },
+    {
+      "src": "/cloudflare-workers/",
+      "status": 301,
+      "headers": { "Location": "/posts/cloudflare-workers/" }
+    },
+    {
+      "src": "/service-boundaries/",
+      "status": 301,
+      "headers": { "Location": "/posts/service-boundaries/" }
+    },
+    {
+      "src": "/component-local-reducer/",
+      "status": 301,
+      "headers": { "Location": "/posts/component-local-reducer/" }
+    },
+    {
+      "src": "/hello-world/",
+      "status": 301,
+      "headers": { "Location": "/posts/hello-world/" }
+    }
   ]
 }
