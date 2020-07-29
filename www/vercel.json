@@ -7,33 +7,32 @@
       "config": { "distDir": "__sapper__/export" }
     }
   ],
-  "routes": [
-    {
-      "src": "/cloudflare-workers/",
-      "status": 301,
-      "headers": { "Location": "/posts/cloudflare-workers/" }
-    },
-    {
-      "src": "/service-boundaries/",
-      "status": 301,
-      "headers": { "Location": "/posts/service-boundaries/" }
-    },
-    {
-      "src": "/component-local-reducer/",
-      "status": 301,
-      "headers": { "Location": "/posts/component-local-reducer/" }
-    },
-    {
-      "src": "/hello-world/",
-      "status": 301,
-      "headers": { "Location": "/posts/hello-world/" }
-    }
-  ],
   "redirects": [
     {
       "source": "/using-honeycomb/",
       "destination": "/posts/using-honeycomb/",
       "statusCode": 301
+    },
+    {
+      "source": "/cloudflare-workers/",
+      "destination": "/posts/cloudflare-workers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/service-boundaries/",
+      "destination": "/posts/service-boundaries/",
+      "statusCode": 301
+    },
+    {
+      "source": "/component-local-reducer/",
+      "destination": "/posts/component-local-reducer/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hello-blog/",
+      "destination": "/posts/hello-blog/",
+      "statusCode": 301
     }
-  ]
+  ],
+  "trailingSlash": true
 }
