@@ -7,31 +7,32 @@
       "config": { "distDir": "__sapper__/export" }
     }
   ],
-  "routes": [
+  "redirects": [
     {
-      "src": "/using-honeycomb/",
-      "status": 301,
-      "headers": { "Location": "/posts/using-honeycomb/" }
+      "source": "/using-honeycomb/",
+      "destination": "/posts/using-honeycomb/",
+      "statusCode": 301
     },
     {
-      "src": "/cloudflare-workers/",
-      "status": 301,
-      "headers": { "Location": "/posts/cloudflare-workers/" }
+      "source": "/cloudflare-workers/",
+      "destination": "/posts/cloudflare-workers/",
+      "statusCode": 301
     },
     {
-      "src": "/service-boundaries/",
-      "status": 301,
-      "headers": { "Location": "/posts/service-boundaries/" }
+      "source": "/service-boundaries/",
+      "destination": "/posts/service-boundaries/",
+      "statusCode": 301
     },
     {
-      "src": "/component-local-reducer/",
-      "status": 301,
-      "headers": { "Location": "/posts/component-local-reducer/" }
+      "source": "/component-local-reducer/",
+      "destination": "/posts/component-local-reducer/",
+      "statusCode": 301
     },
     {
-      "src": "/hello-world/",
-      "status": 301,
-      "headers": { "Location": "/posts/hello-world/" }
+      "source": "/hello-blog/",
+      "destination": "/posts/hello-blog/",
+      "statusCode": 301
     }
-  ]
+  ],
+  "trailingSlash": true
 }
