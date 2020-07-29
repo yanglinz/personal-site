@@ -9,11 +9,6 @@
   ],
   "routes": [
     {
-      "src": "/using-honeycomb/",
-      "status": 301,
-      "headers": { "Location": "/posts/using-honeycomb/" }
-    },
-    {
       "src": "/cloudflare-workers/",
       "status": 301,
       "headers": { "Location": "/posts/cloudflare-workers/" }
@@ -32,6 +27,13 @@
       "src": "/hello-world/",
       "status": 301,
       "headers": { "Location": "/posts/hello-world/" }
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/using-honeycomb/",
+      "destination": "/posts/using-honeycomb/",
+      "statusCode": 301
     }
   ]
 }
