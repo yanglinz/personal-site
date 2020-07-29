@@ -16,7 +16,7 @@ export async function get(req, res, next) {
     priority: { _text: "1.00" }
   };
   const postUrls = posts.map(p => ({
-    loc: { _text: `http://yanglinzhao.com/${p.slug}/` },
+    loc: { _text: `http://yanglinzhao.com/posts/${p.slug}/` },
     lastmod: { _text: formatDate(p.publishedAt) },
     priority: { _text: "0.80" }
   }));
