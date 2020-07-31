@@ -21,6 +21,11 @@ export default {
       }
     },
     {
+      name: "published",
+      type: "boolean",
+      title: "Published"
+    },
+    {
       name: "publishedAt",
       type: "datetime",
       title: "Published at",

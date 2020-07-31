@@ -7,6 +7,7 @@ const fetch = require("isomorphic-fetch");
 const POST_LIST_QUERY = `{
   allPost {
     title
+    published
     publishedAt
     slug {
       current
@@ -15,7 +16,12 @@ const POST_LIST_QUERY = `{
 }`;
 
 function parsePostsList(data) {
-  return data.data.allPost
+  let allPost = data.data.allPost;
+  if (process.env.NODE_ENV !== "development") {
+    allPost = allPost.filter(p => p.published);
+  }
+
+  return allPost
     .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
     .map(p => {
       return {
