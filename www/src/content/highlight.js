@@ -1,9 +1,14 @@
 const Prism = require("prismjs");
 const loadLanguages = require("prismjs/components/");
 
-loadLanguages(["python"]);
+loadLanguages(["python", "yaml"]);
 
 export function getHighlightMarkup(source, lang) {
+  if (lang == "text") {
+    // TODO: Figure out a permanent  solution for YAML
+    lang = "yaml";
+  }
+
   let markup;
   try {
     const grammar = Prism.languages[lang];
