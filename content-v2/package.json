@@ -1,0 +1,14 @@
+{
+  "name": "@personal-site/content-v2",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "true"
+  },
+  "dependencies": {},
+  "volta": {
+    "node": "12.15.0",
+    "yarn": "1.22.0"
+  }
+}

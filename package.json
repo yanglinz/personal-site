@@ -5,6 +5,7 @@
   "private": true,
   "workspaces": [
     "content",
+    "content-v2",
     "www"
   ],
   "scripts": {
