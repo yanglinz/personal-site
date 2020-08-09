@@ -4,6 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "build": "true",
     "dev": "true"
   },
   "dependencies": {},
