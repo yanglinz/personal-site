@@ -47,3 +47,9 @@ src/node_modules/@sapper/
 # Deployment
 .netlify
 .vercel
+
+# Bazel
+bazel-bin/
+bazel-out/
+bazel-personal-site/
+bazel-testlogs/
