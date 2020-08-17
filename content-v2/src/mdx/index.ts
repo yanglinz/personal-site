@@ -7,6 +7,7 @@ type ToBeTyped = any;
 type SvelteASTNodeType =
   | "fragment"
   | "text"
+  | "paragraph"
   | "h1"
   | "h2"
   | "h3"
@@ -37,6 +38,9 @@ function getMdast(mdString: string): Mdast.Root {
 function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
   if (Array.isArray(node.children)) {
     let nodeType: SvelteASTNodeType = "fragment";
+    if (node.type === "paragraph") {
+      nodeType = "paragraph";
+    }
     if (node.type === "heading") {
       if (node.depth === 1) nodeType = "h1";
       if (node.depth === 2) nodeType = "h2";
