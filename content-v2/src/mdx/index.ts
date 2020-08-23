@@ -75,11 +75,3 @@ export async function getSvelteAST(mdxString: string): Promise<SvelteAST> {
     children: mdast.children.map(mdAstToSvelteAst)
   };
 }
-
-async function transpile(content: ToBeTyped): Promise<ToBeTyped> {
-  const processor = unified().use(remark);
-
-  // const htmlProcessor = unified().use(rehype);
-  // parsed = htmlProcessor.parse("<html />");
-  return processor.parse(content);
-}
