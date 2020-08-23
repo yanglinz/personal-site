@@ -4,7 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "ts-node index.ts",
+    "build": "ts-node ./scripts/build.ts",
     "dev": "ts-node --transpile-only index.ts",
     "test": "jest"
   },
