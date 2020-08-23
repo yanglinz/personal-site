@@ -21,7 +21,7 @@ interface SvelteASTNode {
   children?: SvelteASTNode[];
 }
 
-interface SvelteAST {
+export interface SvelteAST {
   type: "root";
   children: SvelteASTNode[];
 }
