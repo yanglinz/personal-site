@@ -16,7 +16,7 @@
     "test": "jest content",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "format": "prettier --plugin-search-dir=. --write './{www,content-v2}/**/*.{js,ts,css,svelte,html,md,json}'"
+    "format": "prettier --plugin-search-dir=. --write './{src,content}/**/*.{js,ts,css,svelte,html,md,json}'"
   },
   "dependencies": {
     "compression": "^1.7.1",
