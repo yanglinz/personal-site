@@ -1,9 +1,3 @@
----
-title: Cloudflare Workers as a flexible reverse proxy
-date: "2019-10-12T00:00:00.000Z"
-publish: true
----
-
 I've been thinking recently about what I want to do with my personal domain
 `yanglinzhao.com`. While it's currently just a home for my personal blog, I do
 ultimately want it to be a a place where I can publish all my one-off side

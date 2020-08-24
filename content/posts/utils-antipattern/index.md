@@ -1,9 +1,3 @@
----
-title: The utility module antipattern
-date: "2020-05-20T00:00:00.000Z"
-publish: false
----
-
 ![Random tools](./banner.jpg)
 
 # The Problem

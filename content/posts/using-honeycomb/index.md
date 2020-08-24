@@ -1,9 +1,3 @@
----
-title: Observing a Django backend with Honeycomb.io
-date: "2020-02-02T00:00:00.000Z"
-publish: true
----
-
 At work I recently inherited a "legacy" application. It was an internal tool
 built with [Django](https://www.djangoproject.com/) that helped us schedule and
 stitch advertisements into live video feeds for local

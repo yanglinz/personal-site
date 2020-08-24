@@ -1,9 +1,3 @@
----
-title: Component local reducers
-date: "2018-11-01T00:00:00.000Z"
-publish: true
----
-
 The reducer pattern, popularized in the Javascript ecosystem by Redux, is
 awesome!
 

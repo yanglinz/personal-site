@@ -1,9 +1,3 @@
----
-title: Service boundaries
-date: "2019-06-10T00:00:00.000Z"
-publish: true
----
-
 ![Rice farm divisions](./banner.jpg)
 
 Microservices architecture has been a rather hot topic for a few years now. I've
