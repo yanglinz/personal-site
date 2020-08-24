@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-import { getPostList, getPostDetail } from "../src/posts/index";
+import { getPostList, getPostDetail } from "../posts/index";
 
 async function writeFile(filePath: string, content: string) {
   return new Promise((resolve, reject) => {
