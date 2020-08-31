@@ -8,7 +8,8 @@ export async function get(req, res) {
   );
   fs.readFile(manifestPath, (err, data) => {
     if (err) {
-      throw err;
+      res.writeHead(500, { "Content-Type": "application/json" });
+      res.end(JSON.stringify(err));
     } else {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(data);
