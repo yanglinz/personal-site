@@ -1,19 +1,36 @@
-import { getPost } from "../../content/manifest.js";
+import fs from "fs";
+import path from "path";
+
+function getPostData(postSlug) {
+  const postPath = path.resolve(
+    __dirname,
+    `../../../content/build/${postSlug}.json`
+  );
+  return new Promise((resolve, reject) => {
+    fs.readFile(postPath, (err, data) => {
+      if (err) {
+        reject(err);
+      } else {
+        try {
+          resolve(JSON.parse(data));
+        } catch (err) {
+          reject(err);
+        }
+      }
+    });
+  });
+}
 
 export async function get(req, res, next) {
   const { slug } = req.params;
 
-  let statusCode;
-  let data;
-  const post = await getPost(slug);
-  if (post) {
-    statusCode = 200;
-    data = post;
-  } else {
-    statusCode = 200;
-    data = { message: "Not found" };
+  try {
+    const data = await getPostData(slug);
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(data));
+  } catch (err) {
+    console.log(err);
+    res.writeHead(404, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ error: "Not found" }));
   }
-
-  res.writeHead(statusCode, { "Content-Type": "application/json" });
-  res.end(JSON.stringify(data));
 }

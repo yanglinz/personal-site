@@ -6,6 +6,7 @@ import { getSvelteAST } from "../mdx";
 
 interface Post {
   id: string;
+  slug: string;
   title: string;
   date: string;
 }
@@ -17,6 +18,7 @@ interface PostMetadata {
 
 interface PostDetail {
   id: string;
+  slug: string;
   title: string;
   date: string;
   body: SvelteAST;
@@ -41,7 +43,12 @@ export async function getPostList(): Promise<Post[]> {
     .map(async f => {
       const postId = f.name;
       const metadata = await getPostMetadata(postId);
-      return { id: postId, title: metadata.title, date: metadata.date };
+      return {
+        id: postId,
+        slug: postId,
+        title: metadata.title,
+        date: metadata.date
+      };
     });
   return await Promise.all(postDirectories);
 }
@@ -61,6 +68,7 @@ export async function getPostDetail(postId: string): Promise<PostDetail> {
   const metadata = await getPostMetadata(postId);
   return {
     id: postId,
+    slug: postId,
     title: metadata.title,
     date: metadata.date,
     body: postAst

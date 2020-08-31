@@ -3,6 +3,7 @@
   import Blockquote from "./Wrappers/Blockquote.svelte";
   import Code from "./Wrappers/Code.svelte";
   import Fragment from "./Wrappers/Fragment.svelte";
+  import Link from "./Wrappers/Link.svelte";
   import H1 from "./Wrappers/H1.svelte";
   import H2 from "./Wrappers/H2.svelte";
   import H3 from "./Wrappers/H3.svelte";
@@ -17,23 +18,11 @@
   export let nodes = [];
 
   const wrappers = {
-    BLOCKQUOTE: Blockquote,
-    CODE: Code,
-    FRAGMENT: Fragment,
-    FRAGMENT_EM: Fragment,
-    FRAGMENT_CODE: Fragment,
-    H1: H1,
-    H2: H2,
-    H3: H3,
-    H4: H4,
-    H5: H5,
-    H6: H6,
-    IMAGE: Fragment,
-    LINK: Fragment,
-    LIST_ORDERED: ListOrdered,
-    LIST_UNORDERED: ListUnordered,
-    LIST_ITEM: ListItem,
-    P: P
+    fragment: Fragment,
+    link: Link,
+    inlineCode: Fragment,
+    text: Fragment,
+    paragraph: P
   };
 </script>
 
@@ -46,7 +35,7 @@
 -->
 
 {#each nodes as node}<!--
---><svelte:component this={wrappers[node.type]}><!--
+--><svelte:component this={wrappers[node && node.type]} node={node}><!--
 -->{#if node.children}<!--
 --><svelte:self nodes={node.children} /><!--
 -->{/if}<!--

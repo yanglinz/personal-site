@@ -9,12 +9,8 @@
   export let node;
 
   const primitives = {
-    CODE: CodeBlock,
-    FRAGMENT: Text,
-    FRAGMENT_EM: Em,
-    FRAGMENT_CODE: Code,
-    IMAGE: Image,
-    LINK: Link
+    inlineCode: Code,
+    text: Text
   };
 </script>
 
