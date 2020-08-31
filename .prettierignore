@@ -5,6 +5,7 @@ package.json
 # Build output
 .cache
 dist/
+build/
 assets/build/
 public/
 __sapper__/
