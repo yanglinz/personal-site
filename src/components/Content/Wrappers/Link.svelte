@@ -2,6 +2,6 @@
   export let node;
 </script>
 
-<p>
+<a href={node.value.url}>
   <slot />
-</p>
+</a>

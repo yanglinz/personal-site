@@ -11,6 +11,7 @@ Object {
         },
       ],
       "type": "h1",
+      "value": undefined,
     },
     Object {
       "children": Array [
@@ -20,6 +21,7 @@ Object {
         },
       ],
       "type": "paragraph",
+      "value": undefined,
     },
   ],
   "type": "root",
@@ -36,7 +38,7 @@ Object {
           "value": "Hello ",
         },
         Object {
-          "type": "fragment",
+          "type": "inlineCode",
           "value": "world",
         },
         Object {
@@ -45,6 +47,7 @@ Object {
         },
       ],
       "type": "h1",
+      "value": undefined,
     },
     Object {
       "children": Array [
@@ -53,7 +56,7 @@ Object {
           "value": "This is just a ",
         },
         Object {
-          "type": "fragment",
+          "type": "inlineCode",
           "value": "simple",
         },
         Object {
@@ -62,6 +65,7 @@ Object {
         },
       ],
       "type": "paragraph",
+      "value": undefined,
     },
   ],
   "type": "root",

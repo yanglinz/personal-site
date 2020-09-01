@@ -36,5 +36,5 @@
 </svelte:head>
 
 <Post {post}>
-  <Content portableText={post.bodyRaw} />
+  <Content contentNodes={post.body.children} />
 </Post>

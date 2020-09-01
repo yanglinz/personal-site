@@ -8,6 +8,8 @@ type SvelteASTNodeType =
   | "fragment"
   | "text"
   | "paragraph"
+  | "inlineCode"
+  | "link"
   | "h1"
   | "h2"
   | "h3"
@@ -38,8 +40,20 @@ function getMdast(mdString: string): Mdast.Root {
 function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
   if (Array.isArray(node.children)) {
     let nodeType: SvelteASTNodeType = "fragment";
+    let value = undefined;
+
     if (node.type === "paragraph") {
       nodeType = "paragraph";
+    }
+    if (node.type === "link") {
+      nodeType = "link";
+      value = {
+        url: node.url,
+        title: node.title
+      };
+    }
+    if (node.type === "inlineCode") {
+      nodeType = "inlineCode";
     }
     if (node.type === "heading") {
       if (node.depth === 1) nodeType = "h1";
@@ -52,19 +66,21 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
 
     return {
       type: nodeType,
+      value,
       children: node.children.map(mdAstToSvelteAst)
     };
   }
 
   let nodeType: SvelteASTNodeType = "fragment";
+  let value = node.value;
   if (node.type === "text") {
     nodeType = "text";
   }
+  if (node.type === "inlineCode") {
+    nodeType = "inlineCode";
+  }
 
-  return {
-    type: nodeType,
-    value: node.value
-  };
+  return { type: nodeType, value: value };
 }
 
 export async function getSvelteAST(mdxString: string): Promise<SvelteAST> {
