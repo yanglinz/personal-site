@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 
 import { getPostList, getPostDetail } from "../posts/index";
+import { getImageComponent } from "../images/index";
 
 async function writeFile(filePath: string, content: string) {
   return new Promise((resolve, reject) => {
@@ -35,4 +36,12 @@ async function writeFile(filePath: string, content: string) {
       return writeFile(postPath, JSON.stringify(postDetail, null, 2));
     })
   );
+
+  // Write image manifest component file
+  const imageComponent = await getImageComponent();
+  const imageComponentPath = path.resolve(
+    __dirname,
+    "../images/ImageManifest.svelte"
+  );
+  await writeFile(imageComponentPath, imageComponent);
 })();

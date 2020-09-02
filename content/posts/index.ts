@@ -4,19 +4,19 @@ import path from "path";
 import { SvelteAST } from "../mdx";
 import { getSvelteAST } from "../mdx";
 
-interface Post {
+export interface Post {
   id: string;
   slug: string;
   title: string;
   date: string;
 }
 
-interface PostMetadata {
+export interface PostMetadata {
   title: string;
   date: string;
 }
 
-interface PostDetail {
+export interface PostDetail {
   id: string;
   slug: string;
   title: string;
