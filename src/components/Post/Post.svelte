@@ -1,14 +1,17 @@
 <script>
   import FeaturedImage from "./FeaturedImage.svelte";
+  import ImageManifest from "../../../content/images/ImageManifest.svelte";
 
   export let post;
 </script>
 
 <main>
   <article class="BlogPost">
-    {#if post.mainImage}
+    {#if post.featuredImage}
       <div class="BlogPost-image">
-        <FeaturedImage image={post.mainImage} />
+        <ImageManifest
+          postId={post.id}
+          relativeImagePath={post.featuredImage} />
       </div>
     {/if}
 

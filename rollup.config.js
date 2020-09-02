@@ -2,6 +2,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 import commonjs from "@rollup/plugin-commonjs";
 import svelte from "rollup-plugin-svelte";
+import svelteImage from "svelte-image";
 import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup.js";
@@ -28,7 +29,19 @@ export default {
       svelte({
         dev,
         hydratable: true,
-        emitCss: true
+        emitCss: true,
+        preprocess: {
+          ...svelteImage({
+            sizes: [400, 800, 1200, 1800],
+            breakpoints: [375, 768, 1024, 1920],
+            outputDir: "media/",
+            trace: {
+              background: "#fff",
+              color: "#0f9d74",
+              threshold: 140
+            }
+          })
+        }
       }),
       resolve({
         browser: true,

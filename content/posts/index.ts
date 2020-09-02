@@ -4,24 +4,28 @@ import path from "path";
 import { SvelteAST } from "../mdx";
 import { getSvelteAST } from "../mdx";
 
-interface Post {
+export interface Post {
   id: string;
   slug: string;
   title: string;
   date: string;
 }
 
-interface PostMetadata {
+export interface PostMetadata {
   title: string;
   date: string;
+  featuredImage?: string;
+  featuredImageAlt?: string;
 }
 
-interface PostDetail {
+export interface PostDetail {
   id: string;
   slug: string;
   title: string;
   date: string;
   body: SvelteAST;
+  featuredImage?: string;
+  featuredImageAlt?: string;
 }
 
 function getFileContent(filePath: string): Promise<string> {
@@ -71,6 +75,8 @@ export async function getPostDetail(postId: string): Promise<PostDetail> {
     slug: postId,
     title: metadata.title,
     date: metadata.date,
+    featuredImage: metadata.featuredImage,
+    featuredImageAlt: metadata.featuredImageAlt,
     body: postAst
   };
 }

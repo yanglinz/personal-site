@@ -1,5 +1,5 @@
 <script>
-  export let node;
+  export const node = undefined;
 </script>
 
 <slot />
