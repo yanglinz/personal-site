@@ -14,6 +14,8 @@ export interface Post {
 export interface PostMetadata {
   title: string;
   date: string;
+  featuredImage?: string;
+  featuredImageAlt?: string;
 }
 
 export interface PostDetail {
@@ -22,6 +24,8 @@ export interface PostDetail {
   title: string;
   date: string;
   body: SvelteAST;
+  featuredImage?: string;
+  featuredImageAlt?: string;
 }
 
 function getFileContent(filePath: string): Promise<string> {
@@ -71,6 +75,8 @@ export async function getPostDetail(postId: string): Promise<PostDetail> {
     slug: postId,
     title: metadata.title,
     date: metadata.date,
+    featuredImage: metadata.featuredImage,
+    featuredImageAlt: metadata.featuredImageAlt,
     body: postAst
   };
 }

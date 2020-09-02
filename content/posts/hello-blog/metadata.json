@@ -1,4 +1,6 @@
 {
   "title": "Hello blog!",
-  "date": "10/01/2018"
+  "date": "10/01/2018",
+  "featuredImage": "./banner.jpeg",
+  "featuredImageAlt": "Open road"
 }
