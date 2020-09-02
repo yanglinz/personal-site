@@ -32,7 +32,14 @@ export default {
         emitCss: true,
         preprocess: {
           ...svelteImage({
-            outputDir: "media/"
+            sizes: [400, 800, 1200, 1800],
+            breakpoints: [375, 768, 1024, 1920],
+            outputDir: "media/",
+            trace: {
+              background: "#fff",
+              color: "#0f9d74",
+              threshold: 140
+            }
           })
         }
       }),
