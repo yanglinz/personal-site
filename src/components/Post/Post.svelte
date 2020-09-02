@@ -1,5 +1,6 @@
 <script>
   import FeaturedImage from "./FeaturedImage.svelte";
+  import ImageManifest from "../../../content/images/ImageManifest.svelte";
 
   export let post;
 </script>
@@ -11,6 +12,8 @@
         <FeaturedImage image={post.mainImage} />
       </div>
     {/if}
+
+    <ImageManifest postId="hello-blog" relativeImagePath="./banner.jpeg" />
 
     <div class="l-wide">
       <div class="BlogPost-metadata">

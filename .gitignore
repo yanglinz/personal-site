@@ -1,6 +1,7 @@
 # Project
 dist/
 build/
+static/media/
 
 # Logs
 logs
