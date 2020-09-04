@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-import { format, parse } from "date-fns";
+import { parse } from "date-fns";
 
 import { SvelteAST } from "../mdx";
 import { getSvelteAST } from "../mdx";
