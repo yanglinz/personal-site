@@ -1,6 +1,8 @@
 import fs from "fs";
 import path from "path";
 
+import { format, parse } from "date-fns";
+
 import { SvelteAST } from "../mdx";
 import { getSvelteAST } from "../mdx";
 
@@ -9,6 +11,7 @@ export interface Post {
   slug: string;
   title: string;
   date: string;
+  dateParsed: Date;
 }
 
 export interface PostMetadata {
@@ -23,6 +26,7 @@ export interface PostDetail {
   slug: string;
   title: string;
   date: string;
+  dateParsed: Date;
   body: SvelteAST;
   featuredImage?: string;
   featuredImageAlt?: string;
@@ -51,10 +55,15 @@ export async function getPostList(): Promise<Post[]> {
         id: postId,
         slug: postId,
         title: metadata.title,
-        date: metadata.date
+        date: metadata.date,
+        dateParsed: parse(metadata.date, "MM/dd/yyyy", new Date())
       };
     });
-  return await Promise.all(postDirectories);
+  const posts = await Promise.all(postDirectories);
+  return posts.sort((p1, p2) =>
+    // Sort posts by published date
+    p1.dateParsed.getTime() > p2.dateParsed.getTime() ? -1 : 1
+  );
 }
 
 async function getPostMetadata(postId: string): Promise<PostMetadata> {
@@ -75,6 +84,7 @@ export async function getPostDetail(postId: string): Promise<PostDetail> {
     slug: postId,
     title: metadata.title,
     date: metadata.date,
+    dateParsed: parse(metadata.date, "MM/dd/yyyy", new Date()),
     featuredImage: metadata.featuredImage,
     featuredImageAlt: metadata.featuredImageAlt,
     body: postAst
