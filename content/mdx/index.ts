@@ -2,10 +2,13 @@ import * as Mdast from "mdast";
 import unified from "unified";
 import remark from "remark-parse";
 
+import { getHighlightMarkup } from "./highlight";
+
 type ToBeTyped = any;
 type IncorrectlyTyped = any;
 
 type SvelteASTNodeType =
+  | "code"
   | "fragment"
   | "h1"
   | "h2"
@@ -103,6 +106,14 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
 
   if (node.type === "inlineCode") {
     nodeType = "inlineCode";
+  }
+
+  if (node.type === "code") {
+    nodeType = "code";
+    value = {
+      lang: node.lang,
+      markup: getHighlightMarkup(node.value, node.lang || "text")
+    };
   }
 
   return { type: nodeType, value: value };
