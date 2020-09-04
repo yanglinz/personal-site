@@ -9,6 +9,7 @@
   export let node;
 
   const primitives = {
+    code: CodeBlock,
     inlineCode: Code,
     text: Text
   };

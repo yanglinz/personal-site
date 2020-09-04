@@ -19,9 +19,13 @@
 
   const wrappers = {
     fragment: Fragment,
+    code: Fragment,
     link: Link,
     inlineCode: Fragment,
     text: Fragment,
+    listOrdered: ListOrdered,
+    listUnordered: ListUnordered,
+    listItem: ListItem,
     paragraph: P
   };
 </script>
