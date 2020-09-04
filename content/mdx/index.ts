@@ -3,6 +3,7 @@ import unified from "unified";
 import remark from "remark-parse";
 
 type ToBeTyped = any;
+type IncorrectlyTyped = any;
 
 type SvelteASTNodeType =
   | "fragment"
@@ -14,7 +15,8 @@ type SvelteASTNodeType =
   | "h6"
   | "inlineCode"
   | "link"
-  | "list"
+  | "listOrdered"
+  | "listUnordered"
   | "listItem"
   | "paragraph"
   | "text";
@@ -41,6 +43,7 @@ function getMdast(mdString: string): Mdast.Root {
 
 function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
   if (Array.isArray(node.children)) {
+    let children: IncorrectlyTyped = node.children;
     let nodeType: SvelteASTNodeType = "fragment";
     let value = undefined;
 
@@ -66,14 +69,18 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
     }
 
     if (node.type === "list") {
-      nodeType = "list";
-      value = {
-        ordered: node.ordered
-      };
+      nodeType = node.ordered ? "listOrdered" : "listUnordered";
     }
 
     if (node.type === "listItem") {
       nodeType = "listItem";
+      const listItemChildren: IncorrectlyTyped = node.children;
+      if (
+        listItemChildren[0].type == "paragraph" &&
+        listItemChildren.length === 1
+      ) {
+        children = node.children[0].children;
+      }
     }
 
     if (node.type === "inlineCode") {
@@ -83,7 +90,7 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
     return {
       type: nodeType,
       value,
-      children: node.children.map(mdAstToSvelteAst)
+      children: children.map(mdAstToSvelteAst)
     };
   }
 
