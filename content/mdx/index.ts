@@ -6,16 +6,18 @@ type ToBeTyped = any;
 
 type SvelteASTNodeType =
   | "fragment"
-  | "text"
-  | "paragraph"
-  | "inlineCode"
-  | "link"
   | "h1"
   | "h2"
   | "h3"
   | "h4"
   | "h5"
-  | "h6";
+  | "h6"
+  | "inlineCode"
+  | "link"
+  | "list"
+  | "listItem"
+  | "paragraph"
+  | "text";
 
 interface SvelteASTNode {
   type: SvelteASTNodeType;
@@ -45,16 +47,7 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
     if (node.type === "paragraph") {
       nodeType = "paragraph";
     }
-    if (node.type === "link") {
-      nodeType = "link";
-      value = {
-        url: node.url,
-        title: node.title
-      };
-    }
-    if (node.type === "inlineCode") {
-      nodeType = "inlineCode";
-    }
+
     if (node.type === "heading") {
       if (node.depth === 1) nodeType = "h1";
       if (node.depth === 2) nodeType = "h2";
@@ -62,6 +55,29 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
       if (node.depth === 4) nodeType = "h4";
       if (node.depth === 5) nodeType = "h5";
       if (node.depth === 6) nodeType = "h6";
+    }
+
+    if (node.type === "link") {
+      nodeType = "link";
+      value = {
+        url: node.url,
+        title: node.title
+      };
+    }
+
+    if (node.type === "list") {
+      nodeType = "list";
+      value = {
+        ordered: node.ordered
+      };
+    }
+
+    if (node.type === "listItem") {
+      nodeType = "listItem";
+    }
+
+    if (node.type === "inlineCode") {
+      nodeType = "inlineCode";
     }
 
     return {
@@ -73,9 +89,11 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
 
   let nodeType: SvelteASTNodeType = "fragment";
   let value = node.value;
+
   if (node.type === "text") {
     nodeType = "text";
   }
+
   if (node.type === "inlineCode") {
     nodeType = "inlineCode";
   }
