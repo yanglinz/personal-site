@@ -1,7 +1,6 @@
 <script>
   import ContentLeafNodes from "./ContentLeafNodes.svelte";
   import Blockquote from "./Wrappers/Blockquote.svelte";
-  import Code from "./Wrappers/Code.svelte";
   import Emphasis from "./Wrappers/Emphasis.svelte";
   import Fragment from "./Wrappers/Fragment.svelte";
   import Link from "./Wrappers/Link.svelte";
