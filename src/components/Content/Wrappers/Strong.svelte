@@ -3,6 +3,6 @@
   () => node;
 </script>
 
-<h3>
+<strong>
   <slot />
-</h3>
+</strong>
