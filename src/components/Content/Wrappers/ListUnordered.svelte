@@ -1,5 +1,6 @@
 <script>
-  export const node = undefined;
+  export let node;
+  () => node;
 </script>
 
 <ul>
