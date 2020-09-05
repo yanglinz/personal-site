@@ -10,6 +10,7 @@
 
   const primitives = {
     code: CodeBlock,
+    image: Image,
     inlineCode: Code,
     text: Text
   };

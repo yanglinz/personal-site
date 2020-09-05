@@ -4,7 +4,7 @@ import path from "path";
 import { parse } from "date-fns";
 
 import { SvelteAST } from "../mdx";
-import { getSvelteAST } from "../mdx";
+import { getSvelteAST, walkSvelteAST } from "../mdx";
 
 export interface Post {
   id: string;
@@ -74,11 +74,18 @@ async function getPostMetadata(postId: string): Promise<PostMetadata> {
 }
 
 export async function getPostDetail(postId: string): Promise<PostDetail> {
+  const metadata = await getPostMetadata(postId);
+
   const postMdx = await getFileContent(
     path.resolve(__dirname, postId, "index.md")
   );
   const postAst = await getSvelteAST(postMdx);
-  const metadata = await getPostMetadata(postId);
+  walkSvelteAST(postAst, n => {
+    if (n.type === "image" && n.value) {
+      n.value.postId = postId;
+    }
+  });
+
   return {
     id: postId,
     slug: postId,

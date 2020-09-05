@@ -8,6 +8,7 @@ type ToBeTyped = any;
 type IncorrectlyTyped = any;
 
 type SvelteASTNodeType =
+  | "blockquote"
   | "code"
   | "fragment"
   | "h1"
@@ -17,6 +18,7 @@ type SvelteASTNodeType =
   | "h5"
   | "h6"
   | "inlineCode"
+  | "image"
   | "link"
   | "listOrdered"
   | "listUnordered"
@@ -50,8 +52,15 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
     let nodeType: SvelteASTNodeType = "fragment";
     let value = undefined;
 
-    if (node.type === "paragraph") {
-      nodeType = "paragraph";
+    if (node.type === "blockquote") {
+      nodeType = "blockquote";
+      const listItemChildren: IncorrectlyTyped = node.children;
+      if (
+        listItemChildren[0].type == "paragraph" &&
+        listItemChildren.length === 1
+      ) {
+        children = node.children[0].children;
+      }
     }
 
     if (node.type === "heading") {
@@ -61,6 +70,10 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
       if (node.depth === 4) nodeType = "h4";
       if (node.depth === 5) nodeType = "h5";
       if (node.depth === 6) nodeType = "h6";
+    }
+
+    if (node.type === "inlineCode") {
+      nodeType = "inlineCode";
     }
 
     if (node.type === "link") {
@@ -86,8 +99,8 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
       }
     }
 
-    if (node.type === "inlineCode") {
-      nodeType = "inlineCode";
+    if (node.type === "paragraph") {
+      nodeType = "paragraph";
     }
 
     return {
@@ -100,20 +113,29 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
   let nodeType: SvelteASTNodeType = "fragment";
   let value = node.value;
 
-  if (node.type === "text") {
-    nodeType = "text";
-  }
-
-  if (node.type === "inlineCode") {
-    nodeType = "inlineCode";
-  }
-
   if (node.type === "code") {
     nodeType = "code";
     value = {
       lang: node.lang,
       markup: getHighlightMarkup(node.value, node.lang || "text")
     };
+  }
+
+  if (node.type === "inlineCode") {
+    nodeType = "inlineCode";
+  }
+
+  if (node.type === "image") {
+    nodeType = "image";
+    value = {
+      alt: node.alt,
+      title: node.title,
+      url: node.url
+    };
+  }
+
+  if (node.type === "text") {
+    nodeType = "text";
   }
 
   return { type: nodeType, value: value };
@@ -126,4 +148,15 @@ export async function getSvelteAST(mdxString: string): Promise<SvelteAST> {
     type: "root",
     children: mdast.children.map(mdAstToSvelteAst)
   };
+}
+
+export function walkSvelteAST(
+  ast: SvelteAST | SvelteASTNode,
+  transformer: (n: SvelteAST | SvelteASTNode) => void
+) {
+  if (Array.isArray(ast.children)) {
+    ast.children.forEach(a => walkSvelteAST(a, transformer));
+  }
+
+  transformer(ast);
 }
