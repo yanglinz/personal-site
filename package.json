@@ -11,7 +11,7 @@
     "build:sass": "node src/styles/compile.js && node-sass src/styles/index.scss --include-path=. --output-style=compressed -o static/build",
     "build:sapper": "sapper export",
     "build:content": "ts-node ./content/scripts/build.ts",
-    "build": "run-s build:*",
+    "build": "run-s build:sass build:content build:sapper",
     "start": "node __sapper__/build",
     "test": "jest content",
     "cy:run": "cypress run",
