@@ -1,18 +1,38 @@
 import fs from "fs";
 import path from "path";
 
-export async function get(req, res) {
+function getManifest() {
   const manifestPath = path.resolve(
     __dirname,
     "../../../content/build/_manifest.json"
   );
-  fs.readFile(manifestPath, (err, data) => {
-    if (err) {
-      res.writeHead(500, { "Content-Type": "application/json" });
-      res.end(JSON.stringify(err));
-    } else {
-      res.writeHead(200, { "Content-Type": "application/json" });
-      res.end(data);
-    }
+
+  return new Promise((resolve, reject) => {
+    fs.readFile(manifestPath, (err, data) => {
+      if (err) {
+        reject(err);
+      } else {
+        try {
+          let parsed = JSON.parse(data);
+          resolve(parsed);
+        } catch (err) {
+          reject(err);
+        }
+      }
+    });
   });
+}
+
+export async function get(req, res) {
+  try {
+    let data = await getManifest();
+    data = data.filter(p =>
+      process.env.NODE_ENV === "production" ? p.pubished : true
+    );
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(data));
+  } catch (e) {
+    res.writeHead(500, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(err));
+  }
 }
