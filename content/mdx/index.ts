@@ -18,6 +18,7 @@ type SvelteASTNodeType =
   | "h5"
   | "h6"
   | "inlineCode"
+  | "image"
   | "link"
   | "listOrdered"
   | "listUnordered"
@@ -124,6 +125,15 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
     nodeType = "inlineCode";
   }
 
+  if (node.type === "image") {
+    nodeType = "image";
+    value = {
+      alt: node.alt,
+      title: node.title,
+      url: node.url
+    };
+  }
+
   if (node.type === "text") {
     nodeType = "text";
   }
@@ -138,4 +148,15 @@ export async function getSvelteAST(mdxString: string): Promise<SvelteAST> {
     type: "root",
     children: mdast.children.map(mdAstToSvelteAst)
   };
+}
+
+export function walkSvelteAST(
+  ast: SvelteAST | SvelteASTNode,
+  transformer: (n: SvelteAST | SvelteASTNode) => void
+) {
+  if (Array.isArray(ast.children)) {
+    ast.children.forEach(a => walkSvelteAST(a, transformer));
+  }
+
+  transformer(ast);
 }

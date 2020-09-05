@@ -1,7 +1,7 @@
 <script>
-  import SanityImage from "../../SanityImage.svelte";
+  import ImageManifest from "../../../../content/images/ImageManifest.svelte";
 
   export let node;
 </script>
 
-<SanityImage image={node} maxWidth={750} />
+<ImageManifest postId={node.value.postId} relativeImagePath={node.value.url} />
