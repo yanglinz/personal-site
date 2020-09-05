@@ -18,8 +18,9 @@
   export let nodes = [];
 
   const wrappers = {
-    fragment: Fragment,
+    blockquote: Blockquote,
     code: Fragment,
+    fragment: Fragment,
     link: Link,
     inlineCode: Fragment,
     text: Fragment,
