@@ -10,6 +10,7 @@ type IncorrectlyTyped = any;
 type SvelteASTNodeType =
   | "blockquote"
   | "code"
+  | "emphasis"
   | "fragment"
   | "h1"
   | "h2"
@@ -24,6 +25,7 @@ type SvelteASTNodeType =
   | "listUnordered"
   | "listItem"
   | "paragraph"
+  | "strong"
   | "text";
 
 interface SvelteASTNode {
@@ -61,6 +63,10 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
       ) {
         children = node.children[0].children;
       }
+    }
+
+    if (node.type === "emphasis") {
+      nodeType = "emphasis";
     }
 
     if (node.type === "heading") {
@@ -101,6 +107,10 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
 
     if (node.type === "paragraph") {
       nodeType = "paragraph";
+    }
+
+    if (node.type === "strong") {
+      nodeType = "strong";
     }
 
     return {

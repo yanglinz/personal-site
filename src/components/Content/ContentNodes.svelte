@@ -2,6 +2,7 @@
   import ContentLeafNodes from "./ContentLeafNodes.svelte";
   import Blockquote from "./Wrappers/Blockquote.svelte";
   import Code from "./Wrappers/Code.svelte";
+  import Emphasis from "./Wrappers/Emphasis.svelte";
   import Fragment from "./Wrappers/Fragment.svelte";
   import Link from "./Wrappers/Link.svelte";
   import H1 from "./Wrappers/H1.svelte";
@@ -14,12 +15,14 @@
   import ListOrdered from "./Wrappers/ListOrdered.svelte";
   import ListUnordered from "./Wrappers/ListUnordered.svelte";
   import P from "./Wrappers/P.svelte";
+  import Strong from "./Wrappers/Strong.svelte";
 
   export let nodes = [];
 
   const wrappers = {
     blockquote: Blockquote,
     code: Fragment,
+    emphasis: Emphasis,
     fragment: Fragment,
     link: Link,
     image: Fragment,
@@ -28,7 +31,8 @@
     listOrdered: ListOrdered,
     listUnordered: ListUnordered,
     listItem: ListItem,
-    paragraph: P
+    paragraph: P,
+    strong: Strong
   };
 </script>
 
