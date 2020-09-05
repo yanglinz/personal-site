@@ -26,8 +26,8 @@ function getManifest() {
 export async function get(req, res) {
   try {
     let data = await getManifest();
-    data = data.filter(p =>
-      process.env.NODE_ENV === "production" ? p.pubished : true
+    data = data.filter(
+      p => p.published || process.env.NODE_ENV === "development"
     );
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify(data));
