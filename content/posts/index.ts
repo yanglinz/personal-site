@@ -12,11 +12,13 @@ export interface Post {
   title: string;
   date: string;
   dateParsed: Date;
+  published: boolean;
 }
 
 export interface PostMetadata {
   title: string;
   date: string;
+  published?: boolean;
   featuredImage?: string;
   featuredImageAlt?: string;
 }
@@ -27,6 +29,7 @@ export interface PostDetail {
   title: string;
   date: string;
   dateParsed: Date;
+  published: boolean;
   body: SvelteAST;
   featuredImage?: string;
   featuredImageAlt?: string;
@@ -56,14 +59,17 @@ export async function getPostList(): Promise<Post[]> {
         slug: postId,
         title: metadata.title,
         date: metadata.date,
-        dateParsed: parse(metadata.date, "MM/dd/yyyy", new Date())
+        dateParsed: parse(metadata.date, "MM/dd/yyyy", new Date()),
+        published: Boolean(metadata.published)
       };
     });
   const posts = await Promise.all(postDirectories);
-  return posts.sort((p1, p2) =>
-    // Sort posts by published date
-    p1.dateParsed.getTime() > p2.dateParsed.getTime() ? -1 : 1
-  );
+  return posts
+    .filter(p => (process.env.NODE_ENV === "production" ? p.published : true))
+    .sort((p1, p2) =>
+      // Sort posts by published date
+      p1.dateParsed.getTime() > p2.dateParsed.getTime() ? -1 : 1
+    );
 }
 
 async function getPostMetadata(postId: string): Promise<PostMetadata> {
@@ -92,6 +98,7 @@ export async function getPostDetail(postId: string): Promise<PostDetail> {
     title: metadata.title,
     date: metadata.date,
     dateParsed: parse(metadata.date, "MM/dd/yyyy", new Date()),
+    published: Boolean(metadata.published),
     featuredImage: metadata.featuredImage,
     featuredImageAlt: metadata.featuredImageAlt,
     body: postAst
