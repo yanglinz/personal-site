@@ -1,6 +1,7 @@
 {
   "title": "Hello blog!",
   "date": "10/01/2018",
+  "published": true,
   "featuredImage": "./banner.jpeg",
   "featuredImageAlt": "Open road"
 }
