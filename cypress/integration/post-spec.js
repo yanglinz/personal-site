@@ -3,8 +3,7 @@ describe("post spec", () => {
     cy.visit("/");
   });
 
-  // Skip tests from the post index for now
-  const postIndexes = [1, 2, 3, 4, 5] && [];
+  const postIndexes = [1, 2, 3, 4, 5];
   postIndexes.forEach(i => {
     it("should handle navigation", () => {
       cy.get(".Post-title a")
