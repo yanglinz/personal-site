@@ -1,5 +1,6 @@
 {
   "title": "Service boundaries",
+  "description": "Microservices architecture has been a rather hot topic for a few years now, but I want to discuss why it's only a viable solution for a narrow set of problems, and why most teams shouldn't go down this path.",
   "date": "06/10/2019",
   "published": true,
   "featuredImage": "./banner.jpg",
