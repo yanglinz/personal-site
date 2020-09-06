@@ -1,5 +1,4 @@
 import { format } from "date-fns";
-import { getPostsList } from "../content/manifest.js";
 
 const xml = require("xml-js");
 
@@ -8,6 +7,10 @@ function formatDate(date) {
 }
 
 export async function get(req, res, next) {
+  res.writeHead(200, { "Content-Type": "application/xml" });
+  res.end("Hello world!");
+  return
+
   const posts = await getPostsList();
 
   const indexUrl = {

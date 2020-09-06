@@ -2,10 +2,7 @@ import fs from "fs";
 import path from "path";
 
 function getManifest() {
-  const manifestPath = path.resolve(
-    __dirname,
-    "../../../content/build/_manifest.json"
-  );
+  const manifestPath = path.resolve(__dirname, "../../build/_manifest.json");
 
   return new Promise((resolve, reject) => {
     fs.readFile(manifestPath, (err, data) => {

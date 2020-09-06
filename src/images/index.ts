@@ -50,7 +50,7 @@ export async function getImageComponent(): Promise<string> {
 
   imageList.forEach(i => {
     // The image path is defined via SvelteImage component in the rollup config
-    const imagePath = path.join("content-posts", i.postId, i.relativePath);
+    const imagePath = path.join("posts", i.postId, i.relativePath);
     let imageMarkup = "";
     imageMarkup += `{#if postId == '${i.postId}' && relativeImagePath == '${i.relativePath}'}\n`;
     imageMarkup += `  <Image src="${imagePath}" />\n`;

@@ -2,10 +2,7 @@ import fs from "fs";
 import path from "path";
 
 function getPostData(postSlug) {
-  const postPath = path.resolve(
-    __dirname,
-    `../../../content/build/${postSlug}.json`
-  );
+  const postPath = path.resolve(__dirname, `../../build/${postSlug}.json`);
   return new Promise((resolve, reject) => {
     fs.readFile(postPath, (err, data) => {
       if (err) {

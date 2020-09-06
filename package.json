@@ -6,14 +6,14 @@
   "scripts": {
     "dev:sass": "yarn build:sass && node-sass src/styles/index.scss --include-path=. -w -o static/build",
     "dev:sapper": "sapper dev",
-    "dev:content": "ts-node --transpile-only ./content/scripts/build.ts",
+    "dev:content": "ts-node --transpile-only ./src/scripts/build.ts",
     "dev": "run-p dev:*",
     "build:sass": "node src/styles/compile.js && node-sass src/styles/index.scss --include-path=. --output-style=compressed -o static/build",
     "build:sapper": "sapper export",
     "build:content": "ts-node ./src/scripts/build.ts",
     "build": "run-s build:sass build:content build:sapper",
     "start": "node __sapper__/build",
-    "test": "jest content",
+    "test": "jest src",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "format": "prettier --plugin-search-dir=. --write './{src,content}/**/*.{js,ts,css,svelte,html,md,json}'"
