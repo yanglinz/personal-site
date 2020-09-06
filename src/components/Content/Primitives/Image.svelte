@@ -1,5 +1,5 @@
 <script>
-  import ImageManifest from "../../../../content/images/ImageManifest.svelte";
+  import ImageManifest from "../../../content/images/ImageManifest.svelte";
 
   export let node;
 </script>

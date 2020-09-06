@@ -9,6 +9,6 @@
     "forceConsistentCasingInFileNames": true,
     "preserveConstEnums": true
   },
-  "include": ["content/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
