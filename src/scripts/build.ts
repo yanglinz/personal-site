@@ -19,7 +19,8 @@ async function writeFile(filePath: string, content: string) {
 
 (async () => {
   // Create build directory
-  const buildDir = path.resolve(__dirname, "../../static/manifest");
+  const staticDir = path.resolve(__dirname, "../../static");
+  const buildDir = path.resolve(staticDir, "manifest");
   if (!fs.existsSync(buildDir)) {
     fs.mkdirSync(buildDir);
   }
@@ -40,9 +41,8 @@ async function writeFile(filePath: string, content: string) {
 
   // Write sitemap.xml
   const sitemap = await getSitemap();
-  console.log(sitemap)
-  // const sitemapPath = path.resolve(buildDir, "sitemap.xml");
-  // await writeFile(sitemapPath, sitemap);
+  const sitemapPath = path.resolve(staticDir, "sitemap.xml");
+  await writeFile(sitemapPath, sitemap);
 
   // Write image manifest component file
   const imageComponent = await getImageComponent();

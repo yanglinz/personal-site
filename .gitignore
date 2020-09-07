@@ -3,6 +3,7 @@ dist/
 build/
 static/media/
 static/manifest/
+static/sitemap.xml
 
 # Logs
 logs
