@@ -1,23 +1,23 @@
+import xml from "xml-js";
 import { format } from "date-fns";
-import { getPostsList } from "../content/manifest.js";
 
-const xml = require("xml-js");
+import { getPostList } from "./index";
 
-function formatDate(date) {
+function formatDate(date: Date) {
   return format(new Date(date), "yyyy-MM-dd,kk:mm:ss+00:00").replace(",", "T");
 }
 
-export async function get(req, res, next) {
-  const posts = await getPostsList();
+export async function getSitemap(): Promise<string> {
+  const posts = await getPostList();
 
   const indexUrl = {
     loc: { _text: "http://yanglinzhao.com/" },
-    lastmod: { _text: formatDate(posts[0].publishedAt) },
+    lastmod: { _text: formatDate(posts[0].dateParsed) },
     priority: { _text: "1.00" }
   };
   const postUrls = posts.map(p => ({
     loc: { _text: `http://yanglinzhao.com/posts/${p.slug}/` },
-    lastmod: { _text: formatDate(p.publishedAt) },
+    lastmod: { _text: formatDate(p.dateParsed) },
     priority: { _text: "0.80" }
   }));
   const urls = [indexUrl].concat(postUrls);
@@ -37,7 +37,5 @@ export async function get(req, res, next) {
 
   const options = { compact: true, ignoreComment: true, spaces: 2 };
   const body = xml.js2xml(data, options);
-
-  res.writeHead(200, { "Content-Type": "application/xml" });
-  res.end(body);
+  return body;
 }

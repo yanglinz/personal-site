@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 
 import { getPostList, getPostDetail } from "../posts/index";
+import { getSitemap } from "../posts/sitemap";
 import { getImageComponent } from "../images/index";
 
 async function writeFile(filePath: string, content: string) {
@@ -18,7 +19,8 @@ async function writeFile(filePath: string, content: string) {
 
 (async () => {
   // Create build directory
-  const buildDir = path.resolve(__dirname, "../build");
+  const staticDir = path.resolve(__dirname, "../../static");
+  const buildDir = path.resolve(staticDir, "manifest");
   if (!fs.existsSync(buildDir)) {
     fs.mkdirSync(buildDir);
   }
@@ -36,6 +38,11 @@ async function writeFile(filePath: string, content: string) {
       return writeFile(postPath, JSON.stringify(postDetail, null, 2));
     })
   );
+
+  // Write sitemap.xml
+  const sitemap = await getSitemap();
+  const sitemapPath = path.resolve(staticDir, "sitemap.xml");
+  await writeFile(sitemapPath, sitemap);
 
   // Write image manifest component file
   const imageComponent = await getImageComponent();

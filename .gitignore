@@ -2,6 +2,9 @@
 dist/
 build/
 static/media/
+static/manifest/
+static/sass/
+static/sitemap.xml
 
 # Logs
 logs

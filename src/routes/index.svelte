@@ -1,6 +1,6 @@
 <script context="module">
   export function preload({ params, query }) {
-    return this.fetch("posts.json")
+    return this.fetch("manifest/_manifest.json")
       .then(r => r.json())
       .then(posts => {
         return { posts };
