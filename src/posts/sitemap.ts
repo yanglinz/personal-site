@@ -1,8 +1,7 @@
+import xml from "xml-js";
 import { format } from "date-fns";
 
 import { getPostList } from "./index";
-
-const xml = require("xml-js");
 
 function formatDate(date: Date) {
   return format(new Date(date), "yyyy-MM-dd,kk:mm:ss+00:00").replace(",", "T");
