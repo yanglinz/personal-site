@@ -8,7 +8,7 @@
     "dev:sapper": "sapper dev",
     "dev:content": "ts-node --transpile-only ./src/scripts/build.ts",
     "dev": "run-p dev:*",
-    "build:sass": "node src/styles/compile.js && node-sass src/styles/index.scss --include-path=. --output-style=compressed -o static/build",
+    "build:sass": "node src/styles/compile.js && node-sass src/styles/index.scss --include-path=. --output-style=compressed -o static/sass",
     "build:sapper": "sapper export",
     "build:content": "ts-node ./src/scripts/build.ts",
     "build": "run-s build:sass build:content build:sapper",
