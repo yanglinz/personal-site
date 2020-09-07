@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 
 import { getPostList, getPostDetail } from "../posts/index";
+import { getSitemap } from "../posts/sitemap";
 import { getImageComponent } from "../images/index";
 
 async function writeFile(filePath: string, content: string) {
@@ -36,6 +37,12 @@ async function writeFile(filePath: string, content: string) {
       return writeFile(postPath, JSON.stringify(postDetail, null, 2));
     })
   );
+
+  // Write sitemap.xml
+  const sitemap = await getSitemap();
+  console.log(sitemap)
+  // const sitemapPath = path.resolve(buildDir, "sitemap.xml");
+  // await writeFile(sitemapPath, sitemap);
 
   // Write image manifest component file
   const imageComponent = await getImageComponent();
