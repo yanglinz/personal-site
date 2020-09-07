@@ -18,7 +18,7 @@ async function writeFile(filePath: string, content: string) {
 
 (async () => {
   // Create build directory
-  const buildDir = path.resolve(__dirname, "../build");
+  const buildDir = path.resolve(__dirname, "../../static/manifest");
   if (!fs.existsSync(buildDir)) {
     fs.mkdirSync(buildDir);
   }
