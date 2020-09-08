@@ -1,5 +1,3 @@
-![Rice farm divisions](./banner.jpg)
-
 Microservices architecture has been a rather hot topic for a few years now. I've
 now worked for a few teams that has either started off on or transitioned to
 this pattern, and over time I think I've become a skeptic.

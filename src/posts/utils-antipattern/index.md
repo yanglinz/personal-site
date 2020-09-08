@@ -1,5 +1,3 @@
-![Random tools](./banner.jpg)
-
 # The Problem
 
 Today, I want to talk about a problem that I think pervades a lot of codebases
