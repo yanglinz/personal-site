@@ -53,13 +53,13 @@ validation. In this cases, the easy way out would be to just create sub-modules
 within `util` with a name about its logical domain.
 
 ```js
+// Before
 import { flatten, getLogger, validateAddress } from "./utils.js";
-```
 
-```js
+// After
 import { flatten } from "./utils/array.js";
 import { getLogger } from "./utils/logging.js";
-import { validateAddress } from "./utils/array.js";
+import { validateAddress } from "./utils/validation.js";
 ```
 
 Seems simple and obvious enough, but I think just giving it a good name does
