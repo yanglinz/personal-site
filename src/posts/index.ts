@@ -10,6 +10,7 @@ export interface Post {
   id: string;
   slug: string;
   title: string;
+  description?: string;
   date: string;
   dateParsed: Date;
   published: boolean;
@@ -18,6 +19,7 @@ export interface Post {
 export interface PostMetadata {
   title: string;
   date: string;
+  description?: string;
   published?: boolean;
   featuredImage?: string;
   featuredImageAlt?: string;
@@ -27,6 +29,7 @@ export interface PostDetail {
   id: string;
   slug: string;
   title: string;
+  description?: string;
   date: string;
   dateParsed: Date;
   published: boolean;
@@ -58,6 +61,7 @@ export async function getPostList(): Promise<Post[]> {
         id: postId,
         slug: postId,
         title: metadata.title,
+        description: metadata.description,
         date: metadata.date,
         dateParsed: parse(metadata.date, "MM/dd/yyyy", new Date()),
         published: Boolean(metadata.published)
@@ -94,6 +98,7 @@ export async function getPostDetail(postId: string): Promise<PostDetail> {
     id: postId,
     slug: postId,
     title: metadata.title,
+    description: metadata.description,
     date: metadata.date,
     dateParsed: parse(metadata.date, "MM/dd/yyyy", new Date()),
     published: Boolean(metadata.published),
