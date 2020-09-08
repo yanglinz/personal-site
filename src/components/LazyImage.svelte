@@ -15,8 +15,8 @@
 
   $: path = intersected ? src : placeholder;
 
-  let observerCallback = function(entries, observer) {
-    entries.forEach(entry => {
+  let observerCallback = function (entries, observer) {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         intersected = true;
         observer.unobserve(imgElement);
@@ -36,6 +36,4 @@
 
 {#if intersected}
   <img src={path} {srcset} {sizes} {alt} bind:this={imgElement} />
-{:else}
-  <img src={path} {alt} bind:this={imgElement} />
-{/if}
+{:else}<img src={path} {alt} bind:this={imgElement} />{/if}

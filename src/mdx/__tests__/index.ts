@@ -8,8 +8,8 @@ describe("mdx parser", () => {
     expect(ast).toEqual({
       type: "root",
       children: [
-        { type: "h1", children: [{ type: "text", value: "Some heading" }] }
-      ]
+        { type: "h1", children: [{ type: "text", value: "Some heading" }] },
+      ],
     });
   });
 
@@ -21,8 +21,11 @@ describe("mdx parser", () => {
       type: "root",
       children: [
         { type: "h1", children: [{ type: "text", value: "Some heading" }] },
-        { type: "paragraph", children: [{ type: "text", value: "Some text." }] }
-      ]
+        {
+          type: "paragraph",
+          children: [{ type: "text", value: "Some text." }],
+        },
+      ],
     });
   });
 });

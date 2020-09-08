@@ -86,7 +86,7 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
       nodeType = "link";
       value = {
         url: node.url,
-        title: node.title
+        title: node.title,
       };
     }
 
@@ -116,7 +116,7 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
     return {
       type: nodeType,
       value,
-      children: children.map(mdAstToSvelteAst)
+      children: children.map(mdAstToSvelteAst),
     };
   }
 
@@ -127,7 +127,7 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
     nodeType = "code";
     value = {
       lang: node.lang,
-      markup: getHighlightMarkup(node.value, node.lang || "text")
+      markup: getHighlightMarkup(node.value, node.lang || "text"),
     };
   }
 
@@ -140,7 +140,7 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
     value = {
       alt: node.alt,
       title: node.title,
-      url: node.url
+      url: node.url,
     };
   }
 
@@ -156,7 +156,7 @@ export async function getSvelteAST(mdxString: string): Promise<SvelteAST> {
 
   return {
     type: "root",
-    children: mdast.children.map(mdAstToSvelteAst)
+    children: mdast.children.map(mdAstToSvelteAst),
   };
 }
 
@@ -165,7 +165,7 @@ export function walkSvelteAST(
   transformer: (n: SvelteAST | SvelteASTNode) => void
 ) {
   if (Array.isArray(ast.children)) {
-    ast.children.forEach(a => walkSvelteAST(a, transformer));
+    ast.children.forEach((a) => walkSvelteAST(a, transformer));
   }
 
   transformer(ast);

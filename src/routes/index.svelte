@@ -1,8 +1,8 @@
 <script context="module">
   export function preload({ params, query }) {
     return this.fetch("manifest/_manifest.json")
-      .then(r => r.json())
-      .then(posts => {
+      .then((r) => r.json())
+      .then((posts) => {
         return { posts };
       });
   }

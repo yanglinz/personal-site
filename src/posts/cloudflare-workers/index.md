@@ -54,7 +54,7 @@ function getProxyUrl(event: FetchEvent) {
     "yanglinzhao.com": "yanglin-zhao-personal-site.netlify.com",
     "www.yanglinzhao.com": "yanglin-zhao-personal-site.netlify.com",
     "cool-project.yanglinzhao.com": "cool-project.yanglin.now.sh",
-    "another-project.yanglinzhao.com": "another-project.yanglin.now.sh"
+    "another-project.yanglinzhao.com": "another-project.yanglin.now.sh",
   };
 
   const proxyUrl = new URL(event.request.url);

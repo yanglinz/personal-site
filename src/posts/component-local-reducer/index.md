@@ -12,7 +12,7 @@ function someReducer(state, action) {
     case "SOME_ACTION": {
       return {
         ...state,
-        someFlag: true
+        someFlag: true,
       };
     }
     default:
@@ -63,12 +63,12 @@ function lightswitchReducer(state, action) {
 
 class LightSwitch extends React.Component {
   state = {
-    lightSwitchOff: true
+    lightSwitchOff: true,
   };
 
   // Makeshift dispatch function
-  dispatch = action => {
-    this.setState(prevState => localReducer(prevState, action));
+  dispatch = (action) => {
+    this.setState((prevState) => localReducer(prevState, action));
   };
 
   render() {

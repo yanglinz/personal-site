@@ -53,8 +53,8 @@ function getFileContent(filePath: string): Promise<string> {
 export async function getPostList(): Promise<Post[]> {
   const files = fs.readdirSync(__dirname, { withFileTypes: true });
   const postDirectories = files
-    .filter(f => f.isDirectory())
-    .map(async f => {
+    .filter((f) => f.isDirectory())
+    .map(async (f) => {
       const postId = f.name;
       const metadata = await getPostMetadata(postId);
       return {
@@ -64,7 +64,7 @@ export async function getPostList(): Promise<Post[]> {
         description: metadata.description,
         date: metadata.date,
         dateParsed: parse(metadata.date, "MM/dd/yyyy", new Date()),
-        published: Boolean(metadata.published)
+        published: Boolean(metadata.published),
       };
     });
   const posts = await Promise.all(postDirectories);
@@ -88,7 +88,7 @@ export async function getPostDetail(postId: string): Promise<PostDetail> {
     path.resolve(__dirname, postId, "index.md")
   );
   const postAst = await getSvelteAST(postMdx);
-  walkSvelteAST(postAst, n => {
+  walkSvelteAST(postAst, (n) => {
     if (n.type === "image" && n.value) {
       n.value.postId = postId;
     }
@@ -104,6 +104,6 @@ export async function getPostDetail(postId: string): Promise<PostDetail> {
     published: Boolean(metadata.published),
     featuredImage: metadata.featuredImage,
     featuredImageAlt: metadata.featuredImageAlt,
-    body: postAst
+    body: postAst,
   };
 }

@@ -13,12 +13,12 @@ export async function getSitemap(): Promise<string> {
   const indexUrl = {
     loc: { _text: "http://yanglinzhao.com/" },
     lastmod: { _text: formatDate(posts[0].dateParsed) },
-    priority: { _text: "1.00" }
+    priority: { _text: "1.00" },
   };
-  const postUrls = posts.map(p => ({
+  const postUrls = posts.map((p) => ({
     loc: { _text: `http://yanglinzhao.com/posts/${p.slug}/` },
     lastmod: { _text: formatDate(p.dateParsed) },
-    priority: { _text: "0.80" }
+    priority: { _text: "0.80" },
   }));
   const urls = [indexUrl].concat(postUrls);
   const data = {
@@ -28,11 +28,11 @@ export async function getSitemap(): Promise<string> {
           xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9",
           ["xmlns:xsi"]: "http://www.w3.org/2001/XMLSchema-instance",
           ["xsi:schemaLocation"]:
-            "http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+            "http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd",
         },
-        url: urls
-      }
-    ]
+        url: urls,
+      },
+    ],
   };
 
   const options = { compact: true, ignoreComment: true, spaces: 2 };

@@ -12,7 +12,7 @@
     code: CodeBlock,
     image: Image,
     inlineCode: Code,
-    text: Text
+    text: Text,
   };
 </script>
 
