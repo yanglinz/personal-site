@@ -233,8 +233,8 @@ so
 [you're largely on your own](https://discuss.newrelic.com/t/reporting-django-web-app-django-rq-worker/5282).
 Anytime I've run into this sort of limitation, I either just give up monitoring
 it in NewRelic or end up rewriting parts of my application to something that is
-officially supported (e.g. migrating from [Django RQ](https://python-rq.org/) to
-[Celery](http://www.celeryproject.org/)), which feels backwards to me.
+officially supported (e.g. migrating from [Django RQ](https://python-rq.org) to
+[Celery](http://www.celeryproject.org)), which feels backwards to me.
 
 And this is why I think Honeycomb's approach of creating a bunch of toolset
 around a core abstraction of events is better:
@@ -257,7 +257,7 @@ significant performance issue. I'm excited to explore more, since I feel like
 I'm only begining to scratch the surface of what can be queried and visualized.
 
 One last bit of closing note is that: while I felt like tracing tools like
-Honeycomb may be marketed primarily for [microservices](/service-boundaries/), I
+Honeycomb may be marketed primarily for [microservices](posts/service-boundaries), I
 still think they are immensely useful for traditional `LAMP`-stack
 variants/monoliths. Afterall, whether it's network calls or other forms of IO,
 it doesn't change our need to observe and understand the running system.
