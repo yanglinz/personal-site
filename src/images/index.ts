@@ -13,14 +13,14 @@ function getPostImages(post: Post): Image[] {
   const contents = fs.readdirSync(postDir, { withFileTypes: true });
   return contents
     .filter(
-      d =>
+      (d) =>
         d.name.endsWith(".jpg") ||
         d.name.endsWith(".jpeg") ||
         d.name.endsWith(".png")
     )
-    .map(d => ({
+    .map((d) => ({
       postId: post.id,
-      relativePath: "./" + d.name
+      relativePath: "./" + d.name,
     }));
 }
 
@@ -48,7 +48,7 @@ export async function getImageComponent(): Promise<string> {
   let component = "";
   component += componentHeader;
 
-  imageList.forEach(i => {
+  imageList.forEach((i) => {
     // The image path is defined via SvelteImage component in the rollup config
     const imagePath = path.join("posts", i.postId, i.relativePath);
     let imageMarkup = "";

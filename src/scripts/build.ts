@@ -7,7 +7,7 @@ import { getImageComponent } from "../images/index";
 
 async function writeFile(filePath: string, content: string) {
   return new Promise((resolve, reject) => {
-    fs.writeFile(filePath, content, err => {
+    fs.writeFile(filePath, content, (err) => {
       if (err) {
         reject(err);
       } else {
@@ -32,7 +32,7 @@ async function writeFile(filePath: string, content: string) {
 
   // Write post details
   await Promise.all(
-    posts.map(async post => {
+    posts.map(async (post) => {
       const postPath = path.resolve(buildDir, `${post.id}.json`);
       const postDetail = await getPostDetail(post.id);
       return writeFile(postPath, JSON.stringify(postDetail, null, 2));

@@ -15,8 +15,8 @@
   const placeholder = src + "?w=200&blur=100";
 
   let breakpoints = [1, 2, 3, 4, 5];
-  breakpoints = breakpoints.map(b => (b / breakpoints.length) * maxWidth);
-  let srcset = breakpoints.map(b => {
+  breakpoints = breakpoints.map((b) => (b / breakpoints.length) * maxWidth);
+  let srcset = breakpoints.map((b) => {
     const imagePath = src + `?w=${b}`;
     return `${imagePath} ${b}w`;
   });

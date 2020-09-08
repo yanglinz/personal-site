@@ -15,7 +15,7 @@ export const NodeTypes = {
   LIST_UNORDERED: "LIST_UNORDERED",
   LIST_ITEM: "LIST_ITEM",
   IMAGE: "IMAGE",
-  CODE: "CODE"
+  CODE: "CODE",
 };
 
 function parsePortableTextNodeType(portableTextNode) {
@@ -111,13 +111,13 @@ function parsePortableTextNodeAttrs(portableTextNode, markDefs) {
 
 function walkNodes(nodes, cb) {
   if (Array.isArray(nodes)) {
-    return nodes.forEach(n => {
+    return nodes.forEach((n) => {
       walkNodes(n, cb);
     });
   }
 
   if (nodes.children) {
-    nodes.children.forEach(n => {
+    nodes.children.forEach((n) => {
       walkNodes(n, cb);
     });
   }
@@ -127,9 +127,9 @@ function walkNodes(nodes, cb) {
 
 export function getAllMarks(portableTextNode) {
   let marks = {};
-  walkNodes(portableTextNode, n => {
+  walkNodes(portableTextNode, (n) => {
     if (n.markDefs) {
-      n.markDefs.forEach(d => {
+      n.markDefs.forEach((d) => {
         marks[d._key] = d;
       });
     }
@@ -144,7 +144,7 @@ export function nestLists(portableTextNode) {
 
   let grouped = [];
   let currentListGroup;
-  portableTextNode.forEach(node => {
+  portableTextNode.forEach((node) => {
     if (node.listItem) {
       if (currentListGroup) {
         // Append to the existing group
@@ -154,7 +154,7 @@ export function nestLists(portableTextNode) {
         currentListGroup = {
           _type: "block",
           customType: node.listItem,
-          children: [node]
+          children: [node],
         };
       }
     } else {
@@ -172,13 +172,13 @@ export function nestLists(portableTextNode) {
 
 export function parsePortableText(portableTextNode, markDefs) {
   if (Array.isArray(portableTextNode)) {
-    return portableTextNode.map(n => parsePortableText(n, markDefs));
+    return portableTextNode.map((n) => parsePortableText(n, markDefs));
   }
 
   if (portableTextNode.children) {
     return {
       ...parsePortableTextNodeAttrs(portableTextNode, markDefs),
-      children: parsePortableText(portableTextNode.children, markDefs)
+      children: parsePortableText(portableTextNode.children, markDefs),
     };
   }
 

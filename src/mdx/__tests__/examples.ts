@@ -22,7 +22,7 @@ async function getExample(id: string): Promise<string> {
 describe("mdx parser examples", () => {
   const exampleIds = ["simple", "simple-nested"];
 
-  exampleIds.forEach(id => {
+  exampleIds.forEach((id) => {
     it(`should parse markdown ${id} example`, async () => {
       const mdxString = await getExample(id);
       const ast = await mdx.getSvelteAST(mdxString);
