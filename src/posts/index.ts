@@ -68,10 +68,12 @@ export async function getPostList(): Promise<Post[]> {
       };
     });
   const posts = await Promise.all(postDirectories);
-  return posts.sort((p1, p2) =>
-    // Sort posts by published date
-    p1.dateParsed.getTime() > p2.dateParsed.getTime() ? -1 : 1
-  );
+  return posts
+    .filter((p) => p.published || process.env.NODE_ENV === "development")
+    .sort((p1, p2) =>
+      // Sort posts by published date
+      p1.dateParsed.getTime() > p2.dateParsed.getTime() ? -1 : 1
+    );
 }
 
 async function getPostMetadata(postId: string): Promise<PostMetadata> {
