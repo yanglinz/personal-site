@@ -18,6 +18,7 @@ type SvelteASTNodeType =
   | "h4"
   | "h5"
   | "h6"
+  | "html"
   | "inlineCode"
   | "image"
   | "link"
@@ -128,6 +129,13 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
     value = {
       lang: node.lang,
       markup: getHighlightMarkup(node.value, node.lang || "text"),
+    };
+  }
+
+  if (node.type === "html") {
+    nodeType = "html";
+    value = {
+      markup: node.value,
     };
   }
 
