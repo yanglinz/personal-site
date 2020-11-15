@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-import { Post, getPostList } from "../posts/index";
+import { Post, getPostList } from "../../content/posts/index";
 
 export interface Image {
   postId: string;
@@ -9,7 +9,7 @@ export interface Image {
 }
 
 function getPostImages(post: Post): Image[] {
-  const postDir = path.resolve(__dirname, "../posts", post.slug);
+  const postDir = path.resolve(__dirname, "../../content/posts", post.slug);
   const contents = fs.readdirSync(postDir, { withFileTypes: true });
   return contents
     .filter(
