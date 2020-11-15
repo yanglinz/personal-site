@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-import { Post, getPostList } from "../../content/posts/index";
+import { Post, getPostList } from "../posts/index";
 
 export interface Image {
   postId: string;
