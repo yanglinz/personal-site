@@ -3,7 +3,7 @@ import path from "path";
 
 import { getPostList, getPostDetail } from "../posts/index";
 import { getSitemap } from "../posts/sitemap";
-import { getImageComponent } from "../images/index";
+import { getImageComponent } from "../src/images/index";
 
 async function writeFile(filePath: string, content: string) {
   return new Promise((resolve, reject) => {
