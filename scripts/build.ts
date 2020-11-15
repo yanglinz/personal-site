@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 
-import { getPostList, getPostDetail } from "../posts/index";
-import { getSitemap } from "../posts/sitemap";
+import { getPostList, getPostDetail } from "../content/posts/index";
+import { getSitemap } from "../content/posts/sitemap";
 import { getImageComponent } from "../src/images/index";
 
 async function writeFile(filePath: string, content: string) {
@@ -19,7 +19,7 @@ async function writeFile(filePath: string, content: string) {
 
 (async () => {
   // Create build directory
-  const staticDir = path.resolve(__dirname, "../../static");
+  const staticDir = path.resolve(__dirname, "../static");
   const buildDir = path.resolve(staticDir, "manifest");
   if (!fs.existsSync(buildDir)) {
     fs.mkdirSync(buildDir);
@@ -48,7 +48,7 @@ async function writeFile(filePath: string, content: string) {
   const imageComponent = await getImageComponent();
   const imageComponentPath = path.resolve(
     __dirname,
-    "../images/ImageManifest.svelte"
+    "../content/images/ImageManifest.svelte"
   );
   await writeFile(imageComponentPath, imageComponent);
 })();
