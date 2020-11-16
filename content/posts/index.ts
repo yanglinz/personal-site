@@ -3,8 +3,8 @@ import path from "path";
 
 import { parse } from "date-fns";
 
-import { SvelteAST } from "../mdx/index";
-import { getSvelteAST, walkSvelteAST } from "../mdx/index";
+import { SvelteAST } from "../parser/index";
+import { getSvelteAST, walkSvelteAST } from "../parser/index";
 
 export interface Post {
   id: string;

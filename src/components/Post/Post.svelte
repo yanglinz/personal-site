@@ -1,6 +1,6 @@
 <script>
   import FeaturedImage from "./FeaturedImage.svelte";
-  import ImageManifest from "../../images/ImageManifest.svelte";
+  import ImageManifest from "../../../content/images/ImageManifest.svelte";
 
   export let post;
 </script>

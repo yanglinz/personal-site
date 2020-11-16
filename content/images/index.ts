@@ -9,7 +9,7 @@ export interface Image {
 }
 
 function getPostImages(post: Post): Image[] {
-  const postDir = path.resolve(__dirname, "../posts", post.slug);
+  const postDir = path.resolve(__dirname, "../../content/posts", post.slug);
   const contents = fs.readdirSync(postDir, { withFileTypes: true });
   return contents
     .filter(
