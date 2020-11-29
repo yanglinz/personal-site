@@ -38,9 +38,6 @@ out/
 .cache/
 public
 
-# Cypress
-cypress/screenshots/
-
 # Sapper
 __sapper__/
 src/node_modules/@sapper/

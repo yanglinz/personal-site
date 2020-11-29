@@ -31,5 +31,3 @@ jobs:
       - run: yarn install
       - run: yarn run test
       - run: yarn run build
-      - run: cd __sapper__/export && python3 -m http.server 3000 &
-      - run: yarn cy:run
