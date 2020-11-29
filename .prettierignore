@@ -8,11 +8,7 @@ dist/
 build/
 assets/build/
 public/
-__sapper__/
 static/
 
 # Deployment
 .vercel
-
-# Project
-ContentNodes.svelte
