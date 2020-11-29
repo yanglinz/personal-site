@@ -5,16 +5,14 @@
   "private": true,
   "scripts": {
     "dev:sass": "yarn build:sass && node-sass src/styles/index.scss --include-path=. -w -o static/build",
-    "dev:sapper": "sapper dev",
     "dev:content": "ts-node --transpile-only ./scripts/build.ts",
     "dev": "run-p dev:*",
     "build:sass": "node src/styles/compile.js && node-sass src/styles/index.scss --include-path=. --output-style=compressed -o static/sass",
-    "build:sapper": "sapper export",
     "build:content": "ts-node ./scripts/build.ts",
-    "build": "run-s build:sass build:content build:sapper",
-    "start": "node __sapper__/build",
+    "build": "run-s build:sass build:content",
+    "start": "yarn dev",
     "test": "jest src",
-    "format": "prettier --plugin-search-dir=. --write './{src,content}/**/*.{js,ts,css,svelte,html,md,json}'"
+    "format": "prettier --write './{src,content}/**/*.{js,ts,css,svelte,html,md,json}'"
   },
   "dependencies": {
     "compression": "^1.7.1",
