@@ -1,7 +1,7 @@
 import React from "react";
 
-function IndexPage() {
+function Index() {
   return <h1>Hello world!</h1>;
 }
 
-export default IndexPage;
+export default Index;
