@@ -14,8 +14,6 @@
     "build": "run-s build:sass build:content build:sapper",
     "start": "node __sapper__/build",
     "test": "jest src",
-    "cy:run": "cypress run",
-    "cy:open": "cypress open",
     "format": "prettier --plugin-search-dir=. --write './{src,content}/**/*.{js,ts,css,svelte,html,md,json}'"
   },
   "dependencies": {
@@ -40,7 +38,6 @@
     "@types/jest": "^26.0.13",
     "@types/mdast": "^3.0.3",
     "@types/unist": "^2.0.3",
-    "cypress": "^5.1.0",
     "jest": "^26.4.2",
     "node-sass": "^4.13.0",
     "npm-run-all": "^4.1.5",
