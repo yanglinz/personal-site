@@ -3,8 +3,9 @@ import path from "path";
 
 import { parse } from "date-fns";
 
-import { SvelteAST } from "../parser/index";
-import { getSvelteAST, walkSvelteAST } from "../parser/index";
+import * as markdown from "./markdown";
+import { ContentAST } from "./markdown";
+import config from "./config";
 
 export interface Post {
   id: string;
@@ -33,7 +34,7 @@ export interface PostDetail {
   date: string;
   dateParsed: Date;
   published: boolean;
-  body: SvelteAST;
+  body: ContentAST;
   featuredImage?: string;
   featuredImageAlt?: string;
 }
@@ -51,7 +52,7 @@ function getFileContent(filePath: string): Promise<string> {
 }
 
 export async function getPostList(): Promise<Post[]> {
-  const files = fs.readdirSync(__dirname, { withFileTypes: true });
+  const files = fs.readdirSync(config.contentPath, { withFileTypes: true });
   const postDirectories = files
     .filter((f) => f.isDirectory())
     .map(async (f) => {
@@ -78,7 +79,7 @@ export async function getPostList(): Promise<Post[]> {
 
 async function getPostMetadata(postId: string): Promise<PostMetadata> {
   const metadata = await getFileContent(
-    path.resolve(__dirname, postId, "metadata.json")
+    path.resolve(config.contentPath, postId, "metadata.json")
   );
   return JSON.parse(metadata);
 }
@@ -87,10 +88,10 @@ export async function getPostDetail(postId: string): Promise<PostDetail> {
   const metadata = await getPostMetadata(postId);
 
   const postMdx = await getFileContent(
-    path.resolve(__dirname, postId, "index.md")
+    path.resolve(config.contentPath, postId, "index.md")
   );
-  const postAst = await getSvelteAST(postMdx);
-  walkSvelteAST(postAst, (n) => {
+  const postAst = await markdown.getContentAST(postMdx);
+  markdown.walkContentAST(postAst, (n) => {
     if (n.type === "image" && n.value) {
       n.value.postId = postId;
     }

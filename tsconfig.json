@@ -21,8 +21,6 @@
     "jsx": "preserve"
   },
   "include": [
-    "content/**/*",
-    "scripts/**/*",
     "src/**/*"
   ],
   "exclude": [

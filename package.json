@@ -5,14 +5,12 @@
   "private": true,
   "scripts": {
     "dev:sass": "yarn build:sass && node-sass src/styles/index.scss --include-path=. -w -o static/build",
-    "dev:content": "ts-node --transpile-only ./scripts/build.ts",
     "dev:next": "NODE_ENV=development next",
     "dev": "run-p dev:*",
     "build:sass": "node src/styles/compile.js && node-sass src/styles/index.scss --include-path=. --output-style=compressed -o static/sass",
-    "build:content": "ts-node ./scripts/build.ts",
     "build:ssg": "NODE_ENV=production next build && next export -o build",
     "build:ssr": "NODE_ENV=production next build",
-    "build": "run-s build:sass build:content build:ssg",
+    "build": "run-s build:ssg",
     "start": "NODE_ENV=production next start",
     "test": "jest src",
     "format": "prettier --write './{src,content}/**/*.{js,ts,css,html,md,json}'"
