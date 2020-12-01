@@ -1,11 +1,11 @@
-function handler(req, res) {
+import { getContentAST } from "../../../publishable/blog-engine";
+
+async function handler(req, res) {
   const { slug } = req.query;
+  const markdown = "#Hello world!";
+  const content = await getContentAST(markdown);
 
-  console.log(slug);
-
-  // Based on the slug, get the AST
-
-  res.end("Hello world");
+  res.json(content);
 }
 
 export default handler;
