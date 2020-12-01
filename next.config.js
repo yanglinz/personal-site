@@ -9,7 +9,11 @@ const preactConfig = withPreact({
 });
 
 module.exports = {
+  // Use preact instead of React
   ...preactConfig,
+
+  // Some routing configs
+  trailingSlash: true,
   async redirects() {
     return [
       {
