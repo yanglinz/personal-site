@@ -5,7 +5,7 @@ interface GlobalConfig {
   contentPath: string;
 }
 
-const projectRoot = path.join(__dirname, "../../");
+const projectRoot = process.cwd();
 
 const config: GlobalConfig = {
   rootPath: projectRoot,

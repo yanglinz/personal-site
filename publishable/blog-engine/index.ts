@@ -1,1 +1,1 @@
-export { getContentAST } from "./markdown";
+export { getPostList, getPostDetail } from "./manifest";
