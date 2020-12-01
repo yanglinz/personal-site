@@ -1,5 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`markdown parser full examples should parse markdown simple example 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Hello world!",
+        },
+      ],
+      "type": "h1",
+      "value": undefined,
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "This is just a simple example.",
+        },
+      ],
+      "type": "paragraph",
+      "value": undefined,
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`markdown parser full examples should parse markdown simple-nested example 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Hello ",
+        },
+        Object {
+          "type": "inlineCode",
+          "value": "world",
+        },
+        Object {
+          "type": "text",
+          "value": "!",
+        },
+      ],
+      "type": "h1",
+      "value": undefined,
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "This is just a ",
+        },
+        Object {
+          "type": "inlineCode",
+          "value": "simple",
+        },
+        Object {
+          "type": "text",
+          "value": " example.",
+        },
+      ],
+      "type": "paragraph",
+      "value": undefined,
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`mdx parser examples should parse markdown simple example 1`] = `
 Object {
   "children": Array [

@@ -7,7 +7,7 @@ import { getHighlightMarkup } from "./highlight";
 type ToBeTyped = any;
 type IncorrectlyTyped = any;
 
-type SvelteASTNodeType =
+type ContentASTNodeType =
   | "blockquote"
   | "code"
   | "emphasis"
@@ -29,15 +29,15 @@ type SvelteASTNodeType =
   | "strong"
   | "text";
 
-interface SvelteASTNode {
-  type: SvelteASTNodeType;
+interface ContentASTNode {
+  type: ContentASTNodeType;
   value?: ToBeTyped;
-  children?: SvelteASTNode[];
+  children?: ContentASTNode[];
 }
 
-export interface SvelteAST {
+export interface ContentAST {
   type: "root";
-  children: SvelteASTNode[];
+  children: ContentASTNode[];
 }
 
 function getMdast(mdString: string): Mdast.Root {
@@ -49,10 +49,10 @@ function getMdast(mdString: string): Mdast.Root {
   return _mdastTyped;
 }
 
-function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
+function mdAstToContentAst(node: Mdast.Content): ContentASTNode {
   if (Array.isArray(node.children)) {
     let children: IncorrectlyTyped = node.children;
-    let nodeType: SvelteASTNodeType = "fragment";
+    let nodeType: ContentASTNodeType = "fragment";
     let value = undefined;
 
     if (node.type === "blockquote") {
@@ -117,11 +117,11 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
     return {
       type: nodeType,
       value,
-      children: children.map(mdAstToSvelteAst),
+      children: children.map(mdAstToContentAst),
     };
   }
 
-  let nodeType: SvelteASTNodeType = "fragment";
+  let nodeType: ContentASTNodeType = "fragment";
   let value = node.value;
 
   if (node.type === "code") {
@@ -159,21 +159,21 @@ function mdAstToSvelteAst(node: Mdast.Content): SvelteASTNode {
   return { type: nodeType, value: value };
 }
 
-export async function getSvelteAST(mdxString: string): Promise<SvelteAST> {
+export async function getContentAST(mdxString: string): Promise<ContentAST> {
   const mdast = getMdast(mdxString);
 
   return {
     type: "root",
-    children: mdast.children.map(mdAstToSvelteAst),
+    children: mdast.children.map(mdAstToContentAst),
   };
 }
 
-export function walkSvelteAST(
-  ast: SvelteAST | SvelteASTNode,
-  transformer: (n: SvelteAST | SvelteASTNode) => void
+export function walkContentAST(
+  ast: ContentAST | ContentASTNode,
+  transformer: (n: ContentAST | ContentASTNode) => void
 ) {
   if (Array.isArray(ast.children)) {
-    ast.children.forEach((a) => walkSvelteAST(a, transformer));
+    ast.children.forEach((a) => walkContentAST(a, transformer));
   }
 
   transformer(ast);
