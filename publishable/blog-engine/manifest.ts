@@ -4,8 +4,7 @@ import path from "path";
 import { parse } from "date-fns";
 
 import { getFileContent } from "./helpers/fs";
-import * as markdown from "./markdown";
-import { ContentAST } from "./markdown";
+import { ContentAST, getContentAST, walkContentAST } from "./markdown";
 import config from "./config";
 
 export interface Post {
@@ -79,8 +78,8 @@ export async function getPostDetail(postId: string): Promise<PostDetail> {
   const postMdx = await getFileContent(
     path.resolve(config.contentPath, postId, "index.md")
   );
-  const postAst = await markdown.getContentAST(postMdx);
-  markdown.walkContentAST(postAst, (n) => {
+  const postAst = await getContentAST(postMdx);
+  walkContentAST(postAst, (n) => {
     if (n.type === "image" && n.value) {
       n.value.postId = postId;
     }
