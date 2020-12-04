@@ -7,6 +7,9 @@ import { getFileContent } from "./helpers/fs";
 import { ContentAST, getContentAST, walkContentAST } from "./markdown";
 import config from "./config";
 
+// PostListing
+// PostDetail
+
 export interface Post {
   id: string;
   slug: string;
