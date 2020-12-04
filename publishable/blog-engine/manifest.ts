@@ -3,6 +3,7 @@ import path from "path";
 
 import { parse } from "date-fns";
 
+import { getFileContent } from "./helpers/fs";
 import * as markdown from "./markdown";
 import { ContentAST } from "./markdown";
 import config from "./config";
@@ -37,18 +38,6 @@ export interface PostDetail {
   body: ContentAST;
   featuredImage?: string;
   featuredImageAlt?: string;
-}
-
-function getFileContent(filePath: string): Promise<string> {
-  return new Promise((resolve, reject) => {
-    fs.readFile(filePath, (err, data) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(String(data));
-      }
-    });
-  });
 }
 
 export async function getPostList(): Promise<Post[]> {
