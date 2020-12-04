@@ -1,22 +1,12 @@
 import fs from "fs";
 import path from "path";
 
+import { getFileContent } from "../helpers/fs";
 import { getContentAST } from "../markdown";
-
-function readFile(path: string): Promise<string> {
-  return new Promise((resolve, reject) => {
-    fs.readFile(path, (err, data) => {
-      if (err) reject(err);
-      if (data) {
-        resolve(String(data));
-      }
-    });
-  });
-}
 
 async function getExample(id: string): Promise<string> {
   const filePath = path.resolve(__dirname, `./fixtures/${id}.mdx`);
-  return await readFile(filePath);
+  return await getFileContent(filePath);
 }
 
 describe("markdown parser", () => {
@@ -60,4 +50,3 @@ describe("markdown parser full examples", () => {
     });
   });
 });
-
