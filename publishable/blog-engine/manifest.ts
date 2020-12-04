@@ -1,71 +1,21 @@
 import fs from "fs";
 import path from "path";
 
-import { parse } from "date-fns";
-
 import { getFileContent } from "./helpers/fs";
-import { ContentAST, getContentAST, walkContentAST } from "./markdown";
+import { getHast } from "./markdown";
 import config from "./config";
 
-// PostListing
-// PostDetail
-
-export interface Post {
-  id: string;
-  slug: string;
-  title: string;
-  description?: string;
-  date: string;
-  dateParsed: Date;
-  published: boolean;
-}
+type ToBeTyped = any;
 
 export interface PostMetadata {
   title: string;
   date: string;
   description?: string;
   published?: boolean;
-  featuredImage?: string;
-  featuredImageAlt?: string;
 }
 
-export interface PostDetail {
-  id: string;
-  slug: string;
-  title: string;
-  description?: string;
-  date: string;
-  dateParsed: Date;
-  published: boolean;
-  body: ContentAST;
-  featuredImage?: string;
-  featuredImageAlt?: string;
-}
-
-export async function getPostList(): Promise<Post[]> {
-  const files = fs.readdirSync(config.contentPath, { withFileTypes: true });
-  const postDirectories = files
-    .filter((f) => f.isDirectory())
-    .map(async (f) => {
-      const postId = f.name;
-      const metadata = await getPostMetadata(postId);
-      return {
-        id: postId,
-        slug: postId,
-        title: metadata.title,
-        description: metadata.description,
-        date: metadata.date,
-        dateParsed: parse(metadata.date, "MM/dd/yyyy", new Date()),
-        published: Boolean(metadata.published),
-      };
-    });
-  const posts = await Promise.all(postDirectories);
-  return posts
-    .filter((p) => p.published || process.env.NODE_ENV === "development")
-    .sort((p1, p2) =>
-      // Sort posts by published date
-      p1.dateParsed.getTime() > p2.dateParsed.getTime() ? -1 : 1
-    );
+export interface PostContent {
+  hast: ToBeTyped;
 }
 
 async function getPostMetadata(postId: string): Promise<PostMetadata> {
@@ -75,29 +25,25 @@ async function getPostMetadata(postId: string): Promise<PostMetadata> {
   return JSON.parse(metadata);
 }
 
-export async function getPostDetail(postId: string): Promise<PostDetail> {
-  const metadata = await getPostMetadata(postId);
+export async function getPostList(): Promise<PostMetadata[]> {
+  const files = fs.readdirSync(config.contentPath, { withFileTypes: true });
+  const postDirectories = files
+    .filter((f) => f.isDirectory())
+    .map(async (f) => {
+      const postId = f.name;
+      return await getPostMetadata(postId);
+    });
+  const posts = await Promise.all(postDirectories);
+  return posts;
+}
 
-  const postMdx = await getFileContent(
-    path.resolve(config.contentPath, postId, "index.md")
+export async function getPostContent(
+  postId: string,
+  contentPath: string
+): Promise<PostContent> {
+  const content = await getFileContent(
+    path.resolve(config.contentPath, postId, contentPath)
   );
-  const postAst = await getContentAST(postMdx);
-  walkContentAST(postAst, (n) => {
-    if (n.type === "image" && n.value) {
-      n.value.postId = postId;
-    }
-  });
-
-  return {
-    id: postId,
-    slug: postId,
-    title: metadata.title,
-    description: metadata.description,
-    date: metadata.date,
-    dateParsed: parse(metadata.date, "MM/dd/yyyy", new Date()),
-    published: Boolean(metadata.published),
-    featuredImage: metadata.featuredImage,
-    featuredImageAlt: metadata.featuredImageAlt,
-    body: postAst,
-  };
+  const hast = await getHast(content);
+  return { hast };
 }
