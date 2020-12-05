@@ -1,1 +1,1 @@
-export { getPostList, getPostDetail } from "./manifest";
+export { getPostList, postExists, getPostContent } from "./manifest";
