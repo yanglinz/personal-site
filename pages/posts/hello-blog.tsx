@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 import ContentHTML from "../../publishable/blog-engine/components/ContentHTML";
 
@@ -10,5 +11,16 @@ export async function getStaticProps() {
 
 export default function Page(props) {
   const { content } = props;
-  return <ContentHTML htmlAst={content.hast} />;
+  return (
+    <>
+      <Image
+        src="/content/hello-blog/banner.jpeg"
+        alt="Open road"
+        layout="responsive"
+        width={500}
+        height={300}
+      />
+      <ContentHTML htmlAst={content.hast} />
+    </>
+  );
 }
