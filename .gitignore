@@ -34,10 +34,6 @@ yarn-error.log
 .next/
 out/
 
-# Gatsby files
-.cache/
-public
-
 # Sapper
 __sapper__/
 src/node_modules/@sapper/
