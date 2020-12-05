@@ -13,7 +13,7 @@
     "build": "run-s build:ssr",
     "start": "NODE_ENV=production next start",
     "test": "jest src",
-    "format": "prettier --write './{src,content}/**/*.{js,ts,css,html,md,json}'"
+    "format": "prettier --write './{src,pages,content}/**/*.{js,ts,css,html,md,json}'"
   },
   "dependencies": {
     "compression": "^1.7.1",
