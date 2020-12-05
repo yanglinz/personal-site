@@ -8,6 +8,7 @@ import config from "./config";
 type ToBeTyped = any;
 
 export interface PostMetadata {
+  id: string;
   title: string;
   date: string;
   description?: string;
@@ -22,7 +23,7 @@ async function getPostMetadata(postId: string): Promise<PostMetadata> {
   const metadata = await getFileContent(
     path.resolve(config.contentPath, postId, "metadata.json")
   );
-  return JSON.parse(metadata);
+  return { id: postId, ...JSON.parse(metadata) };
 }
 
 export async function getPostList(): Promise<PostMetadata[]> {
@@ -35,6 +36,12 @@ export async function getPostList(): Promise<PostMetadata[]> {
     });
   const posts = await Promise.all(postDirectories);
   return posts;
+}
+
+export async function postExists(postId: string): Promise<boolean> {
+  const postList = await getPostList();
+  const post = postList.filter((p) => p.id === postId)[0];
+  return Boolean(post);
 }
 
 export async function getPostContent(
