@@ -5,6 +5,7 @@ static/media/
 static/manifest/
 static/sass/
 static/sitemap.xml
+public/content/
 
 # Logs
 logs
@@ -33,10 +34,6 @@ yarn-error.log
 # Next
 .next/
 out/
-
-# Gatsby files
-.cache/
-public
 
 # Sapper
 __sapper__/
