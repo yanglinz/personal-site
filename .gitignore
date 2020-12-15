@@ -5,6 +5,7 @@ static/media/
 static/manifest/
 static/sass/
 static/sitemap.xml
+public/content/
 
 # Logs
 logs

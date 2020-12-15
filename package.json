@@ -4,12 +4,15 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "prep:images": "./publishable/blog-engine/scripts/images.sh",
+    "prep:sitemap": "true",
+    "prep": "run-p prep:*",
     "dev:next": "NODE_ENV=development next",
-    "dev": "run-p dev:*",
+    "dev": "yarn prep && run-p dev:*",
     "build:sass": "node src/styles/compile.js && node-sass src/styles/index.scss --include-path=. --output-style=compressed -o static/sass",
     "build:ssg": "NODE_ENV=production next build && next export -o build",
     "build:ssr": "NODE_ENV=production next build",
-    "build": "mkdir -p public && cp -r content public/content && run-s build:ssr",
+    "build": "run-s prep build:ssr",
     "start": "NODE_ENV=production next start",
     "test": "jest src",
     "format": "prettier --write './{src,pages,content}/**/*.{js,ts,css,html,md,json}'"
