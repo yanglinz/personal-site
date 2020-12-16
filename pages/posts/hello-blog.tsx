@@ -3,9 +3,11 @@ import Image from "next/image";
 
 import ContentHTML from "../../publishable/blog-engine/components/ContentHTML";
 
+const postId = "hello-blog"
+
 export async function getStaticProps() {
   const manifest = await import("../../publishable/blog-engine/manifest");
-  const content = await manifest.getPostContent("hello-blog", "index.md");
+  const content = await manifest.getPostContent(postId, "index.md");
   return { props: { content } };
 }
 
@@ -20,7 +22,7 @@ export default function Page(props) {
         width={500}
         height={300}
       />
-      <ContentHTML htmlAst={content.hast} />
+      <ContentHTML htmlAst={content.ast} />
     </>
   );
 }

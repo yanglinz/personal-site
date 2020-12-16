@@ -23,7 +23,7 @@ describe("markdown to html ast parser", () => {
 });
 
 describe("markdown to html ast parser full examples", () => {
-  const exampleIds = ["simple", "simple-nested"];
+  const exampleIds = ["simple", "simple-nested", "with-codeblock"];
 
   exampleIds.forEach((id) => {
     it(`should parse markdown ${id} example`, async () => {

@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 import { getFileContent } from "./helpers/fs";
-import { getHast } from "./markdown";
+import { getContentAst } from "./markdown";
 import config from "./config";
 
 type ToBeTyped = any;
@@ -16,7 +16,7 @@ export interface PostMetadata {
 }
 
 export interface PostContent {
-  hast: ToBeTyped;
+  ast: ToBeTyped;
 }
 
 async function getPostMetadata(postId: string): Promise<PostMetadata> {
@@ -51,6 +51,6 @@ export async function getPostContent(
   const content = await getFileContent(
     path.resolve(config.contentPath, postId, contentPath)
   );
-  const hast = await getHast(content);
-  return { hast };
+  const ast = await getContentAst(content);
+  return { ast };
 }

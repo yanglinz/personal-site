@@ -268,6 +268,153 @@ Object {
 }
 `;
 
+exports[`markdown to html ast parser full examples should parse markdown with-codeblock example 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "position": Object {
+            "end": Object {
+              "column": 15,
+              "line": 1,
+              "offset": 14,
+            },
+            "start": Object {
+              "column": 3,
+              "line": 1,
+              "offset": 2,
+            },
+          },
+          "type": "text",
+          "value": "Hello world!",
+        },
+      ],
+      "position": Object {
+        "end": Object {
+          "column": 15,
+          "line": 1,
+          "offset": 14,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "properties": Object {},
+      "tagName": "h1",
+      "type": "element",
+    },
+    Object {
+      "type": "text",
+      "value": "
+",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "position": Object {
+            "end": Object {
+              "column": 23,
+              "line": 3,
+              "offset": 38,
+            },
+            "start": Object {
+              "column": 1,
+              "line": 3,
+              "offset": 16,
+            },
+          },
+          "type": "text",
+          "value": "This has a code block!",
+        },
+      ],
+      "position": Object {
+        "end": Object {
+          "column": 23,
+          "line": 3,
+          "offset": 38,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 3,
+          "offset": 16,
+        },
+      },
+      "properties": Object {},
+      "tagName": "p",
+      "type": "element",
+    },
+    Object {
+      "type": "text",
+      "value": "
+",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "const foo = \\"bar\\";
+",
+            },
+          ],
+          "position": Object {
+            "end": Object {
+              "column": 4,
+              "line": 7,
+              "offset": 68,
+            },
+            "start": Object {
+              "column": 1,
+              "line": 5,
+              "offset": 40,
+            },
+          },
+          "properties": Object {
+            "className": Array [
+              "language-js",
+            ],
+          },
+          "tagName": "code",
+          "type": "element",
+        },
+      ],
+      "position": Object {
+        "end": Object {
+          "column": 4,
+          "line": 7,
+          "offset": 68,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 5,
+          "offset": 40,
+        },
+      },
+      "properties": Object {},
+      "tagName": "pre",
+      "type": "element",
+    },
+  ],
+  "position": Object {
+    "end": Object {
+      "column": 1,
+      "line": 8,
+      "offset": 69,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "type": "root",
+}
+`;
+
 exports[`markdown to html ast parser should parse headings + text 1`] = `
 Object {
   "children": Array [
