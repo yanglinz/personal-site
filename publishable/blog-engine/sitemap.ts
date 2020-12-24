@@ -1,9 +1,14 @@
 import xml from "xml-js";
-import { format } from "date-fns";
+import { format, parse } from "date-fns";
 
 import { getPostList } from "./index";
+import config from "./config";
 
-function formatDate(date: Date) {
+function parseDate(date: string): Date {
+  return parse(date, "MM/dd/yyyy", new Date());
+}
+
+function formatDate(date: Date): string {
   return format(new Date(date), "yyyy-MM-dd,kk:mm:ss+00:00").replace(",", "T");
 }
 
@@ -11,15 +16,17 @@ export async function getSitemap(): Promise<string> {
   const posts = await getPostList();
 
   const indexUrl = {
-    loc: { _text: "http://yanglinzhao.com/" },
-    lastmod: { _text: formatDate(posts[0].dateParsed) },
+    loc: { _text: config.publicUrl },
+    lastmod: { _text: formatDate(parseDate(posts[0].date)) },
     priority: { _text: "1.00" },
   };
-  const postUrls = posts.map((p) => ({
-    loc: { _text: `http://yanglinzhao.com/posts/${p.slug}/` },
-    lastmod: { _text: formatDate(p.dateParsed) },
-    priority: { _text: "0.80" },
-  }));
+  const postUrls = posts.map((p) => {
+    return {
+      loc: { _text: `${config.publicUrl}/posts/${p.id}/` },
+      lastmod: { _text: formatDate(parseDate(p.date)) },
+      priority: { _text: "0.80" },
+    };
+  });
   const urls = [indexUrl].concat(postUrls);
   const data = {
     urlset: [

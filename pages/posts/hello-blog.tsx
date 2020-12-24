@@ -3,6 +3,8 @@ import Image from "next/image";
 
 import ContentHTML from "../../publishable/blog-engine/components/ContentHTML";
 
+type TODO = any;
+
 const postId = "hello-blog";
 
 export async function getStaticProps() {
@@ -11,7 +13,7 @@ export async function getStaticProps() {
   return { props: { content } };
 }
 
-export default function Page(props) {
+export default function Page(props: TODO) {
   const { content } = props;
   return (
     <>

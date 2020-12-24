@@ -2,6 +2,8 @@ import React from "react";
 
 import ContentHTML from "../../publishable/blog-engine/components/ContentHTML";
 
+type TODO = any;
+
 const postId = "cloudflare-workers";
 
 export async function getStaticProps() {
@@ -10,7 +12,7 @@ export async function getStaticProps() {
   return { props: { content } };
 }
 
-export default function Page(props) {
+export default function Page(props: TODO) {
   const { content } = props;
   return <ContentHTML htmlAst={content.ast} />;
 }

@@ -1,6 +1,8 @@
 import fs from "fs";
 import path from "path";
 
+import { parse } from "date-fns";
+
 import { getFileContent } from "./helpers/fs";
 import { getContentAst } from "./markdown";
 import config from "./config";
@@ -23,7 +25,8 @@ async function getPostMetadata(postId: string): Promise<PostMetadata> {
   const metadata = await getFileContent(
     path.resolve(config.contentPath, postId, "metadata.json")
   );
-  return { id: postId, ...JSON.parse(metadata) };
+  const postData = JSON.parse(metadata);
+  return { id: postId, ...postData };
 }
 
 export async function getPostList(): Promise<PostMetadata[]> {

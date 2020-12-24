@@ -1,10 +1,12 @@
 import { h } from "preact";
 
-function ContentCodeblock(props) {
+type TODO = any;
+
+function ContentCodeblock(props: TODO) {
   return <pre dangerouslySetInnerHTML={{ __html: props.html }}></pre>;
 }
 
-function ContentTree(node) {
+function ContentTree(node: TODO) {
   let element = node.tagName || "div";
   let attrs = {};
 
@@ -23,7 +25,7 @@ function ContentTree(node) {
   return null;
 }
 
-export default function ContentHTML(props) {
+export default function ContentHTML(props: TODO) {
   const { htmlAst } = props;
   return <ContentTree {...htmlAst} />;
 }
