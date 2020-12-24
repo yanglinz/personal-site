@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import ContentHTML from "../../publishable/blog-engine/components/ContentHTML";
 
-const postId = "hello-blog"
+const postId = "hello-blog";
 
 export async function getStaticProps() {
   const manifest = await import("../../publishable/blog-engine/manifest");
