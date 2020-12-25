@@ -4,6 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "prep:sass": "node src/styles/compile.js",
     "prep:images": "./publishable/blog-engine/scripts/images.sh",
     "prep:sitemap": "ts-node ./publishable/blog-engine/scripts/build-sitemap.ts > public/sitemap.xml",
     "prep": "run-p prep:*",
