@@ -16,7 +16,7 @@ export default function Header() {
 
           <div className="Header-links">
             <a href="https://github.com/yanglinz">
-              <IconGithub width={32} fill="#fff" />
+              <IconGithub width={18} fill="#fff" />
             </a>
           </div>
         </div>
