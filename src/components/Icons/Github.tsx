@@ -3,7 +3,7 @@ type ComponentProps = {
   fill: string;
 };
 
-export default function IconGithub(props: ComponentProps) {
+export default function GithubIcon(props: ComponentProps) {
   const { width, fill } = props;
   return (
     <svg viewBox="0 0 24 24" width={width}>
