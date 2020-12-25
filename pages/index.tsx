@@ -1,7 +1,6 @@
 import React from "react";
 
-import Header from "../src/components/Header";
-import Footer from "../src/components/Footer";
+import Layout from "./_layout";
 
 type TODO = any;
 
@@ -14,8 +13,7 @@ export async function getStaticProps() {
 function Index(props: TODO) {
   const posts: TODO = props.posts;
   return (
-    <div>
-      <Header />
+    <Layout>
       <ul>
         {posts.map((p: TODO) => (
           <li>
@@ -23,8 +21,7 @@ function Index(props: TODO) {
           </li>
         ))}
       </ul>
-      <Footer />
-    </div>
+    </Layout>
   );
 }
 
