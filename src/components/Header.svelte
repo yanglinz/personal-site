@@ -18,7 +18,6 @@
 
       <div class="Header-links">
         <a href="https://github.com/yanglinz">
-          <GithubIcon />
         </a>
       </div>
     </div>

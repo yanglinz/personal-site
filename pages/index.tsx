@@ -1,5 +1,7 @@
 import React from "react";
 
+import Header from "../src/components/Header";
+
 type TODO = any;
 
 export async function getStaticProps() {
@@ -12,7 +14,7 @@ function Index(props: TODO) {
   const posts: TODO = props.posts;
   return (
     <div>
-      <h1>Yanglin Zhao</h1>
+      <Header />
       <ul>
         {posts.map((p: TODO) => (
           <li>
