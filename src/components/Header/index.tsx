@@ -1,7 +1,5 @@
 import IconGithub from "./IconGithub";
 
-import "./Header.scss";
-
 export default function Header() {
   return (
     <div className="Header">
