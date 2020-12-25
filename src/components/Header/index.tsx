@@ -1,4 +1,4 @@
-import IconGithub from "./IconGithub";
+import IconGithub from "../Icons/Github";
 
 export default function Header() {
   return (
