@@ -1,3 +1,5 @@
+const path = require("path");
+
 const withPrefresh = require("@prefresh/next");
 const preact = require("preact");
 const withPreact = require("next-plugin-preact");
@@ -11,6 +13,11 @@ const preactConfig = withPreact({
 module.exports = {
   // Use preact instead of React
   ...preactConfig,
+
+  // Sass options
+  sassOptions: {
+    includePaths: [path.join(__dirname, "src/styles")],
+  },
 
   // Some routing configs
   trailingSlash: true,
