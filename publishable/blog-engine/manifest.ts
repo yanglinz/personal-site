@@ -30,7 +30,8 @@ export async function getPostMetadata(postId: string): Promise<PostMetadata> {
 
   const postData = JSON.parse(metadata);
   const { title, date, published } = postData;
-  return { id: postId, urlPath, title, date, published };
+  const description = postData.description || null;
+  return { id: postId, urlPath, title, date, description, published };
 }
 
 export async function getPostList(): Promise<PostMetadata[]> {
