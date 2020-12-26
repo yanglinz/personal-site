@@ -1,19 +1,22 @@
+import Link from "next/link";
+
 type TODO = any;
 
 export default function PostList(props: TODO) {
   return props.posts.map((post: TODO) => (
     <div className="Post">
       <h3 className="Post-title">
-        <a rel="prefetch" href="posts/{post.slug}">
-          {post.title}
-        </a>
+        <Link href={post.urlPath}>
+          <a>{post.title}</a>
+        </Link>
       </h3>
 
       <p className="Post-date f-mono">
-        <a rel="prefetch" href="posts/{post.slug}">
-          {" "}
-          <time>{post.date}</time>{" "}
-        </a>
+        <Link href={post.urlPath}>
+          <a>
+            <time>{post.date}</time>{" "}
+          </a>
+        </Link>
       </p>
     </div>
   ));

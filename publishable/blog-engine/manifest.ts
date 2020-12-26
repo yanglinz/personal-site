@@ -11,6 +11,7 @@ type ToBeTyped = any;
 
 export interface PostMetadata {
   id: string;
+  urlPath: string;
   title: string;
   date: string;
   description?: string;
@@ -22,11 +23,14 @@ export interface PostContent {
 }
 
 async function getPostMetadata(postId: string): Promise<PostMetadata> {
+  const urlPath = `/posts/${postId}`;
   const metadata = await getFileContent(
     path.resolve(config.contentPath, postId, "metadata.json")
   );
+
   const postData = JSON.parse(metadata);
-  return { id: postId, ...postData };
+  const { title, date, published } = postData;
+  return { id: postId, urlPath, title, date, published };
 }
 
 export async function getPostList(): Promise<PostMetadata[]> {
