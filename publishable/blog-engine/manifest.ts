@@ -9,6 +9,10 @@ import config from "./config";
 
 type ToBeTyped = any;
 
+function parseDate(date: string): Date {
+  return parse(date, "MM/dd/yyyy", new Date());
+}
+
 export interface PostMetadata {
   id: string;
   urlPath: string;
@@ -43,7 +47,11 @@ export async function getPostList(): Promise<PostMetadata[]> {
       return await getPostMetadata(postId);
     });
   const posts = await Promise.all(postDirectories);
-  return posts;
+
+  const sorted = posts.sort((p1, p2) =>
+    parseDate(p1.date) < parseDate(p2.date) ? 1 : -1
+  );
+  return sorted;
 }
 
 export async function postExists(postId: string): Promise<boolean> {

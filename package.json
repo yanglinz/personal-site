@@ -7,7 +7,7 @@
     "prep:sass": "node src/styles/compile.js",
     "prep:images": "./publishable/blog-engine/scripts/images.sh",
     "prep:sitemap": "ts-node ./publishable/blog-engine/scripts/build-sitemap.ts > public/sitemap.xml",
-    "prep": "mkdir -p public && run-p prep:*",
+    "prep": "run-p prep:*",
     "dev:next": "NODE_ENV=development next",
     "dev": "yarn prep && run-p dev:*",
     "build:sass": "node src/styles/compile.js && node-sass src/styles/index.scss --include-path=. --output-style=compressed -o static/sass",
