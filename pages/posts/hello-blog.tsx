@@ -1,22 +1,21 @@
 import React from "react";
 import Image from "next/image";
 
-import ContentHTML from "../../publishable/blog-engine/components/ContentHTML";
+import Layout from "../../src/screens/Post/Layout";
 
 type TODO = any;
 
 const postId = "hello-blog";
 
 export async function getStaticProps() {
-  const manifest = await import("../../publishable/blog-engine/manifest");
-  const content = await manifest.getPostContent(postId, "index.md");
-  return { props: { content } };
+  const data = await import("../../publishable/blog-engine/next/prerender");
+  return await data.getStaticProps(postId);
 }
 
 export default function Page(props: TODO) {
-  const { content } = props;
+  const { content, metadata } = props;
   return (
-    <>
+    <Layout content={content} metadata={metadata}>
       <Image
         src="/content/hello-blog/banner.jpeg"
         alt="Open road"
@@ -24,7 +23,6 @@ export default function Page(props: TODO) {
         width={500}
         height={300}
       />
-      <ContentHTML htmlAst={content.ast} />
-    </>
+    </Layout>
   );
 }

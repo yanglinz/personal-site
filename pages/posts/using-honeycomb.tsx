@@ -1,18 +1,15 @@
-import React from "react";
-
-import ContentHTML from "../../publishable/blog-engine/components/ContentHTML";
+import Layout from "../../src/screens/Post/Layout";
 
 type TODO = any;
 
 const postId = "using-honeycomb";
 
 export async function getStaticProps() {
-  const manifest = await import("../../publishable/blog-engine/manifest");
-  const content = await manifest.getPostContent(postId, "index.md");
-  return { props: { content } };
+  const data = await import("../../publishable/blog-engine/next/prerender");
+  return await data.getStaticProps(postId);
 }
 
 export default function Page(props: TODO) {
-  const { content } = props;
-  return <ContentHTML htmlAst={content.ast} />;
+  const { content, metadata } = props;
+  return <Layout content={content} metadata={metadata} />;
 }
