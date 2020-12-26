@@ -1,8 +1,8 @@
-import Header from "../../src/components/Header";
-import Footer from "../../src/components/Footer";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
-import Post from "../../src/screens/Post/Post";
-import ContentHTML from "../../publishable/blog-engine/components/ContentHTML";
+import Post from "../Post/Post";
+import ContentHTML from "../../../publishable/blog-engine/components/ContentHTML";
 
 type TODO = any;
 

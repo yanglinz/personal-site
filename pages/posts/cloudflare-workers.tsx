@@ -1,11 +1,11 @@
-import Layout from "./_layout";
+import Layout from "../../src/screens/Post/Layout";
 
 type TODO = any;
 
 const postId = "cloudflare-workers";
 
 export async function getStaticProps() {
-  const data = await import("./_data");
+  const data = await import("../../publishable/blog-engine/next/prerender");
   return await data.getStaticProps(postId);
 }
 

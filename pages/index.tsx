@@ -1,6 +1,6 @@
 import React from "react";
 
-import Layout from "./_layout";
+import Layout from "../src/screens/Home/Layout";
 import About from "../src/screens/Home/About";
 import Intro from "../src/screens/Home/Intro";
 import PostList from "../src/screens/Home/PostList";
