@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
+import Layout from "./_layout";
 import ContentHTML from "../../publishable/blog-engine/components/ContentHTML";
 
 type TODO = any;
@@ -16,7 +17,7 @@ export async function getStaticProps() {
 export default function Page(props: TODO) {
   const { content } = props;
   return (
-    <>
+    <Layout>
       <Image
         src="/content/hello-blog/banner.jpeg"
         alt="Open road"
@@ -25,6 +26,6 @@ export default function Page(props: TODO) {
         height={300}
       />
       <ContentHTML htmlAst={content.ast} />
-    </>
+    </Layout>
   );
 }
