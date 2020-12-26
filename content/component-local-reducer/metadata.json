@@ -1,6 +1,5 @@
 {
   "title": "Component local reducers",
-  "description": "Today I dive into using Cloudflare Workers as a flexible, serverless reverse proxy. I'm excited to see someone other than AWS at the seat of serverless revolution, and I'm excited to see where Cloudflare Workers takes us.",
   "date": "11/01/2018",
   "published": true
 }
