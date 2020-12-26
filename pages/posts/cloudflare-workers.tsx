@@ -1,5 +1,3 @@
-import React from "react";
-
 import Layout from "./_layout";
 
 type TODO = any;
