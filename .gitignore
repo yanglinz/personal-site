@@ -4,7 +4,7 @@ build/
 static/media/
 static/manifest/
 static/sass/
-static/sitemap.xml
+public/sitemap.xml
 public/content/
 
 # Logs
