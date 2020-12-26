@@ -22,7 +22,7 @@ export interface PostContent {
   ast: ToBeTyped;
 }
 
-async function getPostMetadata(postId: string): Promise<PostMetadata> {
+export async function getPostMetadata(postId: string): Promise<PostMetadata> {
   const urlPath = `/posts/${postId}`;
   const metadata = await getFileContent(
     path.resolve(config.contentPath, postId, "metadata.json")

@@ -19,9 +19,7 @@ export default function Post(props: TODO) {
         </div>
 
         <div className="l-narrow">
-          <div className="BlogPost-content">
-            <slot />
-          </div>
+          <div className="BlogPost-content">{props.children}</div>
         </div>
       </article>
     </main>
