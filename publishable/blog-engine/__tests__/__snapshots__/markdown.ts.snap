@@ -39,11 +39,6 @@ Object {
       "type": "element",
     },
     Object {
-      "type": "text",
-      "value": "
-",
-    },
-    Object {
       "children": Array [
         Object {
           "position": Object {
@@ -171,11 +166,6 @@ Object {
       "properties": Object {},
       "tagName": "h1",
       "type": "element",
-    },
-    Object {
-      "type": "text",
-      "value": "
-",
     },
     Object {
       "children": Array [
@@ -307,11 +297,6 @@ Object {
       "type": "element",
     },
     Object {
-      "type": "text",
-      "value": "
-",
-    },
-    Object {
       "children": Array [
         Object {
           "position": Object {
@@ -345,11 +330,6 @@ Object {
       "properties": Object {},
       "tagName": "p",
       "type": "element",
-    },
-    Object {
-      "type": "text",
-      "value": "
-",
     },
     Object {
       "children": Array [
@@ -452,11 +432,6 @@ Object {
       "properties": Object {},
       "tagName": "h1",
       "type": "element",
-    },
-    Object {
-      "type": "text",
-      "value": "
-",
     },
     Object {
       "children": Array [
