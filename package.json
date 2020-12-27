@@ -16,7 +16,7 @@
     "build": "run-s prep build:ssr",
     "start": "NODE_ENV=production next start",
     "test": "jest .",
-    "format": "prettier --write './{src,pages,content}/**/*.{js,ts,tsx,css,html,md,json}'"
+    "format": "prettier --write './{content,pages,publishable,src}/**/*.{js,ts,tsx,css,html,md,json}'"
   },
   "dependencies": {
     "compression": "^1.7.1",
