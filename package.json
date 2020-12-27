@@ -21,6 +21,7 @@
   "dependencies": {
     "compression": "^1.7.1",
     "date-fns": "^2.16.1",
+    "fathom-client": "^3.0.0",
     "isomorphic-fetch": "^2.2.1",
     "mdast-util-to-hast": "^10.0.1",
     "next": "10.0.3",
