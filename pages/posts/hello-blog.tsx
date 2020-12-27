@@ -14,15 +14,5 @@ export async function getStaticProps() {
 
 export default function Page(props: TODO) {
   const { content, metadata } = props;
-  return (
-    <Layout content={content} metadata={metadata}>
-      <Image
-        src="/content/hello-blog/banner.jpeg"
-        alt="Open road"
-        layout="responsive"
-        width={500}
-        height={300}
-      />
-    </Layout>
-  );
+  return <Layout content={content} metadata={metadata} />;
 }
