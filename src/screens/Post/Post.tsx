@@ -1,7 +1,14 @@
-type TODO = any;
+import React from "react";
 
-export default function Post(props: TODO) {
-  const { post } = props;
+import { PostMetadata } from "../../../publishable/blog-engine/manifest";
+
+interface ComponentProps {
+  metadata: PostMetadata;
+  children: React.ReactNode;
+}
+
+export default function Post(props: ComponentProps) {
+  const { metadata } = props;
   // TODO: Featured image
   return (
     <main>
@@ -10,11 +17,11 @@ export default function Post(props: TODO) {
           <div className="BlogPost-metadata">
             <h1 className="BlogPost-title">
               <a rel="prefetch" href="posts/{post.slug}">
-                {post.title}
+                {metadata.title}
               </a>
             </h1>
 
-            <time className="BlogPost-date">{post.date}</time>
+            <time className="BlogPost-date">{metadata.date}</time>
           </div>
         </div>
 
