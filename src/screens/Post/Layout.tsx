@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Image from "next/image";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -19,6 +20,9 @@ interface ComponentProps {
 
 export default function Layout(props: ComponentProps) {
   const { content, metadata } = props;
+  const featuredImage = metadata.featuredImage || "";
+  const featuredImageMetadata = content.images[featuredImage];
+
   return (
     <div className="Layout">
       <Head>
@@ -29,6 +33,16 @@ export default function Layout(props: ComponentProps) {
       </Head>
       <Header />
       <div className="Layout-content">
+        {featuredImage && featuredImageMetadata ? (
+          <Image
+            src={featuredImage}
+            alt="Open road"
+            layout="responsive"
+            width={featuredImageMetadata.width}
+            height={featuredImageMetadata.height}
+          />
+        ) : null}
+
         {props.children}
 
         <Post metadata={metadata}>
