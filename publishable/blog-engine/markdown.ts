@@ -6,10 +6,25 @@ import { getHighlightMarkup } from "./highlight";
 
 type TODO = any;
 
+function customMdastToHast(node: TODO) {
+  if (node.type === "html") {
+    return node;
+  }
+
+  return mdastToHast(node);
+}
+
 export async function getHast(markdown: string): Promise<any> {
   const processor = unified().use(remarkParse);
-  const mdast = processor.parse(markdown);
-  return mdastToHast(mdast);
+  const mdast: TODO = processor.parse(markdown);
+  const hast = {
+    type: "root",
+    children: mdast.children
+      .map((m: TODO) => customMdastToHast(m))
+      .filter(Boolean),
+    position: mdast.position,
+  };
+  return hast;
 }
 
 function getCodeblockNode(postId: string, hast: TODO): TODO {
