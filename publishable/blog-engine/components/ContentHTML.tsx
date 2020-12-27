@@ -26,6 +26,10 @@ function ContentImage(props: TODO) {
   );
 }
 
+function ContentLiteral(props: TODO) {
+  return <div dangerouslySetInnerHTML={{ __html: props.node.value }}></div>;
+}
+
 function ContentTree(props: TODO) {
   const { node, content } = props;
   let element = node.tagName || "div";
@@ -49,6 +53,10 @@ function ContentTree(props: TODO) {
 
   if (node.type === "img") {
     return <ContentImage content={content} node={node} />;
+  }
+
+  if (node.type === "html") {
+    return <ContentLiteral content={content} node={node} />;
   }
 
   return null;
