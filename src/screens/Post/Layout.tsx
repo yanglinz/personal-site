@@ -21,6 +21,7 @@ interface ComponentProps {
 export default function Layout(props: ComponentProps) {
   const { content, metadata } = props;
   const featuredImage = metadata.featuredImage || "";
+  const featuredImageAlt = metadata.featuredImageAlt;
   const featuredImageMetadata = content.images[featuredImage];
 
   return (
@@ -36,7 +37,7 @@ export default function Layout(props: ComponentProps) {
         {featuredImage && featuredImageMetadata ? (
           <Image
             src={featuredImage}
-            alt="Open road"
+            alt={featuredImageAlt}
             layout="responsive"
             width={featuredImageMetadata.width}
             height={featuredImageMetadata.height}
@@ -46,7 +47,7 @@ export default function Layout(props: ComponentProps) {
         {props.children}
 
         <Post metadata={metadata}>
-          <ContentHTML htmlAst={content.ast} />
+          <ContentHTML content={content} />
         </Post>
       </div>
       <Footer />

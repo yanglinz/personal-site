@@ -113,7 +113,7 @@ export async function getPostContent(
   const content = await getFileContent(
     path.resolve(config.contentPath, postId, contentPath)
   );
-  const ast = await getContentAst(content);
+  const ast = await getContentAst(postId, content);
   const images = await getPostImages(postId);
 
   return { ast, images };
