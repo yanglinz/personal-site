@@ -1,12 +1,12 @@
 import React from "react";
 
+import { PostMetadata } from "../publishable/blog-engine/manifest";
+
 import Layout from "../src/screens/Home/Layout";
 import About from "../src/screens/Home/About";
 import Intro from "../src/screens/Home/Intro";
 import PostList from "../src/screens/Home/PostList";
 import Section from "../src/screens/Home/Section";
-
-type TODO = any;
 
 export async function getStaticProps() {
   const manifest = await import("../publishable/blog-engine/manifest");
@@ -14,8 +14,11 @@ export async function getStaticProps() {
   return { props: { posts } };
 }
 
-function Index(props: TODO) {
-  const posts: TODO = props.posts;
+interface ComponentProps {
+  posts: PostMetadata[];
+}
+
+function Index(props: ComponentProps) {
   return (
     <Layout>
       <Intro />
@@ -25,7 +28,7 @@ function Index(props: TODO) {
       </Section>
 
       <Section title="Blog Posts">
-        <PostList posts={posts} />
+        <PostList posts={props.posts} />
       </Section>
     </Layout>
   );
