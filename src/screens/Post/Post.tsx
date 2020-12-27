@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import { PostMetadata } from "../../../publishable/blog-engine/manifest";
 
@@ -16,9 +17,9 @@ export default function Post(props: ComponentProps) {
         <div className="l-wide">
           <div className="BlogPost-metadata">
             <h1 className="BlogPost-title">
-              <a rel="prefetch" href="posts/{post.slug}">
-                {metadata.title}
-              </a>
+              <Link href={metadata.urlPath}>
+                <a>{metadata.title}</a>
+              </Link>
             </h1>
 
             <time className="BlogPost-date">{metadata.date}</time>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import IconGithub from "../Icons/Github";
 
 export default function Header() {
@@ -7,9 +9,9 @@ export default function Header() {
         <div className="Header-container">
           <div className="Header-brand">
             <h1 className="Header-title">
-              <a className="Header-title-link" href="/">
-                Yanglin Zhao
-              </a>
+              <Link href="/">
+                <a className="Header-title-link">Yanglin Zhao</a>
+              </Link>
             </h1>
             <p className="Header-subtitle">hi (at) yanglinzhao.com</p>
           </div>
