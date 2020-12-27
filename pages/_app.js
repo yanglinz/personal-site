@@ -13,6 +13,7 @@ export default function MyApp({ Component, pageProps }) {
   // Initialize Fathom when the app loads
   useEffect(() => {
     Fathom.load(env.FATHOM_SITE_ID, {
+      url: "//beacon.yanglinzhao.com/tracker.js",
       includedDomains: ["yanglinzhao.com"],
     });
   }, []);
