@@ -14,6 +14,7 @@ export default function MyApp({ Component, pageProps }) {
   // Initialize Fathom when the app loads
   useEffect(() => {
     fathom("set", "siteId", env.FATHOM_SITE_ID);
+    fathom("trackPageview");
   }, []);
 
   return (
