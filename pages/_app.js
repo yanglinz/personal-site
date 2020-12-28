@@ -1,22 +1,25 @@
 import React, { useEffect } from "react";
+import Head from "next/head";
 import Router from "next/router";
-import * as Fathom from "fathom-client";
+import fathom from "../src/fathom";
 import * as env from "../src/environment";
 
 import "../src/styles/index.scss";
 
 Router.events.on("routeChangeComplete", () => {
-  // Fathom.trackPageview();
+  fathom("trackPageview");
 });
 
 export default function MyApp({ Component, pageProps }) {
   // Initialize Fathom when the app loads
   useEffect(() => {
-    // Fathom.load(env.FATHOM_SITE_ID, {
-    //   url: "//beacon.yanglinzhao.com/tracker.js",
-    //   includedDomains: ["yanglinzhao.com"],
-    // });
+    fathom("set", "siteId", env.FATHOM_SITE_ID);
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Head></Head>
+      <Component {...pageProps} />
+    </>
+  );
 }
