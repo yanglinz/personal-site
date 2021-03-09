@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-
-import { postExists, getPostContent } from "../../../publishable/blog-engine";
+import { postExists, getPostContent } from "@blog-engine/index";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { postId, contentPath } = req.query;

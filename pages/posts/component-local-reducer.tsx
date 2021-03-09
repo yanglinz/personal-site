@@ -5,7 +5,7 @@ type TODO = any;
 const postId = "component-local-reducer";
 
 export async function getStaticProps() {
-  const data = await import("../../publishable/blog-engine/next/prerender");
+  const data = await import("@blog-engine/next/prerender");
   return await data.getStaticProps(postId);
 }
 
