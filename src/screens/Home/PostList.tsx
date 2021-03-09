@@ -1,6 +1,5 @@
 import Link from "next/link";
-
-import { PostMetadata } from "../../../publishable/blog-engine/manifest";
+import { PostMetadata } from "@blog-engine/manifest";
 
 interface ComponentProps {
   posts: PostMetadata[];

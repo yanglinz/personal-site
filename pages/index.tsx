@@ -1,6 +1,5 @@
 import React from "react";
-
-import { PostMetadata } from "../publishable/blog-engine/manifest";
+import { PostMetadata } from "@blog-engine/manifest";
 
 import Layout from "../src/screens/Home/Layout";
 import About from "../src/screens/Home/About";
@@ -9,7 +8,7 @@ import PostList from "../src/screens/Home/PostList";
 import Section from "../src/screens/Home/Section";
 
 export async function getStaticProps() {
-  const manifest = await import("../publishable/blog-engine/manifest");
+  const manifest = await import("@blog-engine/manifest");
   const posts = await manifest.getPostList();
   return { props: { posts } };
 }

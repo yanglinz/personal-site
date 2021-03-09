@@ -1,16 +1,12 @@
 import React from "react";
 import Head from "next/head";
 import Image from "next/image";
+import ContentHTML from "@blog-engine/components/ContentHTML";
+import { PostMetadata, PostContent } from "@blog-engine/manifest";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-
-import {
-  PostMetadata,
-  PostContent,
-} from "../../../publishable/blog-engine/manifest";
 import Post from "../Post/Post";
-import ContentHTML from "../../../publishable/blog-engine/components/ContentHTML";
 
 interface ComponentProps {
   content: PostContent;
