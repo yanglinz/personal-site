@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@blog-engine/*": ["./publishable/blog-engine/*"]
+      "@blog-engine/*": ["./contrib/blog-engine/*"]
     },
     "lib": ["es2019", "es2020.promise", "es2020.bigint", "es2020.string"],
     "module": "commonjs",
@@ -22,7 +22,7 @@
   "include": [
     "src/**/*",
     "pages/**/*",
-    "publishable/**/*",
+    "contrib/**/*",
   ],
   "exclude": [
     "node_modules",
