@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "prep:sass": "node src/styles/compile.js",
-    "prep:images": "./publishable/blog-engine/scripts/images.sh",
-    "prep:sitemap": "ts-node ./publishable/blog-engine/scripts/build-sitemap.ts > public/sitemap.xml",
+    "prep:images": "./contrib/blog-engine/scripts/images.sh",
+    "prep:sitemap": "ts-node ./contrib/blog-engine/scripts/build-sitemap.ts > public/sitemap.xml",
     "prep": "run-p prep:*",
     "dev:next": "NODE_ENV=development next",
     "dev": "yarn prep && run-p dev:*",
@@ -15,7 +15,7 @@
     "build": "run-s prep build:ssr",
     "start": "NODE_ENV=production next start",
     "test": "jest .",
-    "format": "prettier --write './{content,pages,publishable,src}/**/*.{js,ts,tsx,css,html,md,json}'"
+    "format": "prettier --write './{content,contrib,pages,src}/**/*.{js,ts,tsx,css,html,md,json}'"
   },
   "dependencies": {
     "compression": "^1.7.1",
