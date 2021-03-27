@@ -2,4 +2,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-mkdir -p public && cp -r content public/content
+mkdir -p public && \
+  rm -rf public/content && \
+  cp -r content public/content
