@@ -1,0 +1,17 @@
+.intro {
+  padding: 50px 0;
+  color: #333;
+}
+
+.heading {
+  font-size: var(--theme-font-size-x5l);
+  margin: 0;
+  padding: 0;
+}
+
+.subheading {
+  font-size: var(--theme-font-size-xl);
+  margin: 0;
+  padding: 0;
+  width: 55%;
+}
