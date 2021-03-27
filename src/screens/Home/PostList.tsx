@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { PostMetadata } from "@blog-engine/manifest";
 
 interface ComponentProps {
@@ -15,6 +16,18 @@ export default function PostList(props: ComponentProps) {
               <a>{post.title}</a>
             </Link>
           </h3>
+
+          {post.thumbnailImage ? (
+            <Image
+              src={post.thumbnailImage}
+              alt={`Thumbnail for ${post.title}`}
+              layout="intrinsic"
+              width={100}
+              height={100}
+            />
+          ) : (
+            <div style={{ width: 100, height: 100 }} />
+          )}
 
           <p className="Post-date f-mono">
             <Link href={post.urlPath}>

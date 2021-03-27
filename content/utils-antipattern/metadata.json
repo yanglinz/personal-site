@@ -4,5 +4,6 @@
   "date": "05/20/2020",
   "published": true,
   "featuredImage": "./banner.jpg",
-  "featuredImageAlt": "Messy toolbox"
+  "featuredImageAlt": "Messy toolbox",
+  "thumbnailImage": "./thumbnail.jpg"
 }
