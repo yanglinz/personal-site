@@ -4,5 +4,7 @@
   "date": "06/10/2019",
   "published": true,
   "featuredImage": "./banner.jpg",
-  "featuredImageAlt": "Rice farm aerial view"
+  "featuredImageAlt": "Rice farm aerial view",
+  "thumbnailImage": "./thumbnail.jpg",
+  "thumbnailImageAlt": "Rice farm aerial view"
 }

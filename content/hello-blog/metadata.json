@@ -4,5 +4,7 @@
   "date": "10/01/2018",
   "published": true,
   "featuredImage": "./banner.jpeg",
-  "featuredImageAlt": "Open road"
+  "featuredImageAlt": "Open road",
+  "thumbnailImage": "./thumbnail.jpeg",
+  "thumbnailImageAlt": "Open road"
 }
