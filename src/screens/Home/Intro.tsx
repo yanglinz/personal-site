@@ -1,3 +1,5 @@
+import styles from "./Intro.module.css";
+
 export default function HomeIntro() {
   return (
     <div className="Intro">
