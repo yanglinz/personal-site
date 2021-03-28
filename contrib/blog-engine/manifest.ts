@@ -22,6 +22,7 @@ export interface PostMetadata {
   description?: string;
   featuredImage?: string;
   featuredImageAlt?: string;
+  thumbnailImage?: string;
   published?: boolean;
 }
 
@@ -48,6 +49,11 @@ export async function getPostMetadata(postId: string): Promise<PostMetadata> {
   }
   const featuredImageAlt = postData.featuredImageAlt || null;
 
+  let thumbnailImage = postData.thumbnailImage || null;
+  if (thumbnailImage) {
+    thumbnailImage = path.join("/content/", postId, thumbnailImage);
+  }
+
   return {
     id: postId,
     urlPath,
@@ -56,6 +62,7 @@ export async function getPostMetadata(postId: string): Promise<PostMetadata> {
     description,
     featuredImage,
     featuredImageAlt,
+    thumbnailImage,
     published,
   };
 }

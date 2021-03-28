@@ -4,6 +4,7 @@ import Router from "next/router";
 import fathom from "../src/fathom";
 import * as env from "../src/environment";
 
+import "../src/styles/variables.css";
 import "../src/styles/index.scss";
 
 Router.events.on("routeChangeComplete", () => {

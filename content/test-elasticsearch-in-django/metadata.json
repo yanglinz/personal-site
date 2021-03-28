@@ -1,6 +1,8 @@
 {
-  "title": "Test Elasticsearch in Django Without Mocking",
+  "title": "Test Elasticsearch in Django without mocking",
   "description": "Tutorial on how to write automated unit tests against Elasticsearch with Django/Python without mocking.",
   "date": "07/31/2020",
-  "published": true
+  "published": true,
+  "thumbnailImage": "./thumbnail.png",
+  "thumbnailImageAlt": "Elastic logo"
 }

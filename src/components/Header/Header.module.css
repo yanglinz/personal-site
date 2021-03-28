@@ -1,0 +1,21 @@
+.header {
+  padding: 23px;
+  border-bottom: 1px solid #ededed;
+}
+
+.title,
+.subtitle {
+  font-size: var(--theme-font-size-s);
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+}
+
+.title a {
+  text-decoration: none;
+  color: var(--theme-font-color-mono-base);
+}
+
+.subtitle {
+  color: var(--theme-font-color-mono-xlight);
+}
