@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { PostMetadata } from "@blog-engine/manifest";
 
+import styles from "./PostList.module.css";
+
 interface ComponentProps {
   posts: PostMetadata[];
 }
@@ -10,7 +12,7 @@ export default function PostList(props: ComponentProps) {
   return (
     <>
       {props.posts.map((post) => (
-        <div className="Post">
+        <div className={styles.post}>
           <h3 className="Post-title">
             <Link href={post.urlPath}>
               <a>{post.title}</a>
