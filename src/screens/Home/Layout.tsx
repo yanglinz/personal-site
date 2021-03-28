@@ -4,10 +4,11 @@ import { PostMetadata } from "@blog-engine/manifest";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-
 import Intro from "./Intro";
 import PostList from "./PostList";
 import Section from "./Section";
+
+import styles from "./Layout.module.css";
 
 interface ComponentProps {
   posts: PostMetadata[];
@@ -23,9 +24,9 @@ export default function Layout(props: ComponentProps) {
         <meta name="description" content={description} />
       </Head>
       <Header />
-      <div className="Layout-content">
-        <Intro />
+      <Intro />
 
+      <div className={styles.posts}>
         <Section title="Blog Posts">
           <PostList posts={props.posts} />
         </Section>
