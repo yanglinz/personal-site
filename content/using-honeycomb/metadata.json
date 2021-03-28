@@ -2,5 +2,7 @@
   "title": "Observing a Django backend with Honeycomb.io",
   "description": "My thoughts on using a new and exciting observability tool called Honeycomb and why I think it's better than traditional APMs like NewRelic and Datadog.",
   "date": "02/02/2020",
-  "published": true
+  "published": true,
+  "thumbnailImage": "./thumbnail.png",
+  "thumbnailImageAlt": "Honeycomb.io logo"
 }
