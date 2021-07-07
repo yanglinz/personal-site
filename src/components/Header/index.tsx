@@ -1,20 +1,18 @@
 import Link from "next/link";
 
-import styles from "./Header.module.css";
-
 export default function Header() {
   return (
-    <div className={styles.header}>
+    <div className="Header border-gray-150 py-8 border-b">
       <div className="l-wide">
-        <div className="Headher-container">
-          <div>
-            <h1 className={styles.title}>
-              <Link href="/">
-                <a className="Header-title-link">Yanglin Zhao</a>
-              </Link>
-            </h1>
-            <p className={styles.subtitle}>hi (at) yanglinzhao.com</p>
-          </div>
+        <div>
+          <h1 className="m-0 text-base leading-snug">
+            <Link href="/">
+              <a className="text-gray-900">Yanglin Zhao</a>
+            </Link>
+          </h1>
+          <p className="m-0 text-gray-500 text-base leading-snug">
+            hi (at) yanglinzhao.com
+          </p>
         </div>
       </div>
     </div>
