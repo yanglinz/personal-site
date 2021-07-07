@@ -1,12 +1,12 @@
-import styles from "./Intro.module.css";
-
 export default function Intro() {
   return (
-    <div className={styles.intro}>
+    <div className="Intro py-28">
       <div className="l-wide">
-        <h1 className={styles.heading}>Software Tinkerer</h1>
+        <h1 className="m-0 text-7xl font-bold leading-none">
+          Software Tinkerer
+        </h1>
 
-        <p className={styles.subheading}>
+        <p className="m-0 mt-5 w-4/5 text-5xl leading-snug">
           Hello{" "}
           <span role="img" aria-label="Waving hand">
             &#x1F44B;.
