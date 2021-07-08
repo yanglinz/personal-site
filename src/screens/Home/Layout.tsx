@@ -8,8 +8,6 @@ import Intro from "./Intro";
 import PostList from "./PostList";
 import Section from "./Section";
 
-import styles from "./Layout.module.css";
-
 interface ComponentProps {
   posts: PostMetadata[];
 }
@@ -26,7 +24,7 @@ export default function Layout(props: ComponentProps) {
       <Header />
       <Intro />
 
-      <div className={styles.posts}>
+      <div className="bg-gray-100">
         <Section title="Blog Posts">
           <PostList posts={props.posts} />
         </Section>
