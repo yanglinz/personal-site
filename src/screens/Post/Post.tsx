@@ -14,14 +14,16 @@ export default function Post(props: ComponentProps) {
     <main>
       <article className="BlogPost">
         <div className="l-wide">
-          <div className="BlogPost-metadata">
-            <h1 className="BlogPost-title">
+          <div className="py-8">
+            <h1 className="m-0 text-center text-4xl font-bold leading-tight">
               <Link href={metadata.urlPath}>
                 <a>{metadata.title}</a>
               </Link>
             </h1>
 
-            <time className="BlogPost-date">{metadata.date}</time>
+            <p className="pt-1 text-center text-gray-400 font-mono text-sm">
+              <time>{metadata.date}</time>
+            </p>
           </div>
         </div>
 

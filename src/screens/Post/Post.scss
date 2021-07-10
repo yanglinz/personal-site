@@ -1,33 +1,12 @@
 @import "src/styles/vars";
 @import "src/styles/funcs";
 
-.BlogPost-title {
-  @include vrhythm(6);
-  margin-top: $base-line-height * 2rem;
-  margin-bottom: $base-line-height * 0.1rem;
-  text-align: center;
-}
-
 .BlogPost-image {
   width: 100%;
 
   img {
     width: 100%;
   }
-}
-
-.BlogPost-metadata {
-  margin-bottom: $base-line-height * 0.1rem;
-}
-
-.BlogPost-date {
-  color: $color-mono-4;
-  display: block;
-  text-align: center;
-
-  @include vrhythm(0);
-  margin: 0;
-  padding: 0;
 }
 
 .BlogPost-content {
@@ -37,28 +16,34 @@
 
   h1 {
     @include vrhythm(5);
+    font-weight: bold;
   }
 
   h2 {
     @include vrhythm(4);
+    font-weight: bold;
   }
 
   h3 {
     @include vrhythm(3);
     color: $color-mono-6;
+    font-weight: bold;
   }
 
   h4 {
     @include vrhythm(2);
     color: $color-mono-6;
+    font-weight: bold;
   }
 
   h5 {
     @include vrhythm(1);
+    font-weight: bold;
   }
 
   h6 {
     @include vrhythm(0);
+    font-weight: bold;
   }
 
   blockquote {
