@@ -33,7 +33,7 @@ function ContentLiteral(props: TODO) {
 function ContentTree(props: TODO) {
   const { node, content } = props;
   let element = node.tagName || "div";
-  let attrs = {};
+  let attrs = node.properties || {};
 
   if (node.children) {
     return h(
