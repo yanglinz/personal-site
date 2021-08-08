@@ -1,7 +1,7 @@
 const Prism = require("prismjs");
 const loadLanguages = require("prismjs/components/");
 
-loadLanguages(["js", "python", "yaml"]);
+loadLanguages(["js", "python", "rust", "yaml"]);
 
 export function getHighlightMarkup(source: string, lang: string): string {
   let markup;
