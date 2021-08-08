@@ -1,27 +1,192 @@
-This is my new blog. There are lots of others like it, but this is mine :)
+For a while now, I've been trying to keep a tab on the development of
+[Web Assembly](https://webassembly.org/), looking for any excuse to be able to
+use it in a project. After all, it's got the potential to fundamentally alter
+the future of the web ecosystem. Somewhat tangentially, I've also been paying
+attention the growing mind-share around [Rust](https://www.rust-lang.org/) as a
+modern alternative to low level languages like C++. Both of these technologies
+seems white hot in their hype cycle.
 
-Expect to see thoughts on technology and programming!
+I was trying to come up with a toy project to finally try out Web Assembly and
+Rust when I came across a Javascript based implementation of the
+[Seam Carving Algorithm](https://en.wikipedia.org/wiki/Seam_carving), and I
+immediately thought of porting it to Rust / Web Assembly as a fun learning
+exercise. After all, one touted benefit of Web Assembly is that we get to run
+code at near native performance, which seemed a perfect fit for an image
+manipulation algorithm.
+
+## Seam Carving Demo
+
+But first, a briefly description what the Seam Carving algorithm is - it's a
+image manipulation algorithm to resize images while retaining all the feature
+and "proportion" of the contents within it. In this case, the demo is really
+worth a 100 words, so here it is below!
 
 <div class="full-width flex border-gray-150 my-6 border-b border-t">
   <iframe src="https://yanglinz.github.io/rust-wasm-seam-carving/" width="100%" height="800">
   </iframe>
 </div>
 
-Here's the thing afterwards!
+While the resizing process feels magical, the actual theory behind the algorithm
+is quite simple. We take an image and represent that as a 2D vector of pixels.
+We can calculate the "energy map" of these pixels by measuring their color
+differences against each of their neighbors. Then, we can resize by taking
+"seams" of low energy pixels and removing them iteratively.
+
+![Seam carving steps](./step-diagram.png)
+
+If you're looking for a more detailed explanation, there's a Javascript
+implementation with a fantastic, detailed writeup
+[here](https://trekhleb.dev/blog/2021/content-aware-image-resizing-in-javascript/).
+
+## Porting it to Rust and Web Assembly
+
+I certainly am not the first to discover this algorithm, and there have been
+multiple [implementations](https://github.com/andrewdcampbell/seam-carving) in
+[multiple](https://github.com/esimov/caire)
+[languages](https://github.com/andrewdcampbell/seam-carving). But the novelty
+factor in this project for me was to write it in Rust (a language I've never
+written before) and run it on the web (my platform of choice)!
+
+After some trials and reworks, here's an overview of the implementation I ended
+up with:
+
+The shell of the application is just a regular React app. The React part isn't
+particularly important - it's just something to implement the UI of the image
+resizer with. It was also convenient to piggy back off of something like
+[`create-react-app`](https://create-react-app.dev/) to take advantage of some
+sane webpack default configuration in terms of build tooling.
+
+The actually important core of the image resizing logic is of course implemented
+in Rust, and mainly consists of vector manipulation.
 
 ```rust
-// This is a comment, and is ignored by the compiler
-// You can test this code by clicking the "Run" button over there ->
-// or if you prefer to use your keyboard, you can use the "Ctrl + Enter" shortcut
+// lib.rs
 
-// This code is editable, feel free to hack it!
-// You can always return to the original code by clicking the "Reset" button ->
+#[wasm_bindgen]
+impl SeamCarver {
+    pub fn new() -> SeamCarver {
+        # ...
+    }
 
-// This is the main function
-fn main() {
-    // Statements here are executed when the compiled binary is called
+    pub fn mark_seam(&mut self) {
+        # ...
+    }
 
-    // Print text to the console
-    println!("Hello World!");
+    pub fn delete_seam(&mut self) {
+        # ...
+    }
 }
 ```
+
+The key integration magic happens via the `#[wasm_bindgen]` macro. It's
+essentially a hint to our Rust toolchain to generate Javascript bindings for the
+marked classes and functions during the compilation process, which can be
+invoked via [`wasm-pack`](https://github.com/rustwasm/wasm-pack). These
+generated bindings can then be imported and called inside our Javascript.
+
+```js
+// entry.js
+
+import { SeamCarver } from "./pkg";
+
+const carver = SeamCarver.new();
+carver.mark_seam();
+carver.delete_seam();
+```
+
+The next piece of machinery to tie it together is the memory sharing mechanism
+between Rust and the Javascript VM.
+
+Since we're dealing image data that's `O(w * h)`, we want to minimize the
+serialization and de-serialization of said image data between the Rust and
+Javascript VM "bridge". Luckily for us, as long as we represent our image data
+as an
+[array/vector of integers](https://developer.mozilla.org/en-US/docs/Web/API/ImageData/data),
+we can read and write to a shared
+[Web Assembly memory](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory)
+without paying the serialization / de-serialization cost.
+
+```rust
+// lib.rs
+
+#[wasm_bindgen]
+impl SeamCarver {
+    pub fn image_data_ptr(&self) -> *const u8 {
+        self.image_data.as_ptr()
+    }
+}
+
+#[wasm_bindgen]
+pub fn wasm_memory() -> JsValue {
+    wasm_bindgen::memory()
+}
+```
+
+```js
+// entry.js
+
+import { wasm_memory as memory } from "./pkg";
+
+const carver = SeamCarver.new();
+const imageDataPtr = carver.image_data_ptr();
+const imageData = new Uint8ClampedArray(
+  memory().buffer,
+  imageDataPtr,
+  carver.width * carver.height * 4
+);
+```
+
+Then to wrap the Rust algorithm in a Javascript shell and animate each iteration
+of the Seam Carving process, we can call `requestAnimationFrame` recursively and
+paint the shared image data onto a `canvas` element.
+
+```js
+// entry.js
+
+let steps = source.width - finalWidth;
+function incrementalResize() {
+  if (steps <= 0) {
+    return;
+  }
+
+  carver.mark_seam();
+  carver.delete_seam();
+  // Paint the current state of the image onto the canvas
+  draw();
+
+  steps -= 1;
+  requestAnimationFrame(incrementalResize);
+}
+```
+
+I know I've brushed over some important details, so here's the
+[final source code](https://github.com/yanglinz/rust-wasm-seam-carving) if you'd
+like to run the project locally and play around with it!
+
+## Experience Report
+
+Most of my professionally written code has been in Python and Javascript, with a
+smidge of Go. I haven't really had to manually manage memory since the brief
+stint I had writing C++ in my college days. Even so, I was able to ramp up and
+be productive with Rust's ownership and borrowing mechanism, without having to
+invest a lot of upfront leaning (although that would have certainly helped).
+
+To that end, I did want to call out Rust's compiler here - the error messages
+were quite good and most of the time offered actionable fixes. As a programming
+language, investment in this area can help with beginner onboarding, and it's
+evident that thought and care had gone into Rust's compiler specifically its
+error messaging.
+
+The crucial piece that still missing is some form of debugger. Coming from
+Javascript + Chrome Dev Tools, the absence of a proper debugger is definitely
+noticeable. That being said, you can get pretty far with `console.log` +
+[`console_error_panic_hook`](https://github.com/rustwasm/console_error_panic_hook),
+and I think the ecosystem tooling space will mature in the future.
+
+## Final Thoughts
+
+Overall, I'm very excited about the prospect of Web Assembly and languages like
+Rust that targets it. I imagine that this model of a mostly Javascript app with
+key parts wrapping Web Assembly will be increasingly common in the future. While
+we still need investments areas like debugging and tooling, this is definitely a
+space to pay attention to!
