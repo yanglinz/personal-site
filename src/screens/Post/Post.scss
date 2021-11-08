@@ -53,6 +53,16 @@
     padding: 0 $base-line-height * 1rem;
   }
 
+  ul, ol {
+    margin-left: 36px;
+    @include vrhythm(0);
+  }
+
+  li {
+    list-style: square;
+    padding-bottom: 8px;
+  }
+
   pre {
     @include vrhythm(-1);
     background: #fdf6e3;
