@@ -17,4 +17,8 @@ function Index(props: ComponentProps) {
   return <Layout posts={props.posts} />;
 }
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 export default Index;
