@@ -50,7 +50,7 @@ module.exports = function config(eleventyConfig) {
   eleventyConfig.setLibrary("njk", env);
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
 
-  eleventyConfig.addPassthroughCopy("public");
+  eleventyConfig.addPassthroughCopy({ "public/*.*": "." });
   return {
     dir: {
       input: "www",
