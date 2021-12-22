@@ -4,59 +4,25 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "prep:sass": "node src/styles/compile.js",
-    "prep:images": "./contrib/blog-engine/scripts/images.sh",
-    "prep:sitemap": "ts-node ./contrib/blog-engine/scripts/build-sitemap.ts > public/sitemap.xml",
-    "prep": "run-p prep:*",
-    "dev:next": "NODE_ENV=development next",
     "dev": "yarn prep && run-p dev:*",
-    "build:ssg": "NODE_ENV=production next build && next export -o build",
-    "build:ssr": "NODE_ENV=production next build",
     "build": "run-s prep build:ssr",
     "start": "NODE_ENV=production next start",
-    "test": "jest .",
     "format": "prettier --write './{content,contrib,pages,src}/**/*.{js,ts,tsx,css,html,md,json}'"
   },
   "dependencies": {
-    "compression": "^1.7.1",
-    "date-fns": "^2.16.1",
-    "isomorphic-fetch": "^2.2.1",
-    "mdast-util-to-hast": "^10.0.1",
-    "next": "10.0.3",
-    "next-plugin-preact": "^3.0.3",
-    "preact": "^10.5.5",
-    "preact-render-to-string": "^5.1.11",
-    "prismjs": "^1.23.0",
-    "react": "npm:@preact/compat@0.0.3",
-    "react-dom": "npm:@preact/compat@0.0.3",
-    "react-ssr-prepass": "npm:preact-ssr-prepass@^1.1.2",
-    "remark-parse": "^8.0.3",
-    "remark-rehype": "^8.0.0",
-    "sharp": "^0.27.0",
-    "unified": "^9.2.0",
-    "unified-stream": "^1.0.6",
-    "xml-js": "^1.6.11"
+    "sharp": "^0.27.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.13",
-    "@types/mdast": "^3.0.3",
-    "@types/react": "^17.0.0",
-    "@types/sharp": "^0.26.1",
-    "@types/unist": "^2.0.3",
     "autoprefixer": "^10.2.6",
     "jest": "^26.4.2",
-    "node-sass": "^4.13.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.3.5",
     "prettier": "2.1.1",
     "prettier-plugin-tailwind": "^2.2.12",
-    "tailwindcss": "^2.2.4",
-    "ts-jest": "^26.3.0",
-    "ts-node": "^9.0.0",
-    "typescript": "^4.0.2"
+    "tailwindcss": "^2.2.4"
   },
   "volta": {
-    "node": "12.15.0",
-    "yarn": "1.22.0"
+    "node": "16.13.0",
+    "yarn": "1.22.4"
   }
 }
