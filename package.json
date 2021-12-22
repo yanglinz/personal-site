@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "eleventy",
-    "start": "eleventy",
+    "start": "eleventy --serve",
     "format": "prettier --write './{content,contrib,pages,src}/**/*.{js,ts,tsx,css,html,md,json}'"
   },
   "dependencies": {
