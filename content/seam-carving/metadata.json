@@ -1,8 +1,0 @@
-{
-  "title": "Seam Carving Algorithm in Rust and Web Assembly",
-  "description": "My experience using Rust and Web Assembly to implement the Seam Carving algorithm",
-  "date": "08/01/2021",
-  "published": true,
-  "thumbnailImage": "./thumbnail.jpg",
-  "thumbnailImageAlt": "Wood carver"
-}
