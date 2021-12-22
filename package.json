@@ -4,22 +4,25 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "yarn prep && run-p dev:*",
-    "build": "run-s prep build:ssr",
-    "start": "NODE_ENV=production next start",
+    "build": "eleventy",
+    "start": "eleventy",
     "format": "prettier --write './{content,contrib,pages,src}/**/*.{js,ts,tsx,css,html,md,json}'"
   },
   "dependencies": {
-    "sharp": "^0.27.0"
+    "@11ty/eleventy": "1.0.0-beta.8",
+    "@11ty/eleventy-img": "1.0.0",
+    "@11ty/eleventy-plugin-rss": "1.1.2",
+    "@11ty/eleventy-plugin-syntaxhighlight": "3.1.3",
+    "nunjucks": "3.2.3"
   },
   "devDependencies": {
-    "autoprefixer": "^10.2.6",
-    "jest": "^26.4.2",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.3.5",
+    "autoprefixer": "10.2.6",
+    "jest": "26.4.2",
+    "npm-run-all": "4.1.5",
+    "postcss": "8.3.5",
     "prettier": "2.1.1",
-    "prettier-plugin-tailwind": "^2.2.12",
-    "tailwindcss": "^2.2.4"
+    "prettier-plugin-tailwind": "2.2.12",
+    "tailwindcss": "2.2.4"
   },
   "volta": {
     "node": "16.13.0",
