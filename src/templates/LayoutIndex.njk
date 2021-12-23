@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block body %}
-  <div class="py-16 lg:py-28 border-gray-150 border-b">
+  <div class="py-16 lg:py-28">
     <div class="l-wide">
       <h1 class="m-0 text-gray-900 text-5xl font-bold leading-none lg:text-7xl">
         Software Tinkerer
@@ -25,7 +25,21 @@
 
   <ul>
   {%- for post in collections.post -%}
-    <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
+    <li class="border-gray-150 flex items-center justify-between py-3 border-t lg:py-4">
+      <div class="flex-initial">
+        {# Placeholder for thumbnails #}
+      </div>
+    
+      <h3 class="flex-1 px-5">
+        <a href="{{ post.url }}" class="text-xl font-bold lg:text-3xl">{{ post.data.title }}</a>
+      </h3>
+    
+      <p class="flex-initial">
+        <a href="{{ post.url }}" class="text-gray-400 font-mono text-sm">
+          <time>{{ post.data.date }}</time>
+        </a>
+      </p>
+    </li>
   {%- endfor -%}
   </ul>
 {% endblock %}
