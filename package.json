@@ -4,8 +4,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "eleventy",
-    "start": "eleventy --serve",
+    "build:tailwind": "tailwindcss --jit -i ./src/main.css -o ./_site/main.css",
+    "build:11ty": "eleventy",
+    "build": "run-s build:*",
+    "start:tailwind": "tailwindcss --jit -i ./src/main.css -o ./_site/main.css --watch",
+    "start:11ty": "eleventy --serve",
+    "start": "run-p start:*",
     "format": "prettier --write './{content,contrib,pages,src}/**/*.{js,ts,tsx,css,html,md,json}'"
   },
   "dependencies": {
