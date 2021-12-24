@@ -39,3 +39,88 @@ a {
   color: #84cc16;
   text-decoration: none;
 }
+
+.post-content p {
+  /* @include vrhythm(0); */
+}
+
+.post-content h1 {
+  /* @include vrhythm(5); */
+  font-weight: bold;
+}
+
+.post-content h2 {
+  /* @include vrhythm(4); */
+  font-weight: bold;
+}
+
+.post-content h3 {
+  /* @include vrhythm(3); */
+  /* color: $color-mono-6; */
+  font-weight: bold;
+}
+
+.post-content h4 {
+  /* @include vrhythm(2); */
+  /* color: $color-mono-6; */
+  font-weight: bold;
+}
+
+.post-content h5 {
+  /* @include vrhythm(1); */
+  font-weight: bold;
+}
+
+.post-content h6 {
+  /* @include vrhythm(0); */
+  font-weight: bold;
+}
+
+.post-content blockquote {
+  /* border-left: 5px solid $color-mono-2; */
+  margin-left: 0;
+  margin-right: 0;
+  /* padding: 0 $base-line-height * 1rem; */
+}
+
+.post-content ul,
+.post-content ol {
+  margin-left: 36px;
+  /* @include vrhythm(0); */
+}
+
+.post-content li {
+  list-style: square;
+  padding-bottom: 8px;
+}
+
+.post-content pre {
+  /* @include vrhythm(-1); */
+  background: #fdf6e3;
+  color: #657b83;
+  max-width: 100%;
+  padding: 16px;
+  overflow-x: scroll;
+}
+
+.post-content pre > pre {
+  padding: 0;
+  margin: 0;
+}
+
+.post-content code {
+  font-size: 16px;
+}
+
+.post-content img {
+  width: 100%;
+}
+
+.post-content .full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}

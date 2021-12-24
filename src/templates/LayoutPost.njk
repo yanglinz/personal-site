@@ -10,5 +10,25 @@
   {% if featuredImage %}
     {% image featuredImage, featuredImageAlt, "(min-width: 30em) 90vw, 100vw" %} 
   {% endif %} 
-  <main>{{ content | safe }} </main>
+  
+  <main>
+    <article>
+      <div class="l-wide">
+        <div class="py-8">
+          <h1 class="m-0 text-center text-4xl font-bold leading-tight">
+              <a href="{{ data.url }}">{{ title }}</a>
+            </Link>
+          </h1>
+    
+          <p class="pt-1 text-center text-gray-400 font-mono text-sm">
+            <time>{{ date }}</time>
+          </p>
+        </div>
+      </div>
+    
+      <div class="l-narrow">
+        <div class="post-content">{{ content | safe }}</div>
+      </div>
+    </article>
+  </main>
 {% endblock %}
