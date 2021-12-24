@@ -3,12 +3,8 @@ node_modules/
 package.json
 
 # Build output
-.cache
-dist/
-build/
-assets/build/
-public/
-static/
+_site/
 
 # Deployment
-.vercel
+.vercel/
+.netlify/

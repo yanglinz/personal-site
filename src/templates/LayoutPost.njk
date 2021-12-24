@@ -1,0 +1,38 @@
+{% extends "TemplateBase.njk" %}
+
+{% block head %}
+  <title>Yanglin Zhao | {{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:type" content="{{ description }}">
+  <meta property="og:url" content="{{ data.url }}">
+  <meta property="og:image" content="">
+{% endblock %}
+
+{% block body %}
+  {% if featuredImage %}
+    {% image featuredImage, featuredImageAlt, "(min-width: 30em) 90vw, 100vw" %} 
+  {% endif %} 
+  
+  <main>
+    <article>
+      <div class="l-wide">
+        <div class="py-8">
+          <h1 class="m-0 text-center text-4xl font-bold leading-tight">
+            <a href="{{ data.url }}">{{ title }}</a>
+          </h1>
+    
+          <p class="pt-1 text-center text-gray-400 font-mono text-sm">
+            <time>{{ date | formattedDate }}</time>
+          </p>
+        </div>
+      </div>
+    
+      <div class="l-narrow">
+        <div class="post-content">{{ content | safe }}</div>
+      </div>
+    </article>
+  </main>
+{% endblock %}

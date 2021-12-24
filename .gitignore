@@ -1,18 +1,9 @@
 # Project
-dist/
-build/
-static/media/
-static/manifest/
-static/sass/
-public/sitemap.xml
-public/content/
+_site/
 
 # Logs
 logs
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
 # Runtime data
 pids
@@ -22,25 +13,6 @@ pids
 
 # Dependency directory
 node_modules
-
-# Yarn
-yarn-error.log
-.pnp/
-.pnp.js
-
-# Yarn Integrity file
-.yarn-integrity
-
-# Next
-.next/
-out/
-
-# Sapper
-__sapper__/
-src/node_modules/@sapper/
-
-# Sanity
-.checksums
 
 # Deployment
 .netlify

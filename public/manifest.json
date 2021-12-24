@@ -1,8 +1,8 @@
 {
   "background_color": "#ffffff",
-  "theme_color": "#333333",
-  "name": "TODO",
-  "short_name": "TODO",
+  "theme_color": "#84cc16",
+  "name": "Yanglin Zhao",
+  "short_name": "Yanglin Zhao",
   "display": "minimal-ui",
   "start_url": "/",
   "icons": [
