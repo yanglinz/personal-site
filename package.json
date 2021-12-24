@@ -4,7 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build:tailwind": "tailwindcss -i ./src/main.css -o ./_site/main.css --minify",
+    "build:tailwind": "tailwindcss -i ./src/main.css -o ./_site/main.css --jit --minify",
     "build:11ty": "eleventy",
     "build": "run-s build:*",
     "start:tailwind": "tailwindcss -i ./src/main.css -o ./_site/main.css --jit --watch",
