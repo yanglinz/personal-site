@@ -1,5 +1,5 @@
-const path = require("path");
 const Nunjucks = require("nunjucks");
+const datefns = require("date-fns");
 const Image = require("@11ty/eleventy-img");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -49,6 +49,9 @@ module.exports = function config(eleventyConfig) {
   );
   eleventyConfig.setLibrary("njk", env);
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+  eleventyConfig.addFilter("formattedDate", (dateObj) => {
+    return datefns.format(dateObj, "MM/dd/yyyy");
+  });
 
   eleventyConfig.addPassthroughCopy({ "public/*.*": "." });
   return {

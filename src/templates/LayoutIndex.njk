@@ -30,7 +30,7 @@
       </h2>
 
       <ul>
-        {%- for post in collections.post -%}
+        {%- for post in collections.post | reverse -%}
           <li class="border-gray-150 flex items-center justify-between py-3 border-t lg:py-4">
             <div class="flex-initial"></div>
           
@@ -40,7 +40,7 @@
           
             <p class="flex-initial">
               <a href="{{ post.url }}" class="text-gray-400 font-mono text-sm">
-                <time>{{ post.data.date }}</time>
+                <time>{{ post.data.date | formattedDate }}</time>
               </a>
             </p>
           </li>
