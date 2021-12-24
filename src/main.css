@@ -12,12 +12,16 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  font-size: 18px;
+}
+
 .l-wide {
   padding: 0 20px;
   margin: 0 auto;
 }
 
-@media (min-width: 1224px) {
+@media (min-width: 1280px) {
   .l-wide {
     max-width: 1440px;
   }
@@ -29,9 +33,9 @@ html {
   margin: 0 auto;
 }
 
-@media (min-width: 760px) {
+@media (min-width: 768px) {
   .l-narrow {
-    max-width: 660px;
+    max-width: 680px;
   }
 }
 
@@ -45,7 +49,7 @@ a {
 }
 
 .post-content p {
-  @apply py-2 text-lg leading-8 text-gray-800;
+  @apply py-2 text-gray-800 text-lg leading-8;
 }
 
 .post-content h1 {
@@ -78,30 +82,21 @@ a {
 
 .post-content ul,
 .post-content ol {
-  margin-left: 36px;
+  @apply pl-7 py-2;
 }
 
 .post-content li {
   list-style: square;
-  padding-bottom: 8px;
+  @apply py-1;
 }
 
 .post-content pre {
-  /* @include vrhythm(-1); */
-  background: #fdf6e3;
-  color: #657b83;
   max-width: 100%;
-  padding: 16px;
   overflow-x: scroll;
 }
 
-.post-content pre > pre {
-  padding: 0;
-  margin: 0;
-}
-
-.post-content code {
-  font-size: 16px;
+.post-content pre code {
+  @apply text-base;
 }
 
 .post-content img {
