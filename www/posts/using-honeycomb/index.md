@@ -270,7 +270,7 @@ I'm only begining to scratch the surface of what can be queried and visualized.
 
 One last bit of closing note is that: while I felt like tracing tools like
 Honeycomb may be marketed primarily for
-[microservices](posts/service-boundaries), I still think they are immensely
+[microservices](/posts/service-boundaries), I still think they are immensely
 useful for traditional `LAMP`-stack variants/monoliths. Afterall, whether it's
 network calls or other forms of IO, it doesn't change our need to observe and
 understand the running system.
