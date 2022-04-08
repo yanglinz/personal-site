@@ -1,0 +1,57 @@
+<div class="py-16 lg:py-28" style="background: #fff">
+  <svg
+    width="100%"
+    height="500px"
+    viewBox="0 0 220 220"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <filter id="displacementFilter">
+      <feTurbulence
+        id="displacementFilter1"
+        type="noise"
+        baseFrequency="0.10"
+        numOctaves="2"
+        result="turbulence"
+      />
+      <feDisplacementMap
+        in2="turbulence"
+        in="SourceGraphic"
+        scale="30"
+        xChannelSelector="R"
+        yChannelSelector="G"
+      />
+    </filter>
+
+    <defs>
+      <radialGradient id="focalGradient">
+        <stop offset="25%" stop-color="#D1FAE5" />
+        <stop offset="100%" stop-color="#ECFDF5" />
+      </radialGradient>
+    </defs>
+
+    <animate
+      xlink:href="#displacementFilter1"
+      attributeName="baseFrequency"
+      values="0.01;0.03;0.01"
+      dur="50s"
+      repeatCount="indefinite"
+    />
+
+    <animate
+      xlink:href="#circle1"
+      attributeName="r"
+      values="50;100"
+      dur="10s"
+      repeatCount="0"
+    />
+
+    <circle
+      id="circle1"
+      cx="100"
+      cy="100"
+      r="100"
+      fill="url(#focalGradient)"
+      style="filter: url(#displacementFilter)"
+    />
+  </svg>
+</div>
