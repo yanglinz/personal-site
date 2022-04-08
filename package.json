@@ -4,11 +4,13 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build:tailwind": "tailwindcss -i ./src/main.css -o ./_site/main.css --jit --minify",
     "build:11ty": "eleventy",
+    "build:parcel": "parcel build --dist-dir=_site src/main.js",
+    "build:tailwind": "tailwindcss -i ./src/main.css -o ./_site/main.css --jit --minify",
     "build": "run-s build:*",
-    "start:tailwind": "tailwindcss -i ./src/main.css -o ./_site/main.css --jit --watch",
     "start:11ty": "eleventy --serve",
+    "start:parcel": "parcel watch --dist-dir=_site src/main.js",
+    "start:tailwind": "tailwindcss -i ./src/main.css -o ./_site/main.css --jit --watch",
     "start": "run-p start:*",
     "format": "prettier --write './{content,contrib,pages,src}/**/*.{js,ts,tsx,css,html,md,json}'"
   },
