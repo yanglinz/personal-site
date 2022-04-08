@@ -45,7 +45,7 @@ a {
 }
 
 .post-content {
-  @apply leading-8 text-gray-800;
+  @apply text-gray-800 leading-8;
 }
 
 .post-content p {
@@ -53,27 +53,27 @@ a {
 }
 
 .post-content h1 {
-  @apply pt-5 pb-3 text-gray-800 text-3xl font-bold;
+  @apply pb-3 pt-5 text-gray-800 text-3xl font-bold;
 }
 
 .post-content h2 {
-  @apply pt-5 pb-3 text-gray-800 text-2xl font-bold;
+  @apply pb-3 pt-5 text-gray-800 text-2xl font-bold;
 }
 
 .post-content h3 {
-  @apply pt-4 pb-3 text-gray-600 text-xl font-bold;
+  @apply pb-3 pt-4 text-gray-600 text-xl font-bold;
 }
 
 .post-content h4 {
-  @apply pt-4 pb-3 text-gray-600 text-xl font-bold;
+  @apply pb-3 pt-4 text-gray-600 text-xl font-bold;
 }
 
 .post-content h5 {
-  @apply pt-4 pb-3 text-gray-400 text-lg font-bold;
+  @apply pb-3 pt-4 text-gray-400 text-lg font-bold;
 }
 
 .post-content h6 {
-  @apply pt-4 pb-3 text-gray-400 text-lg font-bold;
+  @apply pb-3 pt-4 text-gray-400 text-lg font-bold;
 }
 
 .post-content blockquote {
