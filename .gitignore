@@ -1,6 +1,9 @@
 # Project
 _site/
 
+# Build tools
+.parcel-cache/
+
 # Logs
 logs
 *.log
