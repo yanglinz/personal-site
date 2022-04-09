@@ -7,7 +7,7 @@
     <ul>
       {%- for post in collections.post | reverse -%}
       <li
-        class="border-gray-150 py-3 border-t md:flex md:items-center md:justify-between lg:py-4"
+        class="border-gray-150 py-3 border-t md:flex md:items-center md:justify-between md:py-4 lg:py-6"
       >
         <h3 class="flex-1">
           <a href="{{ post.url }}" class="text-lg font-bold lg:text-3xl">
@@ -17,7 +17,10 @@
         </h3>
 
         <p class="flex-initial">
-          <a href="{{ post.url }}" class="text-gray-400 font-mono text-xs">
+          <a
+            href="{{ post.url }}"
+            class="text-gray-400 font-mono text-xs md:text-sm"
+          >
             <time>{{ post.data.date | formattedDate }}</time>
           </a>
         </p>
