@@ -10,6 +10,10 @@
 
 /* custom utils */
 
+body {
+  font-family: "Inter", sans-serif; 
+}
+
 .f-serif {
   font-family: "Source Serif 4", serif;
   font-weight: 200;
@@ -36,9 +40,14 @@ body {
   margin: 0 auto;
 }
 
+.l-normal {
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
 @media (min-width: 1280px) {
-  .l-wide {
-    max-width: 1440px;
+  .l-normal {
+    max-width: 1280px;
   }
 }
 
