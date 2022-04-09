@@ -12,21 +12,22 @@
 {% endblock %}
 
 {% block body %}
-  <div class="py-16 lg:py-28">
-    <div class="l-wide">
-      <h1 class="m-0 text-gray-900 text-5xl font-bold leading-none lg:text-7xl">
-        Software Tinkerer
-      </h1>
+  <div class="min-h-screen flex flex-col">
+    <div class="bg-gray-200">
+      {% include "./FragmentHeader.html" %}
+    </div>
 
-      <p class="m-0 mt-5 w-4/5 text-gray-900 text-3xl leading-snug lg:mt-7 lg:text-5xl lg:leading-snug">
-        Hello <span role="img" aria-label="Waving hand">&#x1F44B;</span>.
-        I'm a software engineer based in Washington DC. I mainly make things that
-        run in browsers. I currently work at
-        <a href="https://www.pbs.org/">PBS</a> as a Principal Engineer to help
-        make high quality media accessible.
-      </p>
+    <div class="bg-gray-300 grow">
+      {% include "./FragmentIndexIntro.html" %}
+    </div>
+
+    <div class="absolute inset-0 h-screen" style="opacity: 0.99; z-index: -1">
+      {# {% include "./FragmentIndexScene.html" %} #}
+      {% include "./FragmentIndexSceneLight.html" %}
     </div>
   </div>
+
+  
 
   <div class="py-7 lg:py-9 bg-gray-100">
     <div class="l-wide">
@@ -53,4 +54,6 @@
       </ul>
     </div>
   </div>
+
+  {% include "./FragmentFooter.html" %}
 {% endblock %}
