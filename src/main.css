@@ -8,6 +8,15 @@
   flex-grow: 1;
 }
 
+/* custom utils */
+
+.f-serif {
+  font-family: "Source Serif 4", serif;
+  font-weight: 200;
+}
+
+/* global styles */
+
 html {
   box-sizing: border-box;
 }
