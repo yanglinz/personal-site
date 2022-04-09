@@ -1,0 +1,30 @@
+<div class="py-7 bg-gray-100 lg:py-9">
+  <div class="l-wide">
+    <h2 class="pb-5 text-gray-500 text-xl font-bold lg:pb-7 lg:text-3xl">
+      Blog Posts
+    </h2>
+
+    <ul>
+      {%- for post in collections.post | reverse -%}
+      <li
+        class="border-gray-150 flex items-center justify-between py-3 border-t lg:py-4"
+      >
+        <div class="flex-initial"></div>
+
+        <h3 class="flex-1 py-3">
+          <a href="{{ post.url }}" class="text-xl font-bold lg:text-3xl">
+            <!-- formatting-clearfix -->
+            {{ post.data.title }}
+          </a>
+        </h3>
+
+        <p class="flex-initial">
+          <a href="{{ post.url }}" class="text-gray-400 font-mono text-sm">
+            <time>{{ post.data.date | formattedDate }}</time>
+          </a>
+        </p>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
