@@ -45,7 +45,7 @@ module.exports = function config(eleventyConfig) {
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
   const env = new Nunjucks.Environment(
-    new Nunjucks.FileSystemLoader("www/templates")
+    new Nunjucks.FileSystemLoader("src/templates")
   );
   eleventyConfig.setLibrary("njk", env);
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
@@ -57,7 +57,7 @@ module.exports = function config(eleventyConfig) {
   return {
     dir: {
       input: "www",
-      includes: "templates", // relative to wwww
+      includes: "../src/templates", // relative to wwww
       output: "_site",
     },
     markdownTemplateEngine: "njk",
