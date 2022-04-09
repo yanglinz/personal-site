@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global styles */
+
 html {
   box-sizing: border-box;
 }
@@ -22,9 +24,14 @@ body {
   margin: 0 auto;
 }
 
+.l-base {
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
 @media (min-width: 1280px) {
-  .l-wide {
-    max-width: 1440px;
+  .l-base {
+    max-width: 1240px;
   }
 }
 
