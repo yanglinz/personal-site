@@ -13,7 +13,7 @@
     "start:parcel": "parcel watch --dist-dir=_site src/main.js",
     "start:tailwind": "tailwindcss -i ./src/main.css -o ./_site/main.css --jit --watch",
     "start": "run-p start:*",
-    "format": "prettier --write './{content,contrib,pages,src}/**/*.{js,ts,tsx,css,html,md,json}' 'src/*.js'"
+    "format": "prettier --write './*.js' './{src,www}/**/*.{js,css,html,md,json}'"
   },
   "dependencies": {
     "@11ty/eleventy": "1.0.0-beta.8",
