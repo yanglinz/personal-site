@@ -16,7 +16,7 @@ html {
 
 body {
   font-size: 18px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   text-rendering: optimizeLegibility;
 }
 
@@ -48,9 +48,13 @@ body {
   }
 }
 
+a {
+  color: #404040;
+  text-decoration: none;
+}
+
 .post-content a {
   color: #84cc16;
-  text-decoration: none;
 }
 
 .post-content {
