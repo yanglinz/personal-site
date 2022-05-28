@@ -21,7 +21,9 @@
     "@11ty/eleventy-plugin-rss": "1.1.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "4.0.0",
     "date-fns": "2.27.0",
-    "nunjucks": "3.2.3"
+    "nunjucks": "3.2.3",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "autoprefixer": "10.2.6",
