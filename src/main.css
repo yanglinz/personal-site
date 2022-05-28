@@ -15,7 +15,8 @@ html {
 }
 
 body {
-  font-size: 18px;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
   text-rendering: optimizeLegibility;
 }
 
@@ -48,8 +49,12 @@ body {
 }
 
 a {
-  color: #84cc16;
+  color: #404040;
   text-decoration: none;
+}
+
+.post-content a {
+  color: #84cc16;
 }
 
 .post-content {
