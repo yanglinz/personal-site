@@ -1,3 +1,10 @@
-const main = 1234;
+function TestPage(props) {
+    return (
+        <div className="foo bar">
+            Hello world!
+        </div>
+    )
 
-export default main;
+}
+
+export default TestPage;

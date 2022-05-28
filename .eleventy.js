@@ -54,7 +54,7 @@ module.exports = function config(eleventyConfig) {
     return datefns.format(dateObj, "MM/dd/yyyy");
   });
 
-  // Custom React based renderer 
+  // Custom React based renderer
   eleventyConfig.addTemplateFormats("mjs");
   eleventyConfig.addExtension("mjs", {
     compile: async (inputContent, inputPath) => {
@@ -62,7 +62,7 @@ module.exports = function config(eleventyConfig) {
       return async (data) => {
         return await renderer.renderComponent(inputPath, data);
       };
-    }
+    },
   });
 
   eleventyConfig.addPassthroughCopy({ "public/*.*": "." });
