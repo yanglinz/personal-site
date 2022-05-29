@@ -1,5 +1,6 @@
 # Project
 _site/
+storybook-static/
 
 # Build tools
 .parcel-cache/
