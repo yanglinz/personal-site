@@ -28,7 +28,6 @@
     "react-dom": "18.1.0"
   },
   "devDependencies": {
-    "@percy/storybook": "4.2.1",
     "@storybook/addon-actions": "6.5.5",
     "@storybook/addon-essentials": "6.5.5",
     "@storybook/addon-interactions": "6.5.5",

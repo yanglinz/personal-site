@@ -26,8 +26,9 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - run: yarn install
-      - run: yarn build:storybook
-      - run: npm install -g @percy/cli
-      - run: percy storybook ./storybook-static
+      # Disabling this workflow because of percy storybook incompatibility
+      # - run: yarn install
+      # - run: yarn build:storybook
+      # - run: npm install -g @percy/cli
+      # - run: percy storybook ./storybook-static
   
