@@ -28,5 +28,5 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn install
       - run: yarn build:storybook
-      - run: percy storybook ./storybook-static
+      - run: yarn percy storybook ./storybook-static
   
