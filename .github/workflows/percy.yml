@@ -6,6 +6,9 @@ on:
 
 jobs:
   percy:
+    runs-on: ubuntu-latest
+    env:
+      CI: true
     steps:
       - uses: actions/checkout@v2
       - name: setup node
