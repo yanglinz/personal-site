@@ -44,6 +44,7 @@ module.exports = function config(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
+  // Nunjucks
   const env = new Nunjucks.Environment(
     new Nunjucks.FileSystemLoader("src/templates")
   );
@@ -51,6 +52,17 @@ module.exports = function config(eleventyConfig) {
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   eleventyConfig.addFilter("formattedDate", (dateObj) => {
     return datefns.format(dateObj, "MM/dd/yyyy");
+  });
+
+  // Custom React based renderer
+  eleventyConfig.addTemplateFormats("mjs");
+  eleventyConfig.addExtension("mjs", {
+    compile: async (inputContent, inputPath) => {
+      const renderer = await import("./lib/render.mjs");
+      return async (data) => {
+        return await renderer.renderComponent(inputPath, data);
+      };
+    },
   });
 
   eleventyConfig.addPassthroughCopy({ "public/*.*": "." });
