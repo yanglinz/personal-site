@@ -28,10 +28,6 @@
     "react-dom": "18.1.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "6.5.5",
-    "@storybook/addon-essentials": "6.5.5",
-    "@storybook/addon-interactions": "6.5.5",
-    "@storybook/addon-links": "6.5.5",
     "@storybook/builder-vite": "0.1.35",
     "@storybook/react": "6.5.5",
     "@storybook/testing-library": "0.0.11",
