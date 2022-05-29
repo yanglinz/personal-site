@@ -4,6 +4,7 @@ package.json
 
 # Build output
 _site/
+storybook-static/
 
 # Deployment
 .vercel/
