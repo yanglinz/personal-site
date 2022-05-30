@@ -41,11 +41,7 @@ function Head() {
     "head",
     null,
     content.map((e, i) => {
-      if (e[1]) {
-        e[1].key = i;
-      }
-
-      return e;
+      return React.cloneElement(e, { ...e.props, key: i });
     })
   );
 }
