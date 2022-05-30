@@ -2,6 +2,7 @@ import * as React from "react";
 
 const h = React.createElement;
 
+// TODO: Migrate to LayoutBase.mjs
 function Head() {
   return h("head", null, [
     h("meta", { key: 1, charSet: "utf-8" }),
@@ -15,6 +16,7 @@ function Head() {
   ]);
 }
 
+// TODO: Migrate to LayoutBase.mjs
 function Body() {
   return h("body", {}, h("div", null, "Hello world!"));
 }
