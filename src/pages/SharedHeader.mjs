@@ -34,28 +34,24 @@ const h = React.createElement;
 */
 
 function SharedHeader(props) {
+  const brand = h(
+    "div",
+    { key: 1 },
+    h(
+      "h1",
+      { className: "m-0 text-3xl leading-snug" },
+      h(
+        "a",
+        { href: "/" },
+        h("img", { width: "28px", src: "/brand-logo.png", alt: "Yanglin Zhao" })
+      )
+    )
+  );
+
   return h(
     "div",
     { className: "SharedHeader py-4 bg-green-50 lg:py-8" },
-    h("div", { className: "flex items-center justify-between" }, [
-      h(
-        "div",
-        { key: 1 },
-        h(
-          "h1",
-          { className: "m-0 text-3xl leading-snug" },
-          h(
-            "a",
-            { href: "/" },
-            h("img", {
-              width: "28px",
-              src: "/brand-logo.png",
-              alt: "Yanglin Zhao",
-            })
-          )
-        )
-      ),
-    ])
+    h("div", { className: "flex items-center justify-between" }, [brand])
   );
 }
 
