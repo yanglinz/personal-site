@@ -33,11 +33,7 @@ function Head() {
         "https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap",
     }),
 
-    h("link", {
-      key: 8,
-      rel: "stylesheet",
-      href: "/main.css",
-    }),
+    h("link", { key: 8, rel: "stylesheet", href: "/main.css" }),
 
     h("script", {
       key: 9,
