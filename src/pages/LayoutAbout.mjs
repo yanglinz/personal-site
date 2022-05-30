@@ -2,8 +2,8 @@ import * as React from "react";
 
 const h = React.createElement;
 
-function LayoutIndex(props) {
+function LayoutAbout(props) {
   return h("html", { lang: "en" }, h("div", null, "Hello world!"));
 }
 
-export default LayoutIndex;
+export default LayoutAbout;
