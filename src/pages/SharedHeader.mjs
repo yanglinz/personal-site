@@ -36,7 +36,7 @@ const h = React.createElement;
 function SharedHeader(props) {
   return h(
     "div",
-    { className: "py-4 bg-green-50 lg:py-8" },
+    { className: "SharedHeader py-4 bg-green-50 lg:py-8" },
     h("div", { className: "flex items-center justify-between" }, [
       h(
         "div",

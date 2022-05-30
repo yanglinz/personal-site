@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import SharedHeader from "./SharedHeader.mjs";
+
 const h = React.createElement;
 
 function Head() {
@@ -47,7 +49,15 @@ function Head() {
 }
 
 function Body(props) {
-  return h("body", {}, props.children);
+  console.log("body");
+  return h(
+    "body",
+    {},
+    h("div", null, [
+      h(SharedHeader, { key: 1 }, null),
+      h("div", { key: 2 }, props.children),
+    ])
+  );
 }
 
 function LayoutBase(props) {
