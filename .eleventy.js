@@ -65,7 +65,7 @@ module.exports = function config(eleventyConfig) {
     },
     compileOptions: {
       cache: false,
-    }
+    },
   });
   eleventyConfig.addWatchTarget("./src/**/*.mjs");
   eleventyConfig.addWatchTarget("./www/**/*.mjs");
