@@ -28,9 +28,21 @@ function SharedHeader(props) {
     )
   );
   const nav = h("nav", { key: 2 }, [
-    h("div", {key: 1, className: "inline-block mr-2"}, h(NavLink, { href: "/" },"Home")),
-    h("div", {key: 2, className: "inline-block mr-2"}, h(NavLink, { href: "/about" },"About")),
-    h("div", {key: 3, className: "inline-block mr-0"}, h(NavLink, { href: "/posts" },"Posts")),
+    h(
+      "div",
+      { key: 1, className: "inline-block mr-2" },
+      h(NavLink, { href: "/" }, "Home")
+    ),
+    h(
+      "div",
+      { key: 2, className: "inline-block mr-2" },
+      h(NavLink, { href: "/about" }, "About")
+    ),
+    h(
+      "div",
+      { key: 3, className: "inline-block mr-0" },
+      h(NavLink, { href: "/posts" }, "Posts")
+    ),
   ]);
 
   return h(
