@@ -13,6 +13,29 @@ function Head() {
     }),
     h("link", { key: 3, rel: "manifest", href: "/site.webmanifest" }),
     h("meta", { key: 4, name: "theme-color", content: "#84cc16" }),
+
+    // Google fonts
+    h("link", {
+      key: 5,
+      rel: "preconnect",
+      href: "https://fonts.googleapis.com",
+    }),
+    h("link", {
+      key: 7,
+      rel: "preconnect",
+      href: "https://fonts.gstatic.com",
+      crossOrigin: true,
+    }),
+    h("link", {
+      key: 7,
+      rel: "stylesheet",
+      href:
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap",
+    }),
+
+    // <link href="/main.css" rel="stylesheet">
+    // {% block head %}{% endblock %}
+    // <script defer data-domain="yanglinzhao.com" src="https://plausible.io/js/plausible.js"></script>
   ]);
 }
 
