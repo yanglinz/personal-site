@@ -33,6 +33,17 @@ const h = React.createElement;
 </div>
 */
 
+function NavLink(props) {
+  return h(
+    "a",
+    {
+      className: "inline-block text-gray-700 text-base font-bold",
+      href: props.href,
+    },
+    props.children
+  );
+}
+
 function SharedHeader(props) {
   const brand = h(
     "div",
@@ -47,11 +58,16 @@ function SharedHeader(props) {
       )
     )
   );
+  const nav = h("nav", { key: 2 }, [
+    h(NavLink, { key: 1, href: "/" }, "Home"),
+    h(NavLink, { key: 2, href: "/about" }, "Home"),
+    h(NavLink, { key: 3, href: "/posts" }, "Home"),
+  ]);
 
   return h(
     "div",
     { className: "SharedHeader py-4 bg-green-50 lg:py-8" },
-    h("div", { className: "flex items-center justify-between" }, [brand])
+    h("div", { className: "flex items-center justify-between" }, [brand, nav])
   );
 }
 
