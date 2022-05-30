@@ -58,12 +58,17 @@ module.exports = function config(eleventyConfig) {
   eleventyConfig.addTemplateFormats("mjs");
   eleventyConfig.addExtension("mjs", {
     compile: async (inputContent, inputPath) => {
-      const renderer = await import("./lib/render.mjs");
       return async (data) => {
+        const renderer = await import(`./lib/render.mjs`);
         return await renderer.renderComponent(inputPath, data);
       };
     },
+    compileOptions: {
+      cache: false,
+    }
   });
+  eleventyConfig.addWatchTarget("./src/**/*.mjs");
+  eleventyConfig.addWatchTarget("./www/**/*.mjs");
 
   eleventyConfig.addPassthroughCopy({ "public/*.*": "." });
   return {
