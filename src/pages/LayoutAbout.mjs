@@ -33,9 +33,18 @@ function Head() {
         "https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap",
     }),
 
-    // <link href="/main.css" rel="stylesheet">
-    // {% block head %}{% endblock %}
-    // <script defer data-domain="yanglinzhao.com" src="https://plausible.io/js/plausible.js"></script>
+    h("link", {
+      key: 8,
+      rel: "stylesheet",
+      href: "/main.css",
+    }),
+
+    h("script", {
+      key: 9,
+      defer: true,
+      ["data-domain"]: "yanglinzhao.com",
+      src: "https://plausible.io/js/plausible.js",
+    }),
   ]);
 }
 
