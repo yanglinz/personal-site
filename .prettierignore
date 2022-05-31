@@ -5,6 +5,7 @@ package.json
 # Build output
 _site/
 storybook-static/
+*.bundled.mjs
 
 # Deployment
 .vercel/
