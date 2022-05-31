@@ -1,59 +1,41 @@
 import * as React from "react";
 
-const h = React.createElement;
-
-function NavLink(props) {
-  return h(
-    "a",
-    {
-      className: "inline-block text-gray-700 text-base font-bold",
-      href: props.href,
-    },
-    props.children
-  );
-}
-
 function SharedHeader(props) {
-  const brand = h(
-    "div",
-    { key: 1 },
-    h(
-      "h1",
-      { className: "m-0 text-3xl leading-snug" },
-      h(
-        "a",
-        { href: "/" },
-        h("img", { width: "28px", src: "/brand-logo.png", alt: "Yanglin Zhao" })
-      )
-    )
-  );
-  const nav = h("nav", { key: 2 }, [
-    h(
-      "div",
-      { key: 1, className: "inline-block mr-2" },
-      h(NavLink, { href: "/" }, "Home")
-    ),
-    h(
-      "div",
-      { key: 2, className: "inline-block mr-2" },
-      h(NavLink, { href: "/about" }, "About")
-    ),
-    h(
-      "div",
-      { key: 3, className: "inline-block mr-0" },
-      h(NavLink, { href: "/posts" }, "Posts")
-    ),
-  ]);
+  return (
+    <div className="py-4 bg-green-50 lg:py-8">
+      <div className="l-base">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="m-0 text-3xl leading-snug">
+              <a href="/">
+                <img width="28px" src="/brand-logo.png" alt="Yanglin Zhao" />
+              </a>
+            </h1>
+          </div>
 
-  return h(
-    "div",
-    { className: "SharedHeader py-4 bg-green-50 lg:py-8" },
-
-    h(
-      "div",
-      { className: "l-base" },
-      h("div", { className: "flex items-center justify-between" }, [brand, nav])
-    )
+          <nav>
+            <a
+              className="inline-block mr-2 text-gray-700 text-base font-bold"
+              href="/"
+            >
+              Home
+            </a>
+            <a
+              className="hidden inline-block mr-2 text-gray-700 text-base font-bold"
+              href="/about"
+            >
+              About
+            </a>
+            <a
+              className="inline-block text-gray-700 text-base font-bold"
+              href="/posts"
+            >
+              Posts
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
   );
 }
 
