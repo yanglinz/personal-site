@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import SharedHeader from "./SharedHeader.mjs";
+import SharedFooter from "./SharedFooter.mjs";
 
 const h = React.createElement;
 
@@ -56,6 +57,7 @@ function Body(props) {
     h("div", null, [
       h(SharedHeader, { key: 1 }, null),
       h("div", { key: 2 }, props.children),
+      h(SharedFooter, { key: 3 }, null),
     ])
   );
 }
