@@ -1,14 +1,16 @@
+import * as React from "react";
+
 function SharedFooter() {
   return (
-    <div class="py-8 text-center">
-      <div class="l-wide">
+    <div className="py-8 text-center">
+      <div className="l-wide">
         <div>
-          <span class="inline-block mx-auto text-sm">
+          <span className="inline-block mx-auto text-sm">
             <a href="https://github.com/yanglinz">Github</a>
           </span>
         </div>
 
-        <div class="pt-1 text-gray-400 text-sm">
+        <div className="pt-1 text-gray-400 text-sm">
           <span>Yanglin Zhao &copy; 2022</span>
           <span> | </span>
           <a href="/sitemap.xml">Sitemap</a>
@@ -17,3 +19,5 @@ function SharedFooter() {
     </div>
   );
 }
+
+export default SharedFooter;
