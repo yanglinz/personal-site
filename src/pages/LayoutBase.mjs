@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import SharedHeader from "./SharedHeader.mjs";
+import SharedHeaderOld from "./SharedHeaderOld.mjs";
 import SharedFooter from "./SharedFooter.mjs";
 
 function Head() {
@@ -24,7 +25,7 @@ function Head() {
 function Body(props) {
   return (
     <body>
-      <SharedHeader />
+      {true ? <SharedHeaderOld /> : <SharedHeader />}
       {props.children}
       <SharedFooter />
     </body>
