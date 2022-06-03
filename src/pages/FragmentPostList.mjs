@@ -1,7 +1,7 @@
 import * as React from "react";
 
 function Post(props) {
-  const { title, url, formattedDate } = props;
+  const { title, url, date } = props;
 
   return (
     <li className="border-gray-150 py-3 border-t md:flex md:items-center md:justify-between md:py-4 lg:py-6">
@@ -12,11 +12,8 @@ function Post(props) {
       </h3>
 
       <p className="flex-initial">
-        <a
-          href="{{ post.url }}"
-          className="text-gray-400 font-mono text-xs md:text-sm"
-        >
-          <time>{formattedDate}</time>
+        <a href={url} className="text-gray-400 font-mono text-xs md:text-sm">
+          <time>{date}</time>
         </a>
       </p>
     </li>
@@ -25,6 +22,7 @@ function Post(props) {
 
 function FragmentPostList(props) {
   const { posts } = props;
+
   return (
     <>
       <div className="lg:py-18 py-14 md:py-16">
@@ -37,8 +35,8 @@ function FragmentPostList(props) {
                 </h2>
 
                 <ul>
-                  {props.map((p) => (
-                    <Post title={p.title} />
+                  {posts.map((p, i) => (
+                    <Post key={i} title={p.title} url={p.url} date={p.date} />
                   ))}
                 </ul>
               </div>
