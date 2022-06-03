@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import LayoutBase from "./LayoutBase.mjs";
-import FragmentIndexIntro from './FragmentIndexIntro.mjs';
+import FragmentIndexIntro from "./FragmentIndexIntro.mjs";
 
 function LayoutIndex(props) {
   return (
