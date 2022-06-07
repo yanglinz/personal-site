@@ -40,6 +40,11 @@ async function imageShortcode(
   </div>`;
 }
 
+async function reactComponentShortcode(name, ...args) {
+  const renderer = await import('./lib/render.mjs');
+  return await renderer.renderComponent(name, args);
+}
+
 module.exports = function config(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
@@ -50,25 +55,13 @@ module.exports = function config(eleventyConfig) {
   );
   eleventyConfig.setLibrary("njk", env);
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+  eleventyConfig.addNunjucksAsyncShortcode("react", reactComponentShortcode);
   eleventyConfig.addFilter("formattedDate", (dateObj) => {
     return datefns.format(dateObj, "MM/dd/yyyy");
   });
 
-  // Custom React based renderer
-  eleventyConfig.addTemplateFormats("mjs");
-  eleventyConfig.addExtension("mjs", {
-    compile: async (inputContent, inputPath) => {
-      return async (data) => {
-        const renderer = await import(`./lib/render.mjs`);
-        return await renderer.renderComponent(inputPath, data);
-      };
-    },
-    compileOptions: {
-      cache: false,
-    },
-  });
+  // React components 
   eleventyConfig.addWatchTarget("./src/**/*.mjs");
-  eleventyConfig.addWatchTarget("./www/**/*.mjs");
 
   eleventyConfig.addPassthroughCopy({ "public/*.*": "." });
   return {

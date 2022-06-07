@@ -16,5 +16,7 @@
     {% image featuredImage, featuredImageAlt, "(min-width: 30em) 90vw, 100vw" %}
   {% endif %}
 
+  {% react "FragmentPostContent", content %}
+
   {% include "FragmentPostContent.html" %}
 {% endblock %}
