@@ -1,19 +1,15 @@
 import * as React from "react";
 
 import SharedHeader from "./SharedHeader.mjs";
-import SharedHeaderOld from "./SharedHeaderOld.mjs";
 import SharedFooter from "./SharedFooter.mjs";
 
-function Head(props) {
-  const { extraHead } = props;
+function Head() {
   return (
     <head>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link href="/site.webmanifest" rel="manifest" />
       <meta name="theme-color" content="#84cc16" />
-
-      {extraHead}
 
       <link href="/main.css" rel="stylesheet" />
       <script
@@ -28,7 +24,7 @@ function Head(props) {
 function Body(props) {
   return (
     <body>
-      {true ? <SharedHeaderOld /> : <SharedHeader />}
+      <SharedHeader />
       {props.children}
       <SharedFooter />
     </body>
@@ -36,10 +32,9 @@ function Body(props) {
 }
 
 function LayoutBase(props) {
-  const { extraHead } = props;
   return (
     <html lang="en">
-      <Head extraHead={extraHead} />
+      <Head />
       <Body>{props.children}</Body>
     </html>
   );
