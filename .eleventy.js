@@ -41,7 +41,7 @@ async function imageShortcode(
 }
 
 async function reactComponentShortcode(name, ...args) {
-  const renderer = await import('./lib/render.mjs');
+  const renderer = await import("./lib/render.mjs");
   return await renderer.renderComponent(name, args);
 }
 
@@ -60,7 +60,7 @@ module.exports = function config(eleventyConfig) {
     return datefns.format(dateObj, "MM/dd/yyyy");
   });
 
-  // React components 
+  // React components
   eleventyConfig.addWatchTarget("./src/**/*.mjs");
 
   eleventyConfig.addPassthroughCopy({ "public/*.*": "." });

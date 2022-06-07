@@ -5,10 +5,9 @@
   <meta name="description" content="{{ description }}">
   <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
 
+  {# TODO: improve meta tags #}
   <meta property="og:title" content="{{ title }}">
   <meta property="og:type" content="{{ description }}">
-  <meta property="og:url" content="{{ data.url }}">
-  <meta property="og:image" content="">
 {% endblock %}
 
 {% block body %}
@@ -16,7 +15,5 @@
     {% image featuredImage, featuredImageAlt, "(min-width: 30em) 90vw, 100vw" %}
   {% endif %}
 
-  {% react "FragmentPostContent", content %}
-
-  {% include "FragmentPostContent.html" %}
+  {% react "FragmentPostContent", page, title, date | formattedDate, content %}
 {% endblock %}
