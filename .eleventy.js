@@ -45,6 +45,16 @@ async function reactComponentShortcode(name, ...args) {
   return await renderer.renderComponent(name, args);
 }
 
+function serializeCollection(value) {
+  function stripped(item) {
+    const { data } = item;
+    const { eleventy, pkg, page, collections, ...rest } = data;
+    return { page, ...rest };
+  }
+
+  return value.map(stripped);
+}
+
 module.exports = function config(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
@@ -62,6 +72,7 @@ module.exports = function config(eleventyConfig) {
 
   // React components
   eleventyConfig.addWatchTarget("./src/**/*.mjs");
+  eleventyConfig.addFilter("serializeCollection", serializeCollection);
 
   eleventyConfig.addPassthroughCopy({ "public/*.*": "." });
   return {

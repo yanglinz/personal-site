@@ -13,6 +13,6 @@
 
 {% block body %}
   {% react "FragmentIndexIntro" %}
-
-  {% include "FragmentPostsList.html" %}
+  
+  {% react "FragmentPostsList", collections.post | reverse | serializeCollection %}
 {% endblock %}
