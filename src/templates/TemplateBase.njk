@@ -11,9 +11,9 @@
   <script defer data-domain="yanglinzhao.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-  {% include "SharedHeader.html" %}
+  {% react "FragmentSharedHeader" %}
   {% block body %}{% endblock %}
-  {% include "SharedFooter.html" %}
+  {% react "FragmentSharedFooter" %}
  
   <script defer src="/main.js"></script>
 </body>
