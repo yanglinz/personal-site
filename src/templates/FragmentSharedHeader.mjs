@@ -2,7 +2,7 @@ import * as React from "react";
 
 function FragmentSharedHeader() {
   return (
-    <div className="py-14 bg-stone-900 lg:py-20">
+    <div className="bg-stone-900 py-14 lg:py-20">
       <div className="l-base">
         <div className="flex items-center justify-between">
           <div>
