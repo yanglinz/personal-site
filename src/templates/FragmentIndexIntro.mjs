@@ -3,7 +3,7 @@ import * as React from "react";
 function FragmentIndexIntro() {
   return (
     <>
-      <div className="py-10 md:py-14 lg:py-20">
+      <div className="py-14 lg:py-20">
         <div className="l-base">
           <h2 className="f-serif mb-2 text-stone-900 font-bold text-xl">
             About
