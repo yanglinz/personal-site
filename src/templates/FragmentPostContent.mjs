@@ -6,12 +6,12 @@ function Content(props) {
     <main>
       <article>
         <div className="l-wide">
-          <div className="py-8">
+          <div className="pt-14 pb-10 lg:pt-20 lg:pb-8">
             <h1 className="m-0 text-center text-4xl font-bold leading-tight">
               <a href={url}>{title}</a>
             </h1>
 
-            <p className="pt-1 text-center text-gray-400 font-mono text-sm">
+            <p className="pt-4 text-center text-gray-400 font-mono text-sm">
               <time>{formattedDate}</time>
             </p>
           </div>
