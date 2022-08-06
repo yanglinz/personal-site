@@ -34,7 +34,7 @@ and "proportion" of the contents within it. In this case, the demo is really
 worth a 1000 words, so here it is below!
 
 <div class="full-width flex border-gray-150 my-6 border-b border-t">
-  <iframe src="https://yanglinz.github.io/rust-wasm-seam-carving/" width="100%" height="800">
+  <iframe src="https://neon-queijadas-f3bc83.netlify.app/" width="100%" height="800">
   </iframe>
 </div>
 
