@@ -1,0 +1,23 @@
+# Project
+_site/
+storybook-static/
+
+# Build tools
+.parcel-cache/
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directory
+node_modules
+
+# Deployment
+.netlify
+.vercel

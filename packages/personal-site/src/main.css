@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* fonts */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+}
+
+.f-sans {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+}
+
+.f-serif {
+  font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman,
+    Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol;
+}
+
+.f-mono {
+  font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console,
+    monospace;
+}
+
+/* layout */
+
+.l-wide {
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.l-base {
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .l-base {
+    max-width: 700px;
+  }
+}
+
+.l-narrow {
+  max-width: 520px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .l-narrow {
+    max-width: 680px;
+  }
+}
+
+a {
+  color: #404040;
+  text-decoration: none;
+}
+
+.post-content a {
+  color: #84cc16;
+}
+
+.post-content {
+  @apply text-gray-800 leading-8;
+}
+
+.post-content p {
+  @apply py-3 text-gray-800 text-lg leading-8;
+}
+
+.post-content h1 {
+  @apply pb-3 pt-5 text-gray-800 text-3xl font-bold;
+}
+
+.post-content h2 {
+  @apply pb-3 pt-5 text-gray-800 text-2xl font-bold;
+}
+
+.post-content h3 {
+  @apply pb-3 pt-4 text-gray-600 text-xl font-bold;
+}
+
+.post-content h4 {
+  @apply pb-3 pt-4 text-gray-600 text-xl font-bold;
+}
+
+.post-content h5 {
+  @apply pb-3 pt-4 text-gray-400 text-lg font-bold;
+}
+
+.post-content h6 {
+  @apply pb-3 pt-4 text-gray-400 text-lg font-bold;
+}
+
+.post-content blockquote {
+  @apply mx-0 my-3 pl-6 border-l-8 border-gray-100;
+}
+
+.post-content ul,
+.post-content ol {
+  @apply pl-7 py-2;
+}
+
+.post-content li {
+  list-style: square;
+  @apply py-1;
+}
+
+.post-content pre {
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+.post-content pre code {
+  @apply text-base;
+}
+
+.post-content img {
+  width: 100%;
+}
+
+.post-content .full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
