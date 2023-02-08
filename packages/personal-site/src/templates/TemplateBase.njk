@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/site.webmanifest" rel="manifest">
+  <meta name="theme-color" content="#84cc16">
+
+  <link href="/main.css" rel="stylesheet">
+  {% block head %}{% endblock %}
+  <script defer data-domain="yanglinzhao.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+  {% react "FragmentSharedHeader" %}
+  {% block body %}{% endblock %}
+  {% react "FragmentSharedFooter" %}
+ 
+  <script defer src="/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends "TemplateBase.njk" %}
+
+{% block head %}
+  <title>Yanglin Zhao | {{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+
+  {# TODO: improve meta tags #}
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:type" content="{{ description }}">
+{% endblock %}
+
+{% block body %}
+  {% if featuredImage %}
+    {% image featuredImage, featuredImageAlt, "(min-width: 30em) 90vw, 100vw" %}
+  {% endif %}
+
+  {% react "FragmentPostContent", page, title, date | formattedDate, content %}
+{% endblock %}
