@@ -5,49 +5,10 @@
   "private": true,
   "workspaces": ["packages/*"],
   "scripts": {
-    "clean": "rm -rf _site",
-    "prebuild:renderer": "esbuild --bundle --format=esm --loader:.mjs=jsx ./lib/render-manifest.mjs --outfile=./lib/render-manifest.bundled.mjs",
-    "prebuild:": "run-s prebuild:*",
-    "build:11ty": "eleventy",
-    "build:parcel": "parcel build --dist-dir=_site src/main.js",
-    "build:storybook": "build-storybook",
-    "build:tailwind": "tailwindcss -i ./src/main.css -o ./_site/main.css --jit --minify",
-    "build": "run-s prebuild:* && run-s build:*",
-    "start:renderer": "esbuild --bundle --watch --format=esm --loader:.mjs=jsx ./lib/render-manifest.mjs --outfile=./lib/render-manifest.bundled.mjs",
-    "start:11ty": "eleventy --serve",
-    "start:parcel": "parcel watch --dist-dir=_site src/main.js",
-    "start:storybook": "start-storybook -p 6006",
-    "start:tailwind": "tailwindcss -i ./src/main.css -o ./_site/main.css --jit --watch",
-    "start": "run-s prebuild && run-p start:*",
-    "format": "prettier --write './*.js' './{lib,src,www}/**/*.{js,cjs,mjs,css,html,md,json}'"
-  },
-  "dependencies": {
-    "@11ty/eleventy": "1.0.1",
-    "@11ty/eleventy-img": "2.0.1",
-    "@11ty/eleventy-plugin-rss": "1.1.2",
-    "@11ty/eleventy-plugin-syntaxhighlight": "4.0.0",
-    "date-fns": "2.27.0",
-    "nunjucks": "3.2.3",
-    "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "format": "prettier --write './packages/**/*.{js,cjs,mjs,css,html,md,json}'"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "6.5.5",
-    "@storybook/addon-essentials": "6.5.5",
-    "@storybook/addon-interactions": "6.5.5",
-    "@storybook/addon-links": "6.5.5",
-    "@storybook/builder-vite": "0.1.35",
-    "@storybook/react": "6.5.5",
-    "@storybook/testing-library": "0.0.11",
-    "autoprefixer": "10.4.7",
-    "esbuild": "^0.14.42",
-    "jest": "26.4.2",
-    "npm-run-all": "4.1.5",
-    "parcel": "2.4.1",
-    "postcss": "8.4.14",
-    "prettier": "2.1.1",
-    "tailwindcss": "3.0.24",
-    "vite": "2.9.9"
+    "prettier": "2.1.1"
   },
   "volta": {
     "node": "16.13.0",

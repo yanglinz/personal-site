@@ -28,5 +28,6 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - run: yarn install
-      - run: yarn build
+      # Disabling this workflow for now
+      # - run: yarn install
+      # - run: yarn build
