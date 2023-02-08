@@ -1,9 +1,8 @@
 {
   "name": "personal-site",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "private": true,
-  "workspaces": ["packages/*"],
   "scripts": {
     "clean": "rm -rf _site",
     "prebuild:renderer": "esbuild --bundle --format=esm --loader:.mjs=jsx ./lib/render-manifest.mjs --outfile=./lib/render-manifest.bundled.mjs",
