@@ -22,7 +22,7 @@ to other languages. I wanted to follow along with the book and actually write
 the interpreter as I read the chapters, and I arbitrarily chose Typescript as
 the language for my implementation. One convenient side-effect from that choice
 is that it's fairly trivial to run the interpreter in the browser, which makes
-for a fun demo!
+for a fun [demo](https://lox-ts-playground.vercel.app)!
 
 <div class="full-width flex border-stone-100 my-6 py-12 border-b border-t">
   <iframe src="https://lox-ts-playground.vercel.app?hideheader=true" width="100%" height="600">
