@@ -24,7 +24,7 @@ the language for my implementation. One convenient side-effect from that choice
 is that it's fairly trivial to run the interpreter in the browser, which makes
 for a fun [demo](https://lox-ts-playground.vercel.app)!
 
-<div class="full-width flex border-stone-100 my-6 py-12 border-b border-t">
+<div class="full-width flex border-stone-100 my-6 py-12 px-6 border-b border-t">
   <iframe src="https://lox-ts-playground.vercel.app?hideheader=true" width="100%" height="600">
   </iframe>
 </div>
