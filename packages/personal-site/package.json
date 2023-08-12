@@ -9,13 +9,11 @@
     "prebuild:": "run-s prebuild:*",
     "build:11ty": "eleventy",
     "build:parcel": "parcel build --dist-dir=_site src/main.js",
-    "build:storybook": "build-storybook",
     "build:tailwind": "tailwindcss -i ./src/main.css -o ./_site/main.css --jit --minify",
     "build": "run-s prebuild:* && run-s build:*",
     "start:renderer": "esbuild --bundle --watch --format=esm --loader:.mjs=jsx ./lib/render-manifest.mjs --outfile=./lib/render-manifest.bundled.mjs",
     "start:11ty": "eleventy --serve",
     "start:parcel": "parcel watch --dist-dir=_site src/main.js",
-    "start:storybook": "start-storybook -p 6006",
     "start:tailwind": "tailwindcss -i ./src/main.css -o ./_site/main.css --jit --watch",
     "start": "run-s prebuild && run-p start:*",
     "format": "prettier --write './*.js' './{lib,src,www}/**/*.{js,cjs,mjs,css,html,md,json}'"
@@ -31,13 +29,6 @@
     "react-dom": "18.1.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "6.5.5",
-    "@storybook/addon-essentials": "6.5.5",
-    "@storybook/addon-interactions": "6.5.5",
-    "@storybook/addon-links": "6.5.5",
-    "@storybook/builder-vite": "0.1.35",
-    "@storybook/react": "6.5.5",
-    "@storybook/testing-library": "0.0.11",
     "autoprefixer": "10.4.7",
     "esbuild": "^0.14.42",
     "jest": "26.4.2",
@@ -49,7 +40,7 @@
     "vite": "2.9.9"
   },
   "volta": {
-    "node": "16.13.0",
+    "node": "18.17.1",
     "yarn": "1.22.4"
   }
 }
