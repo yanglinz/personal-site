@@ -7,7 +7,7 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 async function imageShortcode(
   src,
   alt,
-  sizes = "(min-width: 30em) 50vw, 100vw"
+  sizes = "(min-width: 30em) 50vw, 100vw",
 ) {
   let metadata = await Image(src, {
     widths: [480, 780, 1000, 1400, 2200],
@@ -61,7 +61,7 @@ module.exports = function config(eleventyConfig) {
 
   // Nunjucks
   const env = new Nunjucks.Environment(
-    new Nunjucks.FileSystemLoader("src/templates")
+    new Nunjucks.FileSystemLoader("src/templates"),
   );
   eleventyConfig.setLibrary("njk", env);
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);

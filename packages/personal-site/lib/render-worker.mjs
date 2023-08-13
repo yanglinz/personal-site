@@ -12,7 +12,7 @@ async function executeModule({ componentName, args }) {
   }
 
   parentPort.postMessage(
-    ReactDOMServer.renderToString(React.createElement(component, { args }))
+    ReactDOMServer.renderToString(React.createElement(component, { args })),
   );
 }
 

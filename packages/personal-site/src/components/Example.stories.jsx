@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 function Example() {
   return <h1>Hello world!</h1>;
 }
 
 export default {
-  title: 'Example',
+  title: "Example",
   component: Example,
 };
 

@@ -31,4 +31,3 @@ jobs:
       # - run: yarn build:storybook
       # - run: npm install -g @percy/cli
       # - run: percy storybook ./storybook-static
-  
