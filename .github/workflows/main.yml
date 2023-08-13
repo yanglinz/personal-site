@@ -1,4 +1,4 @@
-name: Build Workflow
+name: Main CI Workflow
 
 on:
   push:
@@ -13,10 +13,7 @@ jobs:
       CI: true
     steps:
       - uses: actions/checkout@v2
-      - name: setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16.x
+      - uses: volta-cli/action@v4
       - name: yarn caching prep
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -28,6 +25,5 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      # Disabling this workflow for now
-      # - run: yarn install
-      # - run: yarn build
+      - run: yarn install
+      - run: yarn format:check
