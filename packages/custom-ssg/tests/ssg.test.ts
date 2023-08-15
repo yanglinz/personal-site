@@ -1,7 +1,6 @@
 import { getContentManifests } from "../src/content";
 
-test("example build: basic layout", () => {
-  const content = getContentManifests("../examples/basic");
-  expect(content).toEqual([123]);
-  expect(5).toEqual(5);
+test("get basic content manifests", () => {
+  const manifests = getContentManifests("../examples/basic");
+  expect(manifests).toMatchInlineSnapshot();
 });
