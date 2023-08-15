@@ -1,7 +1,7 @@
-import { getContentTree } from '../src/index';
+import { getContentManifests } from "../src/content";
 
-test("example build: simple", () => {
-  const content = getContentTree(".");
-  expect(content).toEqual([123])
+test("example build: basic layout", () => {
+  const content = getContentManifests("../examples/basic");
+  expect(content).toEqual([123]);
   expect(5).toEqual(5);
 });
