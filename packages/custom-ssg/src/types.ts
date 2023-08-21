@@ -1,3 +1,5 @@
+import type { Node } from "@markdoc/markdoc";
+
 export type Path = string;
 
 export type GlobalConfig = {
@@ -10,4 +12,5 @@ export type ContentManifest = {
   type: ContentType;
   path: Path;
   pathSegments: Path[];
+  ast: Node;
 };

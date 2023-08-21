@@ -1,14 +1,16 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import Markdoc from '@markdoc/markdoc';
+import Markdoc from "@markdoc/markdoc";
 import { invariant } from "./invariant";
 import { Path, GlobalConfig, ContentManifest } from "./types";
 
-async function getContentManifest(dir: Path): Promise<ContentManifest> {
+async function getContentManifest(contentPath: Path): Promise<ContentManifest> {
+  const content = `${await fs.readFile(contentPath)}`;
   return {
     type: "POST",
-    path: dir,
-    pathSegments: dir.split("/"),
+    path: contentPath,
+    pathSegments: contentPath.split("/"),
+    ast: Markdoc.parse(content),
   };
 }
 
