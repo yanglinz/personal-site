@@ -4,12 +4,16 @@ import Markdoc from "@markdoc/markdoc";
 import { invariant } from "./invariant";
 import { Path, GlobalConfig, ContentManifest } from "./types";
 
-async function getContentManifest(contentPath: Path): Promise<ContentManifest> {
+async function getContentManifest(
+  config: GlobalConfig,
+  contentPath: Path
+): Promise<ContentManifest> {
   const content = `${await fs.readFile(contentPath)}`;
+  const relativePath = path.relative(config.baseDir, contentPath);
   return {
     type: "POST",
-    path: contentPath,
-    pathSegments: contentPath.split("/"),
+    path: relativePath,
+    pathSegments: relativePath.split("/"),
     ast: Markdoc.parse(content),
   };
 }
@@ -23,6 +27,7 @@ async function* walk(dir: Path): AsyncGenerator<string, void, void> {
 }
 
 export async function getContentManifests(
+  config: GlobalConfig,
   dir: Path
 ): Promise<ContentManifest[]> {
   invariant(
@@ -34,7 +39,7 @@ export async function getContentManifests(
   const relativeDir = path.relative(process.cwd(), dir);
   const manifests = [];
   for await (const p of walk(relativeDir)) {
-    manifests.push(await getContentManifest(p));
+    manifests.push(await getContentManifest(config, p));
   }
 
   // Sort the manifest explicitly so that snapshot tests are stable

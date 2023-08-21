@@ -2,8 +2,10 @@ import path from "node:path";
 import { getContentManifests } from "../src/content";
 
 test("get basic content manifests", async () => {
+  const exampleDir = path.join(__dirname, "../examples/basic");
   const manifests = await getContentManifests(
-    path.join(__dirname, "../examples/basic")
+    { baseDir: exampleDir },
+    exampleDir
   );
   expect(manifests).toMatchInlineSnapshot(`
     [
@@ -20,10 +22,8 @@ test("get basic content manifests", async () => {
           "tag": undefined,
           "type": "document",
         },
-        "path": "examples/basic/index.js",
+        "path": "index.js",
         "pathSegments": [
-          "examples",
-          "basic",
           "index.js",
         ],
         "type": "POST",
@@ -126,10 +126,8 @@ test("get basic content manifests", async () => {
           "tag": undefined,
           "type": "document",
         },
-        "path": "examples/basic/posts/first-post.mdoc",
+        "path": "posts/first-post.mdoc",
         "pathSegments": [
-          "examples",
-          "basic",
           "posts",
           "first-post.mdoc",
         ],
@@ -233,10 +231,8 @@ test("get basic content manifests", async () => {
           "tag": undefined,
           "type": "document",
         },
-        "path": "examples/basic/posts/second-post.mdoc",
+        "path": "posts/second-post.mdoc",
         "pathSegments": [
-          "examples",
-          "basic",
           "posts",
           "second-post.mdoc",
         ],
