@@ -27,3 +27,6 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn install
       - run: yarn format:check
+      # Tests for custom SSG
+      - run: yarn test
+        working-directory: packages/custom-ssg

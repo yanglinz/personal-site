@@ -1,0 +1,1 @@
+export { getContentManifests } from "./content";

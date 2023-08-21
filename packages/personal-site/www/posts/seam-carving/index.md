@@ -144,7 +144,7 @@ const imageDataPtr = carver.image_data_ptr();
 const imageData = new Uint8ClampedArray(
   memory().buffer,
   imageDataPtr,
-  carver.width * carver.height * 4,
+  carver.width * carver.height * 4
 );
 ```
 
