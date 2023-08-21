@@ -13,7 +13,6 @@ async function getContentManifest(
   return {
     type: "POST",
     path: relativePath,
-    pathSegments: relativePath.split("/"),
     ast: Markdoc.parse(content),
   };
 }
