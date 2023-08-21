@@ -32,5 +32,5 @@ export async function getContentManifests(
   for await (const p of walk(relativeDir)) {
     manifests.push(await getContentManifest(p));
   }
-  return manifests;
+  return manifests.sort((a, b) => a.path.localeCompare(b.path));
 }

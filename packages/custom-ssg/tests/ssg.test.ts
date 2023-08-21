@@ -8,6 +8,15 @@ test("get basic content manifests", async () => {
   expect(manifests).toMatchInlineSnapshot(`
     [
       {
+        "path": "examples/basic/index.js",
+        "pathSegments": [
+          "examples",
+          "basic",
+          "index.js",
+        ],
+        "type": "POST",
+      },
+      {
         "path": "examples/basic/posts/first-post.mdoc",
         "pathSegments": [
           "examples",
@@ -24,15 +33,6 @@ test("get basic content manifests", async () => {
           "basic",
           "posts",
           "second-post.mdoc",
-        ],
-        "type": "POST",
-      },
-      {
-        "path": "examples/basic/index.js",
-        "pathSegments": [
-          "examples",
-          "basic",
-          "index.js",
         ],
         "type": "POST",
       },
