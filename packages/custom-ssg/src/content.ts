@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import Markdoc from '@markdoc/markdoc';
 import { invariant } from "./invariant";
 import { Path, GlobalConfig, ContentManifest } from "./types";
 
