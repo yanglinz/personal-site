@@ -27,10 +27,13 @@ export async function getContentManifests(
     "getContentManifests expects an absolute directory"
   );
 
+  // Pass in a relative directory so that snapshot tests are stable
   const relativeDir = path.relative(process.cwd(), dir);
   const manifests = [];
   for await (const p of walk(relativeDir)) {
     manifests.push(await getContentManifest(p));
   }
+
+  // Sort the manifest explicitly so that snapshot tests are stable
   return manifests.sort((a, b) => a.path.localeCompare(b.path));
 }
