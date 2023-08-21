@@ -1,21 +1,36 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { Path, ContentManifest } from "./types";
+import { invariant } from "./invariant";
+import { Path, GlobalConfig, ContentManifest } from "./types";
 
-async function* walk(directory: Path): AsyncGenerator<string, void, void> {
-  for await (const d of await fs.opendir(directory)) {
-    const entry = path.join(directory, d.name);
+async function getContentManifest(dir: Path): Promise<ContentManifest> {
+  return {
+    type: "POST",
+    path: dir,
+    pathSegments: dir.split("/"),
+  };
+}
+
+async function* walk(dir: Path): AsyncGenerator<string, void, void> {
+  for await (const d of await fs.opendir(dir)) {
+    const entry = path.join(dir, d.name);
     if (d.isDirectory()) yield* walk(entry);
     else if (d.isFile()) yield entry;
   }
 }
 
 export async function getContentManifests(
-  inputDirectory: Path,
+  dir: Path
 ): Promise<ContentManifest[]> {
-  for await (const p of walk(inputDirectory)) {
-    console.log(p);
-  }
+  invariant(
+    path.isAbsolute(dir),
+    "getContentManifests expects an absolute directory"
+  );
 
-  return [];
+  const relativeDir = path.relative(process.cwd(), dir);
+  const manifests = [];
+  for await (const p of walk(relativeDir)) {
+    manifests.push(await getContentManifest(p));
+  }
+  return manifests;
 }
