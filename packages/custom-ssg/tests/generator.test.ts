@@ -11,7 +11,7 @@ beforeEach(async () => {
 });
 
 afterEach(async () => {
-  fs.rmdir(tmpDir);
+  fs.rm(tmpDir, { recursive: true, force: true });
 });
 
 async function getGeneratedFilesSnapshot(dir: string) {
@@ -41,5 +41,11 @@ test("generate basic example files", async () => {
   await generateFiles(globalConfig, manifests);
 
   const generated = await getGeneratedFilesSnapshot(tmpDir);
-  expect(generated).toMatchInlineSnapshot();
+  expect(generated).toMatchInlineSnapshot(`
+    [
+      "index.html",
+      "posts/first-post.html",
+      "posts/second-post.html",
+    ]
+  `);
 });
