@@ -7,7 +7,12 @@ import { generateFiles } from "../src/generator";
 let tmpDir: string = "";
 
 beforeEach(async () => {
-  tmpDir = await fs.mkdtemp(os.tmpdir());
+  if (process.env.CI) {
+    tmpDir = "/tmp/jest-test"
+    await fs.mkdir(tmpDir, { recursive: true});
+  } else {
+    tmpDir = await fs.mkdtemp(os.tmpdir());
+  }
 });
 
 afterEach(async () => {
