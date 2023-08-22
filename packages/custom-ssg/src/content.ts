@@ -1,14 +1,45 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import Markdoc from "@markdoc/markdoc";
 import { invariant } from "./invariant";
 import { Path, GlobalConfig, ContentManifest } from "./types";
 
-async function getContentManifest(dir: Path): Promise<ContentManifest> {
+export async function getContent(
+  manifest: ContentManifest
+): Promise<string | undefined> {
+  if (manifest.type === "POST") {
+    return "<html></html>";
+  }
+}
+
+async function getPostManifest(
+  config: GlobalConfig,
+  contentPath: Path
+): Promise<ContentManifest> {
+  const content = `${await fs.readFile(contentPath)}`;
+
+  const sourcePath = path.relative(config.baseDir, contentPath);
+  let outputPath: string = "";
+  {
+    const pathParts = sourcePath.split("/");
+    const [fileName, ext] = pathParts[pathParts.length - 1].split(".");
+    pathParts[pathParts.length - 1] = `${fileName}.html`;
+    outputPath = pathParts.join("/");
+  }
+
   return {
     type: "POST",
-    path: dir,
-    pathSegments: dir.split("/"),
+    sourcePath,
+    outputPath,
+    ast: Markdoc.parse(content),
   };
+}
+
+async function getContentManifest(
+  config: GlobalConfig,
+  contentPath: Path
+): Promise<ContentManifest> {
+  return await getPostManifest(config, contentPath);
 }
 
 async function* walk(dir: Path): AsyncGenerator<string, void, void> {
@@ -20,6 +51,7 @@ async function* walk(dir: Path): AsyncGenerator<string, void, void> {
 }
 
 export async function getContentManifests(
+  config: GlobalConfig,
   dir: Path
 ): Promise<ContentManifest[]> {
   invariant(
@@ -31,9 +63,9 @@ export async function getContentManifests(
   const relativeDir = path.relative(process.cwd(), dir);
   const manifests = [];
   for await (const p of walk(relativeDir)) {
-    manifests.push(await getContentManifest(p));
+    manifests.push(await getContentManifest(config, p));
   }
 
   // Sort the manifest explicitly so that snapshot tests are stable
-  return manifests.sort((a, b) => a.path.localeCompare(b.path));
+  return manifests.sort((a, b) => a.sourcePath.localeCompare(b.sourcePath));
 }
