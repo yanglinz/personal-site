@@ -8,8 +8,8 @@ let tmpDir: string = "";
 
 beforeEach(async () => {
   if (process.env.CI) {
-    tmpDir = "/tmp/jest-test"
-    await fs.mkdir(tmpDir, { recursive: true});
+    tmpDir = "/tmp/jest-test";
+    await fs.mkdir(tmpDir, { recursive: true });
   } else {
     tmpDir = await fs.mkdtemp(os.tmpdir());
   }
