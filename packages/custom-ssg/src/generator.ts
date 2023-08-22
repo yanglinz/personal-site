@@ -11,7 +11,8 @@ export async function generateFiles(
     const content = await getContent(m);
     if (content) {
       const outputPath = path.join(config.outputDir, m.outputPath);
-      await fs.writeFile(m.outputPath);
+      await fs.mkdir(path.dirname(outputPath), { recursive: true });
+      await fs.writeFile(outputPath, content);
     }
   }
 }

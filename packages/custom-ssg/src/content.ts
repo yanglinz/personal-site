@@ -8,7 +8,7 @@ export async function getContent(
   manifest: ContentManifest
 ): Promise<string | undefined> {
   if (manifest.type === "POST") {
-    return "";
+    return "<html></html>";
   }
 }
 
@@ -24,7 +24,7 @@ async function getPostManifest(
     const pathParts = sourcePath.split("/");
     const [fileName, ext] = pathParts[pathParts.length - 1].split(".");
     pathParts[pathParts.length - 1] = `${fileName}.html`;
-    outputPath = pathParts.join("/")
+    outputPath = pathParts.join("/");
   }
 
   return {
