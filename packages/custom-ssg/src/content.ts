@@ -2,13 +2,16 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import Markdoc from "@markdoc/markdoc";
 import { invariant } from "./invariant";
+import Preact from 'preact';
+import render from 'preact-render-to-string';
+import { PostContent } from "../components/PostContent";
 import { Path, GlobalConfig, ContentManifest } from "./types";
 
 export async function getContent(
   manifest: ContentManifest
 ): Promise<string | undefined> {
   if (manifest.type === "POST") {
-    return "<html></html>";
+    return render(Preact.createElement(PostContent, { ast: manifest.ast } as any));
   }
 }
 
