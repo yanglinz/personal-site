@@ -4,7 +4,7 @@ import { getContentManifests } from "../src/content";
 test("get basic content manifests", async () => {
   const exampleDir = path.join(__dirname, "../examples/basic");
   const manifests = await getContentManifests(
-    { baseDir: exampleDir },
+    { outputDir: "/dev/null", baseDir: exampleDir },
     exampleDir
   );
   expect(manifests).toMatchInlineSnapshot(`
@@ -22,7 +22,8 @@ test("get basic content manifests", async () => {
           "tag": undefined,
           "type": "document",
         },
-        "path": "index.js",
+        "outputPath": "index.html",
+        "sourcePath": "index.js",
         "type": "POST",
       },
       {
@@ -123,7 +124,8 @@ test("get basic content manifests", async () => {
           "tag": undefined,
           "type": "document",
         },
-        "path": "posts/first-post.mdoc",
+        "outputPath": "posts/first-post.html",
+        "sourcePath": "posts/first-post.mdoc",
         "type": "POST",
       },
       {
@@ -224,20 +226,10 @@ test("get basic content manifests", async () => {
           "tag": undefined,
           "type": "document",
         },
-        "path": "posts/second-post.mdoc",
+        "outputPath": "posts/second-post.html",
+        "sourcePath": "posts/second-post.mdoc",
         "type": "POST",
       },
     ]
   `);
-});
-
-test("get basic content manifests", async () => {
-  const exampleDir = path.join(__dirname, "../examples/basic");
-  const manifests = await getContentManifests(
-    { baseDir: exampleDir },
-    exampleDir
-  );
-  // Create a tmp directory
-  // Generate a list of files with generateFiles
-  // Assert the list of files in a snapshot
 });

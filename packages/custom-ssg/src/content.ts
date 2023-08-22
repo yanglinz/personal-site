@@ -12,18 +12,34 @@ export async function getContent(
   }
 }
 
-async function getContentManifest(
+async function getPostManifest(
   config: GlobalConfig,
   contentPath: Path
 ): Promise<ContentManifest> {
   const content = `${await fs.readFile(contentPath)}`;
-  const relativePath = path.relative(config.baseDir, contentPath);
+
+  const sourcePath = path.relative(config.baseDir, contentPath);
+  let outputPath: string = "";
+  {
+    const pathParts = sourcePath.split("/");
+    const [fileName, ext] = pathParts[pathParts.length - 1].split(".");
+    pathParts[pathParts.length - 1] = `${fileName}.html`;
+    outputPath = pathParts.join("/")
+  }
+
   return {
     type: "POST",
-    sourcePath: relativePath,
-    outputPath: relativePath,
+    sourcePath,
+    outputPath,
     ast: Markdoc.parse(content),
   };
+}
+
+async function getContentManifest(
+  config: GlobalConfig,
+  contentPath: Path
+): Promise<ContentManifest> {
+  return await getPostManifest(config, contentPath);
 }
 
 async function* walk(dir: Path): AsyncGenerator<string, void, void> {
