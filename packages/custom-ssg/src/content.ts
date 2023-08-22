@@ -4,6 +4,14 @@ import Markdoc from "@markdoc/markdoc";
 import { invariant } from "./invariant";
 import { Path, GlobalConfig, ContentManifest } from "./types";
 
+export async function getContent(
+  manifest: ContentManifest
+): Promise<string | undefined> {
+  if (manifest.type === "POST") {
+    return "";
+  }
+}
+
 async function getContentManifest(
   config: GlobalConfig,
   contentPath: Path
@@ -12,7 +20,8 @@ async function getContentManifest(
   const relativePath = path.relative(config.baseDir, contentPath);
   return {
     type: "POST",
-    path: relativePath,
+    sourcePath: relativePath,
+    outputPath: relativePath,
     ast: Markdoc.parse(content),
   };
 }
@@ -42,5 +51,5 @@ export async function getContentManifests(
   }
 
   // Sort the manifest explicitly so that snapshot tests are stable
-  return manifests.sort((a, b) => a.path.localeCompare(b.path));
+  return manifests.sort((a, b) => a.sourcePath.localeCompare(b.sourcePath));
 }

@@ -23,9 +23,6 @@ test("get basic content manifests", async () => {
           "type": "document",
         },
         "path": "index.js",
-        "pathSegments": [
-          "index.js",
-        ],
         "type": "POST",
       },
       {
@@ -127,10 +124,6 @@ test("get basic content manifests", async () => {
           "type": "document",
         },
         "path": "posts/first-post.mdoc",
-        "pathSegments": [
-          "posts",
-          "first-post.mdoc",
-        ],
         "type": "POST",
       },
       {
@@ -232,12 +225,19 @@ test("get basic content manifests", async () => {
           "type": "document",
         },
         "path": "posts/second-post.mdoc",
-        "pathSegments": [
-          "posts",
-          "second-post.mdoc",
-        ],
         "type": "POST",
       },
     ]
   `);
+});
+
+test("get basic content manifests", async () => {
+  const exampleDir = path.join(__dirname, "../examples/basic");
+  const manifests = await getContentManifests(
+    { baseDir: exampleDir },
+    exampleDir
+  );
+  // Create a tmp directory
+  // Generate a list of files with generateFiles
+  // Assert the list of files in a snapshot
 });

@@ -4,12 +4,14 @@ export type Path = string;
 
 export type GlobalConfig = {
   baseDir: Path;
+  outputDir: Path;
 };
 
 export type ContentType = "POST" | "COMPONENT_TEMPLATE";
 
 export type ContentManifest = {
   type: ContentType;
-  path: Path;
+  sourcePath: Path;
+  outputPath: Path;
   ast: Node;
 };
