@@ -2,8 +2,9 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import Markdoc from "@markdoc/markdoc";
 import { invariant } from "./invariant";
-import Preact from 'preact';
-import render from 'preact-render-to-string';
+import Preact from "preact";
+import render from "preact-render-to-string";
+import * as lfs from "./lib/fs";
 import { PostContent } from "../components/PostContent";
 import { Path, GlobalConfig, ContentManifest } from "./types";
 
@@ -11,7 +12,9 @@ export async function getContent(
   manifest: ContentManifest
 ): Promise<string | undefined> {
   if (manifest.type === "POST") {
-    return render(Preact.createElement(PostContent, { ast: manifest.ast } as any));
+    return render(
+      Preact.createElement(PostContent, { ast: manifest.ast } as any)
+    );
   }
 }
 
@@ -45,14 +48,6 @@ async function getContentManifest(
   return await getPostManifest(config, contentPath);
 }
 
-async function* walk(dir: Path): AsyncGenerator<string, void, void> {
-  for await (const d of await fs.opendir(dir)) {
-    const entry = path.join(dir, d.name);
-    if (d.isDirectory()) yield* walk(entry);
-    else if (d.isFile()) yield entry;
-  }
-}
-
 export async function getContentManifests(
   config: GlobalConfig,
   dir: Path
@@ -65,7 +60,7 @@ export async function getContentManifests(
   // Pass in a relative directory so that snapshot tests are stable
   const relativeDir = path.relative(process.cwd(), dir);
   const manifests = [];
-  for await (const p of walk(relativeDir)) {
+  for await (const p of lfs.walk(relativeDir)) {
     manifests.push(await getContentManifest(config, p));
   }
 

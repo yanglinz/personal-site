@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import os from "node:os";
 import { getContentManifests } from "../src/content";
 import { generateFiles } from "../src/generator";
+import * as lfs from "../src/lib/fs";
 
 let tmpDir: string = "";
 
@@ -20,16 +21,8 @@ afterEach(async () => {
 });
 
 async function getGeneratedFilesSnapshot(dir: string) {
-  async function* walk(dir: string): AsyncGenerator<string, void, void> {
-    for await (const d of await fs.opendir(dir)) {
-      const entry = path.join(dir, d.name);
-      if (d.isDirectory()) yield* walk(entry);
-      else if (d.isFile()) yield entry;
-    }
-  }
-
   let output = [];
-  for await (const p of walk(dir)) {
+  for await (const p of lfs.walk(dir)) {
     output.push(p);
   }
 

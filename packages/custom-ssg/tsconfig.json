@@ -13,6 +13,6 @@
     // Preact JSX
     // https://preactjs.com/guide/v10/typescript/#typescript-configuration
     "jsx": "react-jsx",
-    "jsxImportSource": "preact",
+    "jsxImportSource": "preact"
   }
 }
