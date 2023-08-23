@@ -1,25 +1,14 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import Markdoc from "@markdoc/markdoc";
-import { invariant } from "./lib/invariant";
-import Preact from "preact";
-import render from "preact-render-to-string";
-import * as lfs from "./lib/fs";
-import { PostContent } from "./components/PostContent";
 import { Path, GlobalConfig, VirtualFile } from "./types";
+import { invariant } from "./lib/invariant";
+import * as lfs from "./lib/fs";
 
-export async function getContent(
-  manifest: ContentManifest
-): Promise<string | undefined> {
-  if (manifest.type === "POST") {
-    return render(Preact.h(PostContent, { ast: manifest.ast }, null) as any);
-  }
-}
-
-async function getPostManifest(
+async function getPostFiles(
   config: GlobalConfig,
   contentPath: Path
-): Promise<ContentManifest> {
+): Promise<VirtualFile[]> {
   const content = `${await fs.readFile(contentPath)}`;
 
   const sourcePath = path.relative(config.baseDir, contentPath);
@@ -31,28 +20,36 @@ async function getPostManifest(
     outputPath = pathParts.join("/");
   }
 
-  return {
-    type: "POST",
-    sourcePath,
-    outputPath,
-    ast: Markdoc.parse(content),
-  };
+  {
+    // TODO: Parse the markdown AST and return a list of images
+  }
+
+  return [
+    {
+      type: "HTML",
+      sourcePath,
+      outputPath,
+      metadata: {
+        type: "POST",
+        ast: Markdoc.parse(content),
+      },
+    },
+  ];
 }
 
-async function getContentManifest(
+async function getFilesFromPath(
   config: GlobalConfig,
   contentPath: Path
-): Promise<ContentManifest> {
-  return await getPostManifest(config, contentPath);
+): Promise<VirtualFile[]> {
+  // TODO: Not all files are posts, handle cases where files are templates
+  // based on the simple heuristic of file extension.
+  return await getPostFiles(config, contentPath);
 }
 
-/**
- * A content manifest
- */
 export async function getVirtualFiles(
   config: GlobalConfig,
   dir: Path
-): Promise<ContentManifest[]> {
+): Promise<VirtualFile[]> {
   invariant(
     path.isAbsolute(dir),
     "getContentManifests expects an absolute directory"
@@ -60,11 +57,14 @@ export async function getVirtualFiles(
 
   // Pass in a relative directory so that snapshot tests are stable
   const relativeDir = path.relative(process.cwd(), dir);
-  const manifests = [];
+  const vfiles = [];
   for await (const p of lfs.walk(relativeDir)) {
-    manifests.push(await getContentManifest(config, p));
+    const files = await getFilesFromPath(config, p);
+    for (const f of files) {
+      vfiles.push(f);
+    }
   }
 
   // Sort the manifest explicitly so that snapshot tests are stable
-  return manifests.sort((a, b) => a.sourcePath.localeCompare(b.sourcePath));
+  return vfiles.sort((a, b) => a.sourcePath.localeCompare(b.sourcePath));
 }
