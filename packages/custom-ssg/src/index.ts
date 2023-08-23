@@ -1,1 +1,1 @@
-export { getContentManifests } from "./content";
+export { getVirtualFiles } from "./content";
