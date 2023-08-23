@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import Markdoc from "@markdoc/markdoc";
-import { invariant } from "./invariant";
+import { invariant } from "./lib/invariant";
 import Preact from "preact";
 import render from "preact-render-to-string";
 import * as lfs from "./lib/fs";
