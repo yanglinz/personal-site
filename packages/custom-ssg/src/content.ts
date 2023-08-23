@@ -5,16 +5,14 @@ import { invariant } from "./invariant";
 import Preact from "preact";
 import render from "preact-render-to-string";
 import * as lfs from "./lib/fs";
-import { PostContent } from "../components/PostContent";
+import { PostContent } from "./components/PostContent";
 import { Path, GlobalConfig, ContentManifest } from "./types";
 
 export async function getContent(
   manifest: ContentManifest
 ): Promise<string | undefined> {
   if (manifest.type === "POST") {
-    return render(
-      Preact.createElement(PostContent, { ast: manifest.ast } as any)
-    );
+    return render(Preact.h(PostContent, { ast: manifest.ast }, null) as any);
   }
 }
 
