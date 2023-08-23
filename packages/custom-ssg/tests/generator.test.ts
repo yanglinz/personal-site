@@ -1,7 +1,7 @@
 import path from "node:path";
 import fs from "node:fs/promises";
 import os from "node:os";
-import { getContentManifests } from "../src/content";
+import { getVirtualFiles } from "../src/content";
 import { generateFiles } from "../src/generator";
 import * as lfs from "../src/lib/fs";
 
@@ -35,8 +35,8 @@ async function getGeneratedFilesSnapshot(dir: string) {
 test("generate basic example files", async () => {
   const exampleDir = path.join(__dirname, "../examples/basic");
   const globalConfig = { baseDir: exampleDir, outputDir: tmpDir };
-  const manifests = await getContentManifests(globalConfig, exampleDir);
-  await generateFiles(globalConfig, manifests);
+  const vfs = await getVirtualFiles(globalConfig, exampleDir);
+  await generateFiles(globalConfig, vfs);
 
   const generated = await getGeneratedFilesSnapshot(tmpDir);
   expect(generated).toMatchInlineSnapshot(`

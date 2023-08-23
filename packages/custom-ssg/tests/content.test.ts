@@ -1,13 +1,13 @@
 import path from "node:path";
-import { getContentManifests } from "../src/content";
+import { getVirtualFiles } from "../src/content";
 
-test("get basic content manifests", async () => {
+test("get basic content virtual files", async () => {
   const exampleDir = path.join(__dirname, "../examples/basic");
-  const manifests = await getContentManifests(
+  const vfs = await getVirtualFiles(
     { outputDir: "/dev/null", baseDir: exampleDir },
     exampleDir
   );
-  expect(manifests).toMatchInlineSnapshot(`
+  expect(vfs).toMatchInlineSnapshot(`
     [
       {
         "ast": Node {
