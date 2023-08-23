@@ -10,225 +10,234 @@ test("get basic content virtual files", async () => {
   expect(vfs).toMatchInlineSnapshot(`
     [
       {
-        "ast": Node {
-          "$$mdtype": "Node",
-          "annotations": [],
-          "attributes": {},
-          "children": [],
-          "errors": [],
-          "inline": false,
-          "lines": [],
-          "slots": {},
-          "tag": undefined,
-          "type": "document",
+        "metadata": {
+          "ast": Node {
+            "$$mdtype": "Node",
+            "annotations": [],
+            "attributes": {},
+            "children": [],
+            "errors": [],
+            "inline": false,
+            "lines": [],
+            "slots": {},
+            "tag": undefined,
+            "type": "document",
+          },
+          "type": "POST",
         },
         "outputPath": "index.html",
         "sourcePath": "index.js",
-        "type": "POST",
+        "type": "HTML",
       },
       {
-        "ast": Node {
-          "$$mdtype": "Node",
-          "annotations": [],
-          "attributes": {
-            "frontmatter": "title: First post",
-          },
-          "children": [
-            Node {
-              "$$mdtype": "Node",
-              "annotations": [],
-              "attributes": {},
-              "children": [
-                Node {
-                  "$$mdtype": "Node",
-                  "annotations": [],
-                  "attributes": {},
-                  "children": [
-                    Node {
-                      "$$mdtype": "Node",
-                      "annotations": [],
-                      "attributes": {
-                        "content": "This is the first post!",
-                      },
-                      "children": [],
-                      "errors": [],
-                      "inline": true,
-                      "lines": [
-                        4,
-                        5,
-                      ],
-                      "location": {
-                        "end": {
-                          "character": undefined,
-                          "line": 5,
-                        },
-                        "file": undefined,
-                        "start": {
-                          "character": undefined,
-                          "line": 4,
-                        },
-                      },
-                      "slots": {},
-                      "tag": undefined,
-                      "type": "text",
-                    },
-                  ],
-                  "errors": [],
-                  "inline": false,
-                  "lines": [
-                    4,
-                    5,
-                  ],
-                  "location": {
-                    "end": {
-                      "character": undefined,
-                      "line": 5,
-                    },
-                    "file": undefined,
-                    "start": {
-                      "character": undefined,
-                      "line": 4,
-                    },
-                  },
-                  "slots": {},
-                  "tag": undefined,
-                  "type": "inline",
-                },
-              ],
-              "errors": [],
-              "inline": false,
-              "lines": [
-                4,
-                5,
-              ],
-              "location": {
-                "end": {
-                  "character": undefined,
-                  "line": 5,
-                },
-                "file": undefined,
-                "start": {
-                  "character": undefined,
-                  "line": 4,
-                },
-              },
-              "slots": {},
-              "tag": undefined,
-              "type": "paragraph",
+        "metadata": {
+          "ast": Node {
+            "$$mdtype": "Node",
+            "annotations": [],
+            "attributes": {
+              "frontmatter": "title: First post",
             },
-          ],
-          "errors": [],
-          "inline": false,
-          "lines": [],
-          "slots": {},
-          "tag": undefined,
-          "type": "document",
+            "children": [
+              Node {
+                "$$mdtype": "Node",
+                "annotations": [],
+                "attributes": {},
+                "children": [
+                  Node {
+                    "$$mdtype": "Node",
+                    "annotations": [],
+                    "attributes": {},
+                    "children": [
+                      Node {
+                        "$$mdtype": "Node",
+                        "annotations": [],
+                        "attributes": {
+                          "content": "This is the first post!",
+                        },
+                        "children": [],
+                        "errors": [],
+                        "inline": true,
+                        "lines": [
+                          4,
+                          5,
+                        ],
+                        "location": {
+                          "end": {
+                            "character": undefined,
+                            "line": 5,
+                          },
+                          "file": undefined,
+                          "start": {
+                            "character": undefined,
+                            "line": 4,
+                          },
+                        },
+                        "slots": {},
+                        "tag": undefined,
+                        "type": "text",
+                      },
+                    ],
+                    "errors": [],
+                    "inline": false,
+                    "lines": [
+                      4,
+                      5,
+                    ],
+                    "location": {
+                      "end": {
+                        "character": undefined,
+                        "line": 5,
+                      },
+                      "file": undefined,
+                      "start": {
+                        "character": undefined,
+                        "line": 4,
+                      },
+                    },
+                    "slots": {},
+                    "tag": undefined,
+                    "type": "inline",
+                  },
+                ],
+                "errors": [],
+                "inline": false,
+                "lines": [
+                  4,
+                  5,
+                ],
+                "location": {
+                  "end": {
+                    "character": undefined,
+                    "line": 5,
+                  },
+                  "file": undefined,
+                  "start": {
+                    "character": undefined,
+                    "line": 4,
+                  },
+                },
+                "slots": {},
+                "tag": undefined,
+                "type": "paragraph",
+              },
+            ],
+            "errors": [],
+            "inline": false,
+            "lines": [],
+            "slots": {},
+            "tag": undefined,
+            "type": "document",
+          },
+          "type": "POST",
         },
         "outputPath": "posts/first-post.html",
         "sourcePath": "posts/first-post.mdoc",
-        "type": "POST",
+        "type": "HTML",
       },
       {
-        "ast": Node {
-          "$$mdtype": "Node",
-          "annotations": [],
-          "attributes": {
-            "frontmatter": "title: Second post",
-          },
-          "children": [
-            Node {
-              "$$mdtype": "Node",
-              "annotations": [],
-              "attributes": {},
-              "children": [
-                Node {
-                  "$$mdtype": "Node",
-                  "annotations": [],
-                  "attributes": {},
-                  "children": [
-                    Node {
-                      "$$mdtype": "Node",
-                      "annotations": [],
-                      "attributes": {
-                        "content": "This is the second post!",
-                      },
-                      "children": [],
-                      "errors": [],
-                      "inline": true,
-                      "lines": [
-                        4,
-                        5,
-                      ],
-                      "location": {
-                        "end": {
-                          "character": undefined,
-                          "line": 5,
-                        },
-                        "file": undefined,
-                        "start": {
-                          "character": undefined,
-                          "line": 4,
-                        },
-                      },
-                      "slots": {},
-                      "tag": undefined,
-                      "type": "text",
-                    },
-                  ],
-                  "errors": [],
-                  "inline": false,
-                  "lines": [
-                    4,
-                    5,
-                  ],
-                  "location": {
-                    "end": {
-                      "character": undefined,
-                      "line": 5,
-                    },
-                    "file": undefined,
-                    "start": {
-                      "character": undefined,
-                      "line": 4,
-                    },
-                  },
-                  "slots": {},
-                  "tag": undefined,
-                  "type": "inline",
-                },
-              ],
-              "errors": [],
-              "inline": false,
-              "lines": [
-                4,
-                5,
-              ],
-              "location": {
-                "end": {
-                  "character": undefined,
-                  "line": 5,
-                },
-                "file": undefined,
-                "start": {
-                  "character": undefined,
-                  "line": 4,
-                },
-              },
-              "slots": {},
-              "tag": undefined,
-              "type": "paragraph",
+        "metadata": {
+          "ast": Node {
+            "$$mdtype": "Node",
+            "annotations": [],
+            "attributes": {
+              "frontmatter": "title: Second post",
             },
-          ],
-          "errors": [],
-          "inline": false,
-          "lines": [],
-          "slots": {},
-          "tag": undefined,
-          "type": "document",
+            "children": [
+              Node {
+                "$$mdtype": "Node",
+                "annotations": [],
+                "attributes": {},
+                "children": [
+                  Node {
+                    "$$mdtype": "Node",
+                    "annotations": [],
+                    "attributes": {},
+                    "children": [
+                      Node {
+                        "$$mdtype": "Node",
+                        "annotations": [],
+                        "attributes": {
+                          "content": "This is the second post!",
+                        },
+                        "children": [],
+                        "errors": [],
+                        "inline": true,
+                        "lines": [
+                          4,
+                          5,
+                        ],
+                        "location": {
+                          "end": {
+                            "character": undefined,
+                            "line": 5,
+                          },
+                          "file": undefined,
+                          "start": {
+                            "character": undefined,
+                            "line": 4,
+                          },
+                        },
+                        "slots": {},
+                        "tag": undefined,
+                        "type": "text",
+                      },
+                    ],
+                    "errors": [],
+                    "inline": false,
+                    "lines": [
+                      4,
+                      5,
+                    ],
+                    "location": {
+                      "end": {
+                        "character": undefined,
+                        "line": 5,
+                      },
+                      "file": undefined,
+                      "start": {
+                        "character": undefined,
+                        "line": 4,
+                      },
+                    },
+                    "slots": {},
+                    "tag": undefined,
+                    "type": "inline",
+                  },
+                ],
+                "errors": [],
+                "inline": false,
+                "lines": [
+                  4,
+                  5,
+                ],
+                "location": {
+                  "end": {
+                    "character": undefined,
+                    "line": 5,
+                  },
+                  "file": undefined,
+                  "start": {
+                    "character": undefined,
+                    "line": 4,
+                  },
+                },
+                "slots": {},
+                "tag": undefined,
+                "type": "paragraph",
+              },
+            ],
+            "errors": [],
+            "inline": false,
+            "lines": [],
+            "slots": {},
+            "tag": undefined,
+            "type": "document",
+          },
+          "type": "POST",
         },
         "outputPath": "posts/second-post.html",
         "sourcePath": "posts/second-post.mdoc",
-        "type": "POST",
+        "type": "HTML",
       },
     ]
   `);
