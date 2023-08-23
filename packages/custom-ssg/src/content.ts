@@ -6,7 +6,7 @@ import Preact from "preact";
 import render from "preact-render-to-string";
 import * as lfs from "./lib/fs";
 import { PostContent } from "./components/PostContent";
-import { Path, GlobalConfig, ContentManifest } from "./types";
+import { Path, GlobalConfig, VirtualFile } from "./types";
 
 export async function getContent(
   manifest: ContentManifest
@@ -46,7 +46,10 @@ async function getContentManifest(
   return await getPostManifest(config, contentPath);
 }
 
-export async function getContentManifests(
+/**
+ * A content manifest
+ */
+export async function getVirtualFiles(
   config: GlobalConfig,
   dir: Path
 ): Promise<ContentManifest[]> {

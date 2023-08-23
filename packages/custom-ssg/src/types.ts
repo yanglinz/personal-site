@@ -10,10 +10,18 @@ export type GlobalConfig = {
 export type FileType = "HTML" | "IMAGE";
 
 export type PostMetadata = {
+  type: "POST";
   ast: Node;
 };
 
-export type ImageMetadata = {};
+export type TemplateMetadata = {
+  type: "POST";
+  ast: Node;
+};
+
+export type ImageMetadata = {
+  type: "IMAGE";
+};
 
 // VirtualFile is an abstraction around a single file that will be
 // created in the output directory at the end of the build step.
@@ -24,5 +32,5 @@ export type VirtualFile = {
   type: FileType;
   sourcePath: Path;
   outputPath: Path;
-  metadata: PostMetadata | ImageMetadata;
+  metadata: PostMetadata | TemplateMetadata | ImageMetadata;
 };
