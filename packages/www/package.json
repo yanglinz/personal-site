@@ -11,5 +11,8 @@
   },
   "dependencies": {
     "astro": "^2.10.14"
+  },
+  "devDependencies": {
+    "@astrojs/markdoc": "^0.4.4"
   }
 }
