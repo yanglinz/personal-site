@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import IndexPost from './IndexPost.astro';
+
+interface Props {
+  posts: CollectionEntry<'posts'>[]
+}
+
+const { posts } = Astro.props;
+---
+
+<div class="l-base">
+  <div class="border-stone-150 border-t-8">
+    <div class="py-14 lg:py-20">
+      <h2 class="f-serif mb-2 text-stone-900 font-bold text-xl">
+        Blog Posts
+      </h2>
+
+      <ul>
+        {posts.map((p, i) => (
+          <IndexPost post={p} />
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>
