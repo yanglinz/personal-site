@@ -7,6 +7,9 @@ interface Props {
 }
 
 const { posts } = Astro.props;
+const sortedPosts = posts.sort((a, b) => {
+  return (a.data.date < b.data.date) ? 1 : -1;
+})
 ---
 
 <div class="l-base">
@@ -17,7 +20,7 @@ const { posts } = Astro.props;
       </h2>
 
       <ul>
-        {posts.map((p, i) => (
+        {sortedPosts.map((p, i) => (
           <IndexPost post={p} />
         ))}
       </ul>
