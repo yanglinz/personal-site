@@ -3,15 +3,15 @@ import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts= await getCollection('posts');
-  return posts.map(post=> ({ params: { slug: post.slug }, props: post}));
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({ params: { slug: post.slug }, props: post }));
 }
 
 const { Content } = await Astro.props.render();
 ---
 
 <Layout title="TODO" description="TODO">
-	<main>
-		<Content />
+  <main>
+    <Content />
   </main>
 </Layout>
