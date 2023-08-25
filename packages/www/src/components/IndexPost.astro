@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import * as datefns from "date-fns";
 
 interface Props {
   post: CollectionEntry<'posts'>
@@ -21,8 +22,7 @@ const postUrl = `/posts/${post.slug}`;
       href={postUrl}
       class="text-gray-400 font-mono text-xs md:text-sm"
     >
-      time
-      <!-- <time>{datefns.format(page.date, "MM/dd/yyyy")}</time> -->
+      <time>{datefns.format(post.data.date, "MM/dd/yyyy")}</time>
     </a>
   </p>
 </li>
