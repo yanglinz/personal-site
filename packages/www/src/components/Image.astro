@@ -1,0 +1,13 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  data: CollectionEntry<'posts'>
+}
+
+const { data } = Astro.props;
+
+console.log(data);
+---
+
+
