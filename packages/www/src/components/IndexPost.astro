@@ -1,16 +1,18 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 import * as datefns from "date-fns";
 
 interface Props {
-  post: CollectionEntry<'posts'>
+  post: CollectionEntry<"posts">;
 }
 
 const { post } = Astro.props;
 const postUrl = `/posts/${post.slug}`;
 ---
 
-<li class="border-gray-150 border-b py-3 md:flex md:items-center md:justify-between md:py-4 lg:py-6">
+<li
+  class="border-gray-150 border-b py-3 md:flex md:items-center md:justify-between md:py-4 lg:py-6"
+>
   <h3 class="flex-1 pr-5">
     <a href={postUrl} class="text-lg font-bold lg:text-3xl">
       {post.data.title}
@@ -18,10 +20,7 @@ const postUrl = `/posts/${post.slug}`;
   </h3>
 
   <p class="flex-initial">
-    <a
-      href={postUrl}
-      class="text-gray-400 font-mono text-xs md:text-sm"
-    >
+    <a href={postUrl} class="text-gray-400 font-mono text-xs md:text-sm">
       <time>{datefns.format(post.data.date, "MM/dd/yyyy")}</time>
     </a>
   </p>

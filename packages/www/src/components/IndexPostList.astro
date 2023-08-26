@@ -1,28 +1,24 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import IndexPost from './IndexPost.astro';
+import type { CollectionEntry } from "astro:content";
+import IndexPost from "./IndexPost.astro";
 
 interface Props {
-  posts: CollectionEntry<'posts'>[]
+  posts: CollectionEntry<"posts">[];
 }
 
 const { posts } = Astro.props;
 const sortedPosts = posts.sort((a, b) => {
-  return (a.data.date < b.data.date) ? 1 : -1;
-})
+  return a.data.date < b.data.date ? 1 : -1;
+});
 ---
 
 <div class="l-base">
   <div class="border-stone-150 border-t-8">
     <div class="py-14 lg:py-20">
-      <h2 class="f-serif mb-2 text-stone-900 font-bold text-xl">
-        Blog Posts
-      </h2>
+      <h2 class="f-serif mb-2 text-stone-900 font-bold text-xl">Blog Posts</h2>
 
       <ul>
-        {sortedPosts.map((p, i) => (
-          <IndexPost post={p} />
-        ))}
+        {sortedPosts.map((p, i) => <IndexPost post={p} />)}
       </ul>
     </div>
   </div>
