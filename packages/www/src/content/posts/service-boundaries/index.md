@@ -7,7 +7,7 @@ description:
   problems, and why most teams shouldn't go down this path.
 date: 2019-06-10
 published: true
-featuredImage: "./www/posts/service-boundaries/banner.jpg"
+featuredImage: "./banner.jpg"
 featuredImageAlt: Rice farm aerial view
 thumbnailImage: "./thumbnail.jpg"
 thumbnailImageAlt: Rice farm aerial view
