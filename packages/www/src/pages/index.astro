@@ -1,11 +1,16 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import IndexIntro from "../components/IndexIntro.astro";
+import IndexPostList from "../components/IndexPostList.astro";
 import "../main.css";
+
+const allPosts = await getCollection("posts");
 ---
 
 <Layout title="TODO" description="TODO">
   <main>
     <IndexIntro />
+    <IndexPostList posts={allPosts} />
   </main>
 </Layout>
