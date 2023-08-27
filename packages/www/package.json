@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && ls -la public && ls -la dist",
+    "build": "astro build && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
