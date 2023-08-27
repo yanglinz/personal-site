@@ -1,14 +1,24 @@
-export async function imageMarkup(
-  config,  // TODO: project root is required
-  src,
-  alt,
-  sizes = "(min-width: 30em) 50vw, 100vw"
-) {
-  const rootPath = "/Users/yz/Dev/personal-site/packages/www";
+import { getGlobalConfig } from "../lib/config";
+import path from "node:path";
+import EleventyImage from "@11ty/eleventy-img";
+
+export async function imageMarkup(slug, data) {
+  const config = await getGlobalConfig();
+  const imagePath = path.resolve(
+    config.rootPath,
+    "src/content/posts",
+    slug,
+    data.featuredImage
+  );
+
+  const src = imagePath;
+  const alt = data.featuredImageAlt;
+  const sizes = "(min-width: 30em) 50vw, 100vw";
+
   let metadata = await EleventyImage(src, {
     widths: [480, 780, 1000, 1400, 2200],
     formats: ["avif", "webp", "jpeg"],
-    outputDir: path.join(rootPath, "public/img"),
+    outputDir: path.join(config.rootPath, "public/img"),
     urlPath: "/img/",
   });
 

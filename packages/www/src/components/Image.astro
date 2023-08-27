@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { imageMarkup } from './ImageHelper';
-import path from "node:path";
 
 interface Props {
   slug: string;
@@ -9,18 +8,7 @@ interface Props {
 }
 
 const { slug, data } = Astro.props;
-
-const rootPath = "/Users/yz/Dev/personal-site/packages/www";
-// const imagePath = path.resolve(__dirname, "../content/posts/service-boundaries/banner.jpg");
-const imagePath = path.resolve(
-  rootPath,
-  "src/content/posts",
-  slug,
-  (data as any).featuredImage
-);
-const imageHtml = await imageMarkup(imagePath, "TODO: Alt text");
-
-console.log(imageHtml);
+const imageHtml = await imageMarkup(slug, data);
 ---
 
 <figure>
