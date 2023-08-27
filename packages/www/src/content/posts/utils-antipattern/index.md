@@ -5,10 +5,8 @@ description:
   Why naming a module or file utils is a bad idea and how to fix that problem.
 date: 2020-05-20
 published: true
-featuredImage: "./www/posts/utils-antipattern/banner.jpg"
+featuredImage: "./banner.jpg"
 featuredImageAlt: Messy toolbox
-thumbnailImage: "./thumbnail.jpg"
-thumbnailImageAlt: Messy toolbox
 ---
 
 # The Problem

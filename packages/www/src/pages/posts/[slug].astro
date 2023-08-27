@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Image from "../../components/Image.astro";
 import { getCollection } from "astro:content";
 import * as datefns from "date-fns";
 import "../../main.css";
@@ -17,6 +18,8 @@ const url = `/posts/${slug}`;
 <Layout title="TODO" description="TODO">
   <main>
     <article>
+      {data.featuredImage ? <Image slug={slug} data={data} /> : null}
+
       <div class="l-wide">
         <div class="pt-14 pb-10 lg:pt-20 lg:pb-8">
           <h1 class="m-0 text-center text-4xl font-bold leading-tight">
@@ -30,7 +33,7 @@ const url = `/posts/${slug}`;
       </div>
 
       <div class="l-narrow">
-        <div>
+        <div class="post-content">
           <Content />
         </div>
       </div>

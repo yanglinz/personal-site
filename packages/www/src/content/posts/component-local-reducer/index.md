@@ -3,8 +3,6 @@ tags: post
 title: Component local reducers
 date: 2018-11-01
 published: true
-thumbnailImage: "./thumbnail.png"
-thumbnailImageAlt: React.js logo
 ---
 
 The reducer pattern, popularized in the Javascript ecosystem by Redux, is

@@ -6,8 +6,6 @@ description:
   algorithm
 date: 2021-08-01
 published: true
-thumbnailImage: "./thumbnail.jpg"
-thumbnailImageAlt: Wood carver
 ---
 
 For a while now, I've been trying to keep a tab on the development of

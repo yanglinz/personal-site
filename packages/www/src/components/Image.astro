@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { imageMarkup, getFeaturedImagePath } from "./ImageHelper";
+
+interface Props {
+  slug: string;
+  data: CollectionEntry<"posts">;
+}
+
+const { slug, data } = Astro.props;
+const src = await getFeaturedImagePath(slug, data);
+const imageHtml = await imageMarkup(src, (data as any).featuredImageAlt);
+---
+
+<figure>
+  <Fragment set:html={imageHtml} />
+</figure>
