@@ -7,8 +7,8 @@
     "packages/*"
   ],
   "scripts": {
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format": "prettier --write $(./bin/format-list.sh)",
+    "format:check": "prettier --check $(./bin/format-list.sh)"
   },
   "devDependencies": {
     "prettier": "^2.8.8",
