@@ -6,7 +6,7 @@ description:
   technology and programming!
 date: 2018-10-01
 published: true
-featuredImage: "./www/posts/hello-blog/banner.jpeg"
+featuredImage: "./banner.jpeg"
 featuredImageAlt: Open road
 thumbnailImage: "./thumbnail.jpeg"
 thumbnailImageAlt: Open road
