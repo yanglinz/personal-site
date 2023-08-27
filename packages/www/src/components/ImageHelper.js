@@ -1,6 +1,6 @@
 import path from "node:path";
 import EleventyImage from "@11ty/eleventy-img";
-import { getGlobalConfig } from "../lib/config";
+import { getGlobalConfig } from "../lib/astro";
 
 export async function imageMarkup(slug, data) {
   const config = await getGlobalConfig();
