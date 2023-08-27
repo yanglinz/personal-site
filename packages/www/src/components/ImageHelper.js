@@ -13,6 +13,7 @@ export async function getFeaturedImagePath(slug, data) {
 }
 
 export async function imageMarkup(src, alt) {
+  const config = await getGlobalConfig();
   const sizes = "(min-width: 30em) 50vw, 100vw";
 
   let metadata = await EleventyImage(src, {
