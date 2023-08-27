@@ -11,6 +11,8 @@ export async function imageMarkup(slug, data) {
     data.featuredImage
   );
 
+  console.log("rootPath", config.rootPath);
+
   const src = imagePath;
   const alt = data.featuredImageAlt;
   const sizes = "(min-width: 30em) 50vw, 100vw";
