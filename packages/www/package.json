@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && astro build",
+    "build": "./bin/build.sh",
     "preview": "astro preview",
     "astro": "astro"
   },

@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { imageMarkup, getFeaturedImagePath } from "./ImageHelper";
-import { Image as ImageAlt } from 'astro-eleventy-img';
 
 interface Props {
   slug: string;
@@ -10,7 +9,9 @@ interface Props {
 
 const { slug, data } = Astro.props;
 const src = await getFeaturedImagePath(slug, data);
-// const imageHtml = await imageMarkup(src, "TODO!");
+const imageHtml = await imageMarkup(src, (data as any).featuredImageAlt);
 ---
 
-<ImageAlt src={src} alt="123" />
+<figure>
+  <Fragment set:html={imageHtml} />
+</figure>
