@@ -31,9 +31,7 @@ const url = `/posts/${slug}`;
       </div>
 
       <div>
-        {data.featuredImage ? (
-          <Image data={data} />          
-        ) : null}
+        {data.featuredImage ? <Image slug={slug} data={data} /> : null}
       </div>
 
       <div class="l-narrow">
