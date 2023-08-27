@@ -1,6 +1,6 @@
-import { getGlobalConfig } from "../lib/config";
 import path from "node:path";
 import EleventyImage from "@11ty/eleventy-img";
+import { getGlobalConfig } from "../lib/config";
 
 export async function imageMarkup(slug, data) {
   const config = await getGlobalConfig();
@@ -10,8 +10,6 @@ export async function imageMarkup(slug, data) {
     slug,
     data.featuredImage
   );
-
-  console.log("rootPath", config.rootPath);
 
   const src = imagePath;
   const alt = data.featuredImageAlt;
