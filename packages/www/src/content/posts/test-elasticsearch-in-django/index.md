@@ -6,8 +6,6 @@ description:
   Django/Python without mocking.
 date: 2021-07-31
 published: true
-thumbnailImage: "./thumbnail.png"
-thumbnailImageAlt: Elastic logo
 ---
 
 > If want to skip ahead, here's

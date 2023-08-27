@@ -7,8 +7,6 @@ date: 2020-05-20
 published: true
 featuredImage: "./banner.jpg"
 featuredImageAlt: Messy toolbox
-thumbnailImage: "./thumbnail.jpg"
-thumbnailImageAlt: Messy toolbox
 ---
 
 # The Problem

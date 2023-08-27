@@ -7,8 +7,6 @@ description:
   revolution, and I'm excited to see where Cloudflare Workers takes us.
 date: 2019-10-12
 published: true
-thumbnailImage: "./thumbnail.png"
-thumbnailImageAlt: Cloudflare workers logo
 ---
 
 I've been thinking recently about what I want to do with my personal domain

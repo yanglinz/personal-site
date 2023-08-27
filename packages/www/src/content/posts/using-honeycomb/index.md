@@ -6,8 +6,6 @@ description:
   and why I think it's better than traditional APMs like NewRelic and Datadog.
 date: 2020-02-02
 published: true
-thumbnailImage: "./thumbnail.png"
-thumbnailImageAlt: Honeycomb.io logo
 ---
 
 At work I recently inherited a "legacy" application. It was an internal tool

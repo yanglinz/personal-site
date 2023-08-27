@@ -9,8 +9,6 @@ date: 2019-06-10
 published: true
 featuredImage: "./banner.jpg"
 featuredImageAlt: Rice farm aerial view
-thumbnailImage: "./thumbnail.jpg"
-thumbnailImageAlt: Rice farm aerial view
 ---
 
 Microservices architecture has been a rather hot topic for a few years now. I've
