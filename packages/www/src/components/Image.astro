@@ -9,6 +9,8 @@ interface Props {
 
 const { slug, data } = Astro.props;
 const imageHtml = await imageMarkup(slug, data);
+
+console.log(imageHtml);
 ---
 
 <figure>
