@@ -2,17 +2,17 @@ import path from "node:path";
 import EleventyImage from "@11ty/eleventy-img";
 import { getGlobalConfig } from "../lib/astro";
 
-export async function imageMarkup(slug, data) {
+export async function getFeaturedImagePath(slug, data) {
   const config = await getGlobalConfig();
-  const imagePath = path.resolve(
+  return path.resolve(
     config.rootPath,
     "src/content/posts",
     slug,
     data.featuredImage
   );
+}
 
-  const src = imagePath;
-  const alt = data.featuredImageAlt;
+export async function imageMarkup(src, alt) {
   const sizes = "(min-width: 30em) 50vw, 100vw";
 
   let metadata = await EleventyImage(src, {

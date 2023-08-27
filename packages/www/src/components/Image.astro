@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { imageMarkup } from "./ImageHelper";
+import { imageMarkup, getFeaturedImagePath } from "./ImageHelper";
 
 interface Props {
   slug: string;
@@ -8,7 +8,8 @@ interface Props {
 }
 
 const { slug, data } = Astro.props;
-const imageHtml = await imageMarkup(slug, data);
+const src = await getFeaturedImagePath(slug, data);
+const imageHtml = await imageMarkup(src, "TODO!");
 ---
 
 <figure>
