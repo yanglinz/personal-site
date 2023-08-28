@@ -99,7 +99,7 @@ first checked NewRelic for some clues.
 
 ### Newrelic
 
-{% image "./www/posts/using-honeycomb/newrelic-overview.png", "NewRelic overview page" %}
+![NewRelic overview page](./src/content/posts/using-honeycomb/newrelic-overview.png)
 
 Looking at the overview screen of NewRelic above, here's what's going through my
 mind.
