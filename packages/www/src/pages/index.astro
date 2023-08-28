@@ -6,9 +6,11 @@ import IndexPostList from "../components/IndexPostList.astro";
 import "../main.css";
 
 const allPosts = await getCollection("posts");
+const description =
+  "I'm a software engineer and I make things that run in browsers. Come check out my thoughts on programming and technology.";
 ---
 
-<Layout title="TODO" description="TODO">
+<Layout title="Yanglin Zhao" description={description}>
   <main>
     <IndexIntro />
     <IndexPostList posts={allPosts} />

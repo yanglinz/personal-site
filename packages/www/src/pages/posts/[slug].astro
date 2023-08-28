@@ -15,7 +15,7 @@ const { Content } = await Astro.props.render();
 const url = `/posts/${slug}`;
 ---
 
-<Layout title="TODO" description="TODO">
+<Layout title={`Yanglin Zhao | ${data.title}`} description={data.description}>
   <main>
     <article>
       {data.featuredImage ? <Image slug={slug} data={data} /> : null}
