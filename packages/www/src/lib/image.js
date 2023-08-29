@@ -1,6 +1,6 @@
 import path from "node:path";
 import EleventyImage from "@11ty/eleventy-img";
-import { getGlobalConfig } from "../lib/astro";
+import { getGlobalConfig } from "./astro";
 
 export async function getFeaturedImagePath(slug, data) {
   const config = await getGlobalConfig();

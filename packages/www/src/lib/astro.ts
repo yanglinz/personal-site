@@ -35,8 +35,29 @@ async function getRootPath() {
   }
 }
 
+// There are cases like custom markdoc functions where we need the
+// global configuration synchronously. To support a synchronous getGlobalConfig
+// we'll generate the global config in a astro integration to a known absolute path
+// and read its data synchronously.
+export function globalConfigIntegration() {
+  return {
+    name: "global-config-integration",
+    hooks: {
+      'astro:config:setup': async () => {
+        console.log('astro:config:setup');
+      }
+    }
+  }
+}
+
+function getGlobalConfigCachedPath() {
+  return '/tmp/astro-global-config.json';
+}
+
 export async function getGlobalConfig() {
   return {
     rootPath: await getRootPath(),
   };
 }
+
+// need a sync version of the function
