@@ -1,5 +1,5 @@
 import fsp from "node:fs/promises";
-import fs from 'node:fs';
+import fs from "node:fs";
 import path from "node:path";
 import * as url from "node:url";
 
@@ -39,19 +39,19 @@ async function getRootPath() {
 const GLOBAL_CONFIG_TMP_PATH = "/tmp/astro-global-config.json";
 
 // There are cases like custom markdoc functions where we need the
-// global configuration synchronously. To support a synchronous 
-// getGlobalConfig we'll generate the global config in an astro integration 
+// global configuration synchronously. To support a synchronous
+// getGlobalConfig we'll generate the global config in an astro integration
 // to a known absolute path and read its data synchronously.
 export function globalConfigIntegration() {
   return {
     name: "global-config-integration",
     hooks: {
-      'astro:config:setup': async () => {
+      "astro:config:setup": async () => {
         const config = await _getGlobalConfig();
         await fsp.writeFile(GLOBAL_CONFIG_TMP_PATH, JSON.stringify(config));
-      }
-    }
-  }
+      },
+    },
+  };
 }
 
 async function _getGlobalConfig() {

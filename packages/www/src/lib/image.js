@@ -14,12 +14,7 @@ export function getFeaturedImagePath(slug, data) {
 
 export function getPostImagePath({ slug }, relativeSrc) {
   const config = getGlobalConfig();
-  return path.resolve(
-    config.rootPath,
-    "src/content/posts",
-    slug,
-    relativeSrc
-  );
+  return path.resolve(config.rootPath, "src/content/posts", slug, relativeSrc);
 }
 
 export async function imageMarkup(src, alt) {

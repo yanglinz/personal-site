@@ -6,9 +6,9 @@ interface Props {
   mdocContext: {
     slug: string;
     data: CollectionEntry<"posts">;
-  },
-  src: string
-  alt: string
+  };
+  src: string;
+  alt: string;
 }
 
 const src = getPostImagePath(Astro.props.mdocContext, Astro.props.src);
