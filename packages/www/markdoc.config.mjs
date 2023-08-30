@@ -1,5 +1,4 @@
 import { defineMarkdocConfig, component } from '@astrojs/markdoc/config';
-import { getFeaturedImagePath, getPostImagePath } from './src/lib/image';
 
 /** @type {import('@markdoc/markdoc').Config} */
 export default defineMarkdocConfig({

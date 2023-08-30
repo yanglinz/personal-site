@@ -11,7 +11,7 @@ interface Props {
   alt: string;
 }
 
-const src = getPostImagePath(Astro.props.mdocContext, Astro.props.src);
+const src = await getPostImagePath(Astro.props.mdocContext, Astro.props.src);
 const imageHtml = await imageMarkup(src, Astro.props.alt);
 ---
 
