@@ -1,10 +1,11 @@
-import fs from "node:fs/promises";
+import fsp from "node:fs/promises";
+import fs from 'node:fs';
 import path from "node:path";
 import * as url from "node:url";
 
 async function exists(filePath: string) {
   try {
-    await fs.access(filePath);
+    await fsp.access(filePath);
     return true;
   } catch {
     return false;
@@ -16,7 +17,7 @@ async function getRootPath() {
   async function isRootPath(searchPath: string) {
     // Make sure path is a directory
     try {
-      const stats = await fs.lstat(searchPath);
+      const stats = await fsp.lstat(searchPath);
       if (!stats.isDirectory()) return false;
     } catch (_) {
       return false;
@@ -35,29 +36,31 @@ async function getRootPath() {
   }
 }
 
+const GLOBAL_CONFIG_TMP_PATH = "/tmp/astro-global-config.json";
+
 // There are cases like custom markdoc functions where we need the
-// global configuration synchronously. To support a synchronous getGlobalConfig
-// we'll generate the global config in a astro integration to a known absolute path
-// and read its data synchronously.
+// global configuration synchronously. To support a synchronous 
+// getGlobalConfig we'll generate the global config in an astro integration 
+// to a known absolute path and read its data synchronously.
 export function globalConfigIntegration() {
   return {
     name: "global-config-integration",
     hooks: {
       'astro:config:setup': async () => {
-        console.log('astro:config:setup');
+        const config = await _getGlobalConfig();
+        await fsp.writeFile(GLOBAL_CONFIG_TMP_PATH, JSON.stringify(config));
       }
     }
   }
 }
 
-function getGlobalConfigCachedPath() {
-  return '/tmp/astro-global-config.json';
-}
-
-export async function getGlobalConfig() {
+async function _getGlobalConfig() {
   return {
     rootPath: await getRootPath(),
   };
 }
 
-// need a sync version of the function
+export function getGlobalConfig() {
+  const config = `${fs.readFileSync(GLOBAL_CONFIG_TMP_PATH)}`;
+  return JSON.parse(config);
+}

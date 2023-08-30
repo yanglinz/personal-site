@@ -2,8 +2,8 @@ import path from "node:path";
 import EleventyImage from "@11ty/eleventy-img";
 import { getGlobalConfig } from "./astro";
 
-export async function getFeaturedImagePath(slug, data) {
-  const config = await getGlobalConfig();
+export function getFeaturedImagePath(slug, data) {
+  const config = getGlobalConfig();
   return path.resolve(
     config.rootPath,
     "src/content/posts",
@@ -12,8 +12,18 @@ export async function getFeaturedImagePath(slug, data) {
   );
 }
 
+export function getPostImagePath({ slug }, relativeSrc) {
+  const config = getGlobalConfig();
+  return path.resolve(
+    config.rootPath,
+    "src/content/posts",
+    slug,
+    relativeSrc
+  );
+}
+
 export async function imageMarkup(src, alt) {
-  const config = await getGlobalConfig();
+  const config = getGlobalConfig();
   const sizes = "(min-width: 30em) 50vw, 100vw";
 
   let metadata = await EleventyImage(src, {
