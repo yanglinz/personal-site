@@ -99,7 +99,7 @@ first checked NewRelic for some clues.
 
 ### Newrelic
 
-{% image "./www/posts/using-honeycomb/newrelic-overview.png", "NewRelic overview page" %}
+{% image mdocContext=$mdocContext src="./newrelic-overview.png" alt="Screenshot of NewRelic overview page" /%}
 
 Looking at the overview screen of NewRelic above, here's what's going through my
 mind.
@@ -135,7 +135,7 @@ of saying: "Hey, go ahead ask any questions you want about your system. We're
 not gonna clutter your view with stuff _we_ think you care about. We'll just
 give you the tool to ask any questions that _you_ care about".
 
-{% image "./www/posts/using-honeycomb/honeycomb-heatmap.png", "Honeycomb heatmap" %}
+{% image mdocContext=$mdocContext src="./honeycomb-heatmap.png" alt="Screenshot of Honeycomb heapmap" /%}
 
 One of the first query I ran was the heatmap view of the response duration.
 Besides being able to produce an awesome looking plot, the heatmap can provide
@@ -148,12 +148,12 @@ One of the immensely useful feature that synergizes&trade; with the heatmap view
 is the BubbleUp tab. It's an UI where you can select a region of your dataset,
 and see if/how some of its attributes differ from the baseline.
 
-{% image "./www/posts/using-honeycomb/honeycomb-bubble-1.png", "Honeycomb bubbleup" %}
+{% image mdocContext=$mdocContext src="./honeycomb-bubble-1.png" alt="Screenshot of Honeycomb bubbleup" /%}
 
 If we select the durations that are the longest and most anomalous, we can get a
 sense of how it compares to the baseline.
 
-{% image "./www/posts/using-honeycomb/honeycomb-bubble-2.png", "Honeycomb bubbleup results" %}
+{% image mdocContext=$mdocContext src="./honeycomb-bubble-2.png" alt="Screenshot of Honeycomb bubbleup results" /%}
 
 With the bubble up view, we can start to get a sense of how these longer
 requests are shaped. It seems that they are mostly `GET` requests coming from
@@ -166,7 +166,7 @@ We're honing in and getting closer! The next view I loaded up was the tracing
 view, which let's us select a particular request and visualize all the
 transaction that took place.
 
-{% image "./www/posts/using-honeycomb/honeycomb-tracing.png", "Honeycomb tracing" %}
+{% image mdocContext=$mdocContext src="./honeycomb-tracing.png" alt="Screenshot of Honeycomb tracing" /%}
 
 By default, Honeycomb shows you the 10 slowest requests that fall within your
 query filters. I load up one of the top offenders, and here's what's going
