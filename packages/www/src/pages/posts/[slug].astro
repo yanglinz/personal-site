@@ -4,6 +4,7 @@ import Image from "../../components/Image.astro";
 import { getCollection } from "astro:content";
 import * as datefns from "date-fns";
 import "../../main.css";
+import "./posts.css";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
