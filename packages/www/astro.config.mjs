@@ -8,4 +8,13 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: 'https://yanglinzhao.com',
   integrations: [markdoc(), tailwind(), sitemap()],
+  markdown: {
+
+  shikiConfig: {
+    // https://github.com/shikijs/shiki/blob/main/docs/themes.md
+    theme: 'solarized-light',
+    // https://github.com/shikijs/shiki/blob/main/docs/languages.md
+    langs: [],
+  },
+  }
 });
