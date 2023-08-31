@@ -44,12 +44,16 @@
 
 .post-content ul,
 .post-content ol {
-  @apply pl-7 py-2;
+  @apply pl-7 py-2 text-lg;
 }
 
 .post-content li {
   list-style: square;
   @apply py-1;
+}
+
+.post-content .astro-code {
+  @apply px-5 py-4;
 }
 
 .post-content pre {
