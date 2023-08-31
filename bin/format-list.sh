@@ -2,4 +2,4 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-git ls-files | egrep '\.json$|\.html$|\.js|\.ts|\.tsx|\.astro$|\.md$'
+git ls-files | egrep '\.json$|\.html$|\.js|\.mjs|\.ts|\.tsx|\.astro$|\.md$'
