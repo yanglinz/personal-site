@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@11ty/eleventy-img": "^2.0.1",
     "@astrojs/markdoc": "^0.4.4",
     "@astrojs/sitemap": "^2.0.2",
     "@astrojs/tailwind": "^4.0.0",
