@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global styles */
+/* global styles */
 
 html {
   box-sizing: border-box;
@@ -41,6 +41,11 @@ body {
     monospace;
 }
 
+a {
+  color: #404040;
+  text-decoration: none;
+}
+
 /* layout */
 
 .l-wide {
@@ -57,21 +62,4 @@ body {
   .l-base {
     max-width: 700px;
   }
-}
-
-.l-narrow {
-  max-width: 520px;
-  padding: 0 20px;
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .l-narrow {
-    max-width: 680px;
-  }
-}
-
-a {
-  color: #404040;
-  text-decoration: none;
 }
