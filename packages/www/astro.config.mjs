@@ -7,7 +7,7 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: "https://yanglinzhao.com",
-  integrations: [markdoc(), tailwind(), sitemap()],
+  integrations: [markdoc({ allowHTML: true }), tailwind(), sitemap()],
   markdown: {
     shikiConfig: {
       // https://github.com/shikijs/shiki/blob/main/docs/themes.md
