@@ -22,6 +22,10 @@ export default defineMarkdocConfig({
       // Don't wrap the output of markdoc posts with <article> tag
       render: null,
     },
+    heading: {
+      ...nodes.heading,
+      render: component("./src/components/PostContentHeading.astro"),
+    },
     item: {
       ...nodes.item,
       render: component("./src/components/PostContentItem.astro"),

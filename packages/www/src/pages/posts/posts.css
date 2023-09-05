@@ -33,36 +33,10 @@
   @apply text-gray-800 leading-8;
 }
 
-.post-content p {
-  @apply py-3 text-gray-800 text-lg leading-8;
-}
 
-.post-content h1 {
-  @apply pb-3 pt-5 text-gray-800 text-3xl font-bold;
-}
-
-.post-content h2 {
-  @apply pb-3 pt-5 text-gray-800 text-2xl font-bold;
-}
-
-.post-content h3 {
-  @apply pb-3 pt-4 text-gray-600 text-xl font-bold;
-}
-
-.post-content h4 {
-  @apply pb-3 pt-4 text-gray-600 text-xl font-bold;
-}
-
-.post-content h5 {
-  @apply pb-3 pt-4 text-gray-400 text-lg font-bold;
-}
-
-.post-content h6 {
-  @apply pb-3 pt-4 text-gray-400 text-lg font-bold;
-}
 
 .post-content blockquote {
-  @apply mx-0 my-3 pl-6 border-l-8 border-gray-100;
+  @apply my-3 pl-6 border-l-8 border-gray-100;
 }
 
 .post-content ul,
