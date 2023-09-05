@@ -33,8 +33,6 @@
   @apply text-gray-800 leading-8;
 }
 
-
-
 .post-content blockquote {
   @apply my-3 pl-6 border-l-8 border-gray-100;
 }
