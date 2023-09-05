@@ -9,6 +9,11 @@ export default defineMarkdocConfig({
       ...nodes.document,
       render: null,
     },
+    
+    blockquote: {
+      ...nodes.blockquote,
+      render: component('./src/components/PostContentQuote.astro'),
+    }
   },
   // Match syntax highlight to astro.config.mjs
   extends: [
