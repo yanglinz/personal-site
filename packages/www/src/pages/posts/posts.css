@@ -1,5 +1,28 @@
 @tailwind utilities;
 
+/* post layout */
+
+/* this mirrors the layout styes from packages/www/src/main.css */
+.post-content > * {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .post-content > * {
+    max-width: 700px;
+  }
+}
+
+.post-content > .full-width {
+  width: 100%;
+  max-width: none;
+  margin-left: none;
+  margin-right: none;
+}
+
 /* posts styles */
 
 .post-content a {
