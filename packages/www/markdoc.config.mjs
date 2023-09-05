@@ -1,8 +1,15 @@
-import { defineMarkdocConfig, component } from "@astrojs/markdoc/config";
+import { defineMarkdocConfig, component, nodes } from "@astrojs/markdoc/config";
 import shiki from "@astrojs/markdoc/shiki";
 
 /** @type {import('@markdoc/markdoc').Config} */
 export default defineMarkdocConfig({
+  // Don't wrap the output of markdoc posts with <article> tag
+  nodes: {
+    document: {
+      ...nodes.document,
+      render: null,
+    },
+  },
   // Match syntax highlight to astro.config.mjs
   extends: [
     shiki({
