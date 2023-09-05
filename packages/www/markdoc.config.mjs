@@ -3,18 +3,6 @@ import shiki from "@astrojs/markdoc/shiki";
 
 /** @type {import('@markdoc/markdoc').Config} */
 export default defineMarkdocConfig({
-  // Don't wrap the output of markdoc posts with <article> tag
-  nodes: {
-    document: {
-      ...nodes.document,
-      render: null,
-    },
-    
-    blockquote: {
-      ...nodes.blockquote,
-      render: component('./src/components/PostContentQuote.astro'),
-    }
-  },
   // Match syntax highlight to astro.config.mjs
   extends: [
     shiki({
@@ -24,6 +12,29 @@ export default defineMarkdocConfig({
       langs: [],
     }),
   ],
+  nodes: {
+    blockquote: {
+      ...nodes.blockquote,
+      render: component("./src/components/PostContentBlockquote.astro"),
+    },
+    document: {
+      ...nodes.document,
+      // Don't wrap the output of markdoc posts with <article> tag
+      render: null,
+    },
+    item: {
+      ...nodes.item,
+      render: component("./src/components/PostContentItem.astro"),
+    },
+    list: {
+      ...nodes.list,
+      render: component("./src/components/PostContentList.astro"),
+    },
+    paragraph: {
+      ...nodes.paragraph,
+      render: component("./src/components/PostContentParagraph.astro"),
+    },
+  },
   tags: {
     image: {
       render: component("./src/components/ImageForPost.astro"),
