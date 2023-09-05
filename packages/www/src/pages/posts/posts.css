@@ -1,6 +1,6 @@
 @tailwind utilities;
 
-/* Posts styles */
+/* posts styles */
 
 .post-content a {
   color: #84cc16;
@@ -63,17 +63,4 @@
 
 .post-content pre code {
   @apply text-base;
-}
-
-.post-content img {
-  width: 100%;
-}
-
-.post-content .full-width {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
 }
