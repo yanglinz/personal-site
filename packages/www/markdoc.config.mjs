@@ -26,14 +26,6 @@ export default defineMarkdocConfig({
       ...nodes.heading,
       render: component("./src/components/PostContentHeading.astro"),
     },
-    item: {
-      ...nodes.item,
-      render: component("./src/components/PostContentItem.astro"),
-    },
-    list: {
-      ...nodes.list,
-      render: component("./src/components/PostContentList.astro"),
-    },
     paragraph: {
       ...nodes.paragraph,
       render: component("./src/components/PostContentParagraph.astro"),

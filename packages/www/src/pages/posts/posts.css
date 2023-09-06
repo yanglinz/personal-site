@@ -2,6 +2,11 @@
 
 /* post layout */
 
+.post-content {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .post-content > * {
   margin-left: auto;
   margin-right: auto;
@@ -14,6 +19,11 @@
   on l-base - 2 * padding.
 */
 @media (min-width: 768px) {
+  .post-content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .post-content > * {
     max-width: 660px;
   }
@@ -38,7 +48,7 @@
 
 .post-content ul,
 .post-content ol {
-  @apply pl-7 py-2 text-lg;
+  @apply pl-5 py-2 text-lg;
 }
 
 .post-content li {
@@ -47,7 +57,7 @@
 }
 
 .post-content .astro-code {
-  @apply px-5 py-4;
+  @apply my-3 px-5 py-4;
 }
 
 .post-content pre {
