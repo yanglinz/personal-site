@@ -1,4 +1,4 @@
-import { defineMarkdocConfig, component } from "@astrojs/markdoc/config";
+import { defineMarkdocConfig, component, nodes } from "@astrojs/markdoc/config";
 import shiki from "@astrojs/markdoc/shiki";
 
 /** @type {import('@markdoc/markdoc').Config} */
@@ -12,6 +12,25 @@ export default defineMarkdocConfig({
       langs: [],
     }),
   ],
+  nodes: {
+    blockquote: {
+      ...nodes.blockquote,
+      render: component("./src/components/PostContentBlockquote.astro"),
+    },
+    document: {
+      ...nodes.document,
+      // Don't wrap the output of markdoc posts with <article> tag
+      render: null,
+    },
+    heading: {
+      ...nodes.heading,
+      render: component("./src/components/PostContentHeading.astro"),
+    },
+    paragraph: {
+      ...nodes.paragraph,
+      render: component("./src/components/PostContentParagraph.astro"),
+    },
+  },
   tags: {
     image: {
       render: component("./src/components/ImageForPost.astro"),
