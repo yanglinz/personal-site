@@ -1,0 +1,47 @@
+---
+let localhost = false;
+try {
+  localhost = window.location.hostname === 'localhost'
+} catch (e) {
+}
+
+const enableOverlay = true;
+---
+
+{enableOverlay ? (
+  <div class="overlay">
+    <div class="grid">
+      {Array(12).fill(0).map(() => (
+        <div class="col"></div>
+      ))}
+    </div>
+  </div>
+) : null}
+
+<style>
+  .overlay {
+    position: fixed;
+    pointer-events: none;
+    background: gray;
+    opacity: 0.25;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 20px;
+grid-row-gap: 0px;
+    width: 960px;
+    margin: 0 auto;
+  }
+
+  .col {
+    background: red;
+    height: 100vh;
+  }
+</style>
