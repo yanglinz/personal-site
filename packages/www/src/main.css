@@ -61,7 +61,7 @@ a {
   margin: 0 auto;
 }
 
-.l-8-12 {
+.l-6-12 {
   margin: 0 auto;
 }
 
@@ -71,8 +71,12 @@ a {
     padding-left: 0;
     padding-right: 0;
   }
+
+  .l-12-12 {
+    max-width: 1300px;
+  }
   
-  .l-8-12 {
+  .l-6-12 {
     max-width: 660px;
   }
 }
