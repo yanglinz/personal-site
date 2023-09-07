@@ -1,0 +1,45 @@
+---
+let enableOverlay = false;
+---
+
+{
+  enableOverlay ? (
+    <div class="overlay">
+      <div class="grid">
+        {Array(12)
+          .fill(0)
+          .map(() => (
+            <div class="col" />
+          ))}
+      </div>
+    </div>
+  ) : null
+}
+
+<style>
+  .overlay {
+    background: gray;
+    bottom: 0;
+    left: 0;
+    opacity: 0.25;
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+
+  .grid {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    margin: 0 auto;
+    width: 1000px;
+  }
+
+  .col {
+    background: red;
+    height: 100vh;
+  }
+</style>

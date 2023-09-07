@@ -14,9 +14,6 @@
 
 /* 
   this mirrors the layout styes from packages/www/src/main.css
-  note that the max-width is _without_ the padding to make the
-  content styling more consistent, so it's the max-width found
-  on l-base - 2 * padding.
 */
 @media (min-width: 768px) {
   .post-content {

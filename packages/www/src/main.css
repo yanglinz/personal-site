@@ -48,18 +48,31 @@ a {
 
 /* layout */
 
-.l-wide {
-  padding: 0 20px;
+.l-pad {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.l-vw {
   margin: 0 auto;
 }
 
-.l-base {
-  padding: 0 20px;
+.l-12-12 {
   margin: 0 auto;
 }
 
+.l-8-12 {
+  margin: 0 auto;
+}
+
+/* https://tailwindcss.com/docs/screens */
 @media (min-width: 768px) {
-  .l-base {
-    max-width: 700px;
+  .l-pad {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .l-8-12 {
+    max-width: 660px;
   }
 }
