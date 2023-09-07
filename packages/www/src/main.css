@@ -48,6 +48,11 @@ a {
 
 /* layout */
 
+.l-pad {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .l-container {
   padding: 0 20px;
   margin: 0 auto;
@@ -64,6 +69,11 @@ a {
 }
 
 @media (min-width: 768px) {
+  .l-pad {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
   .l-base {
     max-width: 700px;
   }

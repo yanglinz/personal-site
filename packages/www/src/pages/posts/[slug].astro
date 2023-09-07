@@ -21,7 +21,7 @@ const url = `/posts/${slug}`;
     <article>
       {data.featuredImage ? <Image slug={slug} data={data} /> : null}
 
-      <div class="l-container">
+      <div class="l-container l-pad">
         <div class="pt-14 pb-10 lg:pt-20 lg:pb-8">
           <h1 class="m-0 text-center text-4xl font-bold leading-tight">
             <a href={url}>{data.title}</a>
