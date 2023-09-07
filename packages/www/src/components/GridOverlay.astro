@@ -1,12 +1,5 @@
 ---
-let localhost = false;
-let enableOverlay = true;
-try {
-  localhost = window.location.hostname === "localhost";
-  enableOverlay = localhost && window.location.search.includes("overlay=true");
-} catch (e) {
-  // Do nothing
-}
+let enableOverlay = false;
 ---
 
 {
