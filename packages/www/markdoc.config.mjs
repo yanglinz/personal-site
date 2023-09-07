@@ -33,7 +33,7 @@ export default defineMarkdocConfig({
   },
   tags: {
     image: {
-      render: component("./src/components/ImageForPost.astro"),
+      render: component("./src/components/PostContentImage.astro"),
       attributes: {
         // Markdoc requires type defs for each attribute.
         // These should mirror the `Props` type of the component
