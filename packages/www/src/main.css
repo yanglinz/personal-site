@@ -48,6 +48,11 @@ a {
 
 /* layout */
 
+.l-container {
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
 .l-wide {
   padding: 0 20px;
   margin: 0 auto;
