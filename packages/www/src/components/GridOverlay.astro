@@ -2,43 +2,47 @@
 let localhost = false;
 let enableOverlay = true;
 try {
-  localhost = window.location.hostname === 'localhost'
-  enableOverlay = localhost && window.location.search.includes('overlay=true');
+  localhost = window.location.hostname === "localhost";
+  enableOverlay = localhost && window.location.search.includes("overlay=true");
 } catch (e) {
   // Do nothing
 }
 ---
 
-{enableOverlay ? (
-  <div class="overlay">
-    <div class="grid">
-      {Array(12).fill(0).map(() => (
-        <div class="col"></div>
-      ))}
+{
+  enableOverlay ? (
+    <div class="overlay">
+      <div class="grid">
+        {Array(12)
+          .fill(0)
+          .map(() => (
+            <div class="col" />
+          ))}
+      </div>
     </div>
-  </div>
-) : null}
+  ) : null
+}
 
 <style>
   .overlay {
-    position: fixed;
-    pointer-events: none;
     background: gray;
-    opacity: 0.25;
-    top: 0;
-    left: 0;
-    right: 0;
     bottom: 0;
+    left: 0;
+    opacity: 0.25;
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    top: 0;
   }
 
   .grid {
     display: grid;
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
     grid-template-columns: repeat(12, 1fr);
-grid-template-rows: 1fr;
-grid-column-gap: 20px;
-grid-row-gap: 0px;
-    width: 960px;
+    grid-template-rows: 1fr;
     margin: 0 auto;
+    width: 1000px;
   }
 
   .col {
