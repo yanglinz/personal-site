@@ -9,9 +9,14 @@ interface Props {
 
 const { slug, data } = Astro.props;
 const src = await getFeaturedImagePath(slug, data);
-const imageHtml = await imageMarkup(src, (data as any).featuredImageAlt);
+const alt = (data as any).featuredImageAlt;
+const imageHtml = await imageMarkup(src, alt);
 ---
 
-<figure>
-  <Fragment set:html={imageHtml} />
-</figure>
+<div class="l-12-12">
+  <figure>
+    <Fragment set:html={imageHtml} />
+  </figure>
+</div>
+
+<div class="l-8-12 p-1 bg-green-400"></div>
