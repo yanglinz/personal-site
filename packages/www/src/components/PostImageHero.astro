@@ -7,16 +7,32 @@ interface Props {
   data: CollectionEntry<"posts">;
 }
 
+interface Frontmatter {
+  featuredImage: string;
+  featuredImageAlt: string;
+  featuredImageSource: string;
+  featuredImageLink: string;
+  featuredImageAuthor: string;
+}
+
 const { slug, data } = Astro.props;
+const frontmatter = data as any as Frontmatter;
 const src = await getFeaturedImagePath(slug, data);
-const alt = (data as any).featuredImageAlt;
-const imageHtml = await imageMarkup(src, alt);
+const imageHtml = await imageMarkup(src, frontmatter.featuredImageAlt);
 ---
 
 <div class="l-12-12">
   <figure>
     <Fragment set:html={imageHtml} />
   </figure>
+</div>
+
+<div class="l-12-12">
+  <div>
+    Photo of "{frontmatter.featuredImageAlt}" by <a
+      href={frontmatter.featuredImageLink}>{frontmatter.featuredImageAuthor}</a
+    > on Unsplash.
+  </div>
 </div>
 
 <div class="l-8-12 p-1 bg-green-400"></div>
