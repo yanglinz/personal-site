@@ -28,9 +28,13 @@ const imageHtml = await imageMarkup(src, frontmatter.featuredImageAlt);
 </div>
 
 <div class="l-12-12">
-  <div>
-    Photo of "{frontmatter.featuredImageAlt}" by <a
-      href={frontmatter.featuredImageLink}>{frontmatter.featuredImageAuthor}</a
+  <div class="border border-stone-150 p-3 text-center text-stone-400 text-sm">
+    Photo of
+    <span class="italic">
+      "{frontmatter.featuredImageAlt}"
+    </span>
+    by <a class="text-stone-600" href={frontmatter.featuredImageLink}
+      >{frontmatter.featuredImageAuthor}</a
     > on Unsplash.
   </div>
 </div>
