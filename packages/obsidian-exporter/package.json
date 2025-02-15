@@ -3,15 +3,14 @@
   "version": "0.1.0",
   "license": "MIT",
   "private": true,
-  "scripts": {
-  },
-  "dependencies": {
-  },
+  "scripts": {},
+  "dependencies": {},
   "devDependencies": {
-    "@markdoc/markdoc": "^0.3.0"
+    "@markdoc/markdoc": "^0.3.0",
+    "prettier": "^3.5.1"
   },
   "volta": {
-    "node": "18.17.1",
+    "node": "22.14.0",
     "yarn": "1.22.4"
   }
 }
