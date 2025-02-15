@@ -1,5 +1,6 @@
 const path = require("node:path");
 const fsp = require("node:fs/promises");
+const prettier = require("prettier");
 
 async function getAllPosts() {
   const postsPath = path.resolve(process.cwd(), "../www/src/content/posts");
@@ -14,6 +15,12 @@ async function getAllPosts() {
 async function exportPost(post) {
   // TODO: Convert to markdown
   let content = await fsp.readFile(path.resolve(post.path, "index.mdoc"));
+
+  let formatted = await prettier.format(String(content), {
+    parser: "markdown",
+    proseWrap: "never",
+  });
+
   let outDir = path.join(process.cwd(), "dist", post.slug);
   try {
     await fsp.mkdir(outDir, { recursive: true });
@@ -21,7 +28,7 @@ async function exportPost(post) {
     // do nothing
   }
 
-  await fsp.writeFile(path.join(outDir, `${post.slug}.md`), content);
+  await fsp.writeFile(path.join(outDir, `${post.slug}.md`), formatted);
 }
 
 async function exportAll() {
@@ -34,8 +41,6 @@ async function exportAll() {
   for (let p of posts) {
     await exportPost(p);
   }
-
-  // TODO: Run prettier
 }
 
 exportAll();
