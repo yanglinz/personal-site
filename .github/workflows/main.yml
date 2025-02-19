@@ -14,19 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v4
-      - name: yarn caching prep
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: yarn caching
-        uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - run: yarn install
-      - run: yarn format:check
+      - run: |
+          NODE_VERSION=$(cat package.json | jq -r '.volta.node')
+          volta install "node@${NODE_VERSION}"
+          volta install corepack@latest
+          corepack enable --install-directory "$VOLTA_HOME/bin"
+      - run: pnpm install
+      - run: pnpm format:check
       # Tests for custom SSG
-      - run: yarn test
+      - run: pnpm test
         working-directory: packages/custom-ssg
