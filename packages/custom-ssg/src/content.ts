@@ -7,7 +7,7 @@ import * as lfs from "./lib/fs";
 
 async function getPostFiles(
   config: GlobalConfig,
-  contentPath: Path
+  contentPath: Path,
 ): Promise<VirtualFile[]> {
   const content = `${await fs.readFile(contentPath)}`;
 
@@ -39,7 +39,7 @@ async function getPostFiles(
 
 async function getFilesFromPath(
   config: GlobalConfig,
-  contentPath: Path
+  contentPath: Path,
 ): Promise<VirtualFile[]> {
   // TODO: Not all files are posts, handle cases where files are templates
   // based on the simple heuristic of file extension.
@@ -48,11 +48,11 @@ async function getFilesFromPath(
 
 export async function getVirtualFiles(
   config: GlobalConfig,
-  dir: Path
+  dir: Path,
 ): Promise<VirtualFile[]> {
   invariant(
     path.isAbsolute(dir),
-    "getContentManifests expects an absolute directory"
+    "getContentManifests expects an absolute directory",
   );
 
   // Pass in a relative directory so that snapshot tests are stable

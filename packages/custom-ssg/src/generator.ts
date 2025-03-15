@@ -6,7 +6,7 @@ import { GlobalConfig, VirtualFile } from "./types";
 import { PostContent } from "./components/PostContent";
 
 export async function getFileContent(
-  vf: VirtualFile
+  vf: VirtualFile,
 ): Promise<string | undefined> {
   if (vf.metadata.type === "POST") {
     return render(Preact.h(PostContent, { ast: vf.metadata.ast }, null) as any);
@@ -15,7 +15,7 @@ export async function getFileContent(
 
 export async function generateFiles(
   config: GlobalConfig,
-  vfiles: VirtualFile[]
+  vfiles: VirtualFile[],
 ) {
   for (const f of vfiles) {
     const content = await getFileContent(f);

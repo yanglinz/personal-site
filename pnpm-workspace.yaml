@@ -1,2 +1,5 @@
 packages:
   - 'packages/*'
+
+public-hoist-pattern:
+  - "prettier-plugin-*"
