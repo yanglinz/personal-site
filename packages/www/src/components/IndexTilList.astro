@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import IndexTil from './IndexTil.astro';
+import IndexTil from "./IndexTil.astro";
 
 interface Props {
   entries: CollectionEntry<"til">[];
@@ -18,7 +18,7 @@ const sortedEntries = entries.sort((a, b) => {
       <h2 class="f-serif mb-2 text-stone-900 font-bold text-xl">TILs</h2>
 
       <ul>
-        {sortedEntries.map((e) => <IndexTil entry={e}/>)}
+        {sortedEntries.map((e) => <IndexTil entry={e} />)}
       </ul>
     </div>
   </div>
