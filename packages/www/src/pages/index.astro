@@ -3,9 +3,11 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import IndexIntro from "../components/IndexIntro.astro";
 import IndexPostList from "../components/IndexPostList.astro";
+import IndexTilsList from "../components/IndexTilsList.astro";
 import "../main.css";
 
 const allPosts = await getCollection("posts");
+const allTils = await getCollection("tils");
 const description =
   "I'm a software engineer and I make things that run in browsers. Come check out my thoughts on programming and technology.";
 ---
@@ -14,5 +16,6 @@ const description =
   <main>
     <IndexIntro />
     <IndexPostList posts={allPosts} />
+      <IndexTilsList entries={allTils} />
   </main>
 </Layout>

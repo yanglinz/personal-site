@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import IndexTil from './IndexTil.astro';
+
+interface Props {
+  entries: CollectionEntry<"tils">[];
+}
+
+const { entries } = Astro.props;
+const sortedEntries = entries.sort((a, b) => {
+  return a.data.date < b.data.date ? 1 : -1;
+});
+---
+
+<div class="l-6-12 l-pad">
+  <div class="border-stone-150 border-t-8">
+    <div class="py-14 lg:py-20">
+      <h2 class="f-serif mb-2 text-stone-900 font-bold text-xl">TILs</h2>
+
+      <ul>
+        {sortedEntries.map((e) => <IndexTil entry={e}/>)}
+      </ul>
+    </div>
+  </div>
+</div>

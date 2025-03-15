@@ -18,7 +18,7 @@ const sortedPosts = posts.sort((a, b) => {
       <h2 class="f-serif mb-2 text-stone-900 font-bold text-xl">Blog Posts</h2>
 
       <ul>
-        {sortedPosts.map((p, i) => <IndexPost post={p} />)}
+        {sortedPosts.map((p) => <IndexPost post={p} />)}
       </ul>
     </div>
   </div>
