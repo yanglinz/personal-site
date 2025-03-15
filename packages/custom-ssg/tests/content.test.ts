@@ -5,7 +5,7 @@ test("get basic content virtual files", async () => {
   const exampleDir = path.join(__dirname, "../examples/basic");
   const vfs = await getVirtualFiles(
     { outputDir: "/dev/null", baseDir: exampleDir },
-    exampleDir
+    exampleDir,
   );
   expect(vfs).toMatchInlineSnapshot(`
     [

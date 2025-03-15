@@ -8,7 +8,7 @@ export async function getFeaturedImagePath(slug, data) {
     config.rootPath,
     "src/content/posts",
     slug,
-    data.featuredImage
+    data.featuredImage,
   );
 }
 
