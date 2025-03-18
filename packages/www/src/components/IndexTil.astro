@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from "astro:content";
+import * as datefns from "date-fns";
+
+interface Props {
+  entry: CollectionEntry<"til">;
+}
+
+const { entry } = Astro.props;
+const entryUrl = `/til/${entry.slug}`;
+---
+
+<li
+  class="border-gray-150 border-b py-1 md:flex md:items-center md:justify-between md:py-2 lg:py-3"
+>
+  <h3 class="flex-1 pr-5">
+    <a href={entryUrl} class="text-md font-bold lg:text-xl">
+      {entry.data.title}
+    </a>
+  </h3>
+
+  <p class="flex-initial">
+    <a href={entryUrl} class="text-gray-400 font-mono text-xs md:text-sm">
+      <time>{datefns.format(entry.data.date, "MM/dd/yyyy")}</time>
+    </a>
+  </p>
+</li>

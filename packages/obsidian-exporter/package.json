@@ -4,8 +4,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {},
-  "dependencies": {},
   "devDependencies": {
+    "@astrojs/markdown-remark": "^6.3.0",
     "@markdoc/markdoc": "^0.3.0",
     "prettier": "^3.5.1"
   },
