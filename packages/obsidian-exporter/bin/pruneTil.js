@@ -17,9 +17,6 @@ async function getEntry(entryPath) {
 async function prune() {
   const entries = await getEntries();
   for (let e of entries) {
-    if (e.includes('Copy')) {
-      debugger;
-    }
     const entry = await getEntry(e);
     // Every til should contain a frontmatter with at least the title
     if (!entry.frontmatter.title) {
