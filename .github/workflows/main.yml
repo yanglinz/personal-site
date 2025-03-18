@@ -21,6 +21,3 @@ jobs:
           corepack enable --install-directory "$VOLTA_HOME/bin"
       - run: pnpm install
       - run: pnpm format:check
-      # Tests for custom SSG
-      - run: pnpm test
-        working-directory: packages/custom-ssg

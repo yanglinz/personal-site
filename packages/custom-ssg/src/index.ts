@@ -1,1 +1,0 @@
-export { getVirtualFiles } from "./content";
