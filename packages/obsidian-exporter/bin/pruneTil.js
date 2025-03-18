@@ -24,7 +24,7 @@ async function prune() {
     } else {
       // Slugify the file name
       let fileName = e.name;
-      let newFilename = e.name.replaceAll(' ', '-').toLowerCase()
+      let newFilename = e.name.replaceAll(" ", "-").toLowerCase();
       let newPath = path.join(e.parentPath, newFilename);
       await fsp.rename(entryPath, newPath);
     }
