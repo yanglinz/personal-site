@@ -16,10 +16,9 @@ export async function getStaticPaths() {
 
 type Props = CollectionEntry<"posts">;
 
-const post = Astro.props;
 // TODO: Fix typecheck error
-const { data, slug } = Astro.props;  
-const { Content } = await render(post);
+const { data, slug } = Astro.props;
+const { Content } = await render(Astro.props);
 const url = `/posts/${slug}`;
 ---
 

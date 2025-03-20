@@ -14,7 +14,7 @@ export async function getFeaturedImagePath(slug, data) {
 
 export async function getPostImagePath(mdocContext, relativeSrc) {
   const config = await getGlobalConfig();
-  let slug = mdocContext.slug.split('/')[0];
+  let slug = mdocContext.slug.split("/")[0];
   return path.resolve(config.rootPath, "src/content/posts", slug, relativeSrc);
 }
 
