@@ -32,7 +32,7 @@ export default defineMarkdocConfig({
     },
   },
   tags: {
-    image: {
+    optimizedImage: {
       render: component("./src/components/PostContentImage.astro"),
       attributes: {
         // Markdoc requires type defs for each attribute.
@@ -41,7 +41,7 @@ export default defineMarkdocConfig({
         // See Markdoc's documentation on defining attributes
         // https://markdoc.dev/docs/attributes#defining-attributes
         mdocContext: { type: Object },
-        src: { type: String },
+        path: { type: String },
         alt: { type: String },
       },
     },

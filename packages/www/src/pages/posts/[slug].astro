@@ -1,25 +1,31 @@
 ---
+import { type CollectionEntry, getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import Image from "../../components/PostImageHero.astro";
-import { getCollection } from "astro:content";
+import HeroImage from "../../components/PostImageHero.astro";
 import * as datefns from "date-fns";
-import "../../main.css";
-import "./posts.css";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
-  return posts.map((post) => ({ params: { slug: post.slug }, props: post }));
+  return posts.map((post) => {
+    return {
+      params: { slug: post.slug },
+      props: post,
+    };
+  });
 }
 
+type Props = CollectionEntry<"posts">;
+
+// TODO: Fix typecheck error
 const { data, slug } = Astro.props;
-const { Content } = await Astro.props.render();
+const { Content } = await render(Astro.props);
 const url = `/posts/${slug}`;
 ---
 
 <Layout title={`Yanglin Zhao | ${data.title}`} description={data.description}>
   <main>
     <article>
-      {data.featuredImage ? <Image slug={slug} data={data} /> : null}
+      {data.featuredImage ? <HeroImage slug={slug} data={data} /> : null}
 
       <div class="l-8-12 l-pad border-b border-gray-150 mb-8 lg:mb-10">
         <div class="py-10 lg:py-14">

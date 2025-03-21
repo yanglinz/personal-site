@@ -7,11 +7,11 @@ interface Props {
     slug: string;
     data: CollectionEntry<"posts">;
   };
-  src: string;
+  path: string;
   alt: string;
 }
 
-const src = await getPostImagePath(Astro.props.mdocContext, Astro.props.src);
+const src = await getPostImagePath(Astro.props.mdocContext, Astro.props.path);
 const imageHtml = await imageMarkup(src, Astro.props.alt);
 ---
 
