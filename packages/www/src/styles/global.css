@@ -44,7 +44,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-.f-sans {
+.u-f-sans {
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -61,7 +61,7 @@ body {
     sans-serif;
 }
 
-.f-serif {
+.u-f-serif {
   font-family:
     Iowan Old Style,
     Apple Garamond,
@@ -76,7 +76,7 @@ body {
     Segoe UI Symbol;
 }
 
-.f-mono {
+.u-f-mono {
   font-family:
     Menlo,
     Consolas,
