@@ -3,23 +3,25 @@ import type { CollectionEntry } from "astro:content";
 import IndexEntry from "./IndexEntry.astro";
 
 interface Props {
-  posts?: CollectionEntry<"posts">[]; 
+  posts?: CollectionEntry<"posts">[];
   til?: CollectionEntry<"til">[];
 }
 
 const { posts, til } = Astro.props;
+const kind = !!posts ? "post" : "til";
+const sectionTitle = kind === "post" ? "Blog Posts" : "TIL";
 ---
 
 <div class="l-6-12 l-pad">
   <div class="border-stone-150 border-t-8">
     <div class="py-14 lg:py-20">
       <h2 class="u-f-serif mb-2 text-stone-900 font-bold text-xl">
-        Blog Posts
+        {sectionTitle}
       </h2>
 
       <ul>
-        {posts && ( posts.map((p) => <IndexEntry post={p} />))}
-        {til && ( til.map((p) => <IndexEntry til={p} />))}
+        {posts && posts.map((p) => <IndexEntry post={p} />)}
+        {til && til.map((p) => <IndexEntry til={p} />)}
       </ul>
     </div>
   </div>
