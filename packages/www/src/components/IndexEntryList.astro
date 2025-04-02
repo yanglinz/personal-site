@@ -1,15 +1,13 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import IndexPost from "./IndexPost.astro";
+import IndexEntry from "./IndexEntry.astro";
 
 interface Props {
-  posts: CollectionEntry<"posts">[];
+  posts?: CollectionEntry<"posts">[]; 
+  til?: CollectionEntry<"til">[];
 }
 
-const { posts } = Astro.props;
-const sortedPosts = posts.sort((a, b) => {
-  return a.data.date < b.data.date ? 1 : -1;
-});
+const { posts, til } = Astro.props;
 ---
 
 <div class="l-6-12 l-pad">
@@ -20,7 +18,8 @@ const sortedPosts = posts.sort((a, b) => {
       </h2>
 
       <ul>
-        {sortedPosts.map((p) => <IndexPost post={p} />)}
+        {posts && ( posts.map((p) => <IndexEntry post={p} />))}
+        {til && ( til.map((p) => <IndexEntry til={p} />))}
       </ul>
     </div>
   </div>
