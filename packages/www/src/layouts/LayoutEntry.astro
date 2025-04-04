@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, render } from "astro:content";
+import { type CollectionEntry } from "astro:content";
 import Layout from "../layouts/LayoutBase.astro";
 import HeroImage from "../components/PostImageHero.astro";
 import * as datefns from "date-fns";
@@ -12,9 +12,6 @@ interface Props {
 }
 
 const { kind, data } = Astro.props;
-
-console.log(Astro.props);
-
 let postsData = data as CollectionEntry<"posts">;
 let tilData = data as CollectionEntry<"til">;
 let url = `/${kind}/${data.slug}`;
@@ -25,7 +22,7 @@ let url = `/${kind}/${data.slug}`;
     <article>
       {
         kind === "posts" && postsData.data.featuredImage ? (
-          <HeroImage slug={data.slug} data={postsData} />
+          <HeroImage slug={data.slug} data={postsData.data} />
         ) : null
       }
 
