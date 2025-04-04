@@ -17,7 +17,7 @@ let tilData = data as CollectionEntry<"til">;
 let url = `/${kind}/${data.slug}`;
 ---
 
-<Layout title="Yanglin Zhao" description={"ff"}>
+<Layout title="Yanglin Zhao" description={data.data.description}>
   <main>
     <article>
       {
@@ -38,13 +38,9 @@ let url = `/${kind}/${data.slug}`;
         </div>
       </div>
 
-      {
-        kind === "posts" ? (
-          <div class="post-content">
-            <slot />
-          </div>
-        ) : null
-      }
+      <div class="post-content">
+        <slot />
+      </div>
     </article>
   </main>
 </Layout>
