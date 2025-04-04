@@ -1,8 +1,6 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
-import Layout from "../../layouts/LayoutBase.astro";
-import HeroImage from "../../components/PostImageHero.astro";
-import * as datefns from "date-fns";
+import LayoutEntry from "../../layouts/LayoutEntry.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -16,32 +14,10 @@ export async function getStaticPaths() {
 
 type Props = CollectionEntry<"posts">;
 
-// TODO: Fix typecheck error
 const { data, slug } = Astro.props;
 const { Content } = await render(Astro.props);
-const url = `/posts/${slug}`;
 ---
 
-<Layout title={`Yanglin Zhao | ${data.title}`} description={data.description}>
-  <main>
-    <article>
-      {data.featuredImage ? <HeroImage slug={slug} data={data} /> : null}
-
-      <div class="l-8-12 l-pad border-b border-gray-150 mb-8 lg:mb-10">
-        <div class="py-10 lg:py-14">
-          <h1 class="m-0 text-center text-4xl font-bold leading-tight">
-            <a href={url}>{data.title}</a>
-          </h1>
-
-          <p class="pt-4 text-center text-gray-400 font-mono text-sm">
-            <time>{datefns.format(data.date, "MM/dd/yyyy")}</time>
-          </p>
-        </div>
-      </div>
-
-      <div class="post-content">
-        <Content mdocContext={{ slug, data }} />
-      </div>
-    </article>
-  </main>
-</Layout>
+<LayoutEntry kind="posts" data={Astro.props}>
+  <Content mdocContext={{ slug, data }} />
+</LayoutEntry>
