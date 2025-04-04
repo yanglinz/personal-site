@@ -1,0 +1,29 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "../layouts/LayoutBase.astro";
+import IndexIntro from "../components/IndexIntro.astro";
+import IndexEntryList from "../components/IndexEntryList.astro";
+
+function getSorted(
+  entries: CollectionEntry<"posts">[] | CollectionEntry<"til">[],
+) {
+  return entries.sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
+}
+
+let allPosts = await getCollection("posts");
+allPosts = getSorted(allPosts);
+let allTil = await getCollection("til");
+allTil = getSorted(allTil);
+
+// TODO: Sync description
+const description =
+  "I'm a software engineer and I make things that run in browsers. Come check out my thoughts on programming and technology.";
+---
+
+<Layout title="Yanglin Zhao" description={description}>
+  <main>
+    <IndexIntro />
+    <IndexEntryList posts={allPosts} />
+    <IndexEntryList til={allTil} />
+  </main>
+</Layout>
