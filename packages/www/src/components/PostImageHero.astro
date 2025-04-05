@@ -3,8 +3,8 @@ import type { CollectionEntry } from "astro:content";
 import { imageMarkup, getFeaturedImagePath } from "../lib/image";
 
 interface Props {
-  slug: string;
-  data: CollectionEntry<"posts">;
+  id: string;
+  post: CollectionEntry<"posts">;
 }
 
 interface Frontmatter {
@@ -15,9 +15,9 @@ interface Frontmatter {
   featuredImageAuthor: string;
 }
 
-const { slug, data } = Astro.props;
-const frontmatter = data as any as Frontmatter;
-const src = await getFeaturedImagePath(slug, data);
+const { id, post } = Astro.props;
+const frontmatter = post as any as Frontmatter;
+const src = await getFeaturedImagePath(id, post);
 const imageHtml = await imageMarkup(src, frontmatter.featuredImageAlt);
 ---
 

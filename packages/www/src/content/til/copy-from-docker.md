@@ -1,6 +1,5 @@
 ---
 title: Copy a file or directory from a Docker image
-slug: copy-from-docker-image
 date: 2025-03-17
 ---
 

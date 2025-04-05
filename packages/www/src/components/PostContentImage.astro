@@ -3,10 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import { imageMarkup, getPostImagePath } from "../lib/image";
 
 interface Props {
-  mdocContext: {
-    slug: string;
-    data: CollectionEntry<"posts">;
-  };
+  mdocContext: CollectionEntry<"posts">;
   path: string;
   alt: string;
 }
