@@ -4,6 +4,10 @@ import { type CollectionEntry } from "astro:content";
 import { getGlobalConfig, getId } from "./astro";
 
 export async function getFeaturedImagePath(id: string, post: CollectionEntry<"posts">) {
+  if (!post.data.featuredImage) {
+    throw new Error(`Expected a valid featuredImage for ${post.id}`);
+  }
+
   const config = await getGlobalConfig();
   return path.resolve(
     config.rootPath,

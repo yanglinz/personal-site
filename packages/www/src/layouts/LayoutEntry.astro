@@ -16,9 +16,12 @@ interface Props {
 const { kind, data } = Astro.props;
 let postsData = data as CollectionEntry<"posts">;
 let url = `/${kind}/${getId(data)}`;
+
+// TODO: Implement fallback description for SEO
+let description = postsData.data.description || "";
 ---
 
-<Layout title="Yanglin Zhao" description={data.data.description}>
+<Layout title="Yanglin Zhao" description={description}>
   <main>
     <article>
       {

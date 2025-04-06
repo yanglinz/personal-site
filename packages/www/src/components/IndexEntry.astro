@@ -33,7 +33,7 @@ const entryDate = post?.data?.date || til?.data?.date;
 
   <p class="flex-initial">
     <a href={entryUrl} class="text-gray-400 font-mono text-xs md:text-sm">
-      <time>{datefns.format(entryDate, "MM/dd/yyyy")}</time>
+      <time>{entryDate && datefns.format(entryDate, "MM/dd/yyyy")}</time>
     </a>
   </p>
 </li>
