@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import * as datefns from "date-fns";
+import { getId } from "../lib/astro";
 
 interface Props {
   post?: CollectionEntry<"posts">;
@@ -8,7 +9,15 @@ interface Props {
 }
 
 const { post, til } = Astro.props;
-const entryUrl = !!post ? `/posts/${post.slug}` : `/til/${til.slug}`;
+
+let entryUrl = "/404";
+if (post) {
+  entryUrl = `/posts/${getId(post)}`;
+}
+if (til) {
+  entryUrl = `/til/${getId(til)}`;
+}
+
 const entryTitle = post?.data?.title || til?.data?.title;
 const entryDate = post?.data?.date || til?.data?.date;
 ---
@@ -24,7 +33,7 @@ const entryDate = post?.data?.date || til?.data?.date;
 
   <p class="flex-initial">
     <a href={entryUrl} class="text-gray-400 font-mono text-xs md:text-sm">
-      <time>{datefns.format(entryDate, "MM/dd/yyyy")}</time>
+      <time>{entryDate && datefns.format(entryDate, "MM/dd/yyyy")}</time>
     </a>
   </p>
 </li>

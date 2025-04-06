@@ -4,16 +4,16 @@ import Layout from "../layouts/LayoutBase.astro";
 import IndexIntro from "../components/IndexIntro.astro";
 import IndexEntryList from "../components/IndexEntryList.astro";
 
-function getSorted(
-  entries: CollectionEntry<"posts">[] | CollectionEntry<"til">[],
-) {
+type EntryList = CollectionEntry<"posts">[] | CollectionEntry<"til">[];
+
+function getSorted(entries: EntryList): EntryList {
   return entries.sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
 }
 
 let allPosts = await getCollection("posts");
-allPosts = getSorted(allPosts);
+allPosts = getSorted(allPosts) as CollectionEntry<"posts">[];
 let allTil = await getCollection("til");
-allTil = getSorted(allTil);
+allTil = getSorted(allTil) as CollectionEntry<"til">[];
 
 // TODO: Sync description
 const description =

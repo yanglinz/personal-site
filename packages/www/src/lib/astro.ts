@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import * as url from "node:url";
+import { type CollectionEntry } from "astro:content";
 
 async function exists(filePath: string) {
   try {
@@ -11,9 +12,19 @@ async function exists(filePath: string) {
   }
 }
 
+export function getId(
+  entry: CollectionEntry<"posts"> | CollectionEntry<"til">,
+): string {
+  let entryId = (entry as any).slug || entry.id;
+  if (!entryId) {
+    throw new Error(`Expected 'slug' to be a property for entry ${entry.id}`);
+  }
+  return entryId;
+}
+
 // Helper to get the root path of the Astro project
-async function getRootPath() {
-  async function isRootPath(searchPath: string) {
+async function getRootPath(): Promise<string> {
+  async function isRootPath(searchPath: string): Promise<boolean> {
     // Make sure path is a directory
     try {
       const stats = await fs.lstat(searchPath);
@@ -33,6 +44,8 @@ async function getRootPath() {
       return searchPath;
     }
   }
+
+  throw new Error("Failed to determine root path");
 }
 
 export async function getGlobalConfig() {
