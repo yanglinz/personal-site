@@ -1,13 +1,13 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import LayoutEntry from "../../layouts/LayoutEntry.astro";
-import { getId } from '../../lib/astro';
+import { getId } from "../../lib/astro";
 
 export async function getStaticPaths() {
   const tils = await getCollection("til");
   return tils.map((til) => {
     return {
-      params: { id: getId(til)},
+      params: { id: getId(til) },
       props: til,
     };
   });

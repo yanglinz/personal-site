@@ -6,9 +6,7 @@ import IndexEntryList from "../components/IndexEntryList.astro";
 
 type EntryList = CollectionEntry<"posts">[] | CollectionEntry<"til">[];
 
-function getSorted(
-  entries: EntryList,
-): EntryList {
+function getSorted(entries: EntryList): EntryList {
   return entries.sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
 }
 

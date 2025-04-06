@@ -1,5 +1,5 @@
 import { z, defineCollection } from "astro:content";
-import { glob } from 'astro/loaders';
+import { glob } from "astro/loaders";
 
 const postsCollection = defineCollection({
   loader: glob({ base: "./src/content/posts", pattern: "**/*.mdoc" }),
@@ -22,5 +22,5 @@ const tilCollection = defineCollection({
 
 export const collections = {
   posts: postsCollection,
-  til: tilCollection
+  til: tilCollection,
 };

@@ -12,7 +12,9 @@ async function exists(filePath: string) {
   }
 }
 
-export function getId(entry: CollectionEntry<"posts"> | CollectionEntry<"til">): string {
+export function getId(
+  entry: CollectionEntry<"posts"> | CollectionEntry<"til">,
+): string {
   let entryId = (entry as any).slug || entry.id;
   if (!entryId) {
     throw new Error(`Expected 'slug' to be a property for entry ${entry.id}`);
@@ -43,7 +45,7 @@ async function getRootPath(): Promise<string> {
     }
   }
 
-  throw new Error('Failed to determine root path');
+  throw new Error("Failed to determine root path");
 }
 
 export async function getGlobalConfig() {

@@ -3,7 +3,10 @@ import EleventyImage from "@11ty/eleventy-img";
 import { type CollectionEntry } from "astro:content";
 import { getGlobalConfig, getId } from "./astro";
 
-export async function getFeaturedImagePath(id: string, post: CollectionEntry<"posts">) {
+export async function getFeaturedImagePath(
+  id: string,
+  post: CollectionEntry<"posts">,
+) {
   if (!post.data.featuredImage) {
     throw new Error(`Expected a valid featuredImage for ${post.id}`);
   }
@@ -17,9 +20,17 @@ export async function getFeaturedImagePath(id: string, post: CollectionEntry<"po
   );
 }
 
-export async function getPostImagePath(mdocContext: CollectionEntry<"posts">, relativeSrc: string) {
+export async function getPostImagePath(
+  mdocContext: CollectionEntry<"posts">,
+  relativeSrc: string,
+) {
   const config = await getGlobalConfig();
-  return path.resolve(config.rootPath, "src/content/posts", getId(mdocContext), relativeSrc);
+  return path.resolve(
+    config.rootPath,
+    "src/content/posts",
+    getId(mdocContext),
+    relativeSrc,
+  );
 }
 
 export async function imageMarkup(src: string, alt: string) {
@@ -34,7 +45,7 @@ export async function imageMarkup(src: string, alt: string) {
   });
 
   if (!metadata) {
-    throw new Error('Failed to generate image metadata');
+    throw new Error("Failed to generate image metadata");
   }
 
   // @ts-ignore
