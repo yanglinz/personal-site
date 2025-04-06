@@ -12,8 +12,8 @@ async function exists(filePath: string) {
   }
 }
 
-export function getId(entry: CollectionEntry<"posts"> | CollectionEntry<"til">): string {
-  let entryId = (entry as any).slug;
+export function getId(entry: any): string {
+  let entryId = (entry as any).slug || entry.id;
   if (!entryId) {
     throw new Error(`Expected 'slug' to be a property for entry ${entry.id}`);
   }

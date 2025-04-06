@@ -4,9 +4,6 @@ import { type CollectionEntry } from "astro:content";
 import { getGlobalConfig, getId } from "./astro";
 
 export async function getFeaturedImagePath(id: string, post: CollectionEntry<"posts">) {
-  console.log('id', id);
-  console.log('post', post);
-
   const config = await getGlobalConfig();
   return path.resolve(
     config.rootPath,
