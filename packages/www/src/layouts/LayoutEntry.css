@@ -36,7 +36,7 @@
 }
 
 .entry-content {
-  @apply text-gray-800 leading-8;
+  @apply pt-6 text-gray-800 leading-8;
 }
 
 .entry-content > p {
@@ -45,6 +45,33 @@
 
 .entry-content > blockquote {
   @apply my-3 pl-6 border-l-8 border-gray-100;
+}
+
+.entry-content > h1,
+.entry-content > h2,
+.entry-content > h3,
+.entry-content > h4,
+.entry-content > h5,
+.entry-content > h6 {
+  @apply pb-3 pt-4 text-gray-800 font-bold;
+}
+
+.entry-content > h1 {
+  @apply text-3xl;
+}
+
+.entry-content > h2 {
+  @apply text-2xl;
+}
+
+.entry-content > h3,
+.entry-content > h4 {
+  @apply text-xl;
+}
+
+.entry-content > h5,
+.entry-content > h6 {
+  @apply text-lg;
 }
 
 .entry-content a {
