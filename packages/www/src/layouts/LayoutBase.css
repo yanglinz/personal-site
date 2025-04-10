@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* See https://tailwindcss.com/docs/upgrade-guide#default-border-color */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
 /* layout */
 
 .l-pad {
