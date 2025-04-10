@@ -43,6 +43,10 @@
   @apply py-3 text-gray-800 text-lg leading-8;
 }
 
+.entry-content > blockquote {
+  @apply my-3 pl-6 border-l-8 border-gray-100;
+}
+
 .entry-content a {
   color: #84cc16;
 }
