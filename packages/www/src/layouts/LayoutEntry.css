@@ -35,14 +35,16 @@
   margin-right: none;
 }
 
-/* posts styles */
+.entry-content {
+  @apply text-gray-800 leading-8;
+}
+
+.entry-content > p {
+  @apply py-3 text-gray-800 text-lg leading-8;
+}
 
 .entry-content a {
   color: #84cc16;
-}
-
-.entry-content {
-  @apply text-gray-800 leading-8;
 }
 
 .entry-content ul,
