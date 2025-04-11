@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+/* See https://tailwindcss.com/docs/upgrade-guide#default-border-color */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+/* post layout */
+
+.entry-content > * {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .entry-content > * {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 660px;
+  }
+}
+
+.entry-content > .full-width {
+  width: 100%;
+  max-width: none;
+  margin-left: none;
+  margin-right: none;
+}
+
+.entry-content {
+  @apply pt-6 text-gray-800 leading-8;
+}
+
+.entry-content > p {
+  @apply py-3 text-gray-800 text-lg leading-8;
+}
+
+.entry-content > blockquote {
+  @apply my-3 pl-6 border-l-8 border-gray-100;
+}
+
+.entry-content > h1,
+.entry-content > h2,
+.entry-content > h3,
+.entry-content > h4,
+.entry-content > h5,
+.entry-content > h6 {
+  @apply pb-3 pt-4 text-gray-800 font-bold;
+}
+
+.entry-content > h1 {
+  @apply text-3xl;
+}
+
+.entry-content > h2 {
+  @apply text-2xl;
+}
+
+.entry-content > h3,
+.entry-content > h4 {
+  @apply text-xl;
+}
+
+.entry-content > h5,
+.entry-content > h6 {
+  @apply text-lg;
+}
+
+.entry-content a {
+  color: #84cc16;
+}
+
+.entry-content ul,
+.entry-content ol {
+  @apply pl-7 py-2 text-lg;
+}
+
+.entry-content li {
+  list-style: square;
+  @apply py-1;
+}
+
+.entry-content .astro-code {
+  @apply my-3 px-5 py-4;
+}
+
+.entry-content pre {
+  overflow-x: scroll;
+}

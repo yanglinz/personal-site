@@ -6,6 +6,8 @@ import { getId } from "../lib/astro";
 import Layout from "../layouts/LayoutBase.astro";
 import HeroImage from "../components/PostImageHero.astro";
 
+import "./LayoutEntry.css";
+
 type EntryKind = "posts" | "til";
 
 interface Props {
@@ -42,7 +44,7 @@ let description = postsData.data.description || "";
         </div>
       </div>
 
-      <div class="post-content">
+      <div class="entry-content">
         <slot />
       </div>
     </article>

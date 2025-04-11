@@ -8,7 +8,9 @@
   ],
   "scripts": {
     "format": "prettier --write $(./bin/format-list.sh)",
-    "format:check": "prettier --check $(./bin/format-list.sh)"
+    "format:check": "prettier --check $(./bin/format-list.sh)",
+    "dev": "pnpm run --filter www dev",
+    "build": "pnpm run --filter www build"
   },
   "devDependencies": {
     "prettier": "^3.5.3",

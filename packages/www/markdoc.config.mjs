@@ -13,22 +13,10 @@ export default defineMarkdocConfig({
     }),
   ],
   nodes: {
-    blockquote: {
-      ...nodes.blockquote,
-      render: component("./src/components/PostContentBlockquote.astro"),
-    },
     document: {
       ...nodes.document,
       // Don't wrap the output of markdoc posts with <article> tag
       render: null,
-    },
-    heading: {
-      ...nodes.heading,
-      render: component("./src/components/PostContentHeading.astro"),
-    },
-    paragraph: {
-      ...nodes.paragraph,
-      render: component("./src/components/PostContentParagraph.astro"),
     },
   },
   tags: {
