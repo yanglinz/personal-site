@@ -15,7 +15,6 @@ async function getAllPosts() {
 async function exportPost(post) {
   // TODO: Convert to markdown
   let content = await fsp.readFile(path.resolve(post.path, "index.mdoc"));
-
   let formatted = await prettier.format(String(content), {
     parser: "markdown",
     proseWrap: "never",

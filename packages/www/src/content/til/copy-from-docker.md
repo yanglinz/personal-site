@@ -1,6 +1,9 @@
 ---
 title: Copy a file or directory from a Docker image
 date: 2025-03-17
+description:
+  A short guide on how to copy files or directories from within a Docker image
+  to the host.
 ---
 
 Recently I needed to copy some files from a Docker image to trouble shoot some
