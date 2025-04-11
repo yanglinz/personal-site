@@ -22,18 +22,27 @@ const entryTitle = post?.data?.title || til?.data?.title;
 const entryDate = post?.data?.date || til?.data?.date;
 ---
 
-<li
-  class="border-gray-150 border-b py-3 md:flex md:items-center md:justify-between md:py-4 lg:py-6"
->
-  <h3 class="flex-1 pr-5">
-    <a href={entryUrl} class="text-lg font-bold lg:text-3xl">
-      {entryTitle}
-    </a>
-  </h3>
+<li>
+  <div
+    class="u-l-contain py-5 md:grid md:grid-cols-12 md:gap-4 border-t border-stone-200"
+  >
+    <div class="md:col-span-2">
+      <p class="">
+        <a
+          href={entryUrl}
+          class="u-f-mono text-stone-400 tracking-wide text-sm uppercase"
+        >
+          <time>{entryDate && datefns.format(entryDate, "MM/dd/yyyy")}</time>
+        </a>
+      </p>
+    </div>
 
-  <p class="flex-initial">
-    <a href={entryUrl} class="text-gray-400 font-mono text-xs md:text-sm">
-      <time>{entryDate && datefns.format(entryDate, "MM/dd/yyyy")}</time>
-    </a>
-  </p>
+    <div class="col-span-8">
+      <h3 class="">
+        <a href={entryUrl} class="text-lg">
+          {entryTitle}
+        </a>
+      </h3>
+    </div>
+  </div>
 </li>
