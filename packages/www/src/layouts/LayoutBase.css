@@ -66,6 +66,6 @@
 /* https://tailwindcss.com/docs/screens */
 @media (min-width: 768px) {
   .u-l-contain {
-    max-width: 1340px;
+    max-width: 980px;
   }
 }
