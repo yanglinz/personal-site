@@ -1,0 +1,13 @@
+---
+interface Props {
+  title: string;
+}
+
+let { title } = Astro.props;
+---
+
+<div>
+  <h2 class="u-f-serif mb-2 text-stone-900 font-bold text-xl">
+    {title}
+  </h2>
+</div>

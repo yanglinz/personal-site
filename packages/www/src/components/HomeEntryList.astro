@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import HomeEntry from "./HomeEntry.astro";
+import HomeSectionTitle from "./HomeSectionTitle.astro";
 
 interface Props {
   posts?: CollectionEntry<"posts">[];
@@ -13,9 +14,7 @@ const sectionTitle = kind === "post" ? "Blog Posts" : "TIL";
 ---
 
 <div class="l-6-12 l-pad">
-  <h2 class="u-f-serif mb-2 text-stone-900 font-bold text-xl">
-    {sectionTitle}
-  </h2>
+  <HomeSectionTitle title={sectionTitle} />
 
   <ul>
     {posts && posts.map((p) => <HomeEntry post={p} />)}
