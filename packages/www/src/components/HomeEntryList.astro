@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import IndexEntry from "./IndexEntry.astro";
+import HomeEntry from "./HomeEntry.astro";
 
 interface Props {
   posts?: CollectionEntry<"posts">[];
@@ -20,8 +20,8 @@ const sectionTitle = kind === "post" ? "Blog Posts" : "TIL";
       </h2>
 
       <ul>
-        {posts && posts.map((p) => <IndexEntry post={p} />)}
-        {til && til.map((p) => <IndexEntry til={p} />)}
+        {posts && posts.map((p) => <HomeEntry post={p} />)}
+        {til && til.map((p) => <HomeEntry til={p} />)}
       </ul>
     </div>
   </div>
