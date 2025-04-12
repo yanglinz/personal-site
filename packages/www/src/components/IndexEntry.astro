@@ -28,21 +28,18 @@ const entryDate = post?.data?.date || til?.data?.date;
   >
     <div class="md:col-span-2">
       <p class="">
-        <a
-          href={entryUrl}
-          class="u-f-mono text-stone-400 tracking-wide text-sm uppercase"
-        >
+        <a href={entryUrl} class="u-f-mono tracking-wide text-sm uppercase">
           <time>{entryDate && datefns.format(entryDate, "MM/dd/yyyy")}</time>
         </a>
       </p>
     </div>
 
     <div class="col-span-8">
-      <h3 class="">
-        <a href={entryUrl} class="text-lg">
+      <a href={entryUrl} class="text-lg">
+        <h3>
           {entryTitle}
-        </a>
-      </h3>
+        </h3>
+      </a>
     </div>
   </div>
 </li>
