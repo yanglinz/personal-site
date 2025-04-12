@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from "astro:content";
+import HomeEntry from "./HomeEntry.astro";
+import HomeSectionTitle from "./HomeSectionTitle.astro";
+
+interface Props {
+  posts?: CollectionEntry<"posts">[];
+  til?: CollectionEntry<"til">[];
+}
+
+const { posts, til } = Astro.props;
+const kind = !!posts ? "post" : "til";
+const sectionTitle = kind === "post" ? "Blog Posts" : "TIL";
+---
+
+<div class="l-6-12 l-pad">
+  <HomeSectionTitle title={sectionTitle} />
+
+  <ul>
+    {posts && posts.map((p) => <HomeEntry post={p} />)}
+    {til && til.map((p) => <HomeEntry til={p} />)}
+  </ul>
+</div>
