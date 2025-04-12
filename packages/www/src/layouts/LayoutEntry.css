@@ -75,7 +75,9 @@
 }
 
 .entry-content a {
-  color: #84cc16;
+  padding-bottom: 2px;
+  font-weight: bold;
+  border-bottom: 1px solid #84cc16;
 }
 
 .entry-content ul,
