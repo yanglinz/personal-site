@@ -27,16 +27,16 @@ const entryDate = post?.data?.date || til?.data?.date;
     class="u-l-contain py-5 md:grid md:grid-cols-12 md:gap-4 border-t border-stone-200"
   >
     <div class="md:col-span-2">
-      <p class="">
-        <a href={entryUrl} class="u-f-mono tracking-wide text-sm uppercase">
+      <p>
+        <a href={entryUrl} class="u-f-serif italic text-stone-500 text-sm">
           <time>{entryDate && datefns.format(entryDate, "MM/dd/yyyy")}</time>
         </a>
       </p>
     </div>
 
     <div class="col-span-8">
-      <a href={entryUrl} class="text-lg">
-        <h3>
+      <a href={entryUrl}>
+        <h3 class="text-lg font-bold2">
           {entryTitle}
         </h3>
       </a>

@@ -14,11 +14,13 @@ const kind = !!posts ? "post" : "til";
 const sectionTitle = kind === "post" ? "Blog Posts" : "TIL";
 ---
 
-<SpacerVertical />
+<div>
+  <SpacerVertical />
 
-<IndexSectionTitle title={sectionTitle} />
+  <IndexSectionTitle title={sectionTitle} />
 
-<ul>
-  {posts && posts.map((p) => <IndexEntry post={p} />)}
-  {til && til.map((p) => <IndexEntry til={p} />)}
-</ul>
+  <ul>
+    {posts && posts.map((p) => <IndexEntry post={p} />)}
+    {til && til.map((p) => <IndexEntry til={p} />)}
+  </ul>
+</div>

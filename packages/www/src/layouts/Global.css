@@ -26,13 +26,38 @@ html {
 /* fonts */
 
 body {
-  font-family: "Source Serif 4", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-weight: 375;
-  font-style: normal;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    avenir next,
+    avenir,
+    segoe ui,
+    helvetica neue,
+    Cantarell,
+    Ubuntu,
+    roboto,
+    noto,
+    helvetica,
+    arial,
+    sans-serif;
   font-size: 16px;
+  font-optical-sizing: auto;
   text-rendering: optimizeLegibility;
+}
+
+.u-f-serif {
+  font-family:
+    Iowan Old Style,
+    Apple Garamond,
+    Baskerville,
+    Times New Roman,
+    Droid Serif,
+    Times,
+    Source Serif Pro,
+    serif,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol;
 }
 
 .u-f-mono {
