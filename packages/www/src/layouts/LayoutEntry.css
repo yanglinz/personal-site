@@ -36,11 +36,11 @@
 }
 
 .entry-content {
-  @apply pt-6 text-gray-800 leading-8;
+  @apply pt-6 text-gray-800 text-lg leading-8;
 }
 
 .entry-content > p {
-  @apply py-3 text-gray-800 text-lg leading-8;
+  @apply py-3 text-gray-800 leading-8;
 }
 
 .entry-content > blockquote {
@@ -57,11 +57,11 @@
 }
 
 .entry-content > h1 {
-  @apply text-3xl;
+  @apply text-2xl;
 }
 
 .entry-content > h2 {
-  @apply text-2xl;
+  @apply text-xl;
 }
 
 .entry-content > h3,
@@ -75,12 +75,14 @@
 }
 
 .entry-content a {
-  color: #84cc16;
+  padding-bottom: 2px;
+  font-weight: bold;
+  border-bottom: 1px solid #84cc16;
 }
 
 .entry-content ul,
 .entry-content ol {
-  @apply pl-7 py-2 text-lg;
+  @apply pl-10 py-2;
 }
 
 .entry-content li {
@@ -89,7 +91,7 @@
 }
 
 .entry-content .astro-code {
-  @apply my-3 px-5 py-4;
+  @apply my-3 px-5 py-4 text-base;
 }
 
 .entry-content pre {
