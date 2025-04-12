@@ -21,11 +21,9 @@ const src = await getFeaturedImagePath(id, post);
 const imageHtml = await imageMarkup(src, frontmatter.featuredImageAlt);
 ---
 
-<div class="l-12-12">
-  <figure>
-    <Fragment set:html={imageHtml} />
-  </figure>
-</div>
+<figure>
+  <Fragment set:html={imageHtml} />
+</figure>
 
 <div class="l-12-12">
   <div class="border border-stone-150 p-3 text-center text-stone-400 text-sm">
@@ -38,5 +36,3 @@ const imageHtml = await imageMarkup(src, frontmatter.featuredImageAlt);
     > on Unsplash.
   </div>
 </div>
-
-<div class="l-8-12 p-1 bg-green-400"></div>
