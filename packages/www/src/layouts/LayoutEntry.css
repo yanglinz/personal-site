@@ -57,11 +57,11 @@
 }
 
 .entry-content > h1 {
-  @apply text-3xl;
+  @apply text-2xl;
 }
 
 .entry-content > h2 {
-  @apply text-2xl;
+  @apply text-xl;
 }
 
 .entry-content > h3,
