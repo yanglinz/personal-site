@@ -3,6 +3,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "../layouts/LayoutBase.astro";
 import HomeIntro from "../components/HomeIntro.astro";
 import HomeEntryList from "../components/HomeEntryList.astro";
+import HomeDivider from "../components/HomeDivider.astro";
 
 type EntryList = CollectionEntry<"posts">[] | CollectionEntry<"til">[];
 
@@ -21,8 +22,12 @@ const description =
 
 <Layout title="Yanglin Zhao" description={description}>
   <main>
+    <HomeDivider />
     <HomeIntro />
+    <HomeDivider divider />
     <HomeEntryList posts={allPosts} />
+    <HomeDivider divider />
     <HomeEntryList til={allTil} />
+    <HomeDivider />
   </main>
 </Layout>
