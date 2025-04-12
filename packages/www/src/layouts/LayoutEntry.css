@@ -13,10 +13,6 @@
 
 /* post layout */
 
-.entry-content {
-  font-size: 18px;
-}
-
 .entry-content > * {
   padding-left: 20px;
   padding-right: 20px;
@@ -28,7 +24,7 @@
   .entry-content > * {
     padding-left: 0;
     padding-right: 0;
-    max-width: 660px;
+    max-width: 620px;
   }
 }
 
@@ -40,11 +36,11 @@
 }
 
 .entry-content {
-  @apply pt-6 text-gray-800 leading-8;
+  @apply pt-6 text-stone-800 leading-8;
 }
 
 .entry-content > p {
-  @apply py-3 text-gray-800 text-lg leading-8;
+  @apply py-3 text-stone-800 leading-8;
 }
 
 .entry-content > blockquote {
@@ -57,7 +53,7 @@
 .entry-content > h4,
 .entry-content > h5,
 .entry-content > h6 {
-  @apply pb-3 pt-4 text-gray-800 font-bold;
+  @apply pb-3 pt-4 text-gray-900;
 }
 
 .entry-content > h1 {
@@ -79,17 +75,17 @@
 }
 
 .entry-content a {
-  color: #84cc16;
+  border-bottom: 1px solid #999;
+  padding-bottom: 3px;
 }
 
 .entry-content ul,
 .entry-content ol {
-  @apply pl-7 py-2 text-lg;
+  @apply pl-5;
 }
 
 .entry-content li {
   list-style: square;
-  @apply py-1;
 }
 
 .entry-content .astro-code {
