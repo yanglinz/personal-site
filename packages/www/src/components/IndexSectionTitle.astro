@@ -1,0 +1,13 @@
+---
+interface Props {
+  title: string;
+}
+---
+
+<div class="u-l-contain md:grid md:grid-cols-12 md:gap-4">
+  <div class="col-start-3 col-span-8">
+    <h2 class="text-stone-700 pb-6 text-lg italic">
+      {Astro.props.title}
+    </h2>
+  </div>
+</div>

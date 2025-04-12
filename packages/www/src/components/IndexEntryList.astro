@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import IndexEntry from "./IndexEntry.astro";
 import SpacerVertical from "./SpacerVertical.astro";
+import IndexSectionTitle from "./IndexSectionTitle.astro";
 
 interface Props {
   posts?: CollectionEntry<"posts">[];
@@ -15,19 +16,9 @@ const sectionTitle = kind === "post" ? "Blog Posts" : "TIL";
 
 <SpacerVertical />
 
-<div>
-  <div class="border-stone-150">
-    <div class="u-l-contain md:grid md:grid-cols-12 md:gap-4">
-      <div class="md:col-start-3 md:col-span-8">
-        <h2 class="text-stone-700 pb-6 text-lg italic">
-          {sectionTitle}
-        </h2>
-      </div>
-    </div>
-  </div>
+<IndexSectionTitle title={sectionTitle} />
 
-  <ul>
-    {posts && posts.map((p) => <IndexEntry post={p} />)}
-    {til && til.map((p) => <IndexEntry til={p} />)}
-  </ul>
-</div>
+<ul>
+  {posts && posts.map((p) => <IndexEntry post={p} />)}
+  {til && til.map((p) => <IndexEntry til={p} />)}
+</ul>
