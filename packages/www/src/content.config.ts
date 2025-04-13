@@ -8,6 +8,7 @@ const postsCollection = defineCollection({
     description: z.string(),
     date: z.date(),
     published: z.boolean(),
+    design: z.string().optional(),
     featuredImage: z.string().optional(),
     featuredImageAlt: z.string().optional(),
     featuredImageAuthor: z.string().optional(),

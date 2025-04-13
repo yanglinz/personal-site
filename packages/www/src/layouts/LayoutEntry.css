@@ -13,6 +13,21 @@
 
 /* post layout */
 
+@media (min-width: 1440px) {
+  .entry-container {
+    max-width: 1420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .entry-container--has-border {
+    border-left: 1px solid oklch(0.928 0.006 264.531);
+    border-right: 1px solid oklch(0.928 0.006 264.531);
+    border-bottom: 1px solid oklch(0.928 0.006 264.531);
+    padding-bottom: 40px;
+  }
+}
+
 .entry-content > * {
   padding-left: 20px;
   padding-right: 20px;

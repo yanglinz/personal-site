@@ -19,13 +19,14 @@ interface Props {
 const { kind, data } = Astro.props;
 let postsData = data as CollectionEntry<"posts">;
 let url = `/${kind}/${getId(data)}`;
-let hasFeaturedImage = kind === "posts" && postsData.data.featuredImage;
+
+let hasBorder = (postsData.data.design || "").includes("border=true");
 ---
 
 <Layout title="Yanglin Zhao" description={data.data.description}>
   <main
-    class={hasFeaturedImage
-      ? "entry-container entry-container--with-featured-image"
+    class={hasBorder
+      ? "entry-container entry-container--has-border"
       : "entry-container"}
   >
     <article>
@@ -36,7 +37,7 @@ let hasFeaturedImage = kind === "posts" && postsData.data.featuredImage;
       />
 
       {
-        hasFeaturedImage ? (
+        kind === "posts" && postsData.data.featuredImage ? (
           <EntryHeroImage id={getId(data)} post={postsData} />
         ) : null
       }
