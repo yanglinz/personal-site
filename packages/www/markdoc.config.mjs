@@ -21,7 +21,7 @@ export default defineMarkdocConfig({
   },
   tags: {
     optimizedImage: {
-      render: component("./src/components/PostContentImage.astro"),
+      render: component("./src/components/EntryContentImage.astro"),
       attributes: {
         // Markdoc requires type defs for each attribute.
         // These should mirror the `Props` type of the component

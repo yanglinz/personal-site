@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { imageMarkup, getFeaturedImagePath } from "../lib/image";
+
+interface Props {
+  id: string;
+  post: CollectionEntry<"posts">;
+}
+
+const { id, post } = Astro.props;
+const alt = post.data.featuredImageAlt || "";
+const author = post.data.featuredImageAuthor;
+const source = post.data.featuredImageSource;
+const sourceUrl = post.data.featuredImageUrl;
+
+const src = await getFeaturedImagePath(id, post);
+const imageHtml = await imageMarkup(src, alt);
+---
+
+<figure>
+  <Fragment set:html={imageHtml} />
+</figure>
+
+<div class="l-12-12">
+  <div class="p-3 text-center text-stone-400 text-sm">
+    Photo of
+    {/* prettier-ignore */}
+    <span class="italic"> '{alt}' </span>
+    by
+    {/* prettier-ignore */}
+    <a class="text-stone-600" href={sourceUrl}>{author}</a>
+    on
+    {/* prettier-ignore */}
+    <a class="text-stone-600" href={sourceUrl}>{source}</a>.
+  </div>
+</div>
