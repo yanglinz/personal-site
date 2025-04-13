@@ -13,9 +13,9 @@
 
 /* post layout */
 
-@media (min-width: 1440px) {
+@media (min-width: 1536px) {
   .entry-container {
-    max-width: 1420px;
+    max-width: 1530px;
     margin-left: auto;
     margin-right: auto;
   }
