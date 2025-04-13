@@ -8,10 +8,13 @@ interface Props {
 }
 
 const { id, post } = Astro.props;
+const alt = post.data.featuredImageAlt || "";
+const author = post.data.featuredImageAuthor;
+const source = post.data.featuredImageSource;
+const sourceUrl = post.data.featuredImageUrl;
 
-const frontmatter = post.data;
 const src = await getFeaturedImagePath(id, post);
-const imageHtml = await imageMarkup(src, frontmatter.featuredImageAlt || "");
+const imageHtml = await imageMarkup(src, alt);
 ---
 
 <figure>
@@ -21,12 +24,13 @@ const imageHtml = await imageMarkup(src, frontmatter.featuredImageAlt || "");
 <div class="l-12-12">
   <div class="p-3 text-center text-stone-400 text-sm">
     Photo of
-    <span class="italic">
-      '{frontmatter.featuredImageAlt}'
-    </span>
-    by <a class="text-stone-600" href={frontmatter.featuredImageUrl}
-      >{frontmatter.featuredImageAuthor}</a
-    > on <a class="text-stone-600" href={frontmatter.featuredImageUrl}
-    >Unsplash</a>.
+    {/* prettier-ignore */}
+    <span class="italic"> '{alt}' </span>
+    by
+    {/* prettier-ignore */}
+    <a class="text-stone-600" href={sourceUrl}>{author}</a>
+    on
+    {/* prettier-ignore */}
+    <a class="text-stone-600" href={sourceUrl}>{source}</a>.
   </div>
 </div>
