@@ -44,23 +44,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-.u-f-sans {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    avenir next,
-    avenir,
-    segoe ui,
-    helvetica neue,
-    helvetica,
-    Cantarell,
-    Ubuntu,
-    roboto,
-    noto,
-    arial,
-    sans-serif;
-}
-
 .u-f-serif {
   font-family:
     Iowan Old Style,
