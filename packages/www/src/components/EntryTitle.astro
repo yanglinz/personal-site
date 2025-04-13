@@ -10,11 +10,11 @@ let { title, url, date } = Astro.props;
 
 <div class="l-8-12 l-pad border-b border-gray-150 mb-8 lg:mb-10">
   <div class="py-10 lg:py-14">
-    <h1 class="m-0 text-xl lg:text-2xl lg:text-center font-bold leading-tight">
+    <h1 class="m-0 text-xl lg:text-2xl md:text-center font-bold leading-tight">
       <a href={url}>{title}</a>
     </h1>
 
-    <p class="pt-4 lg:text-center text-gray-400 font-mono text-sm">
+    <p class="pt-4 md:text-center text-gray-400 font-mono text-sm">
       <time>{date}</time>
     </p>
   </div>
