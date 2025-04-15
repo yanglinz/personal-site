@@ -44,27 +44,30 @@ export async function imageMarkup(src: string, alt: string) {
     urlPath: "/img/",
   });
 
-  if (!metadata) {
+  if (!metadata || !metadata.jpeg) {
     throw new Error("Failed to generate image metadata");
   }
 
-  // @ts-ignore
-  let lowsrc = metadata.jpeg[0];
-  // @ts-ignore
-  let highsrc = metadata.jpeg[metadata.jpeg.length - 1];
-
   const sources = Object.values(metadata)
     .map((imageFormat) => {
-      // @ts-ignore
-      const type = imageFormat[0].sourceType;
+      const formatMetadata = imageFormat[0];
+      if (!formatMetadata) {
+        return "";
+      }
+
+      const type = formatMetadata.sourceType;
       const srcset = imageFormat.map((entry) => entry.srcset).join(", ");
       return `<source type="${type}" srcset="${srcset}" sizes="${sizes}">`;
     })
     .join("\n");
 
-  // @ts-ignore
+  let lowsrc = metadata.jpeg[0];
+  let highsrc = metadata.jpeg[metadata.jpeg.length - 1];
+  if (!lowsrc || !highsrc) {
+    throw new Error("Failed generate image metadata");
+  }
+
   let imgSrc = lowsrc.url;
-  // @ts-ignore
   return `<div class="s-image" style="aspect-ratio: ${highsrc.width} / ${highsrc.height}">
     <picture>
       ${sources}
