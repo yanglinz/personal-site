@@ -55,6 +55,8 @@
 }
 
 .entry-content > p {
+  /* fix for long inline codeblocks causing layout issues */
+  overflow-x: scroll;
   @apply py-3 text-gray-800 leading-8;
 }
 
