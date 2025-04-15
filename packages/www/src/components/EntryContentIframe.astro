@@ -1,0 +1,15 @@
+---
+interface Props {
+  src: string;
+  height: string;
+}
+
+const { src, height } = Astro.props;
+---
+
+<div class="full-width border-stone-100 border-b border-t my-6">
+  <div class="py-12 md:px-6">
+    <iframe src={src} width="100%" height={height}>
+    </iframe>
+  </div>
+</div>
