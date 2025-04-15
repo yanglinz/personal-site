@@ -25,6 +25,7 @@ export default defineMarkdocConfig({
       attributes: {
         src: { type: String },
         height: { type: String },
+        design: { type: String },
       },
     },
     optimizedImage: {
