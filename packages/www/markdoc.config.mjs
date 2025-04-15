@@ -20,14 +20,17 @@ export default defineMarkdocConfig({
     },
   },
   tags: {
+    iframe: {
+      render: component("./src/components/EntryContentIframe.astro"),
+      attributes: {
+        src: { type: String },
+        height: { type: String },
+        design: { type: String },
+      },
+    },
     optimizedImage: {
       render: component("./src/components/EntryContentImage.astro"),
       attributes: {
-        // Markdoc requires type defs for each attribute.
-        // These should mirror the `Props` type of the component
-        // you are rendering.
-        // See Markdoc's documentation on defining attributes
-        // https://markdoc.dev/docs/attributes#defining-attributes
         mdocContext: { type: Object },
         path: { type: String },
         alt: { type: String },

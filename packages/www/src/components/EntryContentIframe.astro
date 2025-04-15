@@ -1,0 +1,24 @@
+---
+interface Props {
+  src: string;
+  height: string;
+  design?: string;
+}
+
+const { src, height, design } = Astro.props;
+const withPadding = (design || "").includes("padding=true");
+---
+
+{
+  withPadding ? (
+    <div class="full-width border-stone-100 border-b border-t my-6">
+      <div class="py-12 md:px-6">
+        <iframe src={src} width="100%" height={height} />
+      </div>
+    </div>
+  ) : (
+    <div class="full-width border-stone-100 border-b border-t my-6">
+      <iframe src={src} width="100%" height={height} />
+    </div>
+  )
+}

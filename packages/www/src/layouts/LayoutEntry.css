@@ -46,6 +46,8 @@
 .entry-content > .full-width {
   width: 100%;
   max-width: none;
+  padding-left: 0;
+  padding-right: 0;
   margin-left: none;
   margin-right: none;
 }
