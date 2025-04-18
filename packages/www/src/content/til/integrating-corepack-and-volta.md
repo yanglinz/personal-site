@@ -9,7 +9,7 @@ of Node.js. While it's lesser known than say
 [`nvm`](https://github.com/nvm-sh/nvm), I've found Volta to be generally
 performant and reliable.
 
-```
+```sh
 cd my-project
 volta pin node@20.19.0 # adds volta.node field to package.json
 node --version  # will output v20.19.0
@@ -31,14 +31,14 @@ version of package manager for a project, which includes first class support for
 found that installing Corepack's shims in the Volta `bin` directory seems to do
 the trick.
 
-```
+```sh
 volta install corepack
 corepack enable --install-directory ~/.volta/bin
 ```
 
 With Volta and Corepack setup together, you can pin your project via:
 
-```
+```sh
 volta pin node@22 # adds volta.node field to package.json
 corepack use pnpm@10 # adds packageManager field
 ```
