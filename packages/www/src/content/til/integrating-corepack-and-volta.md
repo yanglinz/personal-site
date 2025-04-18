@@ -1,6 +1,5 @@
 ---
 title: How to integrate Corepack and Volta
-slug: corepack-and-volta
 date: 2025-04-17
 ---
 

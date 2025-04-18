@@ -1,8 +1,8 @@
 ---
 title: Copy a file or directory from a Docker image
-slug: copy-from-docker-image
 date: 2025-03-17
 ---
+
 Recently I needed to copy some files from a Docker image to trouble shoot some CI build artifact. I learned that it can be done via the [`docker cp`](https://docs.docker.com/reference/cli/docker/container/cp/) command, which can be invoked like so:
 
 ```sh
