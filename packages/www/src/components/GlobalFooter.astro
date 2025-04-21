@@ -1,15 +1,29 @@
+---
+let links = [
+  ["Rss Feed", "/rss.xml"],
+  ["Github", "https://github.com/yanglinz"],
+];
+---
+
 <div class="py-14 lg:py-20 text-center">
   <div class="l-12-12 l-pad">
-    <div>
-      <span class="inline-block mx-auto text-sm">
-        <a href="https://github.com/yanglinz">Github</a>
-      </span>
-    </div>
+    <div class="u-f-mono">
+      <div>
+        {
+          links.map(([title, url]) => (
+            <>
+              <span class="text-gray-400 font-mono text-xs md:text-sm">
+                <a href={url}>{title}</a>
+              </span>
+              <span class="text-gray-200"> | </span>
+            </>
+          ))
+        }
 
-    <div class="pt-1 text-gray-400 text-sm">
-      <span>Yanglin Zhao &copy; 2022</span>
-      <span> |</span>
-      <a href="/sitemap-index.xml">Sitemap</a>
+        <span class="text-gray-400 font-mono text-xs md:text-sm"
+          >Yanglin Zhao &copy; 2025</span
+        >
+      </div>
     </div>
   </div>
 </div>
