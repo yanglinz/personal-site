@@ -6,6 +6,8 @@ import { getId } from "../lib/astro";
 import Layout from "../layouts/LayoutBase.astro";
 import EntryHeroImage from "../components/EntryHeroImage.astro";
 import EntryTitle from "../components/EntryTitle.astro";
+// TODO: Make the divider generic
+import HomeDivider from "../components/HomeDivider.astro";
 
 import "./LayoutEntry.css";
 
@@ -47,4 +49,6 @@ let hasBorder = (postsData.data.design || "").includes("border=true");
       </div>
     </article>
   </main>
+
+  <HomeDivider />
 </Layout>
