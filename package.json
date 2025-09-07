@@ -7,12 +7,11 @@
     "packages/*"
   ],
   "scripts": {
-    "format": "prettier --write $(./bin/format-list.sh)",
-    "format:check": "prettier --check $(./bin/format-list.sh)",
     "dev": "pnpm run --filter www dev",
     "build": "pnpm run --filter www build"
   },
   "devDependencies": {
+    "@go-task/cli": "^3.44.1",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1"
   },
@@ -22,6 +21,7 @@
   "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af",
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@go-task/cli",
       "esbuild",
       "sharp"
     ]

@@ -1,0 +1,23 @@
+# https://taskfile.dev
+
+version: "3"
+
+vars:
+  PRETTIER_TARGETS:
+    sh: git ls-files | egrep '\.astro$|\.md$'
+
+tasks:
+  format:
+    cmds:
+      - cmd: node_modules/.bin/prettier --write .
+        silent: true
+      - for: { var: PRETTIER_TARGETS, split: "\n" }
+        cmd: node_modules/.bin/prettier --write {{ .ITEM }}
+        silent: true
+
+  format-check:
+    - cmd: node_modules/.bin/prettier --check .
+      silent: true
+    - for: { var: PRETTIER_TARGETS, split: "\n" }
+      cmd: node_modules/.bin/prettier --check {{ .ITEM }}
+      silent: true
