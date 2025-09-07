@@ -20,4 +20,4 @@ jobs:
           volta install corepack@latest
           corepack enable --install-directory "$VOLTA_HOME/bin"
       - run: pnpm install
-      - run: pnpm format:check
+      - run: pnpm exec task format-check
