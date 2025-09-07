@@ -1,6 +1,7 @@
 # Node
 node_modules/
 package.json
+pnpm-lock.yaml
 
 # Build output
 _site/
@@ -8,6 +9,7 @@ dist/
 storybook-static/
 *.bundled.mjs
 packages/www/astro/
+.astro
 
 # Deployment
 .vercel/

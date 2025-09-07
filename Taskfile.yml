@@ -1,12 +1,16 @@
 # https://taskfile.dev
 
-version: '3'
+version: "3"
 
 vars:
   GREETING: Hello, World!
 
 tasks:
-  build:
+  format:
+    vars:
+      INPUT_FILES:
+        sh:
+          git ls-files | egrep
+          '\.json$|\.html$|\.css|\.js|\.mjs|\.ts|\.tsx|\.astro$|\.md$'
     cmds:
-      - echo "{{.GREETING}}"
-    silent: true
+      - node_modules/.bin/prettier --write "{{.JS_FILES}}"

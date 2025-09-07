@@ -2,6 +2,6 @@
 default:
 	@true
 
-.PHONY: build
-build:
-	@node_modules/.bin/task build
+.PHONY: format
+format:
+	@node_modules/.bin/task format
