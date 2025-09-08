@@ -28,7 +28,6 @@ tasks:
         silent: true
 
   format-check:
-    internal: true
     cmds:
       - cmd: node_modules/.bin/prettier --check .
         silent: true
