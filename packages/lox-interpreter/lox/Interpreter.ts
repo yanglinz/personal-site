@@ -111,7 +111,7 @@ export class Interpreter extends Visitor {
       if (!(superclass instanceof LoxClass)) {
         throw new RuntimeError(
           stmt.superclass.name,
-          "Superclass must be a class."
+          "Superclass must be a class.",
         );
       }
     }
@@ -259,7 +259,7 @@ export class Interpreter extends Visitor {
     if (!(callee instanceof LoxCallable)) {
       throw new RuntimeError(
         expr.paren,
-        "Can only call functions and classes."
+        "Can only call functions and classes.",
       );
     }
 
@@ -267,7 +267,7 @@ export class Interpreter extends Visitor {
     if (args.length != func.arity) {
       throw new RuntimeError(
         expr.paren,
-        `Expected ${func.arity} arguments but got ${args.length}.`
+        `Expected ${func.arity} arguments but got ${args.length}.`,
       );
     }
 
@@ -325,7 +325,7 @@ export class Interpreter extends Visitor {
     if (!method) {
       throw new RuntimeError(
         expr.method,
-        "Undefined property '" + expr.method.lexeme + "'."
+        "Undefined property '" + expr.method.lexeme + "'.",
       );
     }
 
@@ -359,7 +359,7 @@ export class Interpreter extends Visitor {
   private checkNumberOperands(
     operator: Token,
     left: ExprLiteralValue,
-    right: ExprLiteralValue
+    right: ExprLiteralValue,
   ): void {
     if (typeof left === "number" && typeof right === "number") return;
     throw new RuntimeError(operator, "Operand must be a number.");

@@ -292,7 +292,7 @@ describe("Parser should parse statements", () => {
       fun add(a, b, c) {
         print a + b + c;
       }
-    `)
+    `),
     ).toMatchInlineSnapshot(`
       [
         StmtFunction {
@@ -375,7 +375,7 @@ describe("Parser should parse statements", () => {
     expect(
       getParsedExpr(`
         class Vehicle {}
-    `)
+    `),
     ).toMatchInlineSnapshot(`
       [
         StmtClass {
@@ -404,7 +404,7 @@ describe("Parser should parse statements", () => {
             print "Beep!";
           }
         }
-    `)
+    `),
     ).toMatchInlineSnapshot(`
       [
         StmtClass {

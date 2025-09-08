@@ -108,7 +108,7 @@ export class Resolver extends Visitor {
 
   private resolveFunction(
     stmt: StmtFunction,
-    functionType: FunctionTypeValue = FunctionType.FUNCTION
+    functionType: FunctionTypeValue = FunctionType.FUNCTION,
   ): void {
     const enclosingFunction = this.currentFunction;
     this.currentFunction = functionType;
@@ -141,7 +141,7 @@ export class Resolver extends Visitor {
       if (stmt.name.lexeme === stmt.superclass.name.lexeme) {
         this.lox.error(
           stmt.superclass.name,
-          new ResolutionError("A class can't inherit from itself.")
+          new ResolutionError("A class can't inherit from itself."),
         );
       }
 
@@ -191,8 +191,8 @@ export class Resolver extends Visitor {
         this.lox.error(
           expr.name,
           new ResolutionError(
-            "Can't read local variable in its own initializer"
-          )
+            "Can't read local variable in its own initializer",
+          ),
         );
       }
     }
@@ -244,12 +244,12 @@ export class Resolver extends Visitor {
     if (this.currentClass == ClassType.NONE) {
       this.lox.error(
         expr.keyword,
-        new ResolutionError("Can't use 'super' outside of a class.")
+        new ResolutionError("Can't use 'super' outside of a class."),
       );
     } else if (this.currentClass != ClassType.SUBCLASS) {
       this.lox.error(
         expr.keyword,
-        new ResolutionError("Can't use 'super' in a class with no superclass.")
+        new ResolutionError("Can't use 'super' in a class with no superclass."),
       );
     }
 
@@ -260,7 +260,7 @@ export class Resolver extends Visitor {
     if (this.currentClass === ClassType.NONE) {
       this.lox.error(
         expr.keyword,
-        new ResolutionError("Can't use 'this' outside of a class.")
+        new ResolutionError("Can't use 'this' outside of a class."),
       );
       return null;
     }
@@ -297,7 +297,7 @@ export class Resolver extends Visitor {
       if (this.currentFunction === FunctionType.INITIALIZER) {
         this.lox.error(
           stmt.keyword,
-          new ResolutionError("Can't return a value from an initializer.")
+          new ResolutionError("Can't return a value from an initializer."),
         );
       }
 

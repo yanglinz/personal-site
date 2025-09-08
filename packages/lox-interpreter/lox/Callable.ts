@@ -35,7 +35,7 @@ export class LoxFunction extends LoxCallable {
   constructor(
     declaration: StmtFunction,
     closure: Environment,
-    isInitializer: boolean
+    isInitializer: boolean,
   ) {
     super();
     this.declaration = declaration;
@@ -108,7 +108,7 @@ export class LoxClass extends LoxCallable {
   constructor(
     name: string,
     superclass: LoxClass | null,
-    methods: Map<string, LoxFunction>
+    methods: Map<string, LoxFunction>,
   ) {
     super();
     this.name = name;

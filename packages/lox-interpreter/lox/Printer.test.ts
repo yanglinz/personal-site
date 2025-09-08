@@ -7,10 +7,10 @@ describe("AST pretty printer", () => {
     const expression = new ast.ExprBinary(
       new ast.ExprUnary(
         new Token(TokenType.MINUS, "-", 1),
-        new ast.ExprLiteral(123)
+        new ast.ExprLiteral(123),
       ),
       new Token(TokenType.STAR, "*", 1),
-      new ast.ExprGrouping(new ast.ExprLiteral(45.67))
+      new ast.ExprGrouping(new ast.ExprLiteral(45.67)),
     );
 
     const printer = new AstPrinter();

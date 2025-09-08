@@ -132,7 +132,7 @@ export class StmtClass extends Stmt {
   constructor(
     name: Token,
     superclass: ExprVariable | null,
-    methods: StmtFunction[]
+    methods: StmtFunction[],
   ) {
     super();
     this.name = name;

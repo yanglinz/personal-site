@@ -171,7 +171,7 @@ describe("Scanner", () => {
   test("tokens for identifiers", () => {
     const tokens = new Scanner(
       new LoxInstance(),
-      'var true_or_false = "12345"'
+      'var true_or_false = "12345"',
     ).scan();
     expect(tokens).toMatchInlineSnapshot(`
       [

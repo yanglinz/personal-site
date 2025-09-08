@@ -20,7 +20,7 @@ describe("Errors", () => {
     const lox = interpret(source);
     expect(lox.hadError).toEqual(true);
     expect(lox.streamError.every((e) => e.error instanceof ScanError)).toEqual(
-      true
+      true,
     );
     expect(lox.streamError.map((e) => e.error.message)).toEqual([
       "Unterminated string",
@@ -39,7 +39,7 @@ describe("Errors", () => {
     const lox = interpret(source);
     expect(lox.hadError).toEqual(true);
     expect(lox.streamError.every((e) => e.error instanceof ParseError)).toEqual(
-      true
+      true,
     );
     expect(lox.streamError.map((e) => e.error.message)).toEqual([
       "Expect ';' after value.",
@@ -57,7 +57,7 @@ describe("Errors", () => {
     const lox = interpret(source);
     expect(lox.hadError).toEqual(true);
     expect(
-      lox.streamError.every((e) => e.error instanceof ResolutionError)
+      lox.streamError.every((e) => e.error instanceof ResolutionError),
     ).toEqual(true);
     expect(lox.streamError.map((e) => e.error.message)).toEqual([
       "Can't use 'this' outside of a class.",
@@ -75,7 +75,7 @@ describe("Errors", () => {
     const lox = interpret(source);
     expect(lox.hadError).toEqual(true);
     expect(
-      lox.streamError.every((e) => e.error instanceof ResolutionError)
+      lox.streamError.every((e) => e.error instanceof ResolutionError),
     ).toEqual(true);
     expect(lox.streamError.map((e) => e.error.message)).toEqual([
       "Can't return a value from an initializer.",
@@ -89,7 +89,7 @@ describe("Errors", () => {
     const lox = interpret(source);
     expect(lox.hadError).toEqual(true);
     expect(
-      lox.streamError.every((e) => e.error instanceof ResolutionError)
+      lox.streamError.every((e) => e.error instanceof ResolutionError),
     ).toEqual(true);
     expect(lox.streamError.map((e) => e.error.message)).toEqual([
       "A class can't inherit from itself.",
@@ -104,7 +104,7 @@ describe("Errors", () => {
     const lox = interpret(source);
     expect(lox.hadError).toEqual(true);
     expect(
-      lox.streamError.every((e) => e.error instanceof RuntimeError)
+      lox.streamError.every((e) => e.error instanceof RuntimeError),
     ).toEqual(true);
     expect(lox.streamError.map((e) => e.error.message)).toEqual([
       "Superclass must be a class.",
@@ -122,7 +122,7 @@ describe("Errors", () => {
     const lox = interpret(source);
     expect(lox.hadError).toEqual(true);
     expect(
-      lox.streamError.every((e) => e.error instanceof ResolutionError)
+      lox.streamError.every((e) => e.error instanceof ResolutionError),
     ).toEqual(true);
     expect(lox.streamError.map((e) => e.error.message)).toEqual([
       "Can't use 'super' in a class with no superclass.",
@@ -136,7 +136,7 @@ describe("Errors", () => {
     const lox = interpret(source);
     expect(lox.hadError).toEqual(true);
     expect(
-      lox.streamError.every((e) => e.error instanceof ResolutionError)
+      lox.streamError.every((e) => e.error instanceof ResolutionError),
     ).toEqual(true);
     expect(lox.streamError.map((e) => e.error.message)).toEqual([
       "Can't use 'super' outside of a class.",

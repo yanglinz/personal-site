@@ -271,7 +271,7 @@ export class Parser {
         }
 
         parameters.push(
-          this.consume(TokenType.IDENTIFIER, "Expect parameter name.")
+          this.consume(TokenType.IDENTIFIER, "Expect parameter name."),
         );
       } while (this.match(TokenType.COMMA));
     }
@@ -355,7 +355,7 @@ export class Parser {
         TokenType.GREATER,
         TokenType.GREATER_EQUAL,
         TokenType.LESS,
-        TokenType.LESS_EQUAL
+        TokenType.LESS_EQUAL,
       )
     ) {
       const operator = this.previous();
@@ -410,7 +410,7 @@ export class Parser {
       } else if (this.match(TokenType.DOT)) {
         const name = this.consume(
           TokenType.IDENTIFIER,
-          "Expect property name after '.'."
+          "Expect property name after '.'.",
         );
         expr = new ExprGet(expr, name);
       } else {
@@ -434,7 +434,7 @@ export class Parser {
 
     const paren = this.consume(
       TokenType.RIGHT_PAREN,
-      "Expect ')' after arguments."
+      "Expect ')' after arguments.",
     );
 
     return new ExprCall(callee, paren, args);
@@ -456,7 +456,7 @@ export class Parser {
       this.consume(TokenType.DOT, "Expect '.' after 'super'.");
       const method = this.consume(
         TokenType.IDENTIFIER,
-        "Expect superclass method name."
+        "Expect superclass method name.",
       );
       return new ExprSuper(keyword, method);
     } else if (this.match(TokenType.IDENTIFIER)) {

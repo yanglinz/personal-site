@@ -230,7 +230,7 @@ export class Scanner {
       this.addToken(this.match("=") ? TokenType.LESS_EQUAL : TokenType.LESS);
     } else if (c === ">") {
       this.addToken(
-        this.match("=") ? TokenType.GREATER_EQUAL : TokenType.GREATER
+        this.match("=") ? TokenType.GREATER_EQUAL : TokenType.GREATER,
       );
     }
 
