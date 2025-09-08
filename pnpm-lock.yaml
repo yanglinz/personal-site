@@ -102,6 +102,9 @@ importers:
       codemirror:
         specifier: ^6.0.1
         version: 6.0.2
+      lox-ts-interpreter:
+        specifier: workspace:*
+        version: link:../../packages/lox-interpreter
       preact:
         specifier: ^10.15.1
         version: 10.27.1
