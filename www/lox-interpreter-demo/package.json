@@ -7,10 +7,10 @@
   "scripts": {
     "dev:vite": "vite",
     "dev:tailwind": "tailwindcss -i ./src/index.css -o ./src/index.compiled.css --watch",
-    "dev": "yarn build:tailwind && run-p dev:*",
+    "dev": "pnpm build:tailwind && run-p dev:*",
     "build:vite": "vite build",
     "build:tailwind": "tailwindcss -i ./src/index.css -o ./src/index.compiled.css",
-    "build": "yarn build:tailwind && yarn build:vite"
+    "build": "pnpm build:tailwind && pnpm build:vite"
   },
   "dependencies": {
     "lox-ts-interpreter": "workspace:*",
@@ -27,7 +27,6 @@
     "vite": "^4.3.9"
   },
   "volta": {
-    "node": "18.15.0",
-    "yarn": "1.22.19"
+    "node": "22.14.0"
   }
 }

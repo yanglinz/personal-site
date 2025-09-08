@@ -7,6 +7,18 @@ vars:
     sh: git ls-files | egrep '\.astro$|\.md$'
 
 tasks:
+  build-vite:
+    internal: true
+    vars:
+      DIR: '{{default "." .DIR}}'
+    cmds:
+      - cmd: cd {{.DIR}} && node_modules/.bin/vite build
+
+  build:
+    cmds:
+      - task: build-vite
+        vars: { DIR: "./www/lox-interpreter-demo"}
+
   format:
     cmds:
       - cmd: node_modules/.bin/prettier --write .
@@ -16,8 +28,10 @@ tasks:
         silent: true
 
   format-check:
-    - cmd: node_modules/.bin/prettier --check .
-      silent: true
-    - for: { var: PRETTIER_TARGETS, split: "\n" }
-      cmd: node_modules/.bin/prettier --check {{ .ITEM }}
-      silent: true
+    internal: true
+    cmds:
+      - cmd: node_modules/.bin/prettier --check .
+        silent: true
+      - for: { var: PRETTIER_TARGETS, split: "\n" }
+        cmd: node_modules/.bin/prettier --check {{ .ITEM }}
+        silent: true
