@@ -7,10 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-    env:
-      CI: true
     steps:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v4
@@ -21,3 +19,16 @@ jobs:
           corepack enable --install-directory "$VOLTA_HOME/bin"
       - run: pnpm install
       - run: pnpm exec task format-check
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: volta-cli/action@v4
+      - run: |
+          NODE_VERSION=$(cat package.json | jq -r '.volta.node')
+          volta install "node@${NODE_VERSION}"
+          volta install corepack@latest
+          corepack enable --install-directory "$VOLTA_HOME/bin"
+      - run: pnpm install
+      - run: pnpm exec task build

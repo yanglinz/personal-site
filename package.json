@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "dev": "pnpm run --filter www dev",
-    "build": "pnpm run --filter www build"
+    "build": "task build",
+    "format": "task format"
   },
   "devDependencies": {
     "@go-task/cli": "^3.44.1",
