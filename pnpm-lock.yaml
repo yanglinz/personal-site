@@ -97,7 +97,7 @@ importers:
         specifier: ^22.13.10
         version: 22.13.10
 
-  www/lox-interpreter-demo:
+  www/lox-interpreter:
     dependencies:
       codemirror:
         specifier: ^6.0.1
