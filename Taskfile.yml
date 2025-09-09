@@ -21,6 +21,18 @@ tasks:
       - task: build-vite
         vars: { DIR: "./www/bad-phone-number-input" }
 
+  test-jest:
+    internal: true
+    vars:
+      DIR: '{{default "." .DIR}}'
+    cmds:
+      - cmd: cd {{.DIR}} && node_modules/.bin/jest test
+
+  test:
+    cmds:
+      - task: test-jest
+        vars: { DIR: "./packages/lox-interpreter" }
+
   format:
     cmds:
       - cmd: node_modules/.bin/prettier --write .
