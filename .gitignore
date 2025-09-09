@@ -1,5 +1,6 @@
 # Build tools
 .parcel-cache/
+dist/
 
 # Logs
 logs

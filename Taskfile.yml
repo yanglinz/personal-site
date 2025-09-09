@@ -17,7 +17,9 @@ tasks:
   build:
     cmds:
       - task: build-vite
-        vars: { DIR: "./www/lox-interpreter-demo" }
+        vars: { DIR: "./www/lox-interpreter" }
+      - task: build-vite
+        vars: { DIR: "./www/bad-phone-number-input" }
 
   format:
     cmds:
