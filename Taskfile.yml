@@ -3,23 +3,44 @@
 version: "3"
 
 vars:
+  PROJECT_ROOT:
+    sh: pwd
+  MANIFEST_JSON:
+    sh: cat ./etc/manifest.json
+  MANIFEST:
+    ref: "fromJson .MANIFEST_JSON"
   PRETTIER_TARGETS:
     sh: git ls-files | egrep '\.astro$|\.md$'
 
 tasks:
   build-vite:
     internal: true
-    vars:
-      DIR: '{{default "." .DIR}}'
     cmds:
-      - cmd: cd {{.DIR}} && node_modules/.bin/vite build
+      - for: { var: MANIFEST }
+        silent: true
+        cmd: |
+          if [[ '{{.ITEM.builder}}' == 'vite' ]]; then
+            cd {{.ITEM.src}}
+            node_modules/.bin/vite build --base={{.ITEM.publicPath}}
+            rm -rf "{{.PROJECT_ROOT}}/dist/{{.ITEM.publicPath}}"
+            mv dist "{{.PROJECT_ROOT}}/dist/{{.ITEM.publicPath}}"
+          fi
+
+  build-astro:
+    cmds:
+      - cd packages/www && pnpm build && cp -R dist/ {{.PROJECT_ROOT}}/dist
 
   build:
     cmds:
+      - cmd: mkdir -p dist
+      - task: build-astro
       - task: build-vite
-        vars: { DIR: "./www/lox-interpreter" }
-      - task: build-vite
-        vars: { DIR: "./www/bad-phone-number-input" }
+
+  dev:
+    env:
+      PROJECT_ROOT: '{{.PROJECT_ROOT}}'
+    cmds:
+      - cmd: caddy run
 
   test-jest:
     internal: true

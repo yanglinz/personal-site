@@ -7,7 +7,8 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "pnpm run --filter www dev",
+    "dev:old": "pnpm run --filter www dev",
+    "dev": "task dev",
     "build": "task build",
     "format": "task format",
     "test": "task test"
