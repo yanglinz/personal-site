@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "pnpm run --filter www dev",
     "build": "task build",
-    "format": "task format"
+    "format": "task format",
+    "test": "task test"
   },
   "devDependencies": {
     "@go-task/cli": "^3.44.1",
