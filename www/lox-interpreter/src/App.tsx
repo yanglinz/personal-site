@@ -41,7 +41,7 @@ function App() {
   };
 
   const loadAndRunExample = (exampleId) => {
-    const url = `/examples/${exampleId}`;
+    const url = `${window.location.pathname}/examples/${exampleId}`;
 
     fetch(url)
       .then((r) => r.text())

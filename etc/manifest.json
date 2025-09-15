@@ -1,0 +1,17 @@
+[
+  {
+    "src": "packages/www",
+    "publicPath": "/",
+    "builder": "astro"
+  },
+  {
+    "src": "www/bad-phone-number-input",
+    "publicPath": "/bad-phone-number-input-embed",
+    "builder": "vite"
+  },
+  {
+    "src": "www/lox-interpreter",
+    "publicPath": "/lox-interpreter-embed",
+    "builder": "vite"
+  }
+]
