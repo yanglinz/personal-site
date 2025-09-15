@@ -41,7 +41,6 @@ function App() {
   };
 
   const loadAndRunExample = (exampleId) => {
-    // TODO: Get the urls
     const url = `${window.location.pathname}/examples/${exampleId}`;
 
     fetch(url)
