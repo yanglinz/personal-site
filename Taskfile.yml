@@ -38,7 +38,7 @@ tasks:
 
   dev:
     env:
-      PROJECT_ROOT: '{{.PROJECT_ROOT}}'
+      PROJECT_ROOT: "{{.PROJECT_ROOT}}"
     cmds:
       - cmd: caddy run
 
