@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -eu
+
+# See https://github.com/yanglinz/personal-site-infra
+default_repo_path="$(dirname "$0")/../../personal-site-infra"
+repo_path="${PERSONAL_SITE_INFRA_PATH:-${default_repo_path}}"
+uv run "${repo_path}/cli/cli.py" "$@"
