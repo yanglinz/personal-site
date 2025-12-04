@@ -1,9 +1,0 @@
-class Bagel {
-  eat() {
-    print "Eating a bagel!";
-  }
-}
-
-var bagel = Bagel();
-print bagel;
-bagel.eat();
