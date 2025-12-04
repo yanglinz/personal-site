@@ -1,6 +1,10 @@
-# Build tools
-.parcel-cache/
+# Project
 dist/
+public/img/
+.astro/
+
+# Node
+node_modules
 
 # Logs
 logs
@@ -11,10 +15,3 @@ pids
 *.pid
 *.seed
 *.pid.lock
-
-# Dependency directory
-node_modules
-
-# Deployment
-.netlify
-.vercel
