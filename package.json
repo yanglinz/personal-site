@@ -7,12 +7,29 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "pnpm run --filter www dev",
-    "build": "pnpm run --filter www build",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && tsc && ./bin/build.sh",
+    "preview": "astro preview",
+    "astro": "astro",
     "format": "task format",
     "test": "true"
   },
+  "dependencies": {
+    "@11ty/eleventy-img": "^6.0.1",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/markdoc": "^0.13.3",
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.3.0",
+    "@tailwindcss/vite": "^4.0.14",
+    "astro": "^5.6.1",
+    "date-fns": "^4.1.0",
+    "tailwindcss": "^4.0.14",
+    "typescript": "^5.8.3"
+  },
   "devDependencies": {
+    "@types/11ty__eleventy-img": "^4.0.0",
+    "@types/node": "^22.13.10",
     "@go-task/cli": "^3.44.1",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1"

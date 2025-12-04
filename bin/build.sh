@@ -2,6 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+rm -rf dist
 pnpm exec astro build
 
 # This is a silly hack specifically for Vercel builds, where
