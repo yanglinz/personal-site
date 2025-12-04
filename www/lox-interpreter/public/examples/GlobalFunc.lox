@@ -1,2 +1,0 @@
-// clock is a function built into the interpreter
-print clock();
