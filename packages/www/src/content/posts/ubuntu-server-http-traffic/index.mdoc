@@ -1,6 +1,6 @@
 ---
 tags: post
-title: Opening incoming TCP traffic on port 80 and 443 on Ubuntu server
+title: Configuring Ubuntu server to allow http and https traffic
 description: How to use netfilter rules to allow HTTP traffic on port 80 and 443 on an Ubuntu Server.
 date: 2025-12-02
 published: true
@@ -8,7 +8,7 @@ published: true
 
 I recently migrated some of my personal projects from running on Vercel and Netlify onto a self managed Ubuntu Server VM on Oracle Cloud.
 
-Because this is a shift from application platforms that abstracts away the underlying infrastructure to setting up and managing everything myself, one of the things I had to do was opening the VM instance's ports to accept traffic on 80 and 443.
+Because this is a shift from application platforms that abstracts away the underlying infrastructure to setting up and managing everything myself, one of the things I had to do was opening the VM instance's ports to accept traffic on `80` and `443`.
 
 This was not something I was familiar with, and the solution I stumbled onto was to modify the `netfilter` rules directly.
 
@@ -57,6 +57,6 @@ One important note is that the ordering of each line is important. The two new l
 * Failed to connect to <my-instance-ip> port 80 after 78 ms: Couldn't connect to server
 ```
 
-If you run into a similar error, check to see if there's a `REJECT` rule that's taking precendence. The rules are evaluated from top to bottom, and the first applicable rule will take precedence. 
+If you run into a similar error, check to see if there's a `REJECT` rule that's taking precendence. The rules are evaluated from top to bottom, and the first applicable rule will take precedence.
 
 Also, another note for my future self is that after this was all said and done, I'd learn that there are more modern utilities like `ufw` that provides a more ergonomic way of configuring `netfilter`. But I'm glad to have done it my way, just for the learning experience!
