@@ -18,8 +18,7 @@ jobs:
           volta install corepack@latest
           corepack enable --install-directory "$VOLTA_HOME/bin"
       - run: pnpm install
-      - run: pnpm exec task format-check
-      - run: pnpm exec task test
+      - run: pnpm format
 
   build:
     runs-on: ubuntu-latest
@@ -32,4 +31,4 @@ jobs:
           volta install corepack@latest
           corepack enable --install-directory "$VOLTA_HOME/bin"
       - run: pnpm install
-      - run: pnpm exec task build
+      - run: pnpm build
