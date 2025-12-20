@@ -21,11 +21,16 @@ interface Props {
 const { kind, data } = Astro.props;
 let postsData = data as CollectionEntry<"posts">;
 let url = `/${kind}/${getId(data)}`;
+let canonical = `https://www.yanglinzhao.com${url}`;
 
 let hasBorder = (postsData.data.design || "").includes("border=true");
 ---
 
-<Layout title="Yanglin Zhao" description={data.data.description}>
+<Layout
+  title="Yanglin Zhao"
+  description={data.data.description}
+  canonical={canonical}
+>
   <main
     class={hasBorder
       ? "entry-container entry-container--has-border"
