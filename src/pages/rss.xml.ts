@@ -26,7 +26,7 @@ export async function GET() {
   return rss({
     title: "Yanglin Zhao",
     description: "My personal blog",
-    site: "https://yanglinzhao.com",
+    site: "https://www.yanglinzhao.com",
     items,
   });
 }

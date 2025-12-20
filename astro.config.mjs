@@ -6,7 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://yanglinzhao.com",
+  site: "https://www.yanglinzhao.com",
   integrations: [markdoc({ allowHTML: true }), sitemap()],
 
   markdown: {
