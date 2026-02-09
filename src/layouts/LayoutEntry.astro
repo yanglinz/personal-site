@@ -24,7 +24,7 @@ let postsData = data as CollectionEntry<"posts">;
 // Note the trailing slash - the default Caddy file_server will redirect
 // non-trailing slash to trailing slash.
 let url = `/${kind}/${getId(data)}/`;
-let canonical = `https://www.yanglinzhao.com${url}/`;
+let canonical = `https://www.yanglinzhao.com${url}`;
 
 let hasBorder = (postsData.data.design || "").includes("border=true");
 ---
