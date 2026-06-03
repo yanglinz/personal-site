@@ -18,7 +18,7 @@ await session.send("Emulation.setCPUThrottlingRate", { rate: 5 }); // 5x slowdow
 ```
 
 For the specific race condition I was encountering, this made it possible to
-reliably reproduce the error locally. iSimulating a slower network can do the
+reliably reproduce the error locally. Simulating a slower network can do the
 trick as well. You can do that via:
 
 ```js
